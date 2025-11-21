@@ -5,9 +5,9 @@ const HeroSection = () => {
         <section className="relative bg-[#f7fee7] pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden rounded-b-[3rem]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
                         The Operating System for <br className="hidden md:block" />
-                        <span className="text-[#022c22]">Next Gen Manufacturing.</span>
+                        <span className="text-[#022c22]">Next Gen Manufacturing</span>
                     </h1>
                     <p className="text-lg md:text-2xl text-[#022c22]/70 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
                         Your autonomous AI workforce that lives in your existing tools.
