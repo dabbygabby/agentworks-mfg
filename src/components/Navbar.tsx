@@ -23,14 +23,14 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'py-4 px-4 md:px-8'
-          : 'py-6 px-4 md:px-8 bg-transparent'
+        ? 'py-4 px-4 md:px-8'
+        : 'py-6 px-4 md:px-8 bg-transparent'
         }`}
     >
       <div
         className={`max-w-7xl mx-auto transition-all duration-300 ${isScrolled
-            ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border border-[#022c22]/5 px-6 py-3'
-            : 'bg-transparent px-0'
+          ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border border-[#022c22]/5 px-6 py-3'
+          : 'bg-transparent px-0'
           }`}
       >
         <div className="flex justify-between items-center h-full">
@@ -96,6 +96,9 @@ const Navbar = () => {
             <Link href="/success-stories" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Success Stories
             </Link>
+            <Link href="/roi-calculator" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              ROI Calculator
+            </Link>
           </div>
 
           {/* Desktop Actions */}
@@ -156,6 +159,9 @@ const Navbar = () => {
             </Link>
             <Link href="/success-stories" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Success Stories
+            </Link>
+            <Link href="/roi-calculator" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
+              ROI Calculator
             </Link>
           </div>
           <div className="pt-4 pb-4 border-t border-gray-100 bg-gray-50">
