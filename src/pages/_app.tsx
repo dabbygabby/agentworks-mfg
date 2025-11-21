@@ -10,10 +10,17 @@ const montserrat = Montserrat({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${montserrat.variable} font-sans`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </div>
+    <>
+      <style jsx global>{`
+        :root {
+          --font-montserrat: ${montserrat.style.fontFamily};
+        }
+      `}</style>
+      <div className={`${montserrat.variable} font-sans`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
+    </>
   );
 }
