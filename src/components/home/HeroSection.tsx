@@ -1,10 +1,32 @@
+"use client";
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Button from '../ui/Button';
 
 const HeroSection = () => {
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        // Initial set
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Calculate offset for side images
+    // Starts at 80px lower, reduces to 0 as we scroll down
+    const sideImageOffset = Math.max(0, 80 - scrollY * 0.4);
+
     return (
         <section className="relative bg-[#f7fee7] pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden rounded-b-[3rem]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
+                <div className="max-w-4xl mx-auto text-center mb-12">
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
                         The Operating System for <br className="hidden md:block" />
                         <span className="text-[#022c22]">Next Gen Manufacturing</span>
@@ -27,16 +49,60 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                {/* Visual Placeholder */}
-                <div className="mt-20 relative mx-auto max-w-6xl">
-                    <div className="aspect-video bg-[#022c22] rounded-[2.5rem] shadow-2xl overflow-hidden flex items-center justify-center relative">
-                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-                        <p className="text-[#bef264] font-medium text-xl relative z-10">Hero Visual Placeholder (Dashboard/WhatsApp Interface)</p>
+                {/* Floating Phones Container */}
+                <div className="mt-10 relative mx-auto max-w-7xl">
+                    <div className="flex justify-center items-start gap-4 md:gap-8 lg:gap-12">
+                        {/* Left Phone - Starts lower, moves up */}
+                        <div
+                            className="relative w-[280px] md:w-[320px] flex-shrink-0 pt-10 md:pt-0"
+                            style={{
+                                transform: `translateY(${sideImageOffset}px)`,
+                                transition: 'transform 0.1s ease-out'
+                            }}
+                        >
+                            <Image
+                                src="/whatsapp1.png"
+                                alt="WhatsApp Interface 1"
+                                width={320}
+                                height={640}
+                                className="w-full h-auto drop-shadow-2xl"
+                                priority
+                            />
+                        </div>
 
-                        {/* Decorative Circles */}
-                        <div className="absolute top-10 right-10 w-32 h-32 bg-[#bef264]/20 rounded-full blur-2xl"></div>
-                        <div className="absolute bottom-10 left-10 w-40 h-40 bg-[#bef264]/10 rounded-full blur-3xl"></div>
+                        {/* Center Phone - Static relative to container */}
+                        <div className="relative w-[300px] md:w-[340px] flex-shrink-0 z-20">
+                            <Image
+                                src="/whatsapp2.png"
+                                alt="WhatsApp Interface 2"
+                                width={340}
+                                height={680}
+                                className="w-full h-auto drop-shadow-2xl"
+                                priority
+                            />
+                        </div>
+
+                        {/* Right Phone - Starts lower, moves up */}
+                        <div
+                            className="relative w-[280px] md:w-[320px] flex-shrink-0 pt-10 md:pt-0"
+                            style={{
+                                transform: `translateY(${sideImageOffset}px)`,
+                                transition: 'transform 0.1s ease-out'
+                            }}
+                        >
+                            <Image
+                                src="/whatsapp3.png"
+                                alt="WhatsApp Interface 3"
+                                width={320}
+                                height={640}
+                                className="w-full h-auto drop-shadow-2xl"
+                                priority
+                            />
+                        </div>
                     </div>
+
+                    {/* Decorative Elements behind phones */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"></div>
                 </div>
             </div>
         </section>
