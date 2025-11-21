@@ -1,21 +1,48 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Button from './ui/Button';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'py-4 px-4 md:px-8'
+          : 'py-6 px-4 md:px-8 bg-transparent'
+        }`}
+    >
+      <div
+        className={`max-w-7xl mx-auto transition-all duration-300 ${isScrolled
+            ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border border-[#022c22]/5 px-6 py-3'
+            : 'bg-transparent px-0'
+          }`}
+      >
+        <div className="flex justify-between items-center h-full">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              {/* Logo Placeholder */}
-              <div className="h-8 w-32 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm font-medium">
-                Logo
+            <Link href="/" className="flex-shrink-0 flex items-center gap-2">
+              <div className="h-8 w-8 bg-[#022c22] rounded-lg flex items-center justify-center">
+                <span className="text-[#bef264] font-bold text-lg">A</span>
               </div>
+              <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-[#022c22]' : 'text-[#022c22]'}`}>
+                Agentworks
+              </span>
             </Link>
           </div>
 
@@ -27,11 +54,11 @@ const Navbar = () => {
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
                 onMouseEnter={() => setIsSolutionsOpen(true)}
                 onMouseLeave={() => setIsSolutionsOpen(false)}
-                className="text-gray-600 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium focus:outline-none"
+                className="text-[#022c22]/80 hover:text-[#022c22] inline-flex items-center px-1 pt-1 text-sm font-medium focus:outline-none transition-colors"
               >
                 Solutions
                 <svg
-                  className={`ml-2 h-4 w-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`}
+                  className={`ml-1 h-4 w-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -45,50 +72,51 @@ const Navbar = () => {
                 <div
                   onMouseEnter={() => setIsSolutionsOpen(true)}
                   onMouseLeave={() => setIsSolutionsOpen(false)}
-                  className="absolute left-0 mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1"
+                  className="absolute left-0 mt-2 w-48 rounded-2xl shadow-xl bg-white ring-1 ring-black ring-opacity-5 py-2 overflow-hidden"
                 >
-                  <Link href="/solutions/quoting" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link href="/solutions/quoting" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
                     Quoting
                   </Link>
-                  <Link href="/solutions/finance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link href="/solutions/finance" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
                     Finance
                   </Link>
-                  <Link href="/solutions/production" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link href="/solutions/production" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
                     Production
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link href="/industries" className="text-gray-600 hover:text-gray-900 px-1 pt-1 text-sm font-medium">
+            <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Industries
             </Link>
-            <Link href="/how-it-works" className="text-gray-600 hover:text-gray-900 px-1 pt-1 text-sm font-medium">
+            <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               How It Works
             </Link>
-            <Link href="/success-stories" className="text-gray-600 hover:text-gray-900 px-1 pt-1 text-sm font-medium">
+            <Link href="/success-stories" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Success Stories
             </Link>
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex md:items-center md:space-x-4">
-            <Link href="/login" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/login" className="text-[#022c22] hover:text-[#022c22]/70 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               Login
             </Link>
-            <Link
+            <Button
               href="/get-started"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              variant="primary"
+              className="!px-5 !py-2 !text-sm"
             >
               Get Started
-            </Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#022c22] hover:bg-[#022c22]/5 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
@@ -107,39 +135,41 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
           <div className="pt-2 pb-3 space-y-1">
-            <div className="px-3 py-2 text-base font-medium text-gray-700">Solutions</div>
-            <Link href="/solutions/quoting" className="block pl-6 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50">
+            <div className="px-4 py-2 text-xs font-bold text-[#022c22]/40 uppercase tracking-wider">Solutions</div>
+            <Link href="/solutions/quoting" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Quoting
             </Link>
-            <Link href="/solutions/finance" className="block pl-6 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50">
+            <Link href="/solutions/finance" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Finance
             </Link>
-            <Link href="/solutions/production" className="block pl-6 pr-4 py-2 text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50">
+            <Link href="/solutions/production" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Production
             </Link>
-            <Link href="/industries" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+            <div className="border-t border-gray-100 my-2"></div>
+            <Link href="/industries" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Industries
             </Link>
-            <Link href="/how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+            <Link href="/how-it-works" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               How It Works
             </Link>
-            <Link href="/success-stories" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+            <Link href="/success-stories" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
               Success Stories
             </Link>
           </div>
-          <div className="pt-4 pb-4 border-t border-gray-200">
+          <div className="pt-4 pb-4 border-t border-gray-100 bg-gray-50">
             <div className="flex items-center px-4 space-x-4">
-              <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+              <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-[#022c22] hover:bg-[#022c22]/5">
                 Login
               </Link>
-              <Link
+              <Button
                 href="/get-started"
-                className="block w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                variant="primary"
+                className="!w-full !justify-center !px-4 !py-2 !text-base"
               >
                 Get Started
-              </Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../ui/Button';
 
 const HeroSection = () => {
@@ -7,16 +6,20 @@ const HeroSection = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
-                        The Operating System for the <br className="hidden md:block" />
-                        <span className="text-[#022c22]">Next Generation of Manufacturing.</span>
+                        The Operating System for <br className="hidden md:block" />
+                        <span className="text-[#022c22]">Next Gen Manufacturing.</span>
                     </h1>
-                    <p className="text-lg md:text-2xl text-[#022c22]/70 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-                        Deploy an autonomous AI workforce that lives in your existing tools.
+                    <p className="text-lg md:text-2xl text-[#022c22]/70 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                        Your autonomous AI workforce that lives in your existing tools.
+                        <br />
                         No new apps. No training. Just infinite operational capacity.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Button href="/deploy-agent" variant="primary">
-                            Deploy Your First Agent
+                            Hire Your First AI Employee
+                            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </Button>
                         <Button href="/roi-calculator" variant="outline">
                             Calculate ROI
