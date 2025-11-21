@@ -28,9 +28,9 @@ const Navbar = () => {
         }`}
     >
       <div
-        className={`max-w-7xl mx-auto transition-all duration-300 ${isScrolled
-          ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border border-[#022c22]/5 px-6 py-3'
-          : 'bg-transparent px-0'
+        className={`max-w-7xl mx-auto transition-all duration-300 border ${isScrolled
+          ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border-[#022c22]/5 px-6 py-3'
+          : 'bg-transparent border-transparent px-0'
           }`}
       >
         <div className="flex justify-between items-center h-full">

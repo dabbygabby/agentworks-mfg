@@ -5,9 +5,9 @@ import Section from '../ui/Section';
 const ProblemSection = () => {
     return (
         <Section className="bg-white">
-            <div className="max-w-3xl mx-auto text-center mb-20">
+            <div className="max-w-5xl mx-auto text-center mb-20">
                 <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                    The "Login Screen" is <span className="text-red-600">Killing Your Efficiency.</span>
+                    Your ERP is Blind to your Shop Floor
                 </h2>
                 <p className="text-xl text-[#022c22]/70 leading-relaxed">
                     Traditional ERPs fail because they demand behavior change from workers who are busy building products.
