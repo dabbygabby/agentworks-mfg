@@ -5,10 +5,10 @@ import Section from '../ui/Section';
 const SolutionSection = () => {
     return (
         <Section className="bg-[#022c22] text-white overflow-hidden">
-            <div className="max-w-3xl mx-auto text-center mb-12 relative z-40">
+            <div className="max-w-4xl mx-auto text-center mb-12 relative z-40">
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                    High-Performance Infrastructure. <br />
-                    <span className="text-[#bef264]">Zero-Friction Interface.</span>
+                    High-Performance Infrastructure <br />
+                    <span className="text-[#bef264]">Zero-Friction Interface</span>
                 </h2>
                 <p className="text-xl text-white/70 leading-relaxed">
                     We connect to the tools your team already uses, extract structured data from chaos, and write directly to your ERP.
@@ -26,7 +26,7 @@ const SolutionSection = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 relative z-30 -mt-20 px-4 pb-20">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 relative z-30 -mt-20 px-4">
                 {/* Step 1: The Bridge */}
                 <Card variant="dark" className="bg-[#022c22]/90 border-white/10 hover:border-[#bef264]/50 transition-colors relative group backdrop-blur-xl shadow-2xl">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#bef264] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
