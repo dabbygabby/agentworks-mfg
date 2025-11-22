@@ -18,14 +18,14 @@ const SocialProofSection = () => {
                     Recommended by the Partners You Trust
                 </h2>
 
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                {/* <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                     {partners.map((partner, index) => (
                         <div key={index} className="flex items-center gap-3 group">
                             <div className={`w-10 h-10 rounded-full ${partner.color} opacity-40 group-hover:opacity-100 transition-opacity`}></div>
                             <span className="text-2xl font-bold text-[#022c22]/40 group-hover:text-[#022c22] transition-colors">{partner.name}</span>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </Section>
     );
