@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Button from './ui/Button';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,8 +38,8 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <div className="h-8 w-8 bg-[#022c22] rounded-lg flex items-center justify-center">
-                <span className="text-[#bef264] font-bold text-lg">A</span>
+              <div className="h-8 w-8 rounded-lg flex items-center justify-center">
+                <Image src="/logo.png" alt="Logo" width={32} height={32} />
               </div>
               <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-[#022c22]' : 'text-[#022c22]'}`}>
                 Agentworks

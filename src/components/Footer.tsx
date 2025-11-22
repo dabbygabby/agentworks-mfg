@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -7,8 +8,8 @@ const Footer = () => {
                 <div className="md:flex md:items-center md:justify-between">
                     <div className="flex flex-col justify-center md:justify-start md:order-1">
                         <div className="flex items-center gap-2 mb-4">
-                            <div className="h-6 w-6 bg-[#bef264] rounded-md flex items-center justify-center">
-                                <span className="text-[#022c22] font-bold text-xs">A</span>
+                            <div className="h-6 w-6 rounded-md flex items-center justify-center">
+                                <Image src="/logo.png" alt="Logo" width={32} height={32} />
                             </div>
                             <span className="font-bold text-lg text-white">
                                 Agentworks
