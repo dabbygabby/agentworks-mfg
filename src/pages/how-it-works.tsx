@@ -8,6 +8,10 @@ import InputsVisual from "@src/components/howItWorks/InputsVisual"
 
 import InterfaceVisual from "@src/components/howItWorks/InterfaceVisual"
 
+import BrainVisual from "@src/components/howItWorks/BrainVisual"
+
+import FoundationVisual from "@src/components/howItWorks/FoundationVisual"
+
 export default function HowItWorks() {
     return (
         <div className="min-h-screen bg-white">
@@ -45,7 +49,7 @@ export default function HowItWorks() {
                     content={
                         <>
                             <p className="mb-4">
-                                Your data is trapped in Excel sheets, email threads, and paper bills. We don’t replace these tools. We connect to them.
+                                Your data is trapped in Excel sheets, email threads, and paper bills. We don't replace these tools. We connect to them.
                             </p>
                             <p className="font-medium text-slate-900 mb-6">
                                 We capture data where it lives. No migration required.
@@ -110,6 +114,7 @@ export default function HowItWorks() {
                         </>
                     }
                     imagePlaceholder="AI Engine Box"
+                    visual={<BrainVisual />}
                     align="left"
                 />
 
@@ -129,6 +134,7 @@ export default function HowItWorks() {
                         </>
                     }
                     imagePlaceholder="Database Cylinder Icon"
+                    visual={<FoundationVisual />}
                     align="right"
                 />
 
