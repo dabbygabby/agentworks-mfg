@@ -174,10 +174,8 @@ export default function Connectors() {
                                     <div key={index} className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg hover:border-lime-200 transition-all duration-200 group">
                                         <div className="w-12 h-12 bg-slate-50 rounded-xl mb-4 flex items-center justify-center text-lg font-bold text-gray-400 group-hover:bg-lime-50 group-hover:text-lime-600 transition-colors">
                                             {
-                                                //@ts-expect-error not an error
                                                 tool.icon ? (
                                                     <Image
-                                                        //@ts-expect-error not an error
                                                         src={"/icons/" + tool.icon}
                                                         alt={tool.name}
                                                         width={512}
