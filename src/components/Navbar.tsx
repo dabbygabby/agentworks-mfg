@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Button from './ui/Button';
 import Image from 'next/image';
+import { ArrowRightIcon, Phone } from 'lucide-react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,6 +51,12 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {/* Solutions Dropdown */}
+            <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              How It Works
+            </Link>
+            <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              Industries
+            </Link>
             <div className="relative">
               <button
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
@@ -88,12 +95,10 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
-              Industries
+            <Link href="/connectors" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              Connectors
             </Link>
-            <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
-              How It Works
-            </Link>
+
             <Link href="/success-stories" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Success Stories
             </Link>
@@ -104,15 +109,13 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex md:items-center md:space-x-4">
-            <Link href="/login" className="text-[#022c22] hover:text-[#022c22]/70 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              Login
-            </Link>
             <Button
-              href="/get-started"
+              href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
               variant="primary"
               className="!px-5 !py-2 !text-sm"
             >
-              Get Started
+              <Phone className="w-4 h-4 mr-2" />
+              Contact Us
             </Button>
           </div>
 

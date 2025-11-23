@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Button from '../ui/Button';
+import { ArrowRightIcon, Calculator } from 'lucide-react';
 
 const HeroSection = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -39,11 +40,10 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
                             Get a Free Process Audit
-                            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
+                            <ArrowRightIcon className="w-4 h-4 ml-2" />
                         </Button>
                         <Button href="/roi-calculator" variant="outline">
+                            <Calculator className="w-4 h-4 mr-2" />
                             Calculate Your ROI
                         </Button>
                     </div>
