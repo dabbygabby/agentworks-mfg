@@ -1,79 +1,9 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Button from '../components/ui/Button';
-import { Search, ArrowRight, Shield, Lock, Server } from 'lucide-react';
+import { Search, Shield, Lock, Server } from 'lucide-react';
+import { libraryData, coreFour, categories } from '../components/connectors/connectorList';
 
-// Data for Core Four
-const coreFour = [
-    {
-        name: "Tally Prime / ERP 9",
-        connect: "Direct XML / ODBC Bridge",
-        what: "Agents can auto-post purchase vouchers, read ledger balances, and generate e-invoices without a human opening Tally.",
-        useCase: "Photo-to-Tally expense entry."
-    },
-    {
-        name: "WhatsApp (Meta API)",
-        connect: "Official Business API (BSP)",
-        what: "Turns WhatsApp into your command center. Staff send voice notes and photos; Agents reply with data and updates.",
-        useCase: "Shop floor updates and sales approvals."
-    },
-    {
-        name: "Microsoft Excel / Google Sheets",
-        connect: "Native API & File Parser",
-        what: "Extracts data from locked spreadsheets or writes live reporting data into shared sheets.",
-        useCase: "Reading messy inventory trackers or production logs."
-    },
-    {
-        name: "Email (Outlook / Gmail)",
-        connect: "IMAP / Graph API",
-        what: "Monitors specific inboxes (e.g., sales@company.com) for RFQs and invoices.",
-        useCase: "Auto-detecting new purchase orders from customers."
-    }
-];
-
-// Data for Library
-const categories = [
-    { id: 'finance', name: 'Finance & ERP', desc: 'The System of Record' },
-    { id: 'engineering', name: 'Engineering & Design', desc: 'The "Brain" Inputs' },
-    { id: 'sales', name: 'Sales & CRM', desc: 'The Revenue Engine' },
-    { id: 'ops', name: 'Shop Floor & Ops', desc: 'The Action' }
-];
-
-const libraryData = {
-    finance: [
-        { name: "Tally Prime", type: "XML/ODBC", capability: "Auto-Voucher Entry, Ledger Analysis" },
-        { name: "SAP S/4HANA", type: "OData API", capability: "Purchase Order Sync, Inventory Check" },
-        { name: "BUSY Accounting", type: "REST API", capability: "GST Billing & Inventory Sync" },
-        { name: "Marg ERP 9+", type: "MargBooks API", capability: "Pharma/Retail Batch Tracking" },
-        { name: "Oracle NetSuite", type: "SuiteTalk API", capability: "Multi-subsidiary Financial Rollups" },
-        { name: "Microsoft Dynamics 365", type: "Dataverse API", capability: "End-to-end Supply Chain Visibility" },
-        { name: "Zoho Books", type: "REST API", capability: "Invoice Automation & Bank Reconciliation" },
-        { name: "ClearTax", type: "GST API", capability: "Auto-Filing GSTR-1 & E-Way Bills" }
-    ],
-    engineering: [
-        { name: "AutoCAD", type: "Forge/Platform API", capability: "Extract 2D Geometry for Cutting Estimates" },
-        { name: "SolidWorks", type: "API / File Parsing", capability: "BOM Extraction from 3D Assemblies" },
-        { name: "CATIA", type: "CAA V5 API", capability: "Complex Surface Area Calculation" },
-        { name: "Autodesk Revit", type: "Web API", capability: "Material Quantity Takeoffs for Construction" },
-        { name: "Fusion 360", type: "API", capability: "CAM Toolpath Data & Machine Time Estimation" }
-    ],
-    sales: [
-        { name: "Zoho CRM", type: "REST API", capability: "Lead Qualification & Status Updates" },
-        { name: "Salesforce", type: "Apex/REST API", capability: "Enterprise Deal Flow Automation" },
-        { name: "HubSpot", type: "API", capability: "Email Logging & Deal Stage Movement" },
-        { name: "Telecrm", type: "API", capability: "WhatsApp-Lead Sync for Indian Markets" },
-        { name: "LeadSquared", type: "API", capability: "Field Sales Tracking & Automation" }
-    ],
-    ops: [
-        { name: "Zoho Inventory", type: "API", capability: "Stock Adjustments & SKU Tracking" },
-        { name: "Unicommerce", type: "API", capability: "E-commerce Order Sync (for D2C brands)" },
-        { name: "Greythr", type: "API", capability: "Shift Scheduling & Attendance Sync" },
-        { name: "Keka HR", type: "API", capability: "Workforce Allocation & Payroll Inputs" },
-        { name: "Monday.com", type: "GraphQL API", capability: "Production Project Tracking" }
-    ]
-};
 
 export default function Connectors() {
     const [activeCategory, setActiveCategory] = useState('finance');
@@ -101,8 +31,6 @@ export default function Connectors() {
             </Head>
 
             <div className="flex flex-col min-h-screen bg-white">
-                <Navbar />
-
                 {/* Hero Section */}
                 <section className="relative bg-[#f7fee7] pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden rounded-b-[3rem]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -203,12 +131,11 @@ export default function Connectors() {
                                         key={cat.id}
                                         onClick={() => setActiveCategory(cat.id)}
                                         className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === cat.id
-                                                ? 'bg-[#022c22] text-white shadow-lg scale-105'
-                                                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                                            ? 'bg-[#022c22] text-white shadow-lg scale-105'
+                                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                                             }`}
                                     >
                                         <span className="block text-base">{cat.name}</span>
-                                        <span className="block text-xs opacity-70 font-normal">{cat.desc}</span>
                                     </button>
                                 ))}
                             </div>
@@ -258,29 +185,10 @@ export default function Connectors() {
                         </div>
                     </div>
                 </section>
-
-                {/* Custom Bridge Section */}
-                <section className="py-20 bg-[#022c22] text-white overflow-hidden relative">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Don't See Your Tool?</h2>
-                        <h3 className="text-2xl md:text-3xl font-semibold text-lime-400 mb-8">We Build Custom Bridges.</h3>
-                        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                            Manufacturing is full of legacy software and custom SQL databases. If your tool isn't listed above, our engineering team can build a custom connector in 48 hours.
-                        </p>
-                        <Button href="#" variant="primary" className="bg-[#bef264] text-[#022c22] hover:bg-[#d9f99d] border-none">
-                            Request a Connector Check
-                        </Button>
-                    </div>
-
-                    {/* Decorative circles */}
-                    <div className="absolute top-0 left-0 w-64 h-64 bg-lime-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-lime-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
-                </section>
-
                 {/* IT Note Section */}
-                <section className="py-12 bg-slate-50 border-t border-slate-200">
+                <section className="py-12 bg-slate-50">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                        <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8">
                             <div className="flex items-center gap-3 mb-4">
                                 <Shield className="w-6 h-6 text-lime-600" />
                                 <h4 className="text-lg font-bold text-[#022c22]">Security & Protocol Note</h4>
@@ -312,7 +220,24 @@ export default function Connectors() {
                     </div>
                 </section>
 
-                <Footer />
+                {/* Custom Bridge Section */}
+                <section className="py-20 bg-[#022c22] text-white overflow-hidden relative">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Don't See Your Tool?</h2>
+                        <h3 className="text-2xl md:text-3xl font-semibold text-lime-400 mb-8">We Build Custom Bridges.</h3>
+                        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                            Manufacturing is full of legacy software and custom SQL databases. If your tool isn't listed above, our engineering team can build a custom connector in 48 hours.
+                        </p>
+                        <Button href="#" variant="primary" className="bg-[#bef264] text-[#022c22] hover:bg-[#d9f99d] border-none">
+                            Request a Connector Check
+                        </Button>
+                    </div>
+
+                    {/* Decorative circles */}
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-lime-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-lime-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+                </section>
+
             </div>
         </>
     );
