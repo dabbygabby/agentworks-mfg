@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../components/ui/Button';
 import { Search, Shield, Lock, Server } from 'lucide-react';
 import { libraryData, coreFour, categories } from '../components/connectors/connectorList';
+import Image from 'next/image';
 
 
 export default function Connectors() {
@@ -73,8 +74,8 @@ export default function Connectors() {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold text-[#022c22] mb-4">The Core Four</h2>
-                            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                                These are the tools 90% of your Indian manufacturing market uses. We give them prime real estate.
+                            <p className="text-lg text-gray-600 max-w-7xl mx-auto">
+                                The tools you trust, now working as one. We've built deep, native integrations with the platforms that power Indian manufacturing. No more manual data entry, no more silos—just seamless flow from your shop floor to your top floor.
                             </p>
                         </div>
 
@@ -84,7 +85,17 @@ export default function Connectors() {
                                     <div className="flex items-start justify-between mb-6">
                                         <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl font-bold text-lime-600 group-hover:scale-110 transition-transform">
                                             {/* Placeholder Logo */}
-                                            {tool.name.charAt(0)}
+                                            {tool.icon ? (
+                                                <Image
+                                                    src={"/icons/" + tool.icon}
+                                                    alt={tool.name}
+                                                    width={512}
+                                                    height={512}
+                                                    className="w-2/3 h-2/3 object-contain"
+                                                />
+
+                                            ) : tool.name.charAt(0)}
+
                                         </div>
                                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-lime-100 text-lime-800">
                                             Popular
@@ -162,7 +173,19 @@ export default function Connectors() {
                                 displayData.map((tool, index) => (
                                     <div key={index} className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg hover:border-lime-200 transition-all duration-200 group">
                                         <div className="w-12 h-12 bg-slate-50 rounded-xl mb-4 flex items-center justify-center text-lg font-bold text-gray-400 group-hover:bg-lime-50 group-hover:text-lime-600 transition-colors">
-                                            {tool.name.charAt(0)}
+                                            {
+                                                //@ts-expect-error not an error
+                                                tool.icon ? (
+                                                    <Image
+                                                        //@ts-expect-error not an error
+                                                        src={"/icons/" + tool.icon}
+                                                        alt={tool.name}
+                                                        width={512}
+                                                        height={512}
+                                                        className="w-2/3 h-2/3 object-contain"
+                                                    />
+                                                ) : tool.name.charAt(0)
+                                            }
                                         </div>
                                         <h3 className="text-lg font-bold text-[#022c22] mb-2">{tool.name}</h3>
                                         <div className="space-y-3">
