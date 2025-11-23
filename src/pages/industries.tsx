@@ -107,17 +107,24 @@ const IndustriesPage = () => {
             </Head>
             <main>
                 {/* Hero Section */}
-                <Section className="bg-[#f7fee7] rounded-b-[3rem] py-24">
+                <Section className="bg-[#f7fee7] rounded-b-[3rem] py-24 !pb-0 overflow-hidden">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-8 leading-tight">
-                            Engineered for the Complexity of the <span className="text-[#65a30d]">Shop Floor</span>
+                            Engineered for the Reality of the <span className="text-[#65a30d]">Shop Floor</span>
                         </h1>
                         <p className="text-xl text-[#022c22]/70 mb-8 leading-relaxed">
-                            Generic software fails because it ignores the nuance of your business. A CRM doesn't know what "Scrap Rate" means. An ERP doesn't understand "Nesting Efficiency."
+                            {'Standard software assumes a clean, linear process. You operate in a world of urgent changes and volatile variables. We built Agentworks to handle the messy reality of actual production, where things rarely go exactly to plan.'}
                         </p>
-                        <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-[#022c22]/5 inline-block">
-                            <p className="font-bold text-[#022c22]">The Agentworks Difference:</p>
-                            <p className="text-[#022c22]/80">Our agents are purpose-built for the high-friction workflows of heavy industry. We don't just know code; we know manufacturing.</p>
+                    </div>
+
+                    {/* Dashboard Image */}
+                    <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 mt-12 translate-y-12">
+                        <div className="rounded-[3rem] bg-white/40 p-3 border border-[#022c22]/10 backdrop-blur-sm">
+                            <img
+                                src="/dashboard2.png"
+                                alt="Agentworks Dashboard"
+                                className="w-full h-auto rounded-[2.5rem] shadow-2xl opacity-90"
+                            />
                         </div>
                     </div>
                 </Section>
