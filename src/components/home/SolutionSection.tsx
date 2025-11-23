@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from '../ui/Card';
 import Section from '../ui/Section';
+import Button from '../ui/Button';
+import { ArrowRightIcon } from 'lucide-react';
 
 const SolutionSection = () => {
     return (
@@ -10,9 +12,10 @@ const SolutionSection = () => {
                     High-Performance Infrastructure <br />
                     <span className="text-[#bef264]">Zero-Friction Interface</span>
                 </h2>
-                <p className="text-xl text-white/70 leading-relaxed">
+                <p className="text-xl text-white/70 leading-relaxed mb-8">
                     We connect to the tools your team already uses, extract structured data from chaos, and write directly to your ERP.
                 </p>
+
             </div>
 
             {/* Dashboard Screenshot */}
@@ -56,6 +59,12 @@ const SolutionSection = () => {
                         The agents write directly to your ERP (Tally, SAP, Custom SQL), creating a single, clean source of truth.
                     </p>
                 </Card>
+            </div>
+            <div className='flex w-full items-center justify-center mt-8'>
+                <Button href="/how-it-works" variant="accent">
+                    Learn More
+                    <ArrowRightIcon className="w-4 h-4 ml-2" />
+                </Button>
             </div>
         </Section>
     );
