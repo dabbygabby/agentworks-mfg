@@ -4,6 +4,10 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link";
 import { StepSection } from "@src/components/howItWorks/StepSection"
 
+import InputsVisual from "@src/components/howItWorks/InputsVisual"
+
+import InterfaceVisual from "@src/components/howItWorks/InterfaceVisual"
+
 export default function HowItWorks() {
     return (
         <div className="min-h-screen bg-white">
@@ -52,6 +56,7 @@ export default function HowItWorks() {
                         </>
                     }
                     imagePlaceholder="Tally, Excel, Outlook, Files"
+                    visual={<InputsVisual />}
                     align="left"
                 />
 
@@ -78,6 +83,7 @@ export default function HowItWorks() {
                         </>
                     }
                     imagePlaceholder="WhatsApp / Direct Connectors Icon"
+                    visual={<InterfaceVisual />}
                     align="right"
                 />
 

@@ -4,10 +4,12 @@ interface StepSectionProps {
     headline: string;
     content: React.ReactNode;
     imagePlaceholder: string;
+    imageSrc?: string;
+    visual?: React.ReactNode;
     align: 'left' | 'right';
 }
 
-export const StepSection = ({ number, title, headline, content, imagePlaceholder, align }: StepSectionProps) => {
+export const StepSection = ({ number, title, headline, content, imagePlaceholder, imageSrc, visual, align }: StepSectionProps) => {
     return (
         <div className={`flex flex-col lg:flex-row gap-12 lg:gap-24 items-center ${align === 'right' ? 'lg:flex-row-reverse' : ''}`}>
             {/* Text Content */}
@@ -24,15 +26,27 @@ export const StepSection = ({ number, title, headline, content, imagePlaceholder
                 </div>
             </div>
 
-            {/* Image Placeholder */}
+            {/* Visual Content (Custom Component, Image, or Placeholder) */}
             <div className="flex-1 w-full">
-                <div className="aspect-[4/3] w-full bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-8 text-center hover:border-lime-400 transition-colors group">
-                    <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <div className="w-8 h-8 bg-slate-200 rounded-full" />
+                {visual ? (
+                    visual
+                ) : imageSrc ? (
+                    <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-lg">
+                        <img
+                            src={imageSrc}
+                            alt={imagePlaceholder}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
-                    <p className="text-slate-400 font-medium">Image Placeholder</p>
-                    <p className="text-sm text-slate-400 mt-2">{imagePlaceholder}</p>
-                </div>
+                ) : (
+                    <div className="aspect-[4/3] w-full bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-8 text-center hover:border-lime-400 transition-colors group">
+                        <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <div className="w-8 h-8 bg-slate-200 rounded-full" />
+                        </div>
+                        <p className="text-slate-400 font-medium">Image Placeholder</p>
+                        <p className="text-sm text-slate-400 mt-2">{imagePlaceholder}</p>
+                    </div>
+                )}
             </div>
         </div>
     )
