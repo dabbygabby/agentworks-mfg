@@ -123,7 +123,7 @@ const ArchitectureDiagram = () => {
 
 
                 {/* Connection: AI -> DB */}
-                <path id="ai-to-db" d={`M 650 ${centerY} L 700 ${centerY}`} stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+                <path id="ai-to-db" d={`M 650 ${centerY} L 720 ${centerY}`} stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
                 <circle r="3" fill="#3b82f6"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#ai-to-db" /></animateMotion></circle>
 
 
