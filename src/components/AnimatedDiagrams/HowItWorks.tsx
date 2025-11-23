@@ -13,7 +13,7 @@ const ArchitectureDiagram = () => {
     const outputSpacing = 90;
 
     return (
-        <div className="w-full p-8 bg-white rounded-xl border border-slate-100 shadow-sm">
+        <div className="w-full p-8 bg-transparent rounded-xl">
             <svg
                 viewBox="0 0 1200 600"
                 fill="none"
