@@ -18,6 +18,7 @@ interface IndustryCardProps {
     };
     imagePlaceholder?: boolean;
     imageSrc?: string;
+    link?: string;
 }
 
 const IndustryCard = ({
@@ -27,6 +28,7 @@ const IndustryCard = ({
     solutions,
     imagePlaceholder = true,
     imageSrc,
+    link
 }: IndustryCardProps) => {
     return (
         <Card variant="dark" className="h-full flex flex-col overflow-hidden relative group">
@@ -41,6 +43,11 @@ const IndustryCard = ({
                     <div className="mb-6">
                         <h4 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">The Friction</h4>
                         <p className="text-white/80 leading-relaxed">{friction}</p>
+                    </div>
+                    <div className="mt-auto">
+                        <Link href={link || "#"} className="flex items-center gap-2 text-[#bef264] hover:text-[#bef264]/80 transition-colors">
+                            Learn More <ArrowRightIcon className="w-4 h-4" />
+                        </Link>
                     </div>
 
                 </div>
