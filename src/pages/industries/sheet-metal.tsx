@@ -191,34 +191,102 @@ const SheetMetalPage = () => {
                     </div>
                 </Section>
 
-                {/* How It Works */}
+                {/* How It Works - Smart Quote Visual */}
                 <Section className="bg-white">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
                                 No New Software to Learn.
                             </h2>
                         </div>
 
-                        <div className="relative">
-                            {/* Connecting Line */}
-                            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-[#e5e7eb] -z-10 -translate-y-1/2"></div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Steps */}
+                            <div className="space-y-8">
                                 {[
-                                    { step: "01", title: "Email Drawing", desc: "Customer emails a PDF/DXF." },
-                                    { step: "02", title: "Agent Analyzes", desc: "Checks geometry & steel prices." },
-                                    { step: "03", title: "Draft Quote", desc: "Generates quote in your format." },
-                                    { step: "04", title: "Approve", desc: "You click 'Approve' on WhatsApp." }
+                                    { step: "01", title: "Email Drawing", desc: "Customer emails a PDF/DXF file directly to your sales inbox." },
+                                    { step: "02", title: "Agent Analyzes", desc: "Agent extracts geometry (cut length, pierces) and applies your steel rates." },
+                                    { step: "03", title: "Draft Quote", desc: "Generates a professional PDF quote in your company format." },
+                                    { step: "04", title: "Approve", desc: "You receive a WhatsApp summary. Click 'Approve' to send it to the client." }
                                 ].map((item, i) => (
-                                    <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg text-center">
-                                        <div className="w-12 h-12 bg-[#bef264] rounded-full flex items-center justify-center text-[#022c22] font-bold text-xl mx-auto mb-4">
+                                    <div key={i} className="flex gap-6">
+                                        <div className="w-12 h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-xl flex-shrink-0">
                                             {item.step}
                                         </div>
-                                        <h3 className="text-lg font-bold text-[#022c22] mb-2">{item.title}</h3>
-                                        <p className="text-sm text-[#022c22]/70">{item.desc}</p>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-[#022c22] mb-2">{item.title}</h3>
+                                            <p className="text-[#022c22]/70">{item.desc}</p>
+                                        </div>
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* Visual - Smart Quote Analysis */}
+                            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                                    <div className="p-4 border-b border-gray-100 bg-[#022c22] text-white flex justify-between items-center">
+                                        <div className="flex items-center gap-2">
+                                            <FileText className="w-4 h-4 text-[#bef264]" />
+                                            <span className="font-bold">Automated CAD Analysis</span>
+                                        </div>
+                                        <span className="text-xs bg-[#bef264] text-[#022c22] px-2 py-1 rounded-full font-bold">Ready</span>
+                                    </div>
+
+                                    <div className="p-6">
+                                        {/* File Info */}
+                                        <div className="flex items-center gap-3 mb-6 p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                            <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                                                <FileText className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <div className="text-sm font-bold text-[#022c22]">bracket_mount_v2.dxf</div>
+                                                <div className="text-xs text-gray-500">Detected: Mild Steel, 2mm</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Extracted Data Grid */}
+                                        <div className="grid grid-cols-3 gap-4 mb-6">
+                                            <div className="text-center p-2 bg-gray-50 rounded-lg">
+                                                <div className="text-xs text-gray-500 mb-1">Cut Length</div>
+                                                <div className="font-bold text-[#022c22]">1240mm</div>
+                                            </div>
+                                            <div className="text-center p-2 bg-gray-50 rounded-lg">
+                                                <div className="text-xs text-gray-500 mb-1">Pierces</div>
+                                                <div className="font-bold text-[#022c22]">8</div>
+                                            </div>
+                                            <div className="text-center p-2 bg-gray-50 rounded-lg">
+                                                <div className="text-xs text-gray-500 mb-1">Bends</div>
+                                                <div className="font-bold text-[#022c22]">4</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Cost Breakdown */}
+                                        <div className="space-y-3 border-t border-gray-100 pt-4">
+                                            <div className="flex justify-between text-sm">
+                                                <span className="text-gray-600">Material (MS 2mm)</span>
+                                                <span className="font-medium text-[#022c22]">$12.00</span>
+                                            </div>
+                                            <div className="flex justify-between text-sm">
+                                                <span className="text-gray-600">Laser Time (45s)</span>
+                                                <span className="font-medium text-[#022c22]">$4.00</span>
+                                            </div>
+                                            <div className="flex justify-between text-sm">
+                                                <span className="text-gray-600">Bending (4 ops)</span>
+                                                <span className="font-medium text-[#022c22]">$3.00</span>
+                                            </div>
+                                            <div className="flex justify-between text-lg font-bold border-t border-gray-100 pt-3 mt-2">
+                                                <span className="text-[#022c22]">Total Quote</span>
+                                                <span className="text-[#022c22]">$19.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
+                                        <button className="bg-[#022c22] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#022c22]/90 flex items-center gap-2 transition-colors">
+                                            Send Quote <ArrowRightIcon className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

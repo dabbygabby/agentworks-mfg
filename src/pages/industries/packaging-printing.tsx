@@ -300,7 +300,7 @@ const PackagingPage = () => {
                                 <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
                                     The "Procurement" Win
                                 </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Packaging Garage</h3>
+                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">A Leading Packaging Brand in India</h3>
                                 <p className="text-[#022c22]/70 mb-6">
                                     <strong>Challenge:</strong> Procurement team spent days collating quotes. Production delayed by slow decisions.
                                 </p>

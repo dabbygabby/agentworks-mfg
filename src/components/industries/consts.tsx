@@ -36,7 +36,7 @@ export const industries = [
             }
         ],
         caseStudy: {
-            title: "See how Packaging Garage cut procurement cycles from 10 days to 2 hours",
+            title: "See how they cut procurement cycles from 10 days to 2 hours",
             link: "/case-studies/packaging-garage"
         },
         imagePlaceholder: false,
