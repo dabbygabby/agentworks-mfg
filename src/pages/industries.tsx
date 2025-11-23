@@ -105,9 +105,9 @@ const IndustriesPage = () => {
                 <title>Industries | Agentworks</title>
                 <meta name="description" content="Agentworks agents are purpose-built for the high-friction workflows of heavy industry. We don't just know code; we know manufacturing." />
             </Head>
-            <main className="pt-24">
+            <main>
                 {/* Hero Section */}
-                <Section className="bg-[#f7fee7] rounded-b-[3rem] pb-24">
+                <Section className="bg-[#f7fee7] rounded-b-[3rem] py-24">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-8 leading-tight">
                             Engineered for the Complexity of the <span className="text-[#65a30d]">Shop Floor</span>
