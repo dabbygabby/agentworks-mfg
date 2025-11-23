@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../ui/Card';
 import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface IndustryCardProps {
     title: string;
@@ -16,6 +17,7 @@ interface IndustryCardProps {
         link: string;
     };
     imagePlaceholder?: boolean;
+    imageSrc?: string;
 }
 
 const IndustryCard = ({
@@ -24,6 +26,7 @@ const IndustryCard = ({
     friction,
     solutions,
     imagePlaceholder = true,
+    imageSrc,
 }: IndustryCardProps) => {
     return (
         <Card variant="dark" className="h-full flex flex-col overflow-hidden relative group">
@@ -43,10 +46,20 @@ const IndustryCard = ({
                 </div>
 
                 {/* Image Side (Placeholder) */}
-                {imagePlaceholder && (
+                {imagePlaceholder ? (
                     <div className="w-full md:w-1/3 min-h-[200px] md:min-h-0 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#bef264]/10 to-transparent"></div>
                         <span className="text-white/20 font-medium">Image Placeholder</span>
+                    </div>
+                ) : (
+                    <div className="w-full md:w-1/3 min-h-[200px] md:min-h-0 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#bef264]/10 to-transparent"></div>
+                        <Image
+                            src={imageSrc || ''}
+                            alt={title}
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                 )}
             </div>

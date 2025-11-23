@@ -23,7 +23,9 @@ const IndustriesPage = () => {
             caseStudy: {
                 title: "See how Bird Machines reduced finance workload by 95%",
                 link: "/case-studies/bird-machines"
-            }
+            },
+            imagePlaceholder: false,
+            imageSrc: "/sheet-metal.png"
         },
         {
             title: "Packaging & Printing",
@@ -42,7 +44,9 @@ const IndustriesPage = () => {
             caseStudy: {
                 title: "See how Packaging Garage cut procurement cycles from 10 days to 2 hours",
                 link: "/case-studies/packaging-garage"
-            }
+            },
+            imagePlaceholder: false,
+            imageSrc: "/packaging.png"
         },
         {
             title: "Electronics & EMS",
@@ -61,7 +65,9 @@ const IndustriesPage = () => {
             caseStudy: {
                 title: "See how Dolphin Device achieved a 22% revenue uplift",
                 link: "/case-studies/dolphin-device"
-            }
+            },
+            imagePlaceholder: false,
+            imageSrc: "/electronics.png"
         },
         {
             title: "Pharma & Chemicals",
@@ -80,7 +86,9 @@ const IndustriesPage = () => {
             caseStudy: {
                 title: "See how a top Condom Manufacturer increased margins by 3 points",
                 link: "/case-studies/pharma-chem"
-            }
+            },
+            imagePlaceholder: false,
+            imageSrc: "/pharma.png"
         },
         {
             title: "Heavy Machinery (OEM)",
@@ -95,7 +103,9 @@ const IndustriesPage = () => {
             caseStudy: {
                 title: "Result: Real-time visibility on order completion dates",
                 link: "/case-studies/heavy-machinery"
-            }
+            },
+            imagePlaceholder: false,
+            imageSrc: "/heavy-machinery.png"
         }
     ];
 
