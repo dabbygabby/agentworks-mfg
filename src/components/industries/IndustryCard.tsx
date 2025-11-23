@@ -45,7 +45,23 @@ const IndustryCard = ({
                         <p className="text-white/80 leading-relaxed">{friction}</p>
                     </div>
                     <div className="mt-auto">
-                        <Link href={link || "#"} className="flex w-40 justify-center items-center gap-2 text-[#bef264] hover:text-[#bef264]/80 transition-colors bg-[#bef264]/10 px-4 py-2 rounded-full">
+                        {/* <div className="mb-6">
+                            <h4 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Solutions</h4>
+                            <ul className="space-y-2">
+                                {solutions.map((solution, index) => (
+                                    <li key={index} className="flex items-start">
+                                        <ArrowRightIcon className="w-4 h-4 text-[#bef264] mr-2 mt-1 flex-shrink-0" />
+                                        <p className="text-white/80 leading-relaxed">
+                                            <span className="font-semibold text-white">{solution.name}:</span> {solution.description}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div> */}
+                        <Link
+                            href={link || "#"}
+                            className="flex w-40 justify-center items-center gap-2 text-black hover:text-black/80 transition-colors bg-[#bef264] hover:bg-[#bef264]/80 px-4 py-2 rounded-full"
+                        >
                             Learn More <ArrowRightIcon className="w-4 h-4" />
                         </Link>
                     </div>
