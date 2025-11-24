@@ -32,22 +32,14 @@ const ChallengeSection = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-4xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            The Challenge: <br />
-                            The "Real World" is Messy
+                            Real World Data is Messy
                         </h2>
                         <h3 className="text-2xl font-semibold text-[#65a30d] mb-4">
                             Your Data Doesn't Live in Spreadsheets.
                         </h3>
                         <p className="text-lg text-[#022c22]/70 mb-8">
-                            It lives in handwritten delivery challans, noisy voice notes sent from the loading dock, and complex engineering drawings trapped in PDFs.
+                            It lives in handwritten delivery challans, noisy voice notes sent from the loading dock, and complex engineering drawings trapped in PDFs. Agentworks is purpose-built to extract <span className="font-semibold">Structured Data</span> from this chaos.
                         </p>
-
-                        <div className="p-6 bg-[#f7fee7] rounded-2xl border border-[#65a30d]/20">
-                            <h4 className="text-xl font-bold text-[#022c22] mb-2">The Fix</h4>
-                            <p className="text-[#022c22]/80">
-                                Agentworks is purpose-built to extract <span className="font-semibold">Structured Data</span> from this chaos.
-                            </p>
-                        </div>
                     </motion.div>
 
                     <div className="grid gap-6">

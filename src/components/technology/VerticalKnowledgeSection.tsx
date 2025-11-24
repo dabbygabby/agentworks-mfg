@@ -29,7 +29,7 @@ const VerticalKnowledgeSection = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#022c22] mb-6">
-                        Trained on "Vertical" Knowledge
+                        Deep Industry Context
                     </h2>
                     <p className="text-xl text-[#022c22]/70 max-w-2xl mx-auto">
                         We don't use generic models. Our agents are fine-tuned on vertical-specific datasets to understand the nuances of your industry.
@@ -55,6 +55,9 @@ const VerticalKnowledgeSection = () => {
                             </p>
                         </motion.div>
                     ))}
+                </div>
+                <div className="text-center mt-16">
+                    {"And many more..."}
                 </div>
             </div>
         </section>

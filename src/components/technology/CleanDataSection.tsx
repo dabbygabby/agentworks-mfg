@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Database, ArrowRight, MessageSquare, Server } from 'lucide-react';
+import { Database, ArrowRight, MessageSquare, Server, CheckCircle2 } from 'lucide-react';
 
 const CleanDataSection = () => {
     return (
@@ -14,8 +14,7 @@ const CleanDataSection = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-4xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            The "Clean Data" Layer <br />
-                            <span className="text-[#65a30d]">Turning Chaos into SQL.</span>
+                            Turning Chaos into SQL.
                         </h2>
                         <p className="text-xl text-[#022c22]/70 mb-8">
                             The output of our AI isn't a chat bubble; it is a database transaction. We bridge the gap between unstructured communication and structured ERP systems.
@@ -93,33 +92,51 @@ const CleanDataSection = () => {
                         className="relative"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-[#65a30d]/20 to-[#bef264]/20 rounded-full blur-3xl opacity-50" />
-                        <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-100 p-8">
-                            <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
+                        <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+                            {/* Header */}
+                            <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                                    <div className="p-1.5 bg-green-100 rounded text-green-700">
+                                        <CheckCircle2 className="w-4 h-4" />
+                                    </div>
+                                    <span className="font-semibold text-[#022c22]">Sales Voucher #2024-001</span>
                                 </div>
-                                <div className="text-sm font-mono text-gray-400">db_transaction.sql</div>
+                                <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-700 rounded-full">Auto-Posted</span>
                             </div>
-                            <div className="font-mono text-sm space-y-4">
-                                <div className="text-blue-600">INSERT INTO <span className="text-[#022c22]">voucher_entries</span> (</div>
-                                <div className="pl-4 text-gray-600">
-                                    date, type, ledger_id, amount, narration
-                                </div>
-                                <div className="text-blue-600">) VALUES (</div>
-                                <div className="pl-4 text-[#022c22]">
-                                    '2024-11-24', <br />
-                                    'SALES', <br />
-                                    'L-8829', <br />
-                                    50000.00, <br />
-                                    'Dispatch of 500 Part X to Client Y'
-                                </div>
-                                <div className="text-blue-600">);</div>
 
-                                <div className="mt-8 pt-4 border-t border-gray-100 flex items-center gap-2 text-green-600">
-                                    <div className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
-                                    Transaction Committed Successfully
+                            {/* Body */}
+                            <div className="p-6 space-y-6">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="text-xs text-gray-500 uppercase tracking-wider font-semibold block mb-1">Date</label>
+                                        <div className="text-[#022c22] font-medium">24 Nov 2024</div>
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-gray-500 uppercase tracking-wider font-semibold block mb-1">Party</label>
+                                        <div className="text-[#022c22] font-medium">Client Y</div>
+                                    </div>
+                                </div>
+
+                                <div className="border-t border-gray-100 pt-4">
+                                    <label className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2 block">Item Details</label>
+                                    <div className="bg-gray-50 rounded-lg p-3 flex justify-between items-center">
+                                        <div>
+                                            <div className="font-medium text-[#022c22]">Part X (SKU #9920)</div>
+                                            <div className="text-sm text-gray-500">500 Units x ₹100.00</div>
+                                        </div>
+                                        <div className="font-semibold text-[#022c22]">₹50,000.00</div>
+                                    </div>
+                                </div>
+
+                                <div className="border-t border-gray-100 pt-4 flex justify-between items-end">
+                                    <div>
+                                        <label className="text-xs text-gray-500 uppercase tracking-wider font-semibold block mb-1">Narration</label>
+                                        <div className="text-sm text-gray-600">Dispatch of 500 Part X to Client Y</div>
+                                    </div>
+                                    <div className="text-right">
+                                        <label className="text-xs text-gray-500 uppercase tracking-wider font-semibold block mb-1">Total Amount</label>
+                                        <div className="text-xl font-bold text-[#022c22]">₹50,000.00</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

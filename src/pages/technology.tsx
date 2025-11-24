@@ -3,7 +3,6 @@ import Head from 'next/head';
 import HeroSection from '../components/technology/HeroSection';
 import ChallengeSection from '../components/technology/ChallengeSection';
 import CoreEngineSection from '../components/technology/CoreEngineSection';
-import InteractiveDemo from '../components/technology/InteractiveDemo';
 import CleanDataSection from '../components/technology/CleanDataSection';
 import VerticalKnowledgeSection from '../components/technology/VerticalKnowledgeSection';
 import SecuritySection from '../components/technology/SecuritySection';
@@ -20,7 +19,6 @@ const TechnologyPage = () => {
                 <HeroSection />
                 <ChallengeSection />
                 <CoreEngineSection />
-                <InteractiveDemo />
                 <CleanDataSection />
                 <VerticalKnowledgeSection />
                 <SecuritySection />

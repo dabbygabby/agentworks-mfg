@@ -7,7 +7,7 @@ const CoreEngineSection = () => {
 
     const engines = {
         vision: {
-            title: "Vision Engine (The Eye)",
+            title: "Vision Engine",
             icon: <Eye className="w-6 h-6" />,
             capability: "Optical Character Recognition (OCR) + Spatial Understanding",
             description: "It doesn't just read text; it understands layout. It knows that the number at the bottom right of a table is the \"Grand Total\" and the text in the corner box is the \"GSTIN.\"",
@@ -18,7 +18,7 @@ const CoreEngineSection = () => {
             ]
         },
         voice: {
-            title: "Voice Engine (The Ear)",
+            title: "Voice Engine",
             icon: <Ear className="w-6 h-6" />,
             capability: "Automatic Speech Recognition (ASR) + Noise Cancellation",
             description: "Filters out the 80dB hum of CNC machines and laser cutters to isolate the human voice. It handles Hinglish (Hindi + English mix), distinct accents, and shop-floor slang.",
@@ -29,7 +29,7 @@ const CoreEngineSection = () => {
             ]
         },
         text: {
-            title: "Text & Intent Engine (The Brain)",
+            title: "Intent Engine",
             icon: <Brain className="w-6 h-6" />,
             capability: "Natural Language Understanding (NLU) + Context Awareness",
             description: "It understands the intent behind a message, not just the keywords. It knows the difference between a \"Request for Quote\" and a \"Purchase Order.\"",
@@ -46,8 +46,7 @@ const CoreEngineSection = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                        The Core Engine: <br />
-                        <span className="text-[#bef264]">Multi-Modal Intelligence</span>
+                        Multi-Modal Intelligence
                     </h2>
                 </div>
 
@@ -57,8 +56,8 @@ const CoreEngineSection = () => {
                             key={key}
                             onClick={() => setActiveTab(key)}
                             className={`flex items-center gap-2 px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === key
-                                    ? 'bg-[#bef264] text-[#022c22]'
-                                    : 'bg-white/10 text-white hover:bg-white/20'
+                                ? 'bg-[#bef264] text-[#022c22]'
+                                : 'bg-white/10 text-white hover:bg-white/20'
                                 }`}
                         >
                             {engine.icon}
