@@ -12,32 +12,33 @@ import BrainVisual from "@src/components/howItWorks/BrainVisual"
 
 import FoundationVisual from "@src/components/howItWorks/FoundationVisual"
 
+import WorkforceVisual from "@src/components/howItWorks/WorkforceVisual"
+
+import AnimatedScreenHero from "@src/components/howItWorks/AnimatedScreenHero"
+
 export default function HowItWorks() {
     return (
         <div className="min-h-screen bg-white">
-            {/* Hero Section */}
-            <section className="pt-32 px-4 sm:px-6 lg:px-8 max-w-full mx-auto text-center bg-lime-50/50">
-                <div className="max-w-7xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                        Complex Automation. <span className="text-lime-600">Zero Friction.</span>
+            {/* Hero Section with Animated Screen */}
+            <section className="bg-[#f7fee7] py-24 !pb-0 overflow-hidden">
+                <div className="max-w-4xl mx-auto text-center px-4">
+                    <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-8 leading-tight">
+                        Complex Automation. <span className="text-[#65a30d]">Zero Friction.</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+                    <p className="text-xl text-[#022c22]/70 mb-8 leading-relaxed">
                         We don't ask you to change how you work. We just make your existing tools intelligent.
                     </p>
-                    <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-12">
-                        <ArchitectureDiagram />
-                    </section>
+                </div>
+
+                {/* Animated Screen Hero */}
+                <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 mt-12">
+                    <div className="rounded-t-[3rem] bg-white/40 p-3 pt-3 pb-0 border-t border-l border-r border-[#022c22]/10 backdrop-blur-sm" style={{ height: '750px', overflow: 'hidden' }}>
+                        <div className="rounded-t-[2.5rem] shadow-2xl h-full w-full overflow-clip">
+                            <AnimatedScreenHero />
+                        </div>
+                    </div>
                 </div>
             </section>
-            {/* <div className="w-full flex flex-col text-center mx-auto p-12 px-64 text-3xl font-bold text-slate-700 mb-8 items-center justify-center shadow-sm border border-slate-100 bg-[#022c22] text-white overflow-hidden">
-                <p className="mb-4">
-                    Most software implementations fails because it forces your team to learn a new system. Agentworks is different. We build a bridge between the chaos of the shop floor and the structure of your ERP.
-                </p>
-            </div> */}
-
-            {/* Animated Diagram Section */}
-
-
             {/* Steps Section */}
             <div className="max-w-7xl mt-12 mx-auto px-4 sm:px-6 lg:px-8 pb-32 space-y-32">
 
@@ -162,6 +163,7 @@ export default function HowItWorks() {
                         </>
                     }
                     imagePlaceholder="Quoting, Inventory, Compliance Agents"
+                    visual={<WorkforceVisual />}
                     align="left"
                 />
 
