@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import HeroSection from '../components/home/HeroSection';
+import PainPointSection from '../components/home/PainPointSection';
 import ProblemSection from '../components/home/ProblemSection';
 import SolutionSection from '../components/home/SolutionSection';
+import IndustryPathwaysSection from '../components/home/IndustryPathwaysSection';
 import ValuePropSection from '../components/home/ValuePropSection';
 import SocialProofSection from '../components/home/SocialProofSection';
 
@@ -17,8 +19,10 @@ export default function Home() {
 
       <div className="flex flex-col min-h-screen">
         <HeroSection />
+        <PainPointSection />
         <ProblemSection />
         <SolutionSection />
+        <IndustryPathwaysSection />
         <ValuePropSection />
         <SocialProofSection />
       </div>

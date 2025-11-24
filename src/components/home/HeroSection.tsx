@@ -29,22 +29,18 @@ const HeroSection = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
-                        The Operating System for <br className="hidden md:block" />
-                        <span className="text-[#022c22]">Next Gen Manufacturing</span>
+                        Your Team Uses WhatsApp. We Update Your ERP.
                     </h1>
                     <p className="text-lg md:text-2xl text-[#022c22]/70 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-                        Your autonomous AI workforce that lives in your existing tools.
-                        <br />
-                        No new apps. No training. Just infinite operational capacity.
+                        Stop chasing data. Your staff sends voice notes and photos of challans. Our AI reads them and updates Tally, SAP, or Excel instantly. No new apps. No training required.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Get a Free Process Audit
+                        <Button href="/how-it-works" variant="primary">
+                            See How It Works
                             <ArrowRightIcon className="w-4 h-4 ml-2" />
                         </Button>
-                        <Button href="/roi-calculator" variant="outline">
-                            <Calculator className="w-4 h-4 mr-2" />
-                            Calculate Your ROI
+                        <Button href="/calculate-savings" variant="outline">
+                            Calculate Your Savings
                         </Button>
                     </div>
                 </div>
