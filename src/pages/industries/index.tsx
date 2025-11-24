@@ -3,6 +3,7 @@ import Section from '../../components/ui/Section';
 import IndustryCard from '../../components/industries/IndustryCard';
 import UniversalPhysicsSection from '../../components/industries/UniversalPhysicsSection';
 import { industries } from "../../components/industries/consts"
+import ProductionDashboard from '../../components/industries/ProductionDashboard';
 
 const IndustriesPage = () => {
     return (
@@ -13,7 +14,7 @@ const IndustriesPage = () => {
             </Head>
             <main>
                 {/* Hero Section */}
-                <Section className="bg-[#f7fee7] rounded-b-[3rem] py-24 !pb-0 overflow-hidden">
+                <Section className="bg-[#f7fee7] py-24 !pb-0 overflow-hidden">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-8 leading-tight">
                             Engineered for the Reality of the <span className="text-[#65a30d]">Shop Floor</span>
@@ -23,14 +24,12 @@ const IndustriesPage = () => {
                         </p>
                     </div>
 
-                    {/* Dashboard Image */}
-                    <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 mt-12 translate-y-12">
-                        <div className="rounded-[3rem] bg-white/40 p-3 border border-[#022c22]/10 backdrop-blur-sm">
-                            <img
-                                src="/dashboard2.png"
-                                alt="Agentworks Dashboard"
-                                className="w-full h-auto rounded-[2.5rem] shadow-2xl opacity-90"
-                            />
+                    {/* Production Dashboard */}
+                    <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 mt-12">
+                        <div className="rounded-t-[3rem] bg-white/40 p-3 pt-3 pb-0 border-t border-l border-r border-[#022c22]/10 backdrop-blur-sm" style={{ height: '750px', overflow: 'hidden' }}>
+                            <div className="rounded-t-[2.5rem] shadow-2xl h-full w-full overflow-clip">
+                                <ProductionDashboard />
+                            </div>
                         </div>
                     </div>
                 </Section>
