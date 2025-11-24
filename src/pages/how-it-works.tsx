@@ -32,7 +32,7 @@ export default function HowItWorks() {
 
                 {/* Animated Screen Hero */}
                 <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 mt-12">
-                    <div className="rounded-t-[3rem] bg-white/40 p-3 pt-3 pb-0 border-t border-l border-r border-[#022c22]/10 backdrop-blur-sm" style={{ height: '750px', overflow: 'hidden' }}>
+                    <div className="rounded-t-[3rem] bg-white/40 p-3 pt-3 pb-0 border-t border-l border-r border-[#022c22]/10 backdrop-blur-sm h-[800px] md:h-[600px] lg:h-[750px] overflow-hidden">
                         <div className="rounded-t-[2.5rem] shadow-2xl h-full w-full overflow-clip">
                             <AnimatedScreenHero />
                         </div>

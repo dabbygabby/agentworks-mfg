@@ -2,11 +2,14 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Button from './ui/Button';
 import Image from 'next/image';
-import { ArrowRightIcon, Phone } from 'lucide-react';
+import { ArrowRightIcon, Phone, ChevronDown, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { industries } from './industries/consts';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -57,43 +60,9 @@ const Navbar = () => {
             <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Industries
             </Link>
-            <div className="relative">
-              <button
-                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                onMouseEnter={() => setIsSolutionsOpen(true)}
-                onMouseLeave={() => setIsSolutionsOpen(false)}
-                className="text-[#022c22]/80 hover:text-[#022c22] inline-flex items-center px-1 pt-1 text-sm font-medium focus:outline-none transition-colors"
-              >
-                Solutions
-                <svg
-                  className={`ml-1 h-4 w-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {/* Dropdown Menu */}
-              {isSolutionsOpen && (
-                <div
-                  onMouseEnter={() => setIsSolutionsOpen(true)}
-                  onMouseLeave={() => setIsSolutionsOpen(false)}
-                  className="absolute left-0 mt-2 w-48 rounded-2xl shadow-xl bg-white ring-1 ring-black ring-opacity-5 py-2 overflow-hidden"
-                >
-                  <Link href="/solutions/quoting" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
-                    Quoting
-                  </Link>
-                  <Link href="/solutions/finance" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
-                    Finance
-                  </Link>
-                  <Link href="/solutions/production" className="block px-4 py-2 text-sm text-[#022c22]/70 hover:bg-[#f7fee7] hover:text-[#022c22]">
-                    Production
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link href="/agents" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              Agents
+            </Link>
 
             <Link href="/connectors" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Connectors
@@ -122,68 +91,159 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setIsMobileMenuOpen(true)}
               className="inline-flex items-center justify-center p-2 rounded-md text-[#022c22] hover:bg-[#022c22]/5 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-          <div className="pt-2 pb-3 space-y-1">
-            <div className="px-4 py-2 text-xs font-bold text-[#022c22]/40 uppercase tracking-wider">Solutions</div>
-            <Link href="/solutions/quoting" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              Quoting
-            </Link>
-            <Link href="/solutions/finance" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              Finance
-            </Link>
-            <Link href="/solutions/production" className="block pl-6 pr-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              Production
-            </Link>
-            <div className="border-t border-gray-100 my-2"></div>
-            <Link href="/industries" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              Industries
-            </Link>
-            <Link href="/how-it-works" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              How It Works
-            </Link>
-            <Link href="/success-stories" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              Success Stories
-            </Link>
-            <Link href="/roi-calculator" className="block px-4 py-2 text-base font-medium text-[#022c22]/70 hover:text-[#022c22] hover:bg-[#f7fee7]">
-              ROI Calculator
-            </Link>
-          </div>
-          <div className="pt-4 pb-4 border-t border-gray-100 bg-gray-50">
-            <div className="flex items-center px-4 space-x-4">
-              <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-[#022c22] hover:bg-[#022c22]/5">
-                Login
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 bg-white md:hidden flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-6 border-b border-gray-100">
+              <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                <div className="h-8 w-8 rounded-lg flex items-center justify-center">
+                  <Image src="/logo.png" alt="Logo" width={32} height={32} />
+                </div>
+                <span className="font-bold text-xl tracking-tight text-[#022c22]">
+                  Agentworks
+                </span>
               </Link>
-              <Button
-                href="/get-started"
-                variant="primary"
-                className="!w-full !justify-center !px-4 !py-2 !text-base"
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
               >
-                Get Started
+                <X className="w-6 h-6 text-[#022c22]" />
+              </button>
+            </div>
+
+            {/* Menu Items */}
+            <div className="flex-1 overflow-y-auto py-8 px-6 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <Link
+                  href="/agents"
+                  className="block text-2xl font-semibold text-[#022c22]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Agents
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <button
+                  onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                  className="flex items-center justify-between w-full text-2xl font-semibold text-[#022c22]"
+                >
+                  Industries
+                  <ChevronDown
+                    className={`w-6 h-6 transition-transform duration-300 ${isIndustriesOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isIndustriesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 pl-4 space-y-4">
+                        {industries.map((industry, index) => (
+                          <Link
+                            key={index}
+                            href={industry.link}
+                            className="block text-lg text-[#022c22]/70 hover:text-[#022c22]"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {industry.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link
+                  href="/how-it-works"
+                  className="block text-2xl font-semibold text-[#022c22]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  How It Works
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Link
+                  href="/success-stories"
+                  className="block text-2xl font-semibold text-[#022c22]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Success Stories
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Link
+                  href="/roi-calculator"
+                  className="block text-2xl font-semibold text-[#022c22]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  ROI Calculator
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Footer Actions */}
+            <div className="p-6 border-t border-gray-100 bg-gray-50">
+              <Button
+                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                variant="primary"
+                className="!w-full !justify-center !py-3 !text-lg !rounded-xl"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Contact Us
               </Button>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -3,7 +3,7 @@ import { CheckCircle2, RefreshCw } from 'lucide-react';
 
 const InputsVisual = () => {
     return (
-        <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 transform transition-all hover:scale-[1.01] duration-500">
+        <div className="bg-gray-50 rounded-3xl shadow-xl border border-gray-100 transform transition-all hover:scale-[1.01] duration-500">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                 {/* Header */}
                 <div className="p-4 border-b border-gray-100 bg-[#022c22] text-white flex justify-between items-center">
