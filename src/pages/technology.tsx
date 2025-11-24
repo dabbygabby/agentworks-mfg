@@ -1,7 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import HeroSection from '../components/technology/HeroSection';
 import ChallengeSection from '../components/technology/ChallengeSection';
 import CoreEngineSection from '../components/technology/CoreEngineSection';
@@ -18,9 +16,6 @@ const TechnologyPage = () => {
                 <title>Technology | Agentworks - AI That Speaks Manufacturing</title>
                 <meta name="description" content="Our Multi-Modal AI engine is trained specifically on the noisy, messy, unstructured data of the factory floor. It understands physics, costs, and context." />
             </Head>
-
-            <Navbar />
-
             <main>
                 <HeroSection />
                 <ChallengeSection />
@@ -31,8 +26,6 @@ const TechnologyPage = () => {
                 <SecuritySection />
                 <CTASection />
             </main>
-
-            <Footer />
         </div>
     );
 };
