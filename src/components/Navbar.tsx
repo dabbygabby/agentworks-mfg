@@ -95,14 +95,14 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2"
                   >
-                    <Link href="/technology" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
-                      Technology
-                    </Link>
                     <Link href="/agents" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
                       Agents
                     </Link>
                     <Link href="/connectors" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
                       Connectors
+                    </Link>
+                    <Link href="/technology" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
+                      Technology
                     </Link>
                   </motion.div>
                 )}

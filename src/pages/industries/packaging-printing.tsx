@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown } from 'lucide-react';
+import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const PackagingPage = () => {
     return (
@@ -187,6 +188,11 @@ const PackagingPage = () => {
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <div className="flex w-full items-center justify-center mt-12">
+                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
+                                Explore All Agents <ArrowRight className="w-4 h-4" />
+                            </Link>
                         </div>
                     </div>
                 </Section>

@@ -109,9 +109,9 @@ export default function HowItWorks() {
                                     <li><span className="font-medium text-slate-800">Text:</span> Understands intent in messages.</li>
                                 </ul>
                             </div>
-                            <button className="text-lime-600 font-semibold hover:text-lime-700 flex items-center gap-2 transition-colors">
+                            <Link href="/technology" className="text-lime-600 font-semibold hover:text-lime-700 flex items-center gap-2 transition-colors">
                                 Explore Our AI Technology <ArrowRight className="w-4 h-4" />
-                            </button>
+                            </Link>
                         </>
                     }
                     imagePlaceholder="AI Engine Box"
@@ -157,9 +157,9 @@ export default function HowItWorks() {
                                     <li><span className="font-medium text-slate-800">Scheduling:</span> Tracks production.</li>
                                 </ul>
                             </div>
-                            <button className="text-lime-600 font-semibold hover:text-lime-700 flex items-center gap-2 transition-colors">
+                            <Link href="/agents" className="text-lime-600 font-semibold hover:text-lime-700 flex items-center gap-2 transition-colors">
                                 Explore All Agents <ArrowRight className="w-4 h-4" />
-                            </button>
+                            </Link>
                         </>
                     }
                     imagePlaceholder="Quoting, Inventory, Compliance Agents"

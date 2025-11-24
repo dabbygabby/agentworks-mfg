@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart3, Clock, ShieldCheck, Microscope, RefreshCw, AlertOctagon } from 'lucide-react';
+import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart3, Clock, ShieldCheck, Microscope, RefreshCw, AlertOctagon, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const PharmaPage = () => {
     return (
@@ -187,6 +188,11 @@ const PharmaPage = () => {
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <div className="flex w-full items-center justify-center mt-12">
+                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
+                                Explore All Agents <ArrowRight className="w-4 h-4" />
+                            </Link>
                         </div>
                     </div>
                 </Section>
