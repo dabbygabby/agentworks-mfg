@@ -54,6 +54,9 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {/* Solutions Dropdown */}
+            <Link href="/technology" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+              Technology
+            </Link>
             <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               How It Works
             </Link>
@@ -63,7 +66,6 @@ const Navbar = () => {
             <Link href="/agents" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Agents
             </Link>
-
             <Link href="/connectors" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Connectors
             </Link>
@@ -191,6 +193,20 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
+              >
+                <Link
+                  href="/technology"
+                  className="block text-2xl font-semibold text-[#022c22]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Technology
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
               >
                 <Link
                   href="/how-it-works"
