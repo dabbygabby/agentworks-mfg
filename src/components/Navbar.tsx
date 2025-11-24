@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from './ui/Button';
 import Image from 'next/image';
 import { ArrowRightIcon, Phone, ChevronDown, X } from 'lucide-react';
@@ -9,6 +9,9 @@ import { industries } from './industries/consts';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isProductMobileOpen, setIsProductMobileOpen] = useState(false);
+  const [isProductDesktopOpen, setIsProductDesktopOpen] = useState(false);
+  const productTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -24,6 +27,19 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleProductEnter = () => {
+    if (productTimeoutRef.current) {
+      clearTimeout(productTimeoutRef.current);
+    }
+    setIsProductDesktopOpen(true);
+  };
+
+  const handleProductLeave = () => {
+    productTimeoutRef.current = setTimeout(() => {
+      setIsProductDesktopOpen(false);
+    }, 300);
+  };
 
   return (
     <nav
@@ -54,22 +70,48 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {/* Solutions Dropdown */}
-            <Link href="/technology" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
-              Technology
-            </Link>
             <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               How It Works
             </Link>
+
+            {/* Product Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleProductEnter}
+              onMouseLeave={handleProductLeave}
+            >
+              <button
+                className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors inline-flex items-center gap-1"
+              >
+                Product
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isProductDesktopOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {isProductDesktopOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2"
+                  >
+                    <Link href="/technology" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
+                      Technology
+                    </Link>
+                    <Link href="/agents" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
+                      Agents
+                    </Link>
+                    <Link href="/connectors" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
+                      Connectors
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Industries
             </Link>
-            <Link href="/agents" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
-              Agents
-            </Link>
-            <Link href="/connectors" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
-              Connectors
-            </Link>
-
             <Link href="/success-stories" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
               Success Stories
             </Link>
@@ -140,13 +182,50 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <Link
-                  href="/agents"
-                  className="block text-2xl font-semibold text-[#022c22]"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => setIsProductMobileOpen(!isProductMobileOpen)}
+                  className="flex items-center justify-between w-full text-2xl font-semibold text-[#022c22]"
                 >
-                  Agents
-                </Link>
+                  Product
+                  <ChevronDown
+                    className={`w-6 h-6 transition-transform duration-300 ${isProductMobileOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isProductMobileOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 pl-4 space-y-4">
+                        <Link
+                          href="/technology"
+                          className="block text-lg text-[#022c22]/70 hover:text-[#022c22]"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Technology
+                        </Link>
+                        <Link
+                          href="/agents"
+                          className="block text-lg text-[#022c22]/70 hover:text-[#022c22]"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Agents
+                        </Link>
+                        <Link
+                          href="/connectors"
+                          className="block text-lg text-[#022c22]/70 hover:text-[#022c22]"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Connectors
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
 
               <motion.div
@@ -187,20 +266,6 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Link
-                  href="/technology"
-                  className="block text-2xl font-semibold text-[#022c22]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Technology
-                </Link>
               </motion.div>
 
               <motion.div
