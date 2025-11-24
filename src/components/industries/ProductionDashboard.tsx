@@ -619,6 +619,7 @@ const MaintenanceView = () => (
 const ProductionDashboard = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
     const tabs = [
         { label: 'Production Planning', component: <ProductionView /> },
@@ -643,6 +644,18 @@ const ProductionDashboard = () => {
         //@ts-expect-error no error
         return () => clearInterval(interval);
     }, [isPaused, tabs.length]);
+
+    // Scroll active tab to center in mobile view
+    useEffect(() => {
+        const activeTabElement = tabRefs.current[activeTab];
+        if (activeTabElement) {
+            activeTabElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
+    }, [activeTab]);
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
@@ -672,22 +685,13 @@ const ProductionDashboard = () => {
                 </div>
             </header>
 
-            {/* Context Bar */}
-            <div className="bg-gray-50 min-h-12 sm:h-16 border-b border-gray-200 flex items-center sticky top-14 sm:top-16 z-20 py-2">
-                <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full">
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                        <span className="text-base sm:text-xl align-middle mr-1 sm:mr-2">📋</span>
-                        <span className="font-medium text-gray-900">Planning for:</span> <span className="inline sm:inline">VivaLife Distributors • 7,00,000 Sterile Medical Gloves • 6 month delivery</span>
-                    </p>
-                </div>
-            </div>
-
             {/* Navigation Tabs */}
-            <nav className="bg-white h-12 sm:h-14 border-b border-gray-200 shadow-sm sticky top-26 sm:top-32 z-20 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300">
+            <nav className="bg-white h-12 sm:h-14 border-b border-gray-200 shadow-sm sticky top-0 z-20 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300">
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 h-full flex items-center space-x-4 sm:space-x-8">
                     {tabs.map((tab, index) => (
                         <button
                             key={index}
+                            ref={(el) => { tabRefs.current[index] = el; }}
                             onClick={() => {
                                 setActiveTab(index);
                                 // Optional: Reset timer functionality is handled by state change, 
