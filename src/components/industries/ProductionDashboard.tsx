@@ -620,6 +620,7 @@ const ProductionDashboard = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+    const navRef = useRef<HTMLElement>(null);
 
     const tabs = [
         { label: 'Production Planning', component: <ProductionView /> },
@@ -648,11 +649,15 @@ const ProductionDashboard = () => {
     // Scroll active tab to center in mobile view
     useEffect(() => {
         const activeTabElement = tabRefs.current[activeTab];
-        if (activeTabElement) {
-            activeTabElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
+        const navElement = navRef.current;
+
+        if (activeTabElement && navElement) {
+            // Calculate center position
+            const scrollLeft = activeTabElement.offsetLeft - (navElement.clientWidth / 2) + (activeTabElement.clientWidth / 2);
+
+            navElement.scrollTo({
+                left: scrollLeft,
+                behavior: 'smooth'
             });
         }
     }, [activeTab]);
@@ -686,7 +691,7 @@ const ProductionDashboard = () => {
             </header>
 
             {/* Navigation Tabs */}
-            <nav className="bg-white h-12 sm:h-14 border-b border-gray-200 shadow-sm sticky top-0 z-20 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300">
+            <nav ref={navRef} className="bg-white h-12 sm:h-14 border-b border-gray-200 shadow-sm sticky top-0 z-20 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300">
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 h-full flex items-center space-x-4 sm:space-x-8">
                     {tabs.map((tab, index) => (
                         <button
