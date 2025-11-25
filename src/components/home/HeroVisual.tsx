@@ -12,12 +12,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Chart from 'chart.js/auto';
 import Image from 'next/image';
 
-// --- IMAGE PLACEHOLDERS (Keep your existing ones) ---
+// --- IMAGE PLACEHOLDERS ---
 const IMG_BILL = "/billPhoto.png";
 const IMG_CONVEYOR = "/brokenBelt.png";
 const IMG_INVENTORY = "/inventoryPhoto.png";
 
-// --- REUSABLE COMPONENTS (Unchanged) ---
+// --- REUSABLE COMPONENTS ---
 const CapacityChart = ({ data, color }: { data: number[], color: string }) => {
     const chartRef = useRef<HTMLCanvasElement>(null);
     const chartInstance = useRef<Chart | null>(null);
@@ -60,11 +60,10 @@ const CapacityChart = ({ data, color }: { data: number[], color: string }) => {
     return <canvas ref={chartRef} />;
 };
 
-// --- DASHBOARD VIEWS (Unchanged content, just ensuring they fit container) ---
+// --- DASHBOARD VIEWS ---
 
 const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full flex flex-col md:flex-row gap-4 p-4">
-        {/* Left: Summary Stats */}
         {!isMobile && (
             <div className="w-full md:w-5/12 flex flex-col gap-4">
                 <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
@@ -87,7 +86,7 @@ const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean })
                         ))}
                     </div>
                     {step >= 2 && (
-                        <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-auto pt-3 border-t border-slate-50">
+                        <motion.div initial={{ y: 0, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-auto pt-3 border-t border-slate-50">
                             <div className="flex gap-2 items-center p-2 bg-green-50 border border-green-100 rounded-lg">
                                 <div className="w-6 h-6 rounded-full bg-green-200 flex items-center justify-center text-green-700"><CheckCircle size={12} /></div>
                                 <div>
@@ -101,7 +100,6 @@ const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean })
             </div>
         )}
 
-        {/* Right: Detailed Invoice View */}
         <div className="flex-1 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden">
             <div className="h-10 border-b border-slate-100 flex justify-between items-center px-4 bg-slate-50/50">
                 <span className="text-[10px] font-bold text-slate-500 flex items-center gap-2"><FileText size={12} /> INVOICE DATA</span>
@@ -169,7 +167,6 @@ const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean })
 
 const ProductionView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full p-4">
-        {/* Left: Detailed Charts */}
         {!isMobile && (
             <div className="md:col-span-1 flex flex-col gap-4">
                 <div className="bg-white rounded-xl shadow-sm p-4 border border-slate-100 flex-1">
@@ -192,7 +189,6 @@ const ProductionView = ({ step, isMobile }: { step: number, isMobile: boolean })
                 </div>
             </div>
         )}
-        {/* Right: Active Quote Card */}
         <div className="bg-white rounded-xl w-full shadow-sm p-4 border border-slate-100 flex flex-col relative overflow-hidden">
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-4">RFQ Status</div>
             {step < 2 ? (
@@ -229,7 +225,6 @@ const ProductionView = ({ step, isMobile }: { step: number, isMobile: boolean })
 
 const MaintenanceView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full p-4">
-        {/* Left: Machine Status Grid */}
         {!isMobile && (
             <div className="bg-white rounded-xl shadow-sm p-4 border border-slate-100 flex flex-col">
                 <div className="flex justify-between items-center mb-4">
@@ -255,11 +250,10 @@ const MaintenanceView = ({ step, isMobile }: { step: number, isMobile: boolean }
                 </div>
             </div>
         )}
-        {/* Right: Ticket Details */}
         <div className="bg-white rounded-xl shadow-sm p-4 border border-slate-100 flex flex-col relative overflow-hidden">
             <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-4">Active Tickets</h3>
             {step >= 2 ? (
-                <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="flex-1 flex flex-col gap-3">
+                <motion.div initial={{ x: 0, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="flex-1 flex flex-col gap-3">
                     <div className="bg-red-50 p-3 rounded-lg border-l-2 border-red-500 shadow-sm w-full">
                         <div className="flex justify-between items-start mb-1">
                             <div className="text-[10px] font-bold text-red-700 uppercase bg-red-100 px-1.5 py-0.5 rounded">Critical</div>
@@ -295,7 +289,6 @@ const InventoryView = ({ step, isMobile }: { step: number, isMobile: boolean }) 
             {step >= 2 && <span className="bg-green-100 text-green-700 text-[9px] px-2 py-0.5 rounded-full font-bold animate-pulse">UPDATED</span>}
         </div>
         <div className="flex gap-4 items-end flex-1 h-full">
-            {/* Visual Rack */}
             <div className="flex-1 h-full flex gap-2 items-end pb-2">
                 {[40, 65, 30, 85, 50].map((h, i) => (
                     <div key={i} className="flex-1 bg-slate-50 rounded-t-md relative overflow-hidden group h-full flex items-end">
@@ -311,7 +304,6 @@ const InventoryView = ({ step, isMobile }: { step: number, isMobile: boolean }) 
                     </div>
                 ))}
             </div>
-            {/* Data Details */}
             <div className="w-1/3 flex flex-col justify-center gap-4 border-l border-slate-100 pl-4 h-full">
                 <div>
                     <div className="text-[9px] text-slate-500 uppercase">Selected Item</div>
@@ -320,7 +312,7 @@ const InventoryView = ({ step, isMobile }: { step: number, isMobile: boolean }) 
                 <div>
                     <div className="text-[9px] text-slate-500 uppercase">Quantity</div>
                     <div className="text-2xl font-bold text-slate-900 flex items-baseline gap-1">
-                        {step >= 2 ? <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>1,250</motion.span> : '850'}
+                        {step >= 2 ? <motion.span initial={{ opacity: 0, y: 0 }} animate={{ opacity: 1, y: 0 }}>1,250</motion.span> : '850'}
                         <span className="text-[10px] font-normal text-slate-400">units</span>
                     </div>
                     <div className={`text-[9px] font-bold mt-1 ${step >= 2 ? 'text-green-600' : 'text-slate-400'}`}>
@@ -385,9 +377,10 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                         ? 'w-full px-4 top-20 h-[450px]'
                         : 'top-0 left-1/2 -translate-x-1/2 w-[900px] h-[580px]'
                     }`}
+                // FIXED: Removed Vertical (y) Movement entirely to prevent scrolling/jumping
                 animate={{
                     opacity: showLaptop ? 1 : 0,
-                    y: showLaptop ? 0 : 30,
+                    y: 0,
                     scale: showLaptop ? 1 : 0.98
                 }}
             >
@@ -423,7 +416,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                     {/* Content Area */}
                     <div className={`flex-1 bg-slate-50/50 relative overflow-hidden`}>
                         <AnimatePresence mode="wait">
-                            <motion.div key={scenario} className="h-full" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
+                            <motion.div key={scenario} className="h-full" initial={{ opacity: 0, y: 0 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 0 }} transition={{ duration: 0.2 }}>
                                 {details.view}
                             </motion.div>
                         </AnimatePresence>
@@ -436,12 +429,13 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                 className={`absolute z-30 transition-all duration-500 cubic-bezier(0.25, 0.46, 0.45, 0.94)
                     ${isMobile
                         ? 'bottom-0 w-[310px] h-[630px] left-1/2 -translate-x-1/2 origin-bottom'
-                        : 'bottom-6 w-[285px] h-[615px] left-16 origin-bottom-left' // Slenderer aspect ratio for desktop
+                        : 'bottom-6 w-[285px] h-[615px] left-16 origin-bottom-left'
                     }`}
+                // FIXED: Removed vertical movement (y: 180). Now it only fades and scales slightly.
                 animate={{
-                    y: showPhone ? 0 : 180,
+                    y: 0,
                     opacity: showPhone ? 1 : 0,
-                    scale: showPhone ? 1 : 0.9,
+                    scale: showPhone ? 1 : 0.95,
                 }}
             >
                 {/* Phone Body */}
@@ -520,7 +514,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                                     </div>
                                 </motion.div>
                             ) : (
-                                // CASE 0, 2, 3: WHATSAPP UI (Redesigned)
+                                // CASE 0, 2, 3: WHATSAPP UI
                                 <motion.div
                                     key="whatsapp" className="absolute inset-0 pt-[44px] bg-[#efeae2] flex flex-col"
                                     style={{ backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")', backgroundSize: '350px' }}
@@ -546,7 +540,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         <AnimatePresence>
                                             {step >= 1 && (
-                                                <motion.div initial={{ opacity: 0, scale: 0.9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} className="self-end max-w-[85%]">
+                                                <motion.div initial={{ opacity: 0, scale: 0.9, y: 0 }} animate={{ opacity: 1, scale: 1, y: 0 }} className="self-end max-w-[85%]">
                                                     <div className="bg-[#DCF8C6] rounded-2xl rounded-tr-none p-1 shadow-sm relative overflow-hidden">
                                                         {/* Image Bubble */}
                                                         <div className="rounded-xl overflow-hidden relative mb-1">
@@ -573,7 +567,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         <AnimatePresence>
                                             {step >= 3 && (
-                                                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="self-start max-w-[85%]">
+                                                <motion.div initial={{ opacity: 0, y: 0 }} animate={{ opacity: 1, y: 0 }} className="self-start max-w-[85%]">
                                                     <div className="bg-white rounded-2xl rounded-tl-none p-2 shadow-sm relative">
                                                         <div className={`text-[10px] font-bold ${scenario === 2 ? 'text-red-600' : 'text-blue-600'} mb-0.5 ml-1`}>~ System Assistant</div>
                                                         <p className="text-[13px] text-slate-800 leading-snug ml-1">
@@ -586,7 +580,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                                         </AnimatePresence>
                                     </div>
 
-                                    {/* WhatsApp Input (Redesigned) */}
+                                    {/* WhatsApp Input */}
                                     <div className="absolute bottom-0 w-full px-3 py-2 bg-[#f0f2f5] flex items-end gap-2 pb-6 border-t border-slate-200/50 z-20">
                                         <Plus size={24} className="text-blue-500 mb-1" />
                                         <div className="flex-1 bg-white rounded-2xl min-h-[36px] px-3 py-1.5 flex items-center text-slate-400 text-sm shadow-sm border border-slate-100">
