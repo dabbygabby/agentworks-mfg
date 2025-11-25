@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowRightIcon, Grid2X2 } from "lucide-react"
 import Link from "next/link";
 import { StepSection } from "@src/components/howItWorks/StepSection"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
@@ -109,6 +109,25 @@ export default function HowItWorks() {
                         Get the power of a million-dollar digital transformation with the simplicity of sending a text message. Complexity is our problem, not yours.
                     </motion.p>
                 </div>
+                <motion.div
+                    className="flex w-full flex-col sm:flex-row items-center justify-center lg:justify-center gap-4 mt-0 md:mt-12"
+                >
+                    <Link
+                        href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                        className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
+                    >
+                        Book A Demo
+                        <ArrowRightIcon className="w-4 h-4 ml-2" />
+                    </Link>
+
+                    <Link
+                        href="/connectors"
+                        className="rounded-full flex items-center border-2 justify-center flex-row !px-10 !py-4 !text-lg border-white/20 text-white hover:bg-white/10"
+                    >
+                        <Grid2X2 className="w-4 h-4 mr-2" />
+                        Check Your Tech Stack
+                    </Link>
+                </motion.div>
 
                 {/* Animated Screen Hero */}
                 <motion.div
