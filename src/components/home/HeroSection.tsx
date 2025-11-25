@@ -4,54 +4,138 @@ import { ArrowRightIcon, Calculator, Play } from 'lucide-react';
 import HeroVisual from './HeroVisual';
 import VideoModal from './VideoModal';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // --- Animation Variants ---
+
+    // 1. Text Column: Staggers its children (Headline -> Copy -> Buttons)
+    const textContainerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1, // Small initial delay prevents "flash" on load
+            }
+        }
+    };
+
+    // 2. Elements: A clean, premium "Fade Up" using a custom Bezier curve
+    // This curve [0.22, 1, 0.36, 1] is similar to "ease-out-quart" - snappy start, smooth finish
+    const fadeInUpVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    };
+
+    // 3. Visual: Enters with a slight scale up, then floats gently
+    const visualEntranceVariants = {
+        hidden: { opacity: 0, scale: 0.95, y: 20 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.4 // Enters after the text has started reading
+            }
+        }
+    };
+
+    const floatingAnimation = {
+        y: [0, -15, 0], // Bob up and down 15px
+        transition: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+        }
+    };
+
     return (
         <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
-            {/* Added 'mx-auto' to container for technical centering */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-                {/* FIX APPLIED: 
-                   1. Added 'max-w-6xl mx-auto'. This constrains the content width so it doesn't 
-                      spread too far apart on wide screens, keeping the visual center tight.
-                */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
 
                     {/* Left Column: Text Content */}
-                    <div className="text-left">
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight">
+                    <motion.div
+                        className="text-left"
+                        initial="hidden"
+                        animate="visible"
+                        variants={textContainerVariants}
+                    >
+                        <motion.h1
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight"
+                        >
                             <span> Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
-                        </h1>
-                        <p className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28">
+                        </motion.h1>
+
+                        <motion.p
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28"
+                        >
                             We turn raw communication into instant action by capturing factory floor chatter, structuring it into clean data, and executing work automatically—so you stop managing processes and start managing growth.
-                        </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-32">
+                        </motion.p>
+
+                        <motion.div
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-32"
+                        >
                             <Link
                                 href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
-                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-colors'
+                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                             >
                                 Talk to an Expert
                                 <ArrowRightIcon className="w-4 h-4 ml-2" />
                             </Link>
-                            <Button onClick={() => setIsModalOpen(true)} className='cursor-pointer border-white border hover:bg-white/20'>
+
+                            <Button
+                                onClick={() => setIsModalOpen(true)}
+                                className='cursor-pointer border-white border hover:bg-white/20 transition-all hover:scale-105 active:scale-95'
+                            >
                                 <Play className="w-4 h-4 mr-2" />
                                 Watch the Video
                             </Button>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Column: Hero Visual */}
-                    {/* FIX APPLIED:
-                       1. Added 'flex justify-center items-center'. This forces the HeroVisual 
-                          to sit perfectly in the center of its column, regardless of its internal width.
-                    */}
-                    <div className="relative mx-auto w-full max-w-2xl lg:max-w-none p-4 pt-0 rounded-3xl flex justify-center items-center">
-                        <HeroVisual forceCompact={true} />
-                        {/* Decorative Elements behind visual */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                    </div>
+                    <motion.div
+                        className="relative mx-auto w-full max-w-2xl lg:max-w-none p-4 pt-0 rounded-3xl flex justify-center items-center"
+                        initial="hidden"
+                        animate="visible"
+                        //@ts-expect-error no error
+                        variants={visualEntranceVariants}
+                    >
+                        {/* Wrapper for the floating loop animation */}
+                        {/* @ts-expect-error no error */}
+
+                        <motion.div animate={floatingAnimation} className="w-full flex justify-center">
+                            <HeroVisual forceCompact={true} />
+                        </motion.div>
+
+                        {/* Decorative Elements - Pulsing Glow */}
+                        <motion.div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
+                            animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.05, 1] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                    </motion.div>
+
                 </div>
             </div>
             <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
