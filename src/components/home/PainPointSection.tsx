@@ -1,66 +1,46 @@
 import React from 'react';
 import Section from '../ui/Section';
 import Link from 'next/link';
-import { FileQuestion, AlertTriangle, ShoppingCart, Wrench, MessageSquare } from 'lucide-react';
+import { UserX, MessageSquareX, Hourglass, ArrowRight } from 'lucide-react';
 
 const PainPointSection = () => {
     const painPoints = [
         {
-            icon: FileQuestion,
-            headline: "Drowning in BOMs?",
-            copy: "500+ line items. Volatile component sourcing. One missing part stops everything.",
-            cta: "See the Sourcing Agent",
-            href: "/industries/electronics-ems",
-            color: "blue"
-        },
-        {
-            icon: AlertTriangle,
-            headline: "Audit Panic?",
-            copy: "Batch tracking. Expiry management. Manual reconciliation eating 2 days/month.",
-            cta: "See the Compliance Agent",
-            href: "/industries/pharma-chemicals",
-            color: "green"
-        },
-        {
-            icon: ShoppingCart,
-            headline: "Losing Margins to Slow Buying?",
-            copy: "10 vendors. Volatile prices. By the time you decide, the price has moved.",
-            cta: "See the Procurement Agent",
-            href: "/industries/packaging-printing",
-            color: "orange"
-        },
-        {
-            icon: Wrench,
-            headline: "Can't Track Your Jobs?",
-            copy: "50 jobs running. No idea which stage each is at without phone calls.",
-            cta: "See the Operations Agent",
-            href: "/industries/heavy-machinery",
+            icon: UserX,
+            headline: "The Adoption Barrier",
+            copy: "Your staff won't use complicated apps. They reject login screens and complex forms.",
+            cta: "See the Solution",
+            href: "/how-it-works",
             color: "red"
         },
         {
-            icon: MessageSquare,
-            headline: "Data Trapped in WhatsApp?",
-            copy: "Critical info locked in voice notes, photos, and mental notes.",
-            cta: "See How We Extract It",
+            icon: MessageSquareX,
+            headline: "The Data Black Hole",
+            copy: "Critical approvals and bills get buried in chat history. Your data is lost.",
+            cta: "Recover Your Data",
             href: "/how-it-works",
-            color: "purple"
+            color: "orange"
+        },
+        {
+            icon: Hourglass,
+            headline: "The Bottleneck",
+            copy: "You are the bottleneck. You spend hours bridging the gap between the shop floor and the office.",
+            cta: "Free Your Time",
+            href: "/how-it-works",
+            color: "blue"
         }
     ];
 
     const colorClasses = {
         blue: "bg-blue-50 border-blue-100 hover:border-blue-300",
-        green: "bg-green-50 border-green-100 hover:border-green-300",
         orange: "bg-orange-50 border-orange-100 hover:border-orange-300",
         red: "bg-red-50 border-red-100 hover:border-red-300",
-        purple: "bg-purple-50 border-purple-100 hover:border-purple-300"
     };
 
     const iconColorClasses = {
         blue: "text-blue-600",
-        green: "text-green-600",
         orange: "text-orange-600",
         red: "text-red-600",
-        purple: "text-purple-600"
     };
 
     return (
@@ -68,14 +48,15 @@ const PainPointSection = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                        Which Problem Keeps You Up at Night?
+                        The Reality Gap
                     </h2>
-                    <p className="text-xl text-[#022c22]/70 max-w-3xl mx-auto">
-                        Pick your biggest headache. We'll show you exactly how we solve it.
+                    <p className="text-xl text-[#022c22]/70 max-w-3xl mx-auto leading-relaxed">
+                        You have bought software before. You have an ERP. <br className="hidden md:block" />
+                        But your factory still runs on phone calls and WhatsApp groups.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {painPoints.map((point, index) => {
                         const Icon = point.icon;
                         return (
@@ -95,13 +76,17 @@ const PainPointSection = () => {
                                 </p>
                                 <div className="flex items-center text-[#65a30d] font-semibold group-hover:gap-3 gap-2 transition-all">
                                     {point.cta}
-                                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </div>
                             </Link>
                         );
                     })}
+                </div>
+
+                <div className="text-center max-w-3xl mx-auto bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <p className="text-2xl font-medium text-[#022c22]">
+                        We don't ask you to change. <span className="text-[#65a30d]">We simply make your existing tools intelligent.</span>
+                    </p>
                 </div>
             </div>
         </Section>
