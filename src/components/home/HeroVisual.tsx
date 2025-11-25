@@ -424,7 +424,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                     )}
 
                     {/* Content Area */}
-                    <div className={`flex-1 ${isMobile ? 'p-4' : 'p-6'} bg-slate-50/50 relative overflow-hidden`}>
+                    <div className={`flex-1 bg-slate-50/50 relative overflow-hidden`}>
                         <AnimatePresence mode="wait">
                             <motion.div key={scenario} className="h-full" initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}>
                                 {details.view}
@@ -549,7 +549,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         <AnimatePresence>
                                             {step >= 1 && (
-                                                <motion.div initial={{ opacity: 0, scale: 0.9, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} className="self-end max-w-[85%]">
+                                                <motion.div initial={{ opacity: 0, scale: 0.9, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} className="self-end">
                                                     <div className="bg-[#d9fdd3] rounded-lg rounded-tr-none p-1 shadow-sm relative">
                                                         {/* Image Bubble */}
                                                         <div className="rounded-lg overflow-hidden relative mb-1">
@@ -578,7 +578,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         <AnimatePresence>
                                             {step >= 3 && (
-                                                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="self-start max-w-[85%]">
+                                                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="self-start">
                                                     <div className="bg-white rounded-lg rounded-tl-none p-2 shadow-sm relative">
                                                         <div className={`text-[10px] font-bold ${scenario === 2 ? 'text-red-600' : 'text-blue-600'} mb-1`}>~ System Assistant</div>
                                                         <p className="text-xs text-slate-800 leading-snug">

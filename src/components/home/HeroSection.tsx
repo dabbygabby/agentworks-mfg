@@ -10,15 +10,22 @@ const HeroSection = () => {
 
     return (
         <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
-            <div className="container mx-20 px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Added 'mx-auto' to container for technical centering */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                {/* FIX APPLIED: 
+                   1. Added 'max-w-6xl mx-auto'. This constrains the content width so it doesn't 
+                      spread too far apart on wide screens, keeping the visual center tight.
+                */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
                     {/* Left Column: Text Content */}
                     <div className="text-left">
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight">
-                            <span > Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
+                            <span> Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
                         </h1>
                         <p className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28">
-                            We help you turn raw communication into instant action. We capture the noise of the factory floor, structure it into clean data, and execute the work automatically—so you stop managing processes and start managing growth.
+                            We turn raw communication into instant action by capturing factory floor chatter, structuring it into clean data, and executing work automatically—so you stop managing processes and start managing growth.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-32">
                             <Link
@@ -36,7 +43,11 @@ const HeroSection = () => {
                     </div>
 
                     {/* Right Column: Hero Visual */}
-                    <div className="relative mx-auto w-full max-w-2xl lg:max-w-none p-4 pt-0 rounded-3xl">
+                    {/* FIX APPLIED:
+                       1. Added 'flex justify-center items-center'. This forces the HeroVisual 
+                          to sit perfectly in the center of its column, regardless of its internal width.
+                    */}
+                    <div className="relative mx-auto w-full max-w-2xl lg:max-w-none p-4 pt-0 rounded-3xl flex justify-center items-center">
                         <HeroVisual forceCompact={true} />
                         {/* Decorative Elements behind visual */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"></div>

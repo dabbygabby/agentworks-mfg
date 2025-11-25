@@ -146,10 +146,7 @@ const Navbar = () => {
               variant="primary"
               // Logic: If transparent state, force background #bef264 and dark text. 
               // Otherwise, let Button component handle defaults.
-              className={`!px-5 !py-2 !text-sm transition-colors ${isTransparentState
-                ? '!bg-[#bef264] !text-[#022c22] hover:!bg-[#bef264]/90 border-none'
-                : ''
-                }`}
+              className={`!px-5 !py-2 !text-sm transition-colors !bg-[#bef264] !text-[#022c22] hover:!bg-[#bef264]/90 border-none`}
             >
               <Phone className="w-4 h-4 mr-2" />
               Contact Us
