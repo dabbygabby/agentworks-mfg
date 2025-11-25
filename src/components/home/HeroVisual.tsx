@@ -5,21 +5,19 @@ import {
     ArrowLeft, Activity,
     CheckCircle,
     Search, FileText, Loader2, Mic, Play,
-    Camera, ChevronLeft, Package, CreditCard,
-    TrendingUp, AlertTriangle, Clock, Users,
-    Battery, Wifi, Signal, MoreVertical, Phone, Video
+    Camera, ChevronLeft, Package,
+    TrendingUp, Signal, Phone, Video, Plus, Battery, Wifi
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Chart from 'chart.js/auto';
 import Image from 'next/image';
 
-// --- IMAGE PLACEHOLDERS ---
+// --- IMAGE PLACEHOLDERS (Keep your existing ones) ---
 const IMG_BILL = "/billPhoto.png";
 const IMG_CONVEYOR = "/brokenBelt.png";
 const IMG_INVENTORY = "/inventoryPhoto.png";
 
-// --- REUSABLE COMPONENTS ---
-
+// --- REUSABLE COMPONENTS (Unchanged) ---
 const CapacityChart = ({ data, color }: { data: number[], color: string }) => {
     const chartRef = useRef<HTMLCanvasElement>(null);
     const chartInstance = useRef<Chart | null>(null);
@@ -62,10 +60,10 @@ const CapacityChart = ({ data, color }: { data: number[], color: string }) => {
     return <canvas ref={chartRef} />;
 };
 
-// --- DASHBOARD VIEWS (Enhanced Density) ---
+// --- DASHBOARD VIEWS (Unchanged content, just ensuring they fit container) ---
 
 const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full flex flex-col md:flex-row gap-4">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full flex flex-col md:flex-row gap-4 p-4">
         {/* Left: Summary Stats */}
         {!isMobile && (
             <div className="w-full md:w-5/12 flex flex-col gap-4">
@@ -170,7 +168,7 @@ const AccountingView = ({ step, isMobile }: { step: number, isMobile: boolean })
 );
 
 const ProductionView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full p-4">
         {/* Left: Detailed Charts */}
         {!isMobile && (
             <div className="md:col-span-1 flex flex-col gap-4">
@@ -230,7 +228,7 @@ const ProductionView = ({ step, isMobile }: { step: number, isMobile: boolean })
 );
 
 const MaintenanceView = ({ step, isMobile }: { step: number, isMobile: boolean }) => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 md:grid-cols-1 gap-4 h-full p-4">
         {/* Left: Machine Status Grid */}
         {!isMobile && (
             <div className="bg-white rounded-xl shadow-sm p-4 border border-slate-100 flex flex-col">
@@ -378,28 +376,27 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
     const showPhone = !isMobile || (isMobile && step !== 2);
 
     return (
-        <div className="w-full h-[660px] flex items-start justify-center bg-transparent pt-8 overflow-hidden relative font-sans">
+        <div className="w-full h-[680px] flex items-start justify-center bg-transparent pt-8 overflow-hidden relative font-sans">
 
             {/* === LAPTOP DASHBOARD === */}
             <motion.div
                 className={`absolute z-10 transition-all duration-500
                     ${isMobile
-                        ? 'w-full px-4 top-20'
+                        ? 'w-full px-4 top-20 h-[450px]'
                         : 'top-0 left-1/2 -translate-x-1/2 w-[900px] h-[580px]'
                     }`}
                 animate={{
                     opacity: showLaptop ? 1 : 0,
-                    y: showLaptop ? 0 : 20,
-                    scale: showLaptop ? 1 : 0.95
+                    y: showLaptop ? 0 : 30,
+                    scale: showLaptop ? 1 : 0.98
                 }}
             >
-                <div className={`w-full bg-slate-50 rounded-xl overflow-hidden flex flex-col relative ring-1 ring-black/5 shadow-2xl
-                    ${isMobile ? 'h-[400px]' : 'h-full'}`}>
+                <div className={`w-full bg-slate-50/80 backdrop-blur-xl rounded-2xl overflow-hidden flex flex-col relative ring-1 ring-black/10 shadow-2xl h-full`}>
 
                     {/* Browser Header */}
                     {!isMobile && (
                         <>
-                            <div className="h-9 bg-[#eef0f2] border-b border-slate-200 flex items-center px-4 gap-4">
+                            <div className="h-9 bg-[#eef0f2] border-b border-slate-200/80 flex items-center px-4 gap-4">
                                 <div className="flex gap-1.5 opacity-60">
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-400 border border-red-500/20"></div>
                                     <div className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-500/20"></div>
@@ -409,7 +406,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                                     <span className="text-slate-300 mr-1">https://</span>app.factory-os.io/{details.tab.toLowerCase()}
                                 </div>
                             </div>
-                            <div className="h-10 bg-white border-b border-slate-200 flex items-center px-6 gap-6 shadow-sm z-10">
+                            <div className="h-10 bg-white/80 backdrop-blur-md border-b border-slate-200/80 flex items-center px-6 gap-6 shadow-sm z-10">
                                 {['Finance', 'Production', 'Maintenance', 'Inventory'].map((t) => (
                                     <span key={t} className={`text-xs font-bold border-b-[3px] py-2.5 transition-colors cursor-default ${details.tab === t ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-400'}`}>
                                         {t}
@@ -426,7 +423,7 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                     {/* Content Area */}
                     <div className={`flex-1 bg-slate-50/50 relative overflow-hidden`}>
                         <AnimatePresence mode="wait">
-                            <motion.div key={scenario} className="h-full" initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}>
+                            <motion.div key={scenario} className="h-full" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
                                 {details.view}
                             </motion.div>
                         </AnimatePresence>
@@ -436,37 +433,38 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
             {/* === IPHONE 14 PRO FRAME === */}
             <motion.div
-                className={`absolute z-30 transition-all duration-500
+                className={`absolute z-30 transition-all duration-500 cubic-bezier(0.25, 0.46, 0.45, 0.94)
                     ${isMobile
-                        ? 'bottom-0 w-[340px] left-1/2 -translate-x-1/2'
-                        : 'bottom-12 w-[300px] left-12'
+                        ? 'bottom-0 w-[310px] h-[630px] left-1/2 -translate-x-1/2 origin-bottom'
+                        : 'bottom-6 w-[285px] h-[615px] left-16 origin-bottom-left' // Slenderer aspect ratio for desktop
                     }`}
                 animate={{
-                    y: showPhone ? 0 : 120,
+                    y: showPhone ? 0 : 180,
                     opacity: showPhone ? 1 : 0,
+                    scale: showPhone ? 1 : 0.9,
                 }}
             >
                 {/* Phone Body */}
-                <div className="relative rounded-[3rem] bg-slate-900 p-1.5 shadow-[0_0_0_1px_#334155,0_10px_20px_-5px_rgba(0,0,0,0.4)] h-[600px] md:h-[580px] ring-2 ring-slate-800/50">
+                <div className="relative rounded-[3.5rem] bg-slate-950 p-2 shadow-[0_0_0_2px_#334155,0_25px_50px_-12px_rgba(0,0,0,0.5)] h-full ring-1 ring-slate-800/50 overflow-hidden">
                     {/* Side Buttons */}
-                    <div className="absolute top-24 -left-[1px] w-[2px] h-8 bg-slate-700 rounded-l-md"></div>
-                    <div className="absolute top-36 -left-[1px] w-[2px] h-12 bg-slate-700 rounded-l-md"></div>
-                    <div className="absolute top-28 -right-[1px] w-[2px] h-16 bg-slate-700 rounded-r-md"></div>
+                    <div className="absolute top-28 -left-[2px] w-[3px] h-8 bg-slate-800 rounded-l-md"></div>
+                    <div className="absolute top-40 -left-[2px] w-[3px] h-14 bg-slate-800 rounded-l-md"></div>
+                    <div className="absolute top-32 -right-[2px] w-[3px] h-20 bg-slate-800 rounded-r-md"></div>
 
                     {/* Screen */}
-                    <div className="bg-white rounded-[2.5rem] overflow-hidden relative flex flex-col h-full w-full mask-image-source">
+                    <div className="bg-white rounded-[3rem] overflow-hidden relative flex flex-col h-full w-full backface-hidden">
 
                         {/* Dynamic Island / Status Bar */}
-                        <div className="h-12 w-full absolute top-0 left-0 z-50 flex justify-between items-start px-6 pt-3 text-slate-900">
-                            <span className="text-[12px] font-bold tracking-wide pl-2">9:41</span>
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full flex items-center justify-center gap-2 px-2">
+                        <div className="h-11 w-full absolute top-0 left-0 z-50 flex justify-between items-start px-6 pt-3 text-slate-900 pointer-events-none">
+                            <span className="text-[13px] font-medium tracking-tight pl-1">9:41</span>
+                            <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[90px] h-[26px] bg-black rounded-full flex items-center justify-center gap-2 px-2">
                                 {/* Dynamic Island Content */}
-                                <div className="w-1.5 h-1.5 rounded-full bg-slate-800/50"></div>
+                                <div className="w-1.5 h-1.5 rounded-full bg-slate-800/80"></div>
                             </div>
-                            <div className="flex items-center gap-1.5 pr-2">
-                                <Signal size={12} fill="currentColor" />
-                                <Wifi size={12} />
-                                <Battery size={12} fill="currentColor" />
+                            <div className="flex items-center gap-1.5 pr-1">
+                                <Signal size={13} fill="currentColor" />
+                                <Wifi size={13} />
+                                <Battery size={13} fill="currentColor" />
                             </div>
                         </div>
 
@@ -474,37 +472,37 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                             {/* CASE 1: EMAIL RFQ */}
                             {scenario === 1 ? (
                                 <motion.div
-                                    key="email" className="absolute inset-0 pt-14 bg-slate-50 flex flex-col w-full"
-                                    initial={{ x: 300 }} animate={{ x: 0 }} exit={{ x: -300 }}
+                                    key="email" className="absolute inset-0 pt-12 bg-slate-50 flex flex-col w-full"
+                                    initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ ease: "easeInOut", duration: 0.3 }}
                                 >
-                                    <div className="px-5 py-2 bg-white border-b flex justify-between items-center w-full">
-                                        <div className="flex items-center gap-1 text-blue-600"><ChevronLeft size={24} /><span className="text-base">Inbox</span></div>
-                                        <span className="font-bold text-base">Client Inc</span>
-                                        <Search size={20} className="text-blue-600" />
+                                    <div className="px-4 py-2 bg-white border-b flex justify-between items-center w-full">
+                                        <div className="flex items-center gap-1 text-blue-500"><ChevronLeft size={22} /><span className="text-[15px]">Inbox</span></div>
+                                        <span className="font-semibold text-[15px]">Client Inc</span>
+                                        <Search size={20} className="text-blue-500" />
                                     </div>
-                                    <div className="p-4 flex-1 flex flex-col">
-                                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 mb-6">
-                                            <div className="flex justify-between items-start mb-3">
-                                                <div className="flex gap-3">
-                                                    <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold">C</div>
+                                    <div className="p-3 flex-1 flex flex-col">
+                                        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-4">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <div className="flex gap-2.5">
+                                                    <div className="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm">C</div>
                                                     <div>
-                                                        <div className="font-bold text-slate-900 text-base">Client Inc</div>
-                                                        <div className="text-xs text-slate-500">To: Sales Team</div>
+                                                        <div className="font-bold text-slate-900 text-[15px]">Client Inc</div>
+                                                        <div className="text-[11px] text-slate-500">To: Sales Team</div>
                                                     </div>
                                                 </div>
-                                                <span className="text-xs text-slate-400">10:23 AM</span>
+                                                <span className="text-[11px] text-slate-400">10:23 AM</span>
                                             </div>
-                                            <div className="text-sm font-bold text-slate-800 mb-2">URGENT: Request for Quote - 10k Units</div>
-                                            <p className="text-sm text-slate-600 leading-relaxed">Hi Team, we need pricing for 10,000 units of the standard assembly by EOD. Can you expedite?</p>
+                                            <div className="text-[13px] font-bold text-slate-800 mb-1">URGENT: Request for Quote - 10k Units</div>
+                                            <p className="text-[13px] text-slate-600 leading-snug">Hi Team, we need pricing for 10,000 units of the standard assembly by EOD. Can you expedite?</p>
                                         </div>
 
                                         <AnimatePresence>
                                             {step >= 3 && (
-                                                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-auto mb-4 bg-slate-800 text-white p-4 rounded-2xl flex items-center gap-3 shadow-lg mx-2">
-                                                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center"><CheckCircle size={16} className="text-white" /></div>
+                                                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-auto mb-4 bg-slate-800 text-white p-3 rounded-2xl flex items-center gap-3 shadow-lg mx-1">
+                                                    <div className="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center"><CheckCircle size={14} className="text-white" /></div>
                                                     <div>
-                                                        <div className="font-bold text-sm">Quote Sent</div>
-                                                        <div className="text-xs text-slate-400">Synced with CRM</div>
+                                                        <div className="font-bold text-[13px]">Quote Sent</div>
+                                                        <div className="text-[11px] text-slate-400">Synced with CRM</div>
                                                     </div>
                                                 </motion.div>
                                             )}
@@ -512,8 +510,8 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         {step < 3 && (
                                             <motion.button
-                                                animate={step === 1 ? { scale: 0.98 } : { scale: 1 }}
-                                                className={`mt-auto w-full text-white text-base font-bold py-4 rounded-2xl flex items-center justify-center gap-2 mb-2 transition-all ${step >= 1 ? 'bg-slate-400' : 'bg-blue-600 shadow-lg shadow-blue-200'}`}
+                                                animate={step === 1 ? { scale: 0.97 } : { scale: 1 }}
+                                                className={`mt-auto w-full text-white text-[15px] font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 mb-1 transition-all ${step >= 1 ? 'bg-slate-400' : 'bg-blue-600 shadow-lg shadow-blue-200'}`}
                                             >
                                                 {step === 1 ? <Loader2 className="animate-spin w-5 h-5" /> : <FileText size={18} />}
                                                 {step === 0 ? "Generate Quote" : "Processing..."}
@@ -522,55 +520,52 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
                                     </div>
                                 </motion.div>
                             ) : (
-                                // CASE 0, 2, 3: WHATSAPP UI
+                                // CASE 0, 2, 3: WHATSAPP UI (Redesigned)
                                 <motion.div
-                                    key="whatsapp" className="absolute inset-0 pt-14 bg-[#efeae2] flex flex-col"
-                                    style={{ backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")', backgroundSize: '400px' }}
-                                    initial={{ x: 300 }} animate={{ x: 0 }} exit={{ x: -300 }}
+                                    key="whatsapp" className="absolute inset-0 pt-[44px] bg-[#efeae2] flex flex-col"
+                                    style={{ backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")', backgroundSize: '350px' }}
+                                    initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ ease: "easeInOut", duration: 0.3 }}
                                 >
                                     {/* WhatsApp Header */}
-                                    <div className="px-4 py-2 bg-[#f0f2f5]/90 backdrop-blur-md border-b border-slate-200 flex items-center gap-3 z-10 sticky top-0">
-                                        <ArrowLeft size={22} className="text-blue-500" />
-                                        <div className={`w-9 h-9 rounded-full flex items-center justify-center text-white shadow-sm ${details.botColor}`}>
-                                            <Activity size={16} />
+                                    <div className="px-3 py-1.5 bg-[#f0f2f5]/90 backdrop-blur-xl border-b border-slate-200/50 flex items-center gap-2 z-10 sticky top-0">
+                                        <ArrowLeft size={20} className="text-blue-500" />
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white shadow-sm border border-black/5 ${details.botColor}`}>
+                                            <Activity size={14} />
                                         </div>
-                                        <div className="flex-1">
-                                            <div className="text-sm font-bold text-slate-900">{details.botName}</div>
-                                            <div className="text-[10px] text-slate-500">Business Account</div>
+                                        <div className="flex-1 leading-tight">
+                                            <div className="text-[14px] font-semibold text-slate-900">{details.botName}</div>
                                         </div>
-                                        <div className="flex gap-4 text-blue-500">
-                                            <Video size={22} />
-                                            <Phone size={20} />
+                                        <div className="flex gap-3 text-blue-500">
+                                            <Video size={20} />
+                                            <Phone size={18} />
                                         </div>
                                     </div>
 
-                                    <div className="p-3 flex-1 flex flex-col gap-3 overflow-hidden justify-end pb-20">
-                                        <div className="flex justify-center mb-4"><span className="bg-[#eef0f5] text-slate-500 text-[10px] font-bold px-2 py-1 rounded shadow-sm">Today</span></div>
+                                    <div className="px-2 py-3 flex-1 flex flex-col gap-2.5 overflow-hidden justify-end pb-16">
+                                        <div className="flex justify-center mb-2"><span className="bg-[#eef0f5]/80 backdrop-blur-sm text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-full shadow-sm">Today</span></div>
 
                                         <AnimatePresence>
                                             {step >= 1 && (
-                                                <motion.div initial={{ opacity: 0, scale: 0.9, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} className="self-end">
-                                                    <div className="bg-[#d9fdd3] rounded-lg rounded-tr-none p-1 shadow-sm relative">
+                                                <motion.div initial={{ opacity: 0, scale: 0.9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} className="self-end max-w-[85%]">
+                                                    <div className="bg-[#DCF8C6] rounded-2xl rounded-tr-none p-1 shadow-sm relative overflow-hidden">
                                                         {/* Image Bubble */}
-                                                        <div className="rounded-lg overflow-hidden relative mb-1">
-                                                            <Image src={scenario === 0 ? IMG_BILL : scenario === 2 ? IMG_CONVEYOR : IMG_INVENTORY} className="object-cover w-full h-40" alt="Upload" width={300} height={200} />
+                                                        <div className="rounded-xl overflow-hidden relative mb-1">
+                                                            <Image src={scenario === 0 ? IMG_BILL : scenario === 2 ? IMG_CONVEYOR : IMG_INVENTORY} className="object-cover w-full h-auto max-h-40" alt="Upload" width={300} height={200} />
                                                             {/* Audio Player Overlay for Maintenance */}
                                                             {scenario === 2 && (
-                                                                <div className="absolute bottom-2 left-2 right-2 bg-black/40 backdrop-blur-sm rounded-full p-2 flex items-center gap-2">
-                                                                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center"><Play size={10} fill="black" /></div>
-                                                                    <div className="flex-1 h-0.5 bg-white/50"><div className="w-1/3 h-full bg-white"></div></div>
-                                                                    <span className="text-[9px] text-white font-mono">0:12</span>
+                                                                <div className="absolute bottom-1.5 left-1.5 right-1.5 bg-black/30 backdrop-blur-md rounded-xl p-1.5 flex items-center gap-2">
+                                                                    <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center pl-0.5"><Play size={8} fill="black" className="text-black" /></div>
+                                                                    <div className="flex-1 h-0.5 bg-white/40 rounded-full overflow-hidden"><div className="w-1/3 h-full bg-white"></div></div>
+                                                                    <span className="text-[8px] text-white font-medium tabular-nums">0:12</span>
                                                                 </div>
                                                             )}
                                                         </div>
-                                                        <div className="px-2 pb-1">
-                                                            <p className="text-xs text-slate-900 leading-snug">
+                                                        <div className="px-2 pb-1 flex flex-col">
+                                                            <p className="text-[13px] text-slate-900 leading-snug">
                                                                 {scenario === 0 ? "Uploaded invoice for TMT Bars." : scenario === 2 ? "Belt snapped. Listen to the noise." : "New stock arrived."}
                                                             </p>
-                                                            <div className="text-[9px] text-slate-500 text-right mt-1 flex justify-end items-center gap-1">10:42 AM <span className="text-blue-500"><CheckCircle size={10} /></span></div>
+                                                            <div className="text-[10px] text-slate-500 text-right mt-0.5 flex justify-end items-center gap-0.5">10:42 AM <CheckCircle size={12} className="text-blue-500" /></div>
                                                         </div>
-                                                        {/* Tail */}
-                                                        <div className="absolute top-0 -right-2 w-3 h-3 bg-[#d9fdd3]" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}></div>
                                                     </div>
                                                 </motion.div>
                                             )}
@@ -578,30 +573,27 @@ const IntegratedHero = ({ forceCompact = false }: { forceCompact?: boolean }) =>
 
                                         <AnimatePresence>
                                             {step >= 3 && (
-                                                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="self-start">
-                                                    <div className="bg-white rounded-lg rounded-tl-none p-2 shadow-sm relative">
-                                                        <div className={`text-[10px] font-bold ${scenario === 2 ? 'text-red-600' : 'text-blue-600'} mb-1`}>~ System Assistant</div>
-                                                        <p className="text-xs text-slate-800 leading-snug">
+                                                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="self-start max-w-[85%]">
+                                                    <div className="bg-white rounded-2xl rounded-tl-none p-2 shadow-sm relative">
+                                                        <div className={`text-[10px] font-bold ${scenario === 2 ? 'text-red-600' : 'text-blue-600'} mb-0.5 ml-1`}>~ System Assistant</div>
+                                                        <p className="text-[13px] text-slate-800 leading-snug ml-1">
                                                             {scenario === 0 ? "Data extracted. Invoice #338 logged in AP." : scenario === 2 ? "Ticket #T-881 Created. Tech dispatched." : "Updated ERP: +400 Units (Total 1250)"}
                                                         </p>
-                                                        <div className="text-[9px] text-slate-400 text-right mt-1">10:42 AM</div>
-                                                        {/* Tail */}
-                                                        <div className="absolute top-0 -left-2 w-3 h-3 bg-white" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }}></div>
+                                                        <div className="text-[10px] text-slate-400 text-right mt-0.5 mr-1">10:42 AM</div>
                                                     </div>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
                                     </div>
 
-                                    {/* WhatsApp Input */}
-                                    <div className="absolute bottom-0 w-full px-2 py-2 bg-[#f0f2f5] flex items-center gap-2 pb-6">
-                                        <div className="p-2"><MoreVertical size={20} className="text-blue-500" /></div>
-                                        <div className="flex-1 bg-white rounded-full h-9 px-4 flex items-center text-slate-400 text-sm shadow-sm border border-slate-100">
+                                    {/* WhatsApp Input (Redesigned) */}
+                                    <div className="absolute bottom-0 w-full px-3 py-2 bg-[#f0f2f5] flex items-end gap-2 pb-6 border-t border-slate-200/50 z-20">
+                                        <Plus size={24} className="text-blue-500 mb-1" />
+                                        <div className="flex-1 bg-white rounded-2xl min-h-[36px] px-3 py-1.5 flex items-center text-slate-400 text-sm shadow-sm border border-slate-100">
                                             {step === 0 ? "Type a message..." : ""}
                                         </div>
-                                        <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-sm">
-                                            <Mic size={18} />
-                                        </div>
+                                        <Camera size={24} className="text-blue-500 mb-1" />
+                                        <Mic size={24} className="text-blue-500 mb-1" />
                                     </div>
                                 </motion.div>
                             )}

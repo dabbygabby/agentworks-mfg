@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '../ui/Button';
-import { ArrowRightIcon, Calculator, Play } from 'lucide-react';
+import { ArrowRightIcon, Play } from 'lucide-react';
 import HeroVisual from './HeroVisual';
 import VideoModal from './VideoModal';
 import Link from 'next/link';
@@ -11,20 +11,17 @@ const HeroSection = () => {
 
     // --- Animation Variants ---
 
-    // 1. Text Column: Staggers its children (Headline -> Copy -> Buttons)
     const textContainerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.2,
-                delayChildren: 0.1, // Small initial delay prevents "flash" on load
+                delayChildren: 0.1,
             }
         }
     };
 
-    // 2. Elements: A clean, premium "Fade Up" using a custom Bezier curve
-    // This curve [0.22, 1, 0.36, 1] is similar to "ease-out-quart" - snappy start, smooth finish
     const fadeInUpVariants = {
         hidden: { opacity: 0, y: 40 },
         visible: {
@@ -37,7 +34,6 @@ const HeroSection = () => {
         }
     };
 
-    // 3. Visual: Enters with a slight scale up, then floats gently
     const visualEntranceVariants = {
         hidden: { opacity: 0, scale: 0.95, y: 20 },
         visible: {
@@ -47,13 +43,13 @@ const HeroSection = () => {
             transition: {
                 duration: 1,
                 ease: [0.22, 1, 0.36, 1],
-                delay: 0.4 // Enters after the text has started reading
+                delay: 0.4
             }
         }
     };
 
     const floatingAnimation = {
-        y: [0, -15, 0], // Bob up and down 15px
+        y: [0, -15, 0],
         transition: {
             duration: 6,
             repeat: Infinity,
@@ -115,7 +111,8 @@ const HeroSection = () => {
 
                     {/* Right Column: Hero Visual */}
                     <motion.div
-                        className="relative mx-auto w-full max-w-2xl lg:max-w-none p-4 pt-0 rounded-3xl flex justify-center items-center"
+                        // Increased max-w slightly to give the taller phone room to breathe
+                        className="relative mx-auto w-full max-w-2xl lg:max-w-[600px] p-4 pt-0 rounded-3xl flex justify-center items-center"
                         initial="hidden"
                         animate="visible"
                         //@ts-expect-error no error
@@ -123,7 +120,6 @@ const HeroSection = () => {
                     >
                         {/* Wrapper for the floating loop animation */}
                         {/* @ts-expect-error no error */}
-
                         <motion.div animate={floatingAnimation} className="w-full flex justify-center">
                             <HeroVisual forceCompact={true} />
                         </motion.div>
