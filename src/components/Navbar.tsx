@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // 1. DEFINE THE ROUTES WHERE THE TRANSPARENT/WHITE NAV SHOULD APPEAR
-  const SPECIAL_NAV_ROUTES = ['/'];
+  const SPECIAL_NAV_ROUTES = ['/', '/how-it-works', '/industries'];
 
   // 2. CHECK IF CURRENT PAGE IS ONE OF THOSE ROUTES
   const isSpecialRoute = SPECIAL_NAV_ROUTES.includes(router.pathname);
@@ -28,10 +28,8 @@ const Navbar = () => {
   const isTransparentState = isSpecialRoute && !isScrolled;
 
   // Helper classes for text colors to keep JSX clean
-  const baseTextColor = isTransparentState ? 'text-white' : 'text-[#022c22]';
-  const navLinkColor = isTransparentState
-    ? 'text-white/90 hover:text-white'
-    : 'text-[#022c22]/80 hover:text-[#022c22]';
+  const baseTextColor = 'text-[#FEFCE8] hover:text-white'
+  const navLinkColor = 'text-[#FEFCE8] hover:text-white'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +66,7 @@ const Navbar = () => {
     >
       <div
         className={`max-w-7xl mx-auto transition-all duration-300 border ${isScrolled
-          ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border-[#022c22]/5 px-6 py-3'
+          ? 'bg-[#022c22] backdrop-blur-md rounded-full shadow-lg border-[#022c22]/5 px-6 py-3'
           : 'bg-transparent border-transparent px-0'
           }`}
       >

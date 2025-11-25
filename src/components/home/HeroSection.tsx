@@ -14,7 +14,7 @@ const HeroSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Column: Text Content */}
                     <div className="text-left">
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight">
                             <span > Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
                         </h1>
                         <p className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28">
