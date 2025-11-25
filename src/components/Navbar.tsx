@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router'; // Added useRouter
 import { useState, useEffect, useRef } from 'react';
 import Button from './ui/Button';
 import Image from 'next/image';
-import { ArrowRightIcon, Phone, ChevronDown, X } from 'lucide-react';
+import { Phone, ChevronDown, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { industries } from './industries/consts';
 
 const Navbar = () => {
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isProductMobileOpen, setIsProductMobileOpen] = useState(false);
@@ -14,6 +16,20 @@ const Navbar = () => {
   const productTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // 1. DEFINE THE ROUTES WHERE THE TRANSPARENT/WHITE NAV SHOULD APPEAR
+  const SPECIAL_NAV_ROUTES = ['/', '/how-it-works', '/industries'];
+
+  // 2. CHECK IF CURRENT PAGE IS ONE OF THOSE ROUTES
+  const isSpecialRoute = SPECIAL_NAV_ROUTES.includes(router.pathname);
+
+  // 3. DETERMINE IF WE SHOW THE SPECIAL STYLE (White text, Lime button)
+  // It applies only if we are on a special route AND the user hasn't scrolled yet.
+  const isTransparentState = isSpecialRoute && !isScrolled;
+
+  // Helper classes for text colors to keep JSX clean
+  const baseTextColor = 'text-[#FEFCE8] hover:text-white'
+  const navLinkColor = 'text-[#FEFCE8] hover:text-white'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +66,7 @@ const Navbar = () => {
     >
       <div
         className={`max-w-7xl mx-auto transition-all duration-300 border ${isScrolled
-          ? 'bg-[#f7fee7]/80 backdrop-blur-md rounded-full shadow-lg border-[#022c22]/5 px-6 py-3'
+          ? 'bg-[#022c22] backdrop-blur-md rounded-full shadow-lg border-[#022c22]/5 px-6 py-3'
           : 'bg-transparent border-transparent px-0'
           }`}
       >
@@ -59,9 +75,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
               <div className="h-8 w-8 rounded-lg flex items-center justify-center">
+                {/* Note: You might want a white version of your logo for the dark background, 
+                    currently keeping the same image source */}
                 <Image src="/logo.png" alt="Logo" width={32} height={32} />
               </div>
-              <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-[#022c22]' : 'text-[#022c22]'}`}>
+              <span className={`font-bold text-xl tracking-tight transition-colors ${baseTextColor}`}>
                 Agentworks
               </span>
             </Link>
@@ -69,8 +87,8 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            {/* Solutions Dropdown */}
-            <Link href="/how-it-works" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+            {/* How it Works */}
+            <Link href="/how-it-works" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               How It Works
             </Link>
 
@@ -81,7 +99,7 @@ const Navbar = () => {
               onMouseLeave={handleProductLeave}
             >
               <button
-                className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors inline-flex items-center gap-1"
+                className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors inline-flex items-center gap-1`}
               >
                 Product
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isProductDesktopOpen ? 'rotate-180' : ''}`} />
@@ -95,6 +113,7 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2"
                   >
+                    {/* Dropdown items always have dark text because background is white */}
                     <Link href="/agents" className="block px-4 py-2 text-sm text-[#022c22]/80 hover:text-[#022c22] hover:bg-gray-50 transition-colors">
                       Agents
                     </Link>
@@ -109,13 +128,13 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            <Link href="/industries" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+            <Link href="/industries" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               Industries
             </Link>
-            <Link href="/success-stories" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+            <Link href="/success-stories" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               Success Stories
             </Link>
-            <Link href="/roi-calculator" className="text-[#022c22]/80 hover:text-[#022c22] px-1 pt-1 text-sm font-medium transition-colors">
+            <Link href="/roi-calculator" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               ROI Calculator
             </Link>
           </div>
@@ -125,7 +144,9 @@ const Navbar = () => {
             <Button
               href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
               variant="primary"
-              className="!px-5 !py-2 !text-sm"
+              // Logic: If transparent state, force background #bef264 and dark text. 
+              // Otherwise, let Button component handle defaults.
+              className={`!px-5 !py-2 !text-sm transition-colors !bg-[#bef264] !text-[#022c22] hover:!bg-[#bef264]/90 border-none`}
             >
               <Phone className="w-4 h-4 mr-2" />
               Contact Us
@@ -136,7 +157,10 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#022c22] hover:bg-[#022c22]/5 focus:outline-none"
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isTransparentState || isScrolled
+                ? 'text-white hover:bg-white/10'
+                : 'text-[#022c22] hover:bg-[#022c22]/5'
+                }`}
             >
               <span className="sr-only">Open main menu</span>
               <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +171,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Stays White Background with Dark Text */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

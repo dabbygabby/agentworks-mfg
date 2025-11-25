@@ -51,7 +51,7 @@ const processingSteps: ProcessingStep[] = [
     }
 ];
 
-const BrainVisual = () => {
+const BrainVisual = ({ isTeaser = false, onComplete }: { isTeaser?: boolean; onComplete?: () => void }) => {
     const [currentStep, setCurrentStep] = React.useState(0);
     const [isProcessing, setIsProcessing] = React.useState(false);
     const [showOutput, setShowOutput] = React.useState(false);
@@ -75,8 +75,18 @@ const BrainVisual = () => {
             // Show output
             setIsProcessing(false);
             setShowOutput(true);
+
+            // Allow output to be read
             await new Promise(r => setTimeout(r, 3000));
             if (!isMounted) return;
+
+            // Cycle Complete
+            if (onComplete) {
+                onComplete();
+                // If the parent doesn't unmount us (e.g. user paused rotation), wait longer before next cycle
+                await new Promise(r => setTimeout(r, 1000));
+                if (!isMounted) return;
+            }
 
             // Move to next step
             setCurrentStep(prev => (prev + 1) % processingSteps.length);
@@ -85,15 +95,19 @@ const BrainVisual = () => {
         runCycle();
 
         return () => { isMounted = false; };
-    }, [currentStep]);
+    }, [currentStep, onComplete]);
 
     const current = processingSteps[currentStep];
 
-    return (
-        <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 relative overflow-hidden min-h-[550px] flex flex-col">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lime-100/40 via-transparent to-transparent" />
+    const containerClasses = isTeaser
+        ? "w-full h-full flex flex-col relative overflow-hidden p-4 md:p-6"
+        : "bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 relative overflow-hidden min-h-[550px] flex flex-col";
 
-            <div className="relative z-10 flex-1 flex flex-col">
+    return (
+        <div className={containerClasses}>
+            <div className={`absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lime-100/40 via-transparent to-transparent pointer-events-none ${isTeaser ? 'opacity-70' : ''}`} />
+
+            <div className="relative z-10 flex-1 flex flex-col justify-center">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
@@ -188,7 +202,6 @@ const BrainVisual = () => {
                 </div>
             </div>
 
-            {/* Decorative Elements */}
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-lime-200/20 rounded-full blur-2xl pointer-events-none" />
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-emerald-200/20 rounded-full blur-2xl pointer-events-none" />
         </div>

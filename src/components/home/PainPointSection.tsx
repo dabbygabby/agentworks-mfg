@@ -1,109 +1,134 @@
 import React from 'react';
 import Section from '../ui/Section';
 import Link from 'next/link';
-import { FileQuestion, AlertTriangle, ShoppingCart, Wrench, MessageSquare } from 'lucide-react';
+import { Hourglass, ArrowRight, Eye, ChartBarDecreasing } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Create a motion-enabled version of the Next.js Link component
+const MotionLink = motion(Link);
 
 const PainPointSection = () => {
     const painPoints = [
         {
-            icon: FileQuestion,
-            headline: "Drowning in BOMs?",
-            copy: "500+ line items. Volatile component sourcing. One missing part stops everything.",
-            cta: "See the Sourcing Agent",
-            href: "/industries/electronics-ems",
-            color: "blue"
-        },
-        {
-            icon: AlertTriangle,
-            headline: "Audit Panic?",
-            copy: "Batch tracking. Expiry management. Manual reconciliation eating 2 days/month.",
-            cta: "See the Compliance Agent",
-            href: "/industries/pharma-chemicals",
+            icon: Eye,
+            headline: () => { return ("Visibility Leaks") },
+            copy: "Your system reflects yesterday, but your floor operates in now. You are driving your business while looking in the rearview mirror.",
+            cta: "See the Live Dashboard",
+            href: "/how-it-works",
             color: "green"
         },
         {
-            icon: ShoppingCart,
-            headline: "Losing Margins to Slow Buying?",
-            copy: "10 vendors. Volatile prices. By the time you decide, the price has moved.",
-            cta: "See the Procurement Agent",
-            href: "/industries/packaging-printing",
-            color: "orange"
-        },
-        {
-            icon: Wrench,
-            headline: "Can't Track Your Jobs?",
-            copy: "50 jobs running. No idea which stage each is at without phone calls.",
-            cta: "See the Operations Agent",
-            href: "/industries/heavy-machinery",
-            color: "red"
-        },
-        {
-            icon: MessageSquare,
-            headline: "Data Trapped in WhatsApp?",
-            copy: "Critical info locked in voice notes, photos, and mental notes.",
-            cta: "See How We Extract It",
+            icon: ChartBarDecreasing,
+            headline: () => { return ("Margin Leaks") },
+            copy: "Quoting based on static spreadsheets means you are guessing. You only find out you lost money after the job has shipped.",
+            cta: "See the Quoting Agent",
             href: "/how-it-works",
-            color: "purple"
+            color: "green"
+        },
+        {
+            icon: Hourglass,
+            headline: () => { return ("Time Leaks") },
+            copy: "You are the highest-paid data entry clerk in the building. Every screenshot you manually forward is time stolen from growing your business.",
+            cta: "Automate Data Entry",
+            href: "/how-it-works",
+            color: "green"
         }
     ];
 
     const colorClasses = {
-        blue: "bg-blue-50 border-blue-100 hover:border-blue-300",
-        green: "bg-green-50 border-green-100 hover:border-green-300",
-        orange: "bg-orange-50 border-orange-100 hover:border-orange-300",
-        red: "bg-red-50 border-red-100 hover:border-red-300",
-        purple: "bg-purple-50 border-purple-100 hover:border-purple-300"
+        green: "bg-[#022c22]",
     };
 
     const iconColorClasses = {
         blue: "text-blue-600",
-        green: "text-green-600",
         orange: "text-orange-600",
         red: "text-red-600",
-        purple: "text-purple-600"
+        green: "text-[#022c22]",
+    };
+
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2, // Delay between each item appearing
+                delayChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: {
+            opacity: 0,
+            y: 30 // Start 30px lower
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: [0.21, 0.47, 0.32, 0.98] // Custom "soothing" ease-out curve
+            }
+        }
     };
 
     return (
-        <Section className="bg-gradient-to-b from-white to-gray-50">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+        <Section className="">
+            <motion.div
+                className="max-w-7xl mx-auto"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }} // Triggers when element is 100px into view
+                variants={containerVariants}
+            >
+                {/* Animated Header */}
+                <motion.div
+                    //@ts-expect-error no error
+                    variants={itemVariants}
+                    className="text-center mb-16"
+                >
                     <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                        Which Problem Keeps You Up at Night?
+                        Your System Says One Thing. <br />
+                        Your <span className="text-[#65a30d]">Balance Sheet</span> Says Another.
                     </h2>
-                    <p className="text-xl text-[#022c22]/70 max-w-3xl mx-auto">
-                        Pick your biggest headache. We'll show you exactly how we solve it.
+                    <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+                        Whether you run on SAP, Tally, or Excel. <br className="hidden md:block" />
+                        Manual updates mean you are managing history, not reality.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {painPoints.map((point, index) => {
                         const Icon = point.icon;
                         return (
-                            <Link
+                            <MotionLink
                                 key={index}
                                 href={point.href}
-                                className={`group p-8 rounded-3xl border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${colorClasses[point.color as keyof typeof colorClasses]}`}
+                                //@ts-expect-error no error
+                                variants={itemVariants} // Inherits the stagger from parent
+                                //@ts-expect-error no error
+                                className={`group p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${colorClasses[point.color]}`}
                             >
-                                <div className={`w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 ${iconColorClasses[point.color as keyof typeof iconColorClasses]} shadow-sm group-hover:scale-110 transition-transform`}>
+                                {/* @ts-expect-error no error */}
+                                <div className={`w-14 h-14 rounded-2xl bg-[#BEF264] flex items-center justify-center mb-6 ${iconColorClasses[point.color]} shadow-sm group-hover:scale-110 transition-transform`}>
                                     <Icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-3">
-                                    {point.headline}
+                                <h3 className="text-2xl font-bold text-white mb-3">
+                                    {point.headline()}
                                 </h3>
-                                <p className="text-[#022c22]/70 mb-6 leading-relaxed">
+                                <p className="mb-6 leading-relaxed text-[#BEF264]">
                                     {point.copy}
                                 </p>
-                                <div className="flex items-center text-[#65a30d] font-semibold group-hover:gap-3 gap-2 transition-all">
+                                <div className="flex items-center text-white font-semibold group-hover:gap-3 gap-2 transition-all">
                                     {point.cta}
-                                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </div>
-                            </Link>
+                            </MotionLink>
                         );
                     })}
                 </div>
-            </div>
+            </motion.div>
         </Section>
     );
 };

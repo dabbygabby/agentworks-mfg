@@ -1,110 +1,140 @@
-"use client";
-
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 import Button from '../ui/Button';
-import { ArrowRightIcon, Calculator } from 'lucide-react';
+import { ArrowRightIcon, Play } from 'lucide-react';
+import HeroVisual from './HeroVisual';
+import VideoModal from './VideoModal';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
+    // --- Animation Variants ---
 
-        // Initial set
-        handleScroll();
+    const textContainerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1,
+            }
+        }
+    };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const fadeInUpVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    };
 
-    // Calculate offset for side images
-    // Starts at 80px lower, reduces to 0 as we scroll down
-    const sideImageOffset = Math.max(0, 80 - scrollY * 0.4);
+    const visualEntranceVariants = {
+        hidden: { opacity: 0, scale: 0.95, y: 20 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.4
+            }
+        }
+    };
+
+    const floatingAnimation = {
+        y: [0, -15, 0],
+        transition: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+        }
+    };
 
     return (
-        <section className="relative bg-[#f7fee7] pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden rounded-b-[3rem]">
+        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
+
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="max-w-4xl mx-auto text-center mb-12">
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#022c22] mb-8 leading-tight">
-                        The Operating System for <br className="hidden md:block" />
-                        <span className="text-[#022c22]">Next Gen Manufacturing</span>
-                    </h1>
-                    <p className="text-lg md:text-2xl text-[#022c22]/70 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-                        Your autonomous AI workforce that lives in your existing tools.
-                        <br />
-                        No new apps. No training. Just infinite operational capacity.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Get a Free Process Audit
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                        <Button href="/roi-calculator" variant="outline">
-                            <Calculator className="w-4 h-4 mr-2" />
-                            Calculate Your ROI
-                        </Button>
-                    </div>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
 
-                {/* Floating Phones Container */}
-                <div className="mt-10 relative mx-auto max-w-7xl">
-                    <div className="flex justify-center items-start gap-4 md:gap-8 lg:gap-12">
-                        {/* Left Phone - Starts lower, moves up */}
-                        <div
-                            className="relative w-[280px] md:w-[320px] flex-shrink-0 pt-10 md:pt-0"
-                            style={{
-                                transform: `translateY(${sideImageOffset}px)`,
-                                transition: 'transform 0.1s ease-out'
-                            }}
+                    {/* Left Column: Text Content */}
+                    <motion.div
+                        className="text-center lg:text-left"
+                        initial="hidden"
+                        animate="visible"
+                        variants={textContainerVariants}
+                    >
+                        <motion.h1
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight"
                         >
-                            <Image
-                                src="/whatsapp1.png"
-                                alt="WhatsApp Interface 1"
-                                width={320}
-                                height={640}
-                                className="w-full h-auto drop-shadow-2xl"
-                                priority
-                            />
-                        </div>
+                            <span> Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
+                        </motion.h1>
 
-                        {/* Center Phone - Static relative to container */}
-                        <div className="relative w-[300px] md:w-[340px] flex-shrink-0 z-20">
-                            <Image
-                                src="/whatsapp2.png"
-                                alt="WhatsApp Interface 2"
-                                width={340}
-                                height={680}
-                                className="w-full h-auto drop-shadow-2xl"
-                                priority
-                            />
-                        </div>
-
-                        {/* Right Phone - Starts lower, moves up */}
-                        <div
-                            className="relative w-[280px] md:w-[320px] flex-shrink-0 pt-10 md:pt-0"
-                            style={{
-                                transform: `translateY(${sideImageOffset}px)`,
-                                transition: 'transform 0.1s ease-out'
-                            }}
+                        <motion.p
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28 mx-auto lg:mx-0"
                         >
-                            <Image
-                                src="/whatsapp3.png"
-                                alt="WhatsApp Interface 3"
-                                width={320}
-                                height={640}
-                                className="w-full h-auto drop-shadow-2xl"
-                                priority
-                            />
-                        </div>
-                    </div>
+                            We turn raw communication into instant action by capturing factory floor chatter, structuring it into clean data, and executing work automatically—so you stop managing processes and start managing growth.
+                        </motion.p>
 
-                    {/* Decorative Elements behind phones */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                        <motion.div
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-0 md:mt-32"
+                        >
+                            <Link
+                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
+                            >
+                                Talk to an Expert
+                                <ArrowRightIcon className="w-4 h-4 ml-2" />
+                            </Link>
+
+                            <Button
+                                onClick={() => setIsModalOpen(true)}
+                                className='cursor-pointer border-white border hover:bg-white/20 transition-all hover:scale-105 active:scale-95'
+                            >
+                                <Play className="w-4 h-4 mr-2" />
+                                Watch the Video
+                            </Button>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Right Column: Hero Visual */}
+                    <motion.div
+                        // Increased max-w slightly to give the taller phone room to breathe
+                        className="relative mx-auto w-full max-w-2xl lg:max-w-[600px] p-4 pt-0 rounded-3xl flex justify-center items-center"
+                        initial="hidden"
+                        animate="visible"
+                        //@ts-expect-error no error
+                        variants={visualEntranceVariants}
+                    >
+                        {/* Wrapper for the floating loop animation */}
+                        {/* @ts-expect-error no error */}
+                        <motion.div animate={floatingAnimation} className="w-full flex justify-center">
+                            <HeroVisual forceCompact={true} />
+                        </motion.div>
+
+                        {/* Decorative Elements - Pulsing Glow */}
+                        <motion.div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-b from-[#bef264]/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
+                            animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.05, 1] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                    </motion.div>
+
                 </div>
             </div>
+            <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
     );
 };

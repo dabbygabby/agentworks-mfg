@@ -150,7 +150,7 @@ export default function QuoteGenerationPage() {
 
     return (
         // Self-contained component - all interactions stay within this boundary
-        <div className="w-full min-h-screen lg:h-screen flex flex-col bg-[#F9FAFB] font-sans text-gray-900 overflow-hidden relative isolate">
+        <div className="w-full min-h-screen lg:h-screen flex flex-col bg-[#F9FAFB] font-sans text-gray-900 overflow-clip relative isolate">
             <style>{customStyles}</style>
 
             {/* --- Header --- */}
@@ -178,7 +178,7 @@ export default function QuoteGenerationPage() {
 
             {/* --- Main Content Grid --- */}
             {/* Mobile: scrollable vertical stack. Desktop: fixed height grid. */}
-            <main className="flex-1 w-full max-w-[1600px] mx-auto px-4 lg:px-6 pb-6 pt-6 overflow-y-auto lg:overflow-hidden">
+            <main className="flex-1 w-full max-w-[1600px] mx-auto px-4 lg:px-6 pb-6 pt-6 overflow-y-auto lg:overflow-clip">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-full">
 
                     {/* --- Left Column: Email (45%) --- */}
@@ -284,15 +284,15 @@ export default function QuoteGenerationPage() {
 
             {/* --- AI Modal --- */}
             {showAiModal && (
-                <div className="absolute inset-0 z-50 flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowAiModal(false)} />
+                <div className="absolute inset-0 z-50 flex items-center justify-center p-4 rounded-t-[2.5rem]">
+                    <div className="absolute inset-0 backdrop-blur-sm rounded-t-[2.5rem] " onClick={() => setShowAiModal(false)} />
 
                     {/* Responsive Modal Box */}
-                    <div className="relative w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden animate-modal-pop flex flex-col"
+                    <div className="relative w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-clip animate-modal-pop flex flex-col"
                         style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #F3E8FF 100%)' }}>
 
                         {/* Header */}
-                        <div className="h-12 flex items-center justify-between px-4 bg-white/70 backdrop-blur-sm border-b border-gray-200 flex-shrink-0">
+                        <div className="h-12 flex items-center justify-between px-4 border-b border-gray-200 flex-shrink-0">
                             <div className="flex items-center space-x-2 text-blue-700">
                                 <Bot className="w-5 h-5" />
                                 <span className="text-sm font-bold">AI ASSISTANT</span>
@@ -338,7 +338,7 @@ export default function QuoteGenerationPage() {
             {/* --- Success Modal --- */}
             {showSuccessModal && (
                 <div className="absolute inset-0 z-[100] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" />
+                    <div className="absolute inset-0 rounded-t-[2.5rem] backdrop-blur-sm transition-opacity" />
                     <div className="relative bg-white rounded-2xl shadow-2xl p-6 lg:p-8 max-w-sm lg:max-w-md w-full text-center animate-modal-pop">
                         <div className="inline-flex p-3 bg-green-100 rounded-full mb-4 animate-success-bounce">
                             <Check className="w-8 h-8 text-green-600" />

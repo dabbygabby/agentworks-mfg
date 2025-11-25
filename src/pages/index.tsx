@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import HeroSection from '../components/home/HeroSection';
-import ProblemSection from '../components/home/ProblemSection';
-import SolutionSection from '../components/home/SolutionSection';
+import PainPointSection from '../components/home/PainPointSection';
+import SolutionTeaserSection from '../components/home/SolutionTeaserSection';
+import AgentsSection from '../components/home/AgentsSection';
+import IndustryPathwaysSection from '../components/home/IndustryPathwaysSection';
 import ValuePropSection from '../components/home/ValuePropSection';
 import SocialProofSection from '../components/home/SocialProofSection';
+import FinalCTA from '@src/components/home/FinalCTA';
 
 export default function Home() {
   return (
@@ -17,10 +20,12 @@ export default function Home() {
 
       <div className="flex flex-col min-h-screen">
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <ValuePropSection />
+        <PainPointSection />
+        <SolutionTeaserSection />
+        <AgentsSection />
+        <IndustryPathwaysSection />
         <SocialProofSection />
+        <FinalCTA />
       </div>
     </>
   );

@@ -18,14 +18,14 @@ import AnimatedScreenHero from "@src/components/howItWorks/AnimatedScreenHero"
 
 export default function HowItWorks() {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             {/* Hero Section with Animated Screen */}
-            <section className="bg-[#f7fee7] py-24 !pb-0 overflow-hidden">
+            <section className="bg-[#022c22] py-24 !pb-0 overflow-hidden">
                 <div className="max-w-4xl mx-auto text-center px-4">
-                    <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-8 leading-tight">
-                        Complex Automation. <span className="text-[#65a30d]">Zero Friction.</span>
+                    <h1 className="text-4xl md:text-6xl font-bold text-[#FEFCE8] pt-24 mb-8 leading-tight">
+                        Complex Automation <br /><span className="text-[#bef264]">Zero Friction</span>
                     </h1>
-                    <p className="text-xl text-[#022c22]/70 mb-8 leading-relaxed">
+                    <p className="text-xl text-[#FEFCE8]/70 mb-8 leading-relaxed">
                         We don't ask you to change how you work. We just make your existing tools intelligent.
                     </p>
                 </div>
@@ -40,7 +40,7 @@ export default function HowItWorks() {
                 </div>
             </section>
             {/* Steps Section */}
-            <div className="max-w-7xl mt-12 mx-auto px-4 sm:px-6 lg:px-8 pb-32 space-y-32">
+            <div className="max-w-7xl mt-12 mx-auto px-4 sm:px-6 lg:px-8 py-32 space-y-32">
 
                 {/* Step 1: The Inputs */}
                 <StepSection

@@ -1,97 +1,284 @@
-import React from 'react';
-import Section from '../ui/Section';
-import Link from 'next/link';
-import { Cpu, FlaskConical, Box, Wrench, Settings } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Factory } from 'lucide-react';
 
+// --- DATA ---
 const industries = [
     {
-        icon: Cpu,
-        headline: "One Missing Resistor Shouldn't Stop Your Line",
-        copy: "Clear-to-Build in 30 mins (vs. 2 days)",
-        href: "/industries/electronics-ems",
-        color: "blue"
+        id: 'sheet-metal',
+        title: 'Sheet Metal & Fabrication',
+        note: 'Stop bleeding margins on miscalculated quotes.',
+        link: '/industries/sheet-metal',
+        image: '/sheet-metal.png',
     },
     {
-        icon: FlaskConical,
-        headline: "Compliance Without the Chaos",
-        copy: "100% Digital Audit Trail, Automatically",
-        href: "/industries/pharma-chemicals",
-        color: "green"
+        id: 'packaging',
+        title: 'Packaging & Printing',
+        note: 'End the race against volatile paper and ink prices.',
+        link: '/industries/packaging-printing',
+        image: '/packaging.png',
     },
     {
-        icon: Box,
-        headline: "Procurement is a Race. Win It.",
-        copy: "90% Faster Procurement Cycles",
-        href: "/industries/packaging-printing",
-        color: "orange"
+        id: 'electronics',
+        title: 'Electronics & EMS',
+        note: 'No more "Golden Screw" delays stopping your line.',
+        link: '/industries/electronics-ems',
+        image: '/electronics.png',
     },
     {
-        icon: Wrench,
-        headline: "From Quote to Dispatch—Zero Phone Calls",
-        copy: "Real-time Job Tracking",
-        href: "/industries/sheet-metal",
-        color: "red"
+        id: 'pharma',
+        title: 'Pharma & Chemicals',
+        note: 'Eliminate the risk of expired stock and failed audits.',
+        link: '/industries/pharma-chemicals',
+        image: '/pharma.png',
     },
     {
-        icon: Settings,
-        headline: "Tame Your Custom Job Chaos",
-        copy: "Live Job Status, No Chasing",
-        href: "/industries/heavy-machinery",
-        color: "purple"
+        id: 'heavy-machinery',
+        title: 'Heavy Machinery',
+        note: 'End the "Where is the order?" chaos on the floor.',
+        link: '/industries/heavy-machinery',
+        image: '/heavy-machinery.png',
+    },
+    {
+        id: 'all-industries',
+        title: 'View All Industries',
+        note: 'We build custom agents for unique manufacturing workflows.',
+        link: '/industries',
+        image: null,
     }
 ];
 
-const colorClasses = {
-    blue: "bg-blue-50 border-blue-100 hover:border-blue-300",
-    green: "bg-green-50 border-green-100 hover:border-green-300",
-    orange: "bg-orange-50 border-orange-100 hover:border-orange-300",
-    red: "bg-red-50 border-red-100 hover:border-red-300",
-    purple: "bg-purple-50 border-purple-100 hover:border-purple-300"
+// --- ANIMATION VARIANTS ---
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15, // Stagger effect for cards
+            delayChildren: 0.2
+        }
+    }
 };
 
-const iconColor = {
-    blue: "text-blue-600",
-    green: "text-green-600",
-    orange: "text-orange-600",
-    red: "text-red-600",
-    purple: "text-purple-600"
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
 };
 
-const IndustryPathwaysSection = () => {
+const IndustriesCarousel = () => {
+    const [activeId, setActiveId] = useState<string | null>(null);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [isHovering, setIsHovering] = useState(false);
+
+    // --- AUTO SCROLL LOGIC ---
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        const scrollCycle = () => {
+            // 1. Stop if on Desktop
+            if (window.innerWidth >= 768) return;
+            // 2. Stop if user is interacting
+            if (isHovering) return;
+            // 3. Stop if container is missing
+            if (!container) return;
+
+            // Calculate measurements
+            const firstCard = container.firstElementChild as HTMLElement;
+            if (!firstCard) return;
+
+            const cardWidth = firstCard.offsetWidth;
+            const gap = 16; // gap-4 = 16px
+            const scrollStep = cardWidth + gap;
+
+            const currentScroll = container.scrollLeft;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+
+            // Logic: If close to end, snap to start. Else, scroll next.
+            // Using a buffer of 10px to account for float inaccuracies
+            if (currentScroll >= maxScroll - 10) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+            }
+        };
+
+        const intervalId = setInterval(scrollCycle, 3500); // Slower interval for better UX
+        return () => clearInterval(intervalId);
+    }, [isHovering]); // Re-bind effect if hover state changes
+
     return (
-        <Section className="bg-gray-50">
-            <div className="max-w-7xl mx-auto py-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-center text-[#022c22] mb-12">
-                    Engineered for Your Shop Floor Reality
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {industries.map((ind, i) => (
-                        <Link
-                            key={i}
-                            href={ind.href}
-                            className={`group p-8 rounded-3xl border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${colorClasses[ind.color as keyof typeof colorClasses]}`}
-                        >
-                            <div className={`w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 ${iconColor[ind.color as keyof typeof iconColor]} shadow-sm group-hover:scale-110 transition-transform`}>
-                                <ind.icon className="w-7 h-7" />
+        <section className="py-20 bg-cream-50 overflow-hidden">
+            <motion.div
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }} // Triggers when 100px into view
+                variants={containerVariants}
+            >
+
+                {/* Section Header */}
+                {/* @ts-ignore */}
+                <motion.div className="text-center mb-12" variants={itemVariants}>
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#022C23] mb-4">
+                        Every Industry Has a Breaking Point. <br className="hidden md:block" /> <span className='text-[#64B564]'>We Fix Yours</span>
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Generic software ignores the nuances of your sector. We target the specific bottlenecks that kill your margins.
+                    </p>
+                </motion.div>
+
+                {/* --- DESKTOP VIEW --- */}
+                <motion.div
+                    className="hidden md:flex h-[500px] gap-4 w-full"
+                    variants={containerVariants}
+                >
+                    {industries.map((industry) => {
+                        const isActive = activeId === industry.id;
+                        const isSolidCard = !industry.image;
+
+                        return (
+                            <motion.div
+                                key={industry.id}
+                                //@ts-ignore
+                                variants={itemVariants} // Applies staggered fade-in
+                                onHoverStart={() => setActiveId(industry.id)}
+                                onHoverEnd={() => setActiveId(null)}
+                                onClick={() => window.location.href = industry.link}
+                                layout
+                                initial={false}
+                                animate={{
+                                    flex: isActive ? 3 : 1,
+                                }}
+                                transition={{ duration: 0.4, ease: "easeInOut" }}
+                                className="relative cursor-pointer rounded-2xl overflow-hidden shadow-xl"
+                                style={{ backgroundColor: '#022C23' }}
+                            >
+                                {/* Background Image Logic */}
+                                {industry.image ? (
+                                    <>
+                                        <div
+                                            className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ${isActive ? 'scale-110 opacity-40' : 'opacity-20 grayscale'}`}
+                                            style={{ backgroundImage: `url(${industry.image})` }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#022C23] via-transparent to-transparent opacity-90" />
+                                    </>
+                                ) : (
+                                    /* Solid Card Background */
+                                    <div className="absolute inset-0 bg-[#022C23] flex items-center justify-center opacity-50">
+                                        <Factory className={`text-[#bef264] w-64 h-64 transition-transform duration-700 ${isActive ? 'scale-110 opacity-20' : 'opacity-10'}`} />
+                                    </div>
+                                )}
+
+                                {/* Content Logic */}
+                                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                                    <AnimatePresence mode='popLayout'>
+
+                                        {/* Collapsed State */}
+                                        {!isActive && (
+                                            <motion.div
+                                                key="collapsed"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="absolute bottom-8 left-8 origin-bottom-left -rotate-90 whitespace-nowrap"
+                                            >
+                                                <h3 className={`text-xl font-bold tracking-wide uppercase ${isSolidCard ? 'text-[#bef264]' : 'text-white'}`}>
+                                                    {industry.title}
+                                                </h3>
+                                            </motion.div>
+                                        )}
+
+                                        {/* Expanded State */}
+                                        {isActive && (
+                                            <motion.div
+                                                key="expanded"
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 10 }}
+                                                transition={{ duration: 0.3, delay: 0.1 }}
+                                                className="w-full"
+                                            >
+                                                <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
+                                                    {industry.title}
+                                                </h3>
+                                                <div className="h-1 w-12 bg-[#bef264] mb-4 rounded-full" />
+                                                <p className="text-gray-200 text-lg mb-6 max-w-md">
+                                                    {industry.note}
+                                                </p>
+                                                <div className="flex items-center text-[#bef264] font-semibold group w-fit">
+                                                    {isSolidCard ? 'See All Sectors' : 'Learn More'}
+                                                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+
+                {/* --- MOBILE VIEW --- */}
+                {/* Wrapped in motion.div for entry animation, but internal scroll is native */}
+                <motion.div
+                    className="md:hidden"
+                    //@ts-ignore
+                    variants={itemVariants}
+                >
+                    <div
+                        ref={scrollContainerRef}
+                        // Pause auto-scroll on interaction
+                        onTouchStart={() => setIsHovering(true)}
+                        onTouchEnd={() => setIsHovering(false)}
+                        className="flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory scrollbar-hide"
+                        style={{ scrollBehavior: 'smooth' }}
+                    >
+                        {industries.map((industry) => (
+                            <div
+                                key={industry.id}
+                                onClick={() => window.location.href = industry.link}
+                                className="relative min-w-[85vw] h-[400px] rounded-2xl overflow-hidden snap-center flex-shrink-0"
+                                style={{ backgroundColor: '#022C23' }}
+                            >
+                                {industry.image ? (
+                                    <>
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center opacity-40"
+                                            style={{ backgroundImage: `url(${industry.image})` }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#022C23] via-transparent to-transparent" />
+                                    </>
+                                ) : (
+                                    <div className="absolute inset-0 bg-[#022C23] flex items-center justify-center">
+                                        <Factory className="text-green-900 w-48 h-48 opacity-20" />
+                                    </div>
+                                )}
+
+                                <div className="absolute bottom-0 left-0 p-6">
+                                    <h3 className="text-2xl font-bold text-white mb-2">
+                                        {industry.title}
+                                    </h3>
+                                    <p className="text-gray-300 text-base mb-4">
+                                        {industry.note}
+                                    </p>
+                                    <span className="text-green-400 font-semibold flex items-center gap-2">
+                                        {industry.image ? 'See Solution' : 'View All'} →
+                                    </span>
+                                </div>
                             </div>
-                            <h3 className="text-2xl font-bold text-[#022c22] mb-3">
-                                {ind.headline}
-                            </h3>
-                            <p className="text-[#022c22]/70 mb-6 leading-relaxed">
-                                {ind.copy}
-                            </p>
-                            <div className="flex items-center text-[#65a30d] font-semibold group-hover:gap-3 gap-2 transition-all">
-                                See Solution
-                                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </Section>
+                        ))}
+                    </div>
+                </motion.div>
+
+            </motion.div>
+        </section>
     );
 };
 
-export default IndustryPathwaysSection;
+export default IndustriesCarousel;

@@ -663,7 +663,7 @@ const ProductionDashboard = () => {
     }, [activeTab]);
 
     return (
-        <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+        <div className="w-full min-h-screen bg-gray-50 font-sans text-gray-900">
 
             {/* Header */}
             <header className="bg-white shadow-sm h-14 sm:h-16 sticky top-0 z-30">
