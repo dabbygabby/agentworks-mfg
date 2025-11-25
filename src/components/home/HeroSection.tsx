@@ -65,7 +65,7 @@ const HeroSection = () => {
 
                     {/* Left Column: Text Content */}
                     <motion.div
-                        className="text-left"
+                        className="text-center lg:text-left"
                         initial="hidden"
                         animate="visible"
                         variants={textContainerVariants}
@@ -81,7 +81,7 @@ const HeroSection = () => {
                         <motion.p
                             //@ts-expect-error no error
                             variants={fadeInUpVariants}
-                            className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28"
+                            className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28 mx-auto lg:mx-0"
                         >
                             We turn raw communication into instant action by capturing factory floor chatter, structuring it into clean data, and executing work automatically—so you stop managing processes and start managing growth.
                         </motion.p>
@@ -89,7 +89,7 @@ const HeroSection = () => {
                         <motion.div
                             //@ts-expect-error no error
                             variants={fadeInUpVariants}
-                            className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-32"
+                            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-0 md:mt-32"
                         >
                             <Link
                                 href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"

@@ -6,6 +6,7 @@ import AgentsSection from '../components/home/AgentsSection';
 import IndustryPathwaysSection from '../components/home/IndustryPathwaysSection';
 import ValuePropSection from '../components/home/ValuePropSection';
 import SocialProofSection from '../components/home/SocialProofSection';
+import FinalCTA from '@src/components/home/FinalCTA';
 
 export default function Home() {
   return (
@@ -23,8 +24,8 @@ export default function Home() {
         <SolutionTeaserSection />
         <AgentsSection />
         <IndustryPathwaysSection />
-        <ValuePropSection />
         <SocialProofSection />
+        <FinalCTA />
       </div>
     </>
   );

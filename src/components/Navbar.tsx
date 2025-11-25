@@ -157,7 +157,7 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isTransparentState
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isTransparentState || isScrolled
                 ? 'text-white hover:bg-white/10'
                 : 'text-[#022c22] hover:bg-[#022c22]/5'
                 }`}
