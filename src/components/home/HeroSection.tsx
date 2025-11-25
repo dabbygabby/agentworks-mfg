@@ -20,15 +20,15 @@ const HeroSection = () => {
                         <p className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28">
                             We help you turn raw communication into instant action. We capture the noise of the factory floor, structure it into clean data, and execute the work automatically—so you stop managing processes and start managing growth.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-52">
+                        <div className="flex flex-col sm:flex-row items-center justify-start gap-4 mt-0 md:mt-32">
                             <Link
                                 href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
-                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#65a30d] transition-colors'
+                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-colors'
                             >
                                 Talk to an Expert
                                 <ArrowRightIcon className="w-4 h-4 ml-2" />
                             </Link>
-                            <Button onClick={() => setIsModalOpen(true)} variant="outline" className='cursor-pointer'>
+                            <Button onClick={() => setIsModalOpen(true)} className='cursor-pointer border-white border hover:bg-white/20'>
                                 <Play className="w-4 h-4 mr-2" />
                                 Watch the Video
                             </Button>

@@ -65,7 +65,7 @@ const PainPointSection = () => {
                                 href={point.href}
                                 className={`group p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${colorClasses[point.color as keyof typeof colorClasses]}`}
                             >
-                                <div className={`w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 ${iconColorClasses[point.color as keyof typeof iconColorClasses]} shadow-sm group-hover:scale-110 transition-transform`}>
+                                <div className={`w-14 h-14 rounded-2xl bg-[#BEF264] flex items-center justify-center mb-6 ${iconColorClasses[point.color as keyof typeof iconColorClasses]} shadow-sm group-hover:scale-110 transition-transform`}>
                                     <Icon className="w-7 h-7" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-white mb-3">
