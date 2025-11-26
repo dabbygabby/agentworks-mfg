@@ -1,12 +1,9 @@
-import React from 'react';
 import Head from 'next/head';
 import HeroSection from '../components/technology/HeroSection';
 import ChallengeSection from '../components/technology/ChallengeSection';
 import CoreEngineSection from '../components/technology/CoreEngineSection';
 import CleanDataSection from '../components/technology/CleanDataSection';
-import VerticalKnowledgeSection from '../components/technology/VerticalKnowledgeSection';
 import SecuritySection from '../components/technology/SecuritySection';
-import CTASection from '../components/technology/CTASection';
 import IndustriesCarousel from '@src/components/home/IndustryPathwaysSection'; // Assuming you saved the carousel component here
 import FinalCTA from '@src/components/home/FinalCTA';
 

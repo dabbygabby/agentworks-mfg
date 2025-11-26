@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Section from '../../components/ui/Section';
-import { Cpu, Search, Layers, AlertCircle, TrendingUp, AlertTriangle, Check } from 'lucide-react';
+import { Cpu, Search, Layers, AlertCircle, TrendingUp, AlertTriangle, Check, ZapOff, TrendingDown, PackageX, PackageCheck } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
@@ -9,134 +9,117 @@ import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies'
 import { meetingLink } from '@src/globals';
 
 const EMSCopy = {
+    // 1. HERO SECTION (Focus on Precision & Speed)
     hero: {
-        title: "Electronics and EMS",
-        subtitle: "Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery.",
-        ctaText: "See the Sourcing Agent",
+        title: "Quote with Precision. Source with Speed. Ship without Delays.",
+        subtitle: "Stop losing margins to component price volatility. We automate the chaos of 500-line BOMs, spot shortages before they happen, and execute procurement instantly—using the tools you already have.",
+        ctaText: "Start Your Zero-Risk Pilot",
         imageSrc: "/electronics.png",
-        ctaLink: "/connectors"
+        ctaLink: "/how-it-works"
     },
+
+    // 2. PROBLEM SECTION (The "Volatility Killers")
     problemSection: {
-        title: "Why Standard ERPs Fail in Electronics.",
-        subtitle: "You deal in Bills of Materials (BOMs) with thousands of line items. A generic ERP treats a complex IC the same way it treats a screw. It doesn't track market availability, obsolescence, or cross-reference alternatives.",
+        title: "Your ERP Can’t Handle a 500-Line BOM.",
+        subtitle: "In EMS, static data is dangerous. You are fighting a war against lead times and price drifts using spreadsheets that are obsolete the moment you save them.",
         features: [
             {
-                title: "The \"Golden Screw\"",
-                icon: <AlertCircle className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Your warehouse is full of expensive PCBs and processors, but you can't ship because a generic capacitor is out of stock."
+                title: 'The "Golden Screw" Problem',
+                icon: <ZapOff className="w-8 h-8 text-[#ef4444]" />,
+                desc: "99% of parts in stock means 0% production. One missing resistor stalls a ₹50 Lakh shipment."
             },
             {
-                title: "Sourcing Hell",
-                icon: <Search className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Procurement teams spend 6 hours a day just checking stock availability across DigiKey, Mouser, and local vendors for a single BOM."
+                title: "Margin Erosion",
+                icon: <TrendingDown className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You quoted the chip at ₹150. By the time you buy it, it’s ₹190. Your profit just vanished."
             },
             {
                 title: "Dead Inventory",
-                icon: <Layers className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Excess components pile up from Minimum Order Quantities (MOQs), eating your cash flow."
+                icon: <PackageX className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Capital trapped in 'Just-in-Case' stock because you can't trust your real-time data."
             }
         ]
     },
+
+    // 3. AGENT SECTION (Sourcing, Kitting, Sales)
     agentSection: {
-        title: "Intelligent Infrastructure for EMS.",
+        title: "The Supply Chain That Never Sleeps",
+        subtitle: "Deploy AI Agents that scrub BOMs, nag vendors, and track kitting status 24/7.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
-                icon: Cpu,
-                title: "Sourcing Agent",
-                subtitle: "The Automated Buyer",
-                tagline: '"Clear-to-Build in Minutes."',
+                icon: Search,
+                title: "Component Sourcing Engine",
+                subtitle: "Procurement",
+                tagline: "The Automated Buyer.",
                 features: [
-                    {
-                        label: "Scan",
-                        description: "Ingests BOM (Excel/PDF) and identifies every Part Number."
-                    },
-                    {
-                        label: "Search",
-                        description: "Checks availability/pricing across vendors and APIs instantly."
-                    },
-                    {
-                        label: "Compare",
-                        description: "Highlights lowest price and fastest delivery automatically."
-                    }
+                    { "label": "Scan", "description": "Ingests complex BOMs (Excel/PDF) and identifies every unique Part Number." },
+                    { "label": "Search", "description": "Checks availability and pricing across approved vendors/APIs in seconds." },
+                    { "label": "Compare", "description": "Auto-highlights the lowest price and fastest delivery options." }
+                ]
+            },
+            {
+                icon: PackageCheck,
+                title: "Component Kitting Manager",
+                subtitle: "Stores & Production",
+                tagline: "Real-Time Kitting Control.",
+                features: [
+                    { "label": "Kit", "description": "Verifies physical availability of all child parts before releasing the Work Order." },
+                    { "label": "Alert", "description": "Flags 'Risk Parts' (shortages) days before the line is scheduled to run." },
+                    { "label": "Consume", "description": "Auto-backflushes inventory when finished goods are packed." }
                 ]
             },
             {
                 icon: TrendingUp,
-                title: "Sales Agent",
-                subtitle: "Revenue Growth",
-                tagline: '"Upsell on Autopilot."',
+                title: "Account Upsell Assistant",
+                subtitle: "Sales",
+                tagline: "Revenue Growth Autopilot.",
                 features: [
-                    {
-                        label: "Analyze",
-                        description: 'Reviews history to find patterns (e.g., "Buy A → Need B").'
-                    },
-                    {
-                        label: "Engage",
-                        description: 'Nudges clients via WhatsApp: "Need wiring harness for this batch?"'
-                    },
-                    {
-                        label: "Qualify",
-                        description: "Filters leads to prioritize high-value OEM contracts."
-                    }
-                ]
-            },
-            {
-                icon: Layers,
-                title: "Inventory Agent",
-                subtitle: "Store Control",
-                tagline: '"Real-Time Kitting."',
-                features: [
-                    {
-                        label: "Kit",
-                        description: "Checks if all components are physically available before production."
-                    },
-                    {
-                        label: "Alert",
-                        description: "Flags shortages before line stoppages occur."
-                    },
-                    {
-                        label: "Consume",
-                        description: 'Deducts from stock via "Backflush" when unit is packed.'
-                    }
+                    { "label": "Analyze", "description": "Reviews historical purchasing patterns (e.g., 'Client buys PCB A -> usually needs Cable B')." },
+                    { "label": "Engage", "description": "Proactively nudges clients via WhatsApp to secure orders early." },
+                    { "label": "Qualify", "description": "Filters incoming RFQs to prioritize high-value OEM contracts." }
                 ]
             }
         ]
     },
+
+    // 4. CASE STUDIES (Revenue & Sourcing Wins)
     caseStudies: {
+        title: "Proven in the Chaos of Indian Electronics.",
+        description: "See how manufacturers are moving from spreadsheets to automated growth.",
         studies: [
             {
-                "badge": "The \"Revenue\" Win",
-                "title": "Dolphin Device (Sensor Mfg)",
-                "challenge": "Reactive sales team missing upsell opportunities.",
-                "results": [
-                    "<strong>Revenue Uplift:</strong> +22% Increase via AI-identified upsells.",
-                    "<strong>Lead Quality:</strong> +45% Increase in qualified leads (Grade-A).",
-                    "<strong>Efficiency:</strong> Growing faster with the same team size."
+                badge: 'The "Revenue" Win',
+                title: 'Dolphin Device (Sensor Mfg)',
+                challenge: 'Sales team was reactive, missing opportunities to sell complementary components.',
+                results: [
+                    '<strong>+22% Revenue Uplift:</strong> AI identified upsell patterns in chat history.',
+                    '<strong>+45% Qualified Leads:</strong> Filtered Grade-A leads automatically.',
+                    '<strong>Growth:</strong> Scaled revenue faster without adding new sales headcount.',
                 ],
-                "link": "#case-study-dolphin"
+                link: '#case-study-1',
             },
             {
-                "badge": "The \"Sourcing\" Win",
-                "title": "PCB Assembly Provider",
-                "challenge": "Quoting took 2 days. Prices changed before quote acceptance, eating margins.",
-                "results": [
-                    "<strong>Speed:</strong> BOM Costing reduced from 2 days to 30 minutes.",
-                    "<strong>Accuracy:</strong> Real-time flagging of \"Out of Stock\" components.",
-                    "<strong>Win Rate:</strong> 15% increase in orders due to faster turnaround."
+                badge: 'The "Sourcing" Win',
+                title: 'Leading Tier-2 EMS Provider',
+                challenge: 'Sourcing team spent 4 days just validating prices for a single RFQ. By then, stock was gone.',
+                results: [
+                    '<strong>Quote in Minutes:</strong> Reduced BOM costing time from 4 days to 30 minutes.',
+                    '<strong>Price Lock:</strong> Secured raw material rates instantly to protect margins.',
+                    '<strong>Zero Line Stops:</strong> Predictive shortage alerts prevented "waiting for parts" downtime.',
                 ],
-                "link": "#case-study-pcb"
-            }
-        ],
-        title: "Proven Results in EMS.",
-        description: "See how fabricators are using Agentworks to unlock capacity.",
+                link: '#case-study-2',
+            },
+        ]
     },
+
+    // 5. BOTTOM CTA (ROI Based)
     cta: {
-        title: "Ready to Audit-Proof Your Operations?",
-        subtitle: "Stop losing money to expired stock and slow paperwork.",
+        title: "Your Margins Are Thin. Your Tech Cost Shouldn't Be.",
+        subtitle: "We don't charge per seat. We charge a percentage of the profit we recover. If we don't fix your supply chain, you don't pay.",
         href: meetingLink,
-        ctaText: "Consult an Engineer"
+        ctaText: "Calculate Your Sourcing ROI"
     }
 }
 

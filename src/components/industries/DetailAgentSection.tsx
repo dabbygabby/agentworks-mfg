@@ -17,6 +17,7 @@ interface Agent {
 
 interface AgentsSectionProps {
     title: string;
+    subtitle?: string;
     agents: any;
     ctaText: string;
     ctaHref: string;
@@ -83,6 +84,7 @@ const AgentCard = ({ icon: Icon, title, subtitle, tagline, features }: Agent) =>
 
 const DetailAgentSection = ({
     title,
+    subtitle,
     agents,
     ctaText,
     ctaHref,
@@ -164,6 +166,18 @@ const DetailAgentSection = ({
                     >
                         {title}
                     </motion.h2>
+                    {subtitle && (
+                        <motion.p
+                            className="text-xl font-medium mb-6"
+                            //@ts-ignore
+                            variants={titleVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            {subtitle}
+                        </motion.p>
+                    )}
                 </div>
 
                 <motion.div
