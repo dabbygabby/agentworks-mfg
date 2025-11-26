@@ -69,7 +69,13 @@ const itemVariants = {
     }
 };
 
-const IndustriesCarousel = () => {
+// Added interface for props
+interface IndustriesCarouselProps {
+    title?: React.ReactNode;
+    subtitle?: string;
+}
+
+const IndustriesCarousel = ({ title, subtitle }: IndustriesCarouselProps = {}) => {
     const [activeId, setActiveId] = useState<string | null>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
@@ -112,7 +118,7 @@ const IndustriesCarousel = () => {
     }, [isHovering]); // Re-bind effect if hover state changes
 
     return (
-        <section className="py-20 bg-cream-50 overflow-hidden">
+        <section className="py-20 bg-cream-50 overflow-hidden" id="industries-carousel">
             <motion.div
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
                 initial="hidden"
@@ -125,10 +131,16 @@ const IndustriesCarousel = () => {
                 {/* @ts-ignore */}
                 <motion.div className="text-center mb-12" variants={itemVariants}>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#022C23] mb-4">
-                        Every Industry Has a Breaking Point. <br className="hidden md:block" /> <span className='text-[#64B564]'>We Fix Yours</span>
+                        {/* Use provided title prop, or fallback to default JSX */}
+                        {title || (
+                            <>
+                                Every Industry Has a Breaking Point. <br className="hidden md:block" /> <span className='text-[#64B564]'>We Fix Yours</span>
+                            </>
+                        )}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Generic software ignores the nuances of your sector. We target the specific bottlenecks that kill your margins.
+                        {/* Use provided subtitle prop, or fallback to default string */}
+                        {subtitle || "Generic software ignores the nuances of your sector. We target the specific bottlenecks that kill your margins."}
                     </p>
                 </motion.div>
 

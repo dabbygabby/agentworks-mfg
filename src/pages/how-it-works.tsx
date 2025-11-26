@@ -73,7 +73,7 @@ export default function HowItWorks() {
     });
 
     return (
-        <div className="min-h-screen bg-white" ref={containerRef}>
+        <div className="min-h-screen" ref={containerRef}>
 
             {/* --- HERO SECTION --- */}
             <section className="bg-[#022c22] py-24 !pb-0 overflow-hidden relative">
@@ -301,7 +301,7 @@ export default function HowItWorks() {
                                     { label: 'Compliance', desc: 'Automates audits' },
                                     { label: 'Scheduling', desc: 'Tracks production' }
                                 ].map((agent, i) => (
-                                    <div key={i} className="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-lime-300 transition-all">
+                                    <div key={i} className="border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-lime-300 transition-all">
                                         <div className="font-bold text-[#022c22] mb-1">{agent.label}</div>
                                         <div className="text-xs text-slate-500">{agent.desc}</div>
                                     </div>
