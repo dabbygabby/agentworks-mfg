@@ -1,14 +1,12 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
-import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, Cpu, Zap, Search, Layers, AlertCircle, BarChart3, TrendingUp, AlertTriangle, Check, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Cpu, Search, Layers, AlertCircle, TrendingUp, AlertTriangle, Check } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
+import { meetingLink } from '@src/globals';
 
 const EMSCopy = {
     hero: {
@@ -137,7 +135,7 @@ const EMSCopy = {
     cta: {
         title: "Ready to Audit-Proof Your Operations?",
         subtitle: "Stop losing money to expired stock and slow paperwork.",
-        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        href: meetingLink,
         ctaText: "Consult an Engineer"
     }
 }

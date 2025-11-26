@@ -1,0 +1,1 @@
+export const meetingLink = "https://cal.com/rabnoor-singh/30min";

@@ -5,6 +5,7 @@ import UniversalPhysicsSection from '../../components/industries/UniversalPhysic
 import IndustriesCarousel from '@src/components/home/IndustryPathwaysSection'; // Assuming you saved the carousel component here
 import Link from 'next/link';
 import { ArrowRightIcon } from 'lucide-react';
+import { meetingLink } from '@src/globals';
 
 // --- ANIMATION VARIANTS (Matched to HowItWorks) ---
 const heroTextVariants = {
@@ -88,7 +89,7 @@ const IndustriesPage = () => {
                         </button>
 
                         <Link
-                            href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                            href={meetingLink} target="_blank"
                             className="rounded-full flex items-center border-2 justify-center flex-row !px-10 !py-4 !text-lg border-white/20 text-white hover:bg-white/10"
                         >
                             Book a Deployment Strategy

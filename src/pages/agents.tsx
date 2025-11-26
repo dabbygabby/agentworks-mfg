@@ -6,6 +6,7 @@ import { ArrowRightIcon, CheckCircle2, Phone, Filter, Search, X, SlidersHorizont
 import { agents } from '../components/agents/consts';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { meetingLink } from '@src/globals';
 
 const AgentsPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -131,13 +132,13 @@ const AgentsPage = () => {
                             className="flex flex-col sm:flex-row gap-4 justify-center"
                         >
                             <Link
-                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                                href={meetingLink} target="_blank"
                                 className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                             >
                                 Supercharge Your Team
                                 <ArrowRightIcon className="w-5 h-5 ml-2" />
                             </Link>
-                            <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="outline" className="!px-8 !py-5 !text-lg text-white !border-white !border hover:bg-white/20 rounded-full hover:scale-105 active:scale-95 transition-all">
+                            <Button href={meetingLink} variant="outline" className="!px-8 !py-5 !text-lg text-white !border-white !border hover:bg-white/20 rounded-full hover:scale-105 active:scale-95 transition-all">
                                 See Agents in Action
                             </Button>
                         </motion.div>
@@ -281,7 +282,7 @@ const AgentsPage = () => {
                                             </div>
 
                                             <Button
-                                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                                                href={meetingLink}
                                                 variant="primary"
                                                 className="w-full justify-center !py-4 !text-lg bg-[#022c22] text-white hover:bg-[#15803d]"
                                             >
@@ -387,7 +388,7 @@ const AgentsPage = () => {
                                             <p className="text-xl text-[#022c22]/60 max-w-lg mx-auto mb-8">
                                                 We couldn't find any agents matching your criteria. But we can build a custom one for you.
                                             </p>
-                                            <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary" className="!px-8 !py-4">
+                                            <Button href={meetingLink} variant="primary" className="!px-8 !py-4">
                                                 Request a Custom Agent
                                                 <ArrowRightIcon className="w-5 h-5 ml-2" />
                                             </Button>
@@ -523,7 +524,7 @@ const AgentsPage = () => {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             {/* Primary Action: Book Call */}
                             <Link
-                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                                href={meetingLink}
                                 target="_blank"
                                 className="rounded-full flex items-center justify-center flex-row !px-10 !py-4 !text-lg bg-[#bef264] w-64 text-[#022c22] hover:bg-[#d9f99d] shadow-xl shadow-[#bef264]/20 border-none"
                             >
@@ -533,7 +534,7 @@ const AgentsPage = () => {
 
                             {/* Secondary Action: Custom Request (Same Link) */}
                             <Link
-                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                                href={meetingLink}
                                 target="_blank"
                                 className="rounded-full flex items-center border-2 justify-center flex-row !px-10 !py-4 !text-lg border-white/20 text-white hover:bg-white/10"
                             >

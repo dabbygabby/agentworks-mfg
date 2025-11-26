@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Button from '../ui/Button';
+import { meetingLink } from '@src/globals';
 
 interface VideoModalProps {
     isOpen: boolean;
@@ -102,7 +103,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
                                 Ready to optimize your manufacturing?
                             </h3>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary" className="text-lg px-8 py-4">
+                                <Button href={meetingLink} variant="primary" className="text-lg px-8 py-4">
                                     Get a Free Process Audit
                                     <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>

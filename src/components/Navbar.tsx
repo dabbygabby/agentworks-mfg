@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Phone, ChevronDown, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { industries } from './industries/consts';
+import { meetingLink } from '../globals';
 
 const Navbar = () => {
   const router = useRouter();
@@ -142,7 +143,7 @@ const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <Button
-              href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+              href={meetingLink}
               variant="primary"
               // Logic: If transparent state, force background #bef264 and dark text. 
               // Otherwise, let Button component handle defaults.
@@ -338,7 +339,7 @@ const Navbar = () => {
             {/* Footer Actions */}
             <div className="p-6 border-t border-gray-100 bg-gray-50">
               <Button
-                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                href={meetingLink}
                 variant="primary"
                 className="!w-full !justify-center !py-3 !text-lg !rounded-xl"
               >

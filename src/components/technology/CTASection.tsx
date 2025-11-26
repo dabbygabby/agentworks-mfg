@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { ArrowRight } from 'lucide-react';
+import { meetingLink } from '@src/globals';
 
 const CTASection = () => {
     return (
@@ -22,7 +23,7 @@ const CTASection = () => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Button
-                            href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                            href={meetingLink}
                             variant="primary"
                             className="!text-lg !px-8 !py-4 w-full sm:w-auto"
                         >
