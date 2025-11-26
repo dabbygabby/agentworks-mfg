@@ -4,6 +4,7 @@ import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Calendar, ClipboardList, DollarSign, AlertTriangle, Eye, Settings, Clock, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import IndustryHero from '@src/components/industries/IndustryHeroSection';
 
 const HeavyMachineryPage = () => {
     return (
@@ -15,38 +16,13 @@ const HeavyMachineryPage = () => {
 
             <main>
                 {/* Hero Section */}
-                <Section className="bg-[#f7fee7] rounded-b-[3rem] pt-32 pb-20 overflow-hidden">
-                    <div className="max-w-6xl mx-auto px-4">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-6 leading-tight">
-                                    Where is the Order? <span className="text-[#65a30d]">Stop Guessing</span>.
-                                </h1>
-                                <p className="text-xl text-[#022c22]/70 mb-8 leading-relaxed">
-                                    Gain absolute visibility over long-lead production cycles. From welding to final assembly, track every sub-component without chasing supervisors on the floor.
-                                </p>
-                                <Button href="/connectors" variant="primary">
-                                    See the Scheduling Agent
-                                    <ArrowRightIcon className="w-4 h-4 ml-2" />
-                                </Button>
-                            </div>
-                            <div className="relative">
-                                <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/50">
-                                    <Image
-                                        src="/heavy-machinery.png"
-                                        alt="Heavy Machinery Production Schedule"
-                                        width={600}
-                                        height={400}
-                                        className="w-full h-auto"
-                                    />
-                                </div>
-                                {/* Decorative blob */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#bef264]/20 blur-3xl -z-10 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
-
+                <IndustryHero
+                    title="Heavy Machinery"
+                    subtitle="Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery."
+                    ctaText="See the Scheduling Agent"
+                    imageSrc="/heavy-machinery.png"
+                    ctaLink="/connectors"
+                />
                 {/* The Visibility Gap (Problem) */}
                 <Section className="bg-white">
                     <div className="max-w-7xl mx-auto">
