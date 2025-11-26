@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Section from '../ui/Section';
 import Button from '../ui/Button';
+import { meetingLink } from '@src/globals';
 
 interface CTASectionProps {
     title?: string;
@@ -14,7 +15,7 @@ interface CTASectionProps {
 export const DetailCTA: React.FC<CTASectionProps> = ({
     title = "Ready to Automate Your Fabricatin Workflow?",
     subtitle = "Let an engineer analyze your quoting process. No cost. No obligation.",
-    href = "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+    href = { meetingLink },
     ctaText = "Consult an Engineer",
     className = "",
 }) => {
@@ -35,7 +36,7 @@ export const DetailCTA: React.FC<CTASectionProps> = ({
                 <p className="text-xl text-white/70 mb-10">
                     {subtitle}
                 </p>
-                <Button href={href} variant="accent">
+                <Button href={href as string} variant="accent">
                     {ctaText}
                     <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

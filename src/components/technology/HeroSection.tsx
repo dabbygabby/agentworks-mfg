@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ArrowRightIcon, Box } from 'lucide-react';
 import TechnologyHeroVisual from './TechnologyHeroVisual'; // Assuming this exists based on your code
 import Button from '../ui/Button'; // Assuming this exists based on your code
+import { meetingLink } from '@src/globals';
 
 const HeroSection = () => {
     // --- Animation Variants (Replicated from Homepage) ---
@@ -99,7 +100,7 @@ const HeroSection = () => {
                             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8 md:mt-12"
                         >
                             <Link
-                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                                href={meetingLink}
                                 target="_blank"
                                 className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                             >

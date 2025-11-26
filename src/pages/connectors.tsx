@@ -6,6 +6,7 @@ import { libraryData, coreFour, categories } from '../components/connectors/conn
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { meetingLink } from '@src/globals';
 
 export default function Connectors() {
     const [activeCategory, setActiveCategory] = useState('finance');
@@ -92,7 +93,7 @@ export default function Connectors() {
                                 <Button href="#library" variant="accent" className="w-full sm:w-auto px-8 py-4 text-lg bg-[#bef264] text-[#022c22] hover:bg-[#d9f99d]">
                                     Search Integrations
                                 </Button>
-                                <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="outline" className="w-full sm:w-auto px-8 py-4 text-lg border-white/20 text-white hover:bg-white/10">
+                                <Button href={meetingLink} variant="outline" className="w-full sm:w-auto px-8 py-4 text-lg border-white/20 text-white hover:bg-white/10">
                                     Talk to an Engineer
                                 </Button>
                             </div>
@@ -267,7 +268,7 @@ export default function Connectors() {
                                     <Database className="w-12 h-12 text-[#022c22]/30 mx-auto mb-4" />
                                     <h3 className="text-lg font-bold text-[#022c22]">No connector found</h3>
                                     <p className="text-[#022c22]/60 mb-6">We probably still support it via custom integration.</p>
-                                    <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="outline" className="border-[#022c22]/20 text-[#022c22]">Request Custom Build</Button>
+                                    <Button href={meetingLink} variant="outline" className="border-[#022c22]/20 text-[#022c22]">Request Custom Build</Button>
                                 </div>
                             )}
                         </motion.div>
@@ -342,7 +343,7 @@ export default function Connectors() {
                             <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
                                 Manufacturing is full of legacy software and custom SQL databases. If your tool isn't listed above, our engineering team will build a custom connector for you.
                             </p>
-                            <Link href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" className="inline-block rounded-full px-10 py-4 text-lg font-bold bg-[#bef264] text-[#022c22] hover:bg-[#bef264]/80 transition-colors duration-300 ease-in-out shadow-xl shadow-black/20">
+                            <Link href={meetingLink} className="inline-block rounded-full px-10 py-4 text-lg font-bold bg-[#bef264] text-[#022c22] hover:bg-[#bef264]/80 transition-colors duration-300 ease-in-out shadow-xl shadow-black/20">
                                 Schedule a Discovery Call
                             </Link>
                         </motion.div>

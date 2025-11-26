@@ -49,7 +49,7 @@ const FinalCTA = () => {
                 >
                     {/* Primary Action */}
                     <button
-                        onClick={() => window.open('https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery', '_blank')}
+                        onClick={() => window.open('https://cal.com/rabnoor-singh/30min', '_blank')}
                         className="group relative px-8 py-4 bg-[#bef264] text-[#022c22] font-bold text-lg rounded-full overflow-hidden transition-transform hover:scale-105 shadow-xl shadow-[#bef264]/20"
                     >
                         <span className="relative z-10 flex items-center">

@@ -1,8 +1,7 @@
-import React from 'react';
 import Section from '../ui/Section'; // Assuming this is your wrapper
-import Button from '../ui/Button';
 import { ArrowRightIcon, Box, Activity, DollarSign } from 'lucide-react';
 import Link from 'next/link';
+import { meetingLink } from '@src/globals';
 
 const UniversalPhysicsSection = () => {
     const flows = [
@@ -63,7 +62,7 @@ const UniversalPhysicsSection = () => {
 
                 <div className="flex justify-center">
                     <Link
-                        href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery"
+                        href={meetingLink}
                         target="_blank"
                         className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                     >

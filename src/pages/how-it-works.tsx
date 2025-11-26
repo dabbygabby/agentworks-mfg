@@ -3,6 +3,7 @@ import { ArrowRight, ArrowRightIcon, Grid2X2 } from "lucide-react"
 import Link from "next/link";
 import { StepSection } from "@src/components/howItWorks/StepSection"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { meetingLink } from '@src/globals';
 
 // Visual Imports
 import InputsVisual from "@src/components/howItWorks/InputsVisual"
@@ -113,7 +114,7 @@ export default function HowItWorks() {
                     className="flex w-full flex-col sm:flex-row items-center justify-center lg:justify-center gap-4 mt-0 md:mt-12"
                 >
                     <Link
-                        href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                        href={meetingLink} target="_blank"
                         className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                     >
                         Book A Demo

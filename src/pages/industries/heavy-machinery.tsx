@@ -7,6 +7,7 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
+import { meetingLink } from '@src/globals';
 
 const HeavyMachineryCopy = {
     hero: {
@@ -135,7 +136,7 @@ const HeavyMachineryCopy = {
     cta: {
         title: "Ready to automate your heavy machinery quoting process?",
         subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
-        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        href: meetingLink,
         ctaText: "Consult an Engineer"
     }
 }

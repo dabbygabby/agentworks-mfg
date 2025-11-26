@@ -5,6 +5,7 @@ import HeroVisual from './HeroVisual';
 import VideoModal from './VideoModal';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { meetingLink } from '@src/globals';
 
 const HeroSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,7 +93,7 @@ const HeroSection = () => {
                             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-0 md:mt-32"
                         >
                             <Link
-                                href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" target="_blank"
+                                href={meetingLink} target="_blank"
                                 className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                             >
                                 Talk to an Expert

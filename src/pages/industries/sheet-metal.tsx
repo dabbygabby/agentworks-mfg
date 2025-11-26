@@ -7,6 +7,7 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
+import { meetingLink } from '@src/globals';
 
 const SheetMetalCopy = {
     // 1. HERO SECTION (Focus on Velocity & Simplicity)
@@ -117,7 +118,7 @@ const SheetMetalCopy = {
     cta: {
         title: "Send us your messiest drawing.",
         subtitle: "Challenge us. Upload a complex DXF file and see how fast Agentworks can quote it. No cost. No obligation.",
-        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        href: meetingLink,
         ctaText: "Test Agentworks Free"
     }
 }
