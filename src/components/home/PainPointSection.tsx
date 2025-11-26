@@ -13,7 +13,7 @@ const PainPointSection = () => {
             icon: Eye,
             headline: () => { return ("Visibility Leaks") },
             copy: "Your system reflects yesterday, but your floor operates in now. You are driving your business while looking in the rearview mirror.",
-            cta: "See the Live Dashboard",
+            cta: "See How It Works",
             href: "/how-it-works",
             color: "green"
         },
@@ -21,16 +21,16 @@ const PainPointSection = () => {
             icon: ChartBarDecreasing,
             headline: () => { return ("Margin Leaks") },
             copy: "Quoting based on static spreadsheets means you are guessing. You only find out you lost money after the job has shipped.",
-            cta: "See the Quoting Agent",
-            href: "/how-it-works",
+            cta: "Explore Agents",
+            href: "/agents",
             color: "green"
         },
         {
             icon: Hourglass,
             headline: () => { return ("Time Leaks") },
             copy: "You are the highest-paid data entry clerk in the building. Every screenshot you manually forward is time stolen from growing your business.",
-            cta: "Automate Data Entry",
-            href: "/how-it-works",
+            cta: "Explore Connectors",
+            href: "/connectors",
             color: "green"
         }
     ];
