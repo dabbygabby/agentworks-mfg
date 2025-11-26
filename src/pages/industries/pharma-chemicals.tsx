@@ -11,133 +11,133 @@ import { meetingLink } from '@src/globals';
 
 const PharmaChemicalCopy = {
     hero: {
-        title: "Compliance without the chaos",
-        subtitle: "Automate batch tracking, expiry management, and audit trails without adding a single sheet of paper to the floor.",
-        ctaText: "See the Compliance Agent",
+        title: "100% Audit Readiness. Zero Paperwork.",
+        subtitle: "Run a cGMP-Compliant Plant Using Only Voice & WhatsApp. We turn shop-floor chatter into validated Batch Manufacturing Records (BMR), automate QC logs, and enforce FEFO inventory control.",
+        ctaText: "Start Your Zero-Risk Pilot",
         imageSrc: "/pharma.png",
         ctaLink: "/connectors"
     },
     problemSection: {
-        title: "Why Standard ERPs Fail in Pharma & Chemicals.",
-        subtitle: "In Pharma and Chemicals, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix.",
+        title: "Your Lab is Digital. Your Floor is Analog.",
+        subtitle: "You invest in high-end ERPs, but your operators still run on notebooks and memory. This disconnect causes '483 Observations', dead stock, and yield gaps that generic software can't catch.",
         features: [
             {
-                title: "The \"Dead Stock\" Trap",
-                icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
-            },
-            {
-                title: "Audit Panic",
-                icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
-            },
-            {
-                title: "Margin Leakage",
+                title: "The \"Yield Gap\"",
                 icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
+                desc: "You only find out a batch has low potency or high moisture content after it is finished. Real-time deviation control is impossible on paper."
+            },
+            {
+                title: "Data Integrity Risks",
+                icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
+                desc: "One '483 Observation' from the FDA or a failed customer audit due to missing paperwork can shut down your line for weeks."
+            },
+            {
+                title: "Invisible Inventory",
+                icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Expired raw materials (dead stock) and 'lost' solvents in the warehouse eat 5-10% of your bottom line annually."
             }
         ]
     },
     agentSection: {
-        title: "Intelligent Infrastructure for Process Industries.",
+        title: "The Digital QA That Never Sleeps.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
                 icon: ShieldCheck,
-                title: "Compliance Agent",
+                title: "Quality Agent",
                 subtitle: "Batch & Audit",
-                tagline: '"The 24/7 Quality Auditor."',
+                tagline: '"The 24/7 Auditor."',
                 features: [
                     {
                         label: "Ingest",
-                        description: "Reads batch labels, CoAs, and GRNs via photo."
+                        description: "Reads batch labels, CoAs, and GRNs via photo to create digital entry."
                     },
                     {
                         label: "Verify",
-                        description: "Instantly cross-checks received material against PO and expiry."
+                        description: "Instantly cross-checks received material against PO specs and expiry constraints."
                     },
                     {
                         label: "Trace",
-                        description: "Creates a digital thread. Find every customer for a recalled batch in seconds."
+                        description: "Creates a digital thread to trace every batch to its final customer in seconds."
+                    }
+                ]
+            },
+            {
+                icon: AlertTriangle,
+                title: "Stores Agent",
+                subtitle: "Expiry Watchdog",
+                tagline: '"Shelf-Life Guardian."',
+                features: [
+                    {
+                        label: "Monitor",
+                        description: "Continuously scans inventory age across the warehouse."
+                    },
+                    {
+                        label: "Alert",
+                        description: 'Triggers "Use First" alerts to production for batches nearing expiry.'
+                    },
+                    {
+                        label: "Reconcile",
+                        description: 'Automates "Physical vs. System" stock checks using voice notes.'
                     }
                 ]
             },
             {
                 icon: RefreshCw,
                 title: "Sales Agent",
-                subtitle: "Recurring Revenue",
-                tagline: '"Never Miss a Refill."',
+                subtitle: "Distributor Management",
+                tagline: '"Revenue Velocity."',
                 features: [
                     {
                         label: "Predict",
-                        description: 'Analyzes buying patterns (e.g., "Client X buys 500L every 20 days").'
+                        description: 'Analyzes buying patterns to forecast needs (e.g., "Client X needs 500L every 20 days").'
                     },
                     {
                         label: "Nudge",
-                        description: 'Proactively WhatsApps distributor: "Order due next week. Book now?"'
+                        description: 'Proactively contacts distributors via WhatsApp to book orders before they run out.'
                     },
                     {
                         label: "Protect",
-                        description: "Quotes based on today's raw material indices to protect margin."
-                    }
-                ]
-            },
-            {
-                icon: AlertTriangle,
-                title: "Inventory Agent",
-                subtitle: "Expiry Guard",
-                tagline: '"Zero Expired Inventory."',
-                features: [
-                    {
-                        label: "Monitor",
-                        description: "Continuously scans inventory age."
-                    },
-                    {
-                        label: "Alert",
-                        description: 'Triggers "Use First" alert to production for near-expiry batches.'
-                    },
-                    {
-                        label: "Reconcile",
-                        description: 'Automates "Physical vs. System" check using voice notes.'
+                        description: "Quotes based on current raw material indices to protect margins from volatility."
                     }
                 ]
             }
         ]
     },
     caseStudies: {
-        "title": "Proven Results in Process Manufacturing.",
-        "description": "See how Indian chemical plants are automating the hard stuff.",
+        "title": "Compliance Without the Chaos.",
+        "description": "See how Indian manufacturers are using Agentworks to secure their margins.",
         "studies": [
             {
                 "badge": "The \"Margin\" Win",
-                "title": "Top 10 Condom Manufacturer",
+                "title": "Top 10 Condom Manufacturer (Maharashtra)",
                 "challenge": "Sales teams quoting based on static lists, missing raw material spikes. 7-day quote cycle.",
                 "results": [
                     "<strong>Speed:</strong> Quoting cycle reduced from 7 days to 2 hours.",
-                    "<strong>Margin Uplift:</strong> +3% Point Increase (18% → 21%).",
+                    "<strong>Margin Uplift:</strong> +3 Point Increase (18% → 21%).",
                     "<strong>Profit Impact:</strong> Generated ₹45 Lakhs in additional annual profit."
                 ],
                 "link": "#case-study-condom-manufacturer"
             },
             {
-                "badge": "The \"Audit\" Win",
-                "title": "Mid-Sized API & Solvent Manufacturer",
-                "challenge": "Manual store-keeping. Monthly reconciliation paused production for 2 days.",
+                "badge": "The \"Procurement\" Win",
+                "title": "Packaging Manufacturing Leader",
+                "challenge": "Slow procurement decisions leading to losses on R&D projects and material delays.",
                 "results": [
-                    "<strong>Compliance:</strong> 100% Digital Audit Trail created automatically.",
-                    "<strong>Efficiency:</strong> Month-end reconciliation reduced from 2 days to 4 hours.",
-                    "<strong>Loss Prevention:</strong> Identified ₹5L of near-expiry stock in time."
+                    "<strong>Loss Prevention:</strong> Avoided ₹5 Lakhs in losses by halting low-ROI R&D projects.",
+                    "<strong>Speed:</strong> Procurement cycle time dropped from 10 days to 2 hours.",
+                    "<strong>Execution:</strong> Enabled better decisions and faster execution."
                 ],
-                "link": "#case-study-api-solvent"
+                "link": "#case-study-packaging"
             }
         ]
     },
     cta: {
-        title: "Ready to Audit-Proof Your Operations?",
-        subtitle: "Stop losing money to expired stock and slow paperwork.",
+        title: "Your Plant. Your Rules. Our Agents.",
+        subtitle: "Whether you make APIs, Formulations, or Specialty Chems—if your team can send a Voice Note, they are already trained to use Agentworks.",
         href: meetingLink,
-        ctaText: "Consult an Engineer"
+        ctaText: "Book a 15-Min Strategy Call"
     }
 }
 

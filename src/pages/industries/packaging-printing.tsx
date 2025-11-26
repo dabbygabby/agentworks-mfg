@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
+import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown, ArrowRight, Scale, EyeOff, Dices } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
@@ -10,134 +10,144 @@ import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies'
 import { meetingLink } from '@src/globals';
 
 const PackagingPrintingCopy = {
+    // 1. HERO SECTION
     hero: {
-        title: "Procurement is a race",
-        subtitle: "Win it. Automate buying and tracking for high-volume packaging and printing.",
-        ctaText: "See the Procurement Agent",
+        title: "From Quote Chaos to Quote Velocity in 48 Hours",
+        subtitle: "Stop losing orders to competitors who quote faster. Agentworks turns your WhatsApp into an instant quoting engine—calculating GSM costs, die-cutting specs, and material wastage in real-time, while your competition is still opening Excel.",
+        ctaText: "Win More Orders",
         imageSrc: "/packaging.png",
-        ctaLink: "/connectors"
+        ctaLink: meetingLink
     },
+
+    // 2. PROBLEM SECTION
     problemSection: {
-        title: "Why Standard ERPs Fail in Packaging & Printing.",
-        subtitle: `You operate on "Just-in-Time" delivery and volatile paper/ink prices. A generic ERP is a system of record, not a system of action. It doesn't help you negotiate with 10 vendors simultaneously, and it can't tell you if a job is stuck at Lamination or Die-Cutting without a phone call.`,
+        title: "Your Margin Leaks While You're Stuck Playing Procurement Detective",
+        subtitle: "Every day without automation, you're bleeding profit on the floor—and you don't even see it happening.",
         features: [
             {
-                title: "Procurement Drag",
-                icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You lose margins because comparing vendor quotes takes too long. By the time you decide, the price has moved."
+                title: "Procurement Paralysis",
+                icon: <TrendingDown className="w-8 h-8 text-[#ef4444]" />,
+                desc: "₹8-12L lost annually to slow vendor negotiations and material price fluctuations you can't track in real-time."
             },
             {
-                title: "Inventory Leaks",
-                icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Dead stock (leftover reels/sheets) piles up because no one knows it exists during the next estimate."
+                title: "Invisible Production",
+                icon: <EyeOff className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Your sales team spends 4 hours/day answering 'Where's my order?'—time stolen from closing new deals."
             },
             {
-                title: "Production Blindness",
-                icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You have 50 jobs running. Knowing exactly which stage (Printing, Pasting, Cutting) each one is at requires chasing floor supervisors."
+                title: "Quote Roulette",
+                icon: <Dices className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Wrong GSM calculations or missed wastage estimates cost you 3-5% margin on every job. You only discover it after dispatch."
             }
         ]
     },
+
+    // 3. AGENT SECTION
     agentSection: {
-        title: "Intelligent Infrastructure for High-Volume Press.",
+        title: "Three AI Agents That Turn Chaos Into Cash Flow",
+        subtitle: "Deploy specialized agents that automate the three workflows killing your margins—without changing a single process your team already knows.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
-                icon: ShoppingCart,
-                title: "Procurement Agent",
+                icon: Scale,
+                title: "Raw Material Negotiator",
                 subtitle: "Vendor Negotiation",
-                tagline: '"The Ruthless Buyer."',
+                tagline: "The Ruthless Buyer",
                 features: [
                     {
-                        label: "Ingest",
-                        description: "Reads vendor quotes from Email and WhatsApp instantly."
+                        "label": "Ingest",
+                        "description": "Reads vendor quotes from Email and WhatsApp instantly—300 GSM, 250 GSM, coated/uncoated, all formats."
                     },
                     {
-                        label: "Compare",
-                        description: "Auto-compares quotes against historical prices and market indices."
+                        "label": "Compare",
+                        "description": "Auto-compares quotes against historical prices, live market indices, and flags 2%+ price hikes."
                     },
                     {
-                        label: "Negotiate",
-                        description: 'Automates follow-ups: "Your quote is 2% higher. Can you match?"'
+                        "label": "Negotiate",
+                        "description": "Automates follow-ups: 'Your quote is ₹420/ream vs. ₹398 last month. Match or lose the PO.'"
                     }
                 ]
             },
             {
-                icon: Activity,
-                title: "Operations Agent",
+                icon: Eye,
+                title: "Print Floor Tracker",
                 subtitle: "Live Floor Visibility",
-                tagline: '"Live Floor Visibility."',
+                tagline: "Control Tower",
                 features: [
                     {
-                        label: "Input",
-                        description: 'Operators send voice updates: "Job 105, Printing done."'
+                        "label": "Input",
+                        "description": "Operators send voice updates: 'Job 2847, flexo printing done, moving to die-cut.'"
                     },
                     {
-                        label: "Track",
-                        description: "Updates central dashboard and flags schedule delays."
+                        "label": "Track",
+                        "description": "Updates master schedule, recalculates dispatch timelines, flags delays before they become emergencies."
                     },
                     {
-                        label: "Notify",
-                        description: 'Alerts dispatch team when job hits "Finished Goods".'
+                        "label": "Notify",
+                        "description": "Alerts dispatch team when job hits 'Finished Goods.' Zero follow-up calls to the floor."
                     }
                 ]
             },
             {
                 icon: Calculator,
-                title: "Costing Agent",
+                title: "Box Costing Calculator",
                 subtitle: "Precision Estimates",
-                tagline: '"Precision Estimates."',
+                tagline: "Margin Guardian",
                 features: [
                     {
-                        label: "Calculate",
-                        description: "Calculates exact paper tonnage and ink coverage from dimensions."
+                        "label": "Calculate",
+                        "description": "Extracts box dimensions, calculates exact GSM tonnage, ink coverage, and die-cutting specs from customer PDFs."
                     },
                     {
-                        label: "Optimize",
-                        description: "Suggests optimal reel size/layout to minimize wastage."
+                        "label": "Optimize",
+                        "description": "Suggests optimal sheet layout to minimize wastage—turns 18% scrap into 11%."
                     },
                     {
-                        label: "Quote",
-                        description: "Generates customer-ready quote protecting your margin."
+                        "label": "Quote",
+                        "description": "Generates customer-ready quote in 12 minutes that locks in your margin, even as paper prices fluctuate."
                     }
                 ]
             }
         ]
     },
+
+    // 4. CASE STUDIES
     caseStudies: {
         title: "Proven Results in Packaging.",
-        description: "See how high-volume presses are using Agentworks to protect margins.",
+        description: "See how packaging manufacturers are using Agentworks to protect margins and win more orders.",
         studies: [
             {
-                badge: "The \"Procurement\" Win",
-                title: "A Leading Packaging Brand in India",
-                "challenge": "Procurement team spent days collating quotes. Production delayed by slow decisions.",
-                "results": [
-                    "<strong>90% Faster Cycles:</strong> Procurement cycle time dropped from 10 days to 2 hours.",
-                    "<strong>Loss Prevention:</strong> Avoided ₹5 Lakhs in losses by halting low-ROI R&D.",
-                    "<strong>Decision Speed:</strong> Enabled \"Same-Day Ordering\" for critical materials."
+                badge: 'The "Velocity" Win',
+                title: 'Leading Corrugated Box Manufacturer',
+                challenge: 'Lost 40% of RFQs to competitors who quoted faster. Sales team buried in manual calculations for flute specs and material costs.',
+                results: [
+                    '<strong>97% Faster Quotes:</strong> Reduced quoting cycle from 7 days to 4 hours—won deals competitors couldn\'t even respond to yet.',
+                    '<strong>+3.2% Margin Recovery:</strong> AI-calculated wastage optimization saved ₹8.2L annually in material costs.',
+                    '<strong>Zero Quote Errors:</strong> Eliminated costly mistakes in GSM calculations that previously led to post-job losses.',
                 ],
-                "link": "#case-study-packaging-india"
+                link: '#case-study-packaging-1',
             },
             {
-                "badge": "The \"Visibility\" Win",
-                "title": "Corrugated Box Manufacturer",
-                "challenge": "Constant \"Where is my order?\" calls. Sales team had to physically check machine status.",
-                "results": [
-                    "<strong>Zero Follow-ups:</strong> Sales team has live status on their phone.",
-                    "<strong>On-Time Delivery:</strong> Improved dispatch timelines by 15%.",
-                    "<strong>Customer Satisfaction:</strong> Automated WhatsApp updates on dispatch."
+                badge: 'The "Visibility" Win',
+                title: 'Flexible Packaging Converter',
+                challenge: 'Sales team spent 15+ hours/week physically checking machine status. Clients called hourly for updates. Plant Head firefighting delays instead of optimizing OEE.',
+                results: [
+                    '<strong>Zero Status Calls:</strong> Sales has live dashboard access—no more shop floor interruptions.',
+                    '<strong>22% Faster Dispatch:</strong> Real-time alerts on job completion improved delivery timelines.',
+                    '<strong>Automated Customer Updates:</strong> WhatsApp notifications sent automatically when jobs hit key milestones.',
                 ],
-                "link": "#case-study-corrugated-box"
-            }
+                link: '#case-study-packaging-2',
+            },
         ]
     },
+
+    // 5. BOTTOM CTA
     cta: {
-        title: "Ready to Audit-Proof Your Operations?",
-        subtitle: "Stop losing money to expired stock and slow paperwork.",
+        title: "Your Competitors Are Already Quoting Faster. Catch Up in 48 Hours.",
+        subtitle: "Deploy your first agent this week. Start winning orders you're losing today—with zero upfront cost and zero process changes.",
         href: meetingLink,
-        ctaText: "Consult an Engineer"
+        ctaText: "Book Your Packaging Demo"
     }
 }
 
@@ -178,7 +188,7 @@ const PackagingPage = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Smart Procurement—Without the Email Chaos.
+                                Stop Losing Margins to Procurement Delays
                             </h2>
                         </div>
 

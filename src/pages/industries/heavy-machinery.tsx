@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Section from '../../components/ui/Section';
-import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, Calendar, ClipboardList, DollarSign, AlertTriangle, Eye, Settings, Clock, Check, ArrowRight } from 'lucide-react';
+import { Calendar, AlertTriangle, Clock, Check, EyeClosed, IndianRupee, HardHat, Magnet } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
@@ -10,134 +9,117 @@ import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies'
 import { meetingLink } from '@src/globals';
 
 const HeavyMachineryCopy = {
+    // 1. HERO SECTION (Focus on Profit & Visibility)
     hero: {
-        title: "Heavy Machinery & OEM",
-        subtitle: "Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery.",
-        ctaText: "See the Scheduling Agent",
+        title: "Turn Every Machine Into Profit—Not a Guess.",
+        subtitle: "Stop quoting blind and losing on the floor. We turn your shop floor chaos into live P&L visibility, so you know exactly which jobs print money—before the machine even starts.",
+        ctaText: "Calculate Your Hidden Margin Leak",
         imageSrc: "/heavy-machinery.png",
-        ctaLink: "/connectors"
+        ctaLink: "/roi-calculator"
     },
+
+    // 2. PROBLEM SECTION (The "Financial Fear")
     problemSection: {
-        title: "Why Standard ERPs Fail in Heavy Industry.",
-        subtitle: "You build complex machines with lead times measured in weeks or months. A generic ERP records the start and the end of a job, but it is blind to the middle. It cannot see that the chassis is stuck in the Paint Shop or that the hydraulic pump is missing for Final Assembly.",
+        title: "Your ERP Shows 'Profitable.' Your Bank Account Says Otherwise.",
+        subtitle: "You're building ₹50 Lakh machines with 5,000-part BOMs. One missing component stalls the line. One design change kills your margin. And you usually find out 30 days after dispatch.",
         features: [
             {
-                title: "The Production Black Hole",
-                icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Sales teams have to physically walk the floor to answer customer questions about delivery dates."
+                title: "Margin Blindness",
+                icon: <EyeClosed className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You quoted ₹45L based on last quarter's steel prices. Actual cost today? ₹48L. You just shipped a ₹3 Lakh loss and celebrated it as revenue."
             },
             {
-                title: "WIP Blindness",
+                title: "BOM Russian Roulette",
                 icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You have crores of rupees tied up in \"Work In Progress,\" but no clear view of which stage (Fabrication, Machining, Assembly) is the actual bottleneck."
+                desc: "4,873 components. Your ERP says you have them all. But one ₹250 hydraulic seal is missing. A ₹1.2 Cr order sits idle for 6 days."
             },
             {
-                title: "Sub-Assembly Chaos",
-                icon: <Settings className="w-8 h-8 text-[#ef4444]" />,
-                desc: "One missing flange or bolt stops the assembly of a ₹50 Lakh machine."
+                title: "The 'Friday' Lie",
+                icon: <Calendar className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Sales promises Friday delivery because 'Inventory' showed the sub-assembly was ready. Reality? Production is still at welding. The customer finds out before you do."
             }
         ]
     },
+
+    // 3. AGENT SECTION (The "Nervous System")
     agentSection: {
-        title: "Intelligent Infrastructure for Assembly Lines.",
+        title: "From Blind Quotes to Bulletproof Margins",
+        subtitle: "It’s not just software; it’s a nervous system. Your operators speak. Our AI calculates. Your P&L updates in real-time.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
-                icon: Calendar,
-                title: "Job Scheduling Agent",
-                subtitle: "The Control Tower",
-                tagline: '"Real-Time Gantt Charts."',
+                icon: IndianRupee, // Or Calculator
+                title: "Job Cost Guardian",
+                subtitle: "Finance & Costing",
+                tagline: "The Ruthless Accountant",
                 features: [
-                    {
-                        label: "Input",
-                        description: 'Supervisors send voice updates: "Chassis #402, Welding complete."'
-                    },
-                    {
-                        label: "Update",
-                        description: "Instantly updates master schedule and recalculates completion date."
-                    },
-                    {
-                        label: "Alert",
-                        description: "If a stage takes longer than planned, the Plant Head gets an alert."
-                    }
+                    { "label": "Track", "description": "Allocates every specific welder's hours and every consumable bolt directly to the Job ID." },
+                    { "label": "Alert", "description": "Flags cost overruns the moment actuals exceed estimates—mid-job, not post-mortem." },
+                    { "label": "Report", "description": "Generates machine-wise P&L: 'Excavator #2401 made ₹4.2L. Crusher #2405 lost ₹80K.'" }
                 ]
             },
             {
-                icon: ClipboardList,
-                title: "Kitting Agent",
-                subtitle: "Shortage Prevention",
-                tagline: '"No Stalled Assembly."',
+                icon: HardHat, // Or Radio
+                title: "Shopfloor Command Center",
+                subtitle: "Operations",
+                tagline: "The Floor Manager",
                 features: [
-                    {
-                        label: "Scan",
-                        description: "Checks inventory for every child part before Work Order release."
-                    },
-                    {
-                        label: "Flag",
-                        description: "Identifies shortages immediately (e.g., missing 12V Solenoid)."
-                    },
-                    {
-                        label: "Procure",
-                        description: "Auto-triggers purchase requests to ensure arrival before assembly."
-                    }
+                    { "label": "Input", "description": "Operators don't type. They send voice notes: 'Job 5893, Boom fabrication complete.'" },
+                    { "label": "Update", "description": "Gantt charts refresh instantly. Sales sees 'Welding done, Paint Shop next' without calling anyone." },
+                    { "label": "Notify", "description": "Auto-alerts the Plant Head if any stage exceeds the planned duration by >10%." }
                 ]
             },
             {
-                icon: DollarSign,
-                title: "Commercial Agent",
-                subtitle: "Project Costing",
-                tagline: '"Protect Your Project Margin."',
+                icon: Magnet, // Or PackageCheck
+                title: "BOM Kitting Agent",
+                subtitle: "Procurement",
+                tagline: "The Shortage Preventer",
                 features: [
-                    {
-                        label: "Track",
-                        description: "Allocates labor and consumable costs to Job IDs in real-time."
-                    },
-                    {
-                        label: "Compare",
-                        description: 'Constantly compares "Actual Cost vs. Quoted Cost."'
-                    },
-                    {
-                        label: "Report",
-                        description: "Tells you exactly how much profit you made on that specific machine."
-                    }
+                    { "label": "Scan", "description": "Cross-checks all 5,000 BOM items against live inventory 7 days before Work Order release." },
+                    { "label": "Flag", "description": "Highlights the 'Golden Screw' instantly: 'Missing: 12x M24 Bolts, Lead Time 4 days.'" },
+                    { "label": "Procure", "description": "Auto-triggers purchase requests to ensure parts arrive before assembly begins." }
                 ]
             }
         ]
     },
+
+    // 4. CASE STUDIES (Margin & Visibility)
     caseStudies: {
-        title: "See How they are using Agentworks",
-        description: "See how fabricators are using Agentworks to unlock capacity.",
+        title: "From Guessing Costs to Guaranteeing Profits.",
+        description: "How two Indian heavy machinery manufacturers stopped bleeding margin and started controlling their floor.",
         studies: [
             {
-                "badge": "The \"Visibility\" Win",
-                "title": "Heavy Earth-Moving Equipment",
-                "challenge": "\"Where is the part?\" Visibility lost between shops. Sales promised dates they couldn't keep.",
-                "results": [
-                    "<strong>100% Visibility:</strong> Every machine's stage is visible on a live dashboard.",
-                    "<strong>On-Time Delivery:</strong> Improved reliability by 20% due to early bottleneck detection.",
-                    "<strong>Admin Reduction:</strong> Eliminated need for daily \"production status meetings.\""
+                badge: 'The "Margin" Win',
+                title: 'Earthmoving Equipment Manufacturer',
+                challenge: 'Quoted 40+ custom machines annually. Discovered 30% were unprofitable only after delivery due to un-tracked rework costs.',
+                results: [
+                    '<strong>97% Quote Accuracy:</strong> Variance dropped from ±18% to ±3%.',
+                    '<strong>Recovered ₹45L:</strong> Identified and rejected margin-killing deals.',
+                    '<strong>Real-Time P&L:</strong> Owners see per-machine profitability updating live.',
                 ],
-                "link": "#case-study-heavy-equipment"
+                link: '#case-study-1',
             },
             {
-                "badge": "The \"Finance\" Win",
-                "title": "Bird Machines (Custom Fabricator)",
-                "challenge": "Finance spent 40hrs/week reconciling invoices. Month-end closing took 7 days.",
-                "results": [
-                    "<strong>95% Less Admin:</strong> Finance workload dropped from 40 hours to 2 hours per week.",
-                    "<strong>Real-Time Closing:</strong> Month-end closing reduced from 7 days to near-zero.",
-                    "<strong>Staffing:</strong> Freed 2 FTEs to focus on revenue tasks instead of data entry."
+                badge: 'The "Visibility" Win',
+                title: 'Hydraulic Press Manufacturer',
+                challenge: 'Constant "Where is my order?" calls. Sales team physically walked the 40,000 sqft floor 3x daily to find machine status.',
+                results: [
+                    '<strong>Zero Status Calls:</strong> Dashboard shows live job progress.',
+                    '<strong>18% Faster Delivery:</strong> Identified bottlenecks using voice data.',
+                    '<strong>NPS Lift:</strong> On-time delivery went from 71% to 94%.',
                 ],
-                "link": "#case-study-bird-machines"
-            }
+                link: '#case-study-2',
+            },
         ]
     },
+
+    // 5. BOTTOM CTA (Profit Focused)
     cta: {
-        title: "Ready to automate your heavy machinery quoting process?",
-        subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
+        title: "Stop Losing Margin on Your Most Complex Jobs.",
+        subtitle: "You didn't get into heavy machinery to play accountant. Let our agents track the rupees while you build what moves the world.",
         href: meetingLink,
-        ctaText: "Consult an Engineer"
+        ctaText: "Show Me My Profit Leaks"
     }
 }
 
@@ -177,7 +159,7 @@ const HeavyMachineryPage = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Floor Updates via WhatsApp—No Data Entry.
+                                Every Machine. Every Stage. Every Rupee. Visible.
                             </h2>
                         </div>
 
