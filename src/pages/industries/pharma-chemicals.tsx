@@ -6,6 +6,7 @@ import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
+import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
 
 const PharmaChemicalCopy = {
     hero: {
@@ -103,6 +104,34 @@ const PharmaChemicalCopy = {
             }
         ]
     },
+    caseStudies: {
+        "title": "Proven Results in Process Manufacturing.",
+        "description": "See how Indian chemical plants are automating the hard stuff.",
+        "studies": [
+            {
+                "badge": "The \"Margin\" Win",
+                "title": "Top 10 Condom Manufacturer",
+                "challenge": "Sales teams quoting based on static lists, missing raw material spikes. 7-day quote cycle.",
+                "results": [
+                    "<strong>Speed:</strong> Quoting cycle reduced from 7 days to 2 hours.",
+                    "<strong>Margin Uplift:</strong> +3% Point Increase (18% → 21%).",
+                    "<strong>Profit Impact:</strong> Generated ₹45 Lakhs in additional annual profit."
+                ],
+                "link": "#case-study-condom-manufacturer"
+            },
+            {
+                "badge": "The \"Audit\" Win",
+                "title": "Mid-Sized API & Solvent Manufacturer",
+                "challenge": "Manual store-keeping. Monthly reconciliation paused production for 2 days.",
+                "results": [
+                    "<strong>Compliance:</strong> 100% Digital Audit Trail created automatically.",
+                    "<strong>Efficiency:</strong> Month-end reconciliation reduced from 2 days to 4 hours.",
+                    "<strong>Loss Prevention:</strong> Identified ₹5L of near-expiry stock in time."
+                ],
+                "link": "#case-study-api-solvent"
+            }
+        ]
+    },
     cta: {
         title: "Ready to Audit-Proof Your Operations?",
         subtitle: "Stop losing money to expired stock and slow paperwork.",
@@ -185,70 +214,11 @@ const PharmaPage = () => {
                 </Section>
 
                 {/* Case Studies */}
-                <Section className="bg-[#f7fee7] rounded-[3rem]">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Proven Results in Process Manufacturing.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70">
-                                See how Indian chemical plants are automating the hard stuff.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Case Study 1 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Margin" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Top 10 Condom Manufacturer</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Sales teams quoting based on static lists, missing raw material spikes. 7-day quote cycle.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Speed:</strong> Quoting cycle reduced from 7 days to 2 hours.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Margin Uplift:</strong> +3% Point Increase (18% → 21%).</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Profit Impact:</strong> Generated ₹45 Lakhs in additional annual profit.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Case Study 2 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Audit" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Mid-Sized API & Solvent Manufacturer</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Manual store-keeping. Monthly reconciliation paused production for 2 days.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Compliance:</strong> 100% Digital Audit Trail created automatically.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Efficiency:</strong> Month-end reconciliation reduced from 2 days to 4 hours.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Loss Prevention:</strong> Identified ₹5L of near-expiry stock in time.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
+                <DetailCaseStudies
+                    caseStudies={PharmaChemicalCopy.caseStudies.studies}
+                    title={PharmaChemicalCopy.caseStudies.title}
+                    description={PharmaChemicalCopy.caseStudies.description}
+                />
 
                 {/* Bottom CTA */}
                 <DetailCTA

@@ -6,6 +6,7 @@ import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
+import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
 
 const HeavyMachineryCopy = {
     hero: {
@@ -100,6 +101,34 @@ const HeavyMachineryCopy = {
                         description: "Tells you exactly how much profit you made on that specific machine."
                     }
                 ]
+            }
+        ]
+    },
+    caseStudies: {
+        title: "See How they are using Agentworks",
+        description: "See how fabricators are using Agentworks to unlock capacity.",
+        studies: [
+            {
+                "badge": "The \"Visibility\" Win",
+                "title": "Heavy Earth-Moving Equipment",
+                "challenge": "\"Where is the part?\" Visibility lost between shops. Sales promised dates they couldn't keep.",
+                "results": [
+                    "<strong>100% Visibility:</strong> Every machine's stage is visible on a live dashboard.",
+                    "<strong>On-Time Delivery:</strong> Improved reliability by 20% due to early bottleneck detection.",
+                    "<strong>Admin Reduction:</strong> Eliminated need for daily \"production status meetings.\""
+                ],
+                "link": "#case-study-heavy-equipment"
+            },
+            {
+                "badge": "The \"Finance\" Win",
+                "title": "Bird Machines (Custom Fabricator)",
+                "challenge": "Finance spent 40hrs/week reconciling invoices. Month-end closing took 7 days.",
+                "results": [
+                    "<strong>95% Less Admin:</strong> Finance workload dropped from 40 hours to 2 hours per week.",
+                    "<strong>Real-Time Closing:</strong> Month-end closing reduced from 7 days to near-zero.",
+                    "<strong>Staffing:</strong> Freed 2 FTEs to focus on revenue tasks instead of data entry."
+                ],
+                "link": "#case-study-bird-machines"
             }
         ]
     },
@@ -259,70 +288,11 @@ const HeavyMachineryPage = () => {
                 </Section>
 
                 {/* Case Studies */}
-                <Section className="bg-[#f7fee7] rounded-[3rem]">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Proven Results in Heavy Engineering.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70">
-                                See how OEMs are using Agentworks to deliver on time.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Case Study 1 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Visibility" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Heavy Earth-Moving Equipment</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> "Where is the part?" Visibility lost between shops. Sales promised dates they couldn't keep.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>100% Visibility:</strong> Every machine's stage is visible on a live dashboard.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>On-Time Delivery:</strong> Improved reliability by 20% due to early bottleneck detection.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Admin Reduction:</strong> Eliminated need for daily "production status meetings."</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Case Study 2 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Finance" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Bird Machines (Custom Fabricator)</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Finance spent 40hrs/week reconciling invoices. Month-end closing took 7 days.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>95% Less Admin:</strong> Finance workload dropped from 40 hours to 2 hours per week.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Real-Time Closing:</strong> Month-end closing reduced from 7 days to near-zero.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Staffing:</strong> Freed 2 FTEs to focus on revenue tasks instead of data entry.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
+                <DetailCaseStudies
+                    caseStudies={HeavyMachineryCopy.caseStudies.studies}
+                    title={HeavyMachineryCopy.caseStudies.title}
+                    description={HeavyMachineryCopy.caseStudies.description}
+                />
 
                 {/* Bottom CTA */}
                 <DetailCTA

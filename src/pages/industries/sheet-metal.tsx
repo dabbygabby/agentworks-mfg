@@ -6,6 +6,7 @@ import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
+import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
 
 const SheetMetalCopy = {
     hero: {
@@ -103,6 +104,34 @@ const SheetMetalCopy = {
             }
         ]
     },
+    caseStudies: {
+        title: "See How they are using Agentworks",
+        description: "See how fabricators are using Agentworks to unlock capacity.",
+        studies: [
+            {
+                badge: 'The "Finance" Win',
+                title: 'Heavy Equipment Fabricator',
+                challenge: 'Finance team drowning in reconciliation (40 hrs/week). Month-end took 7 days.',
+                results: [
+                    '<strong>95% Reduction</strong> in finance admin time (40 hrs → 2 hrs).',
+                    '<strong>2 FTEs Freed</strong> to focus on revenue tasks.',
+                    '<strong>Month-End</strong> reduced from 7 days to near-zero.',
+                ],
+                link: '#case-study-1',
+            },
+            {
+                badge: 'The "Velocity" Win',
+                title: 'High-Mix Laser Cutting Shop',
+                challenge: 'Engineers spent 80% of day manually calculating cut-lengths. Quoting was the bottleneck.',
+                results: [
+                    '<strong>Quoting Speed:</strong> Reduced cycle time from 7 days to 2 hours.',
+                    '<strong>Margin Uplift:</strong> +3% increase due to precision costing.',
+                    '<strong>Accuracy:</strong> Eliminated manual calculation errors.',
+                ],
+                link: '#case-study-2',
+            },
+        ]
+    },
     cta: {
         title: "Ready to Automate Your Fabrication Workflow?",
         subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
@@ -140,7 +169,7 @@ const SheetMetalPage = () => {
                 />
 
                 {/* How It Works - Smart Quote Visual */}
-                <Section className="bg-white">
+                <Section className="">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
@@ -170,7 +199,7 @@ const SheetMetalPage = () => {
                             </div>
 
                             {/* Visual - Smart Quote Analysis */}
-                            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div className="bg-gray-50 rounded-3xl shadow-xl border border-gray-100">
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                                     <div className="p-4 border-b border-gray-100 bg-[#022c22] text-white flex justify-between items-center">
                                         <div className="flex items-center gap-2">
@@ -241,71 +270,11 @@ const SheetMetalPage = () => {
                 </Section>
 
                 {/* Case Studies */}
-                <Section className="bg-[#f7fee7] rounded-[3rem]">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Proven Results on the Factory Floor.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70">
-                                See how fabricators are using Agentworks to unlock capacity.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Case Study 1 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Finance" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Heavy Equipment Fabricator</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Finance team drowning in reconciliation (40 hrs/week). Month-end took 7 days.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>95% Reduction</strong> in finance admin time (40 hrs → 2 hrs).</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>2 FTEs Freed</strong> to focus on revenue tasks.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Month-End</strong> reduced from 7 days to near-zero.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Case Study 2 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Velocity" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">High-Mix Laser Cutting Shop</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Engineers spent 80% of day manually calculating cut-lengths. Quoting was the bottleneck.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Quoting Speed:</strong> Reduced cycle time from 7 days to 2 hours.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Margin Uplift:</strong> +3% increase due to precision costing.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Accuracy:</strong> Eliminated manual calculation errors.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
-
+                <DetailCaseStudies
+                    caseStudies={SheetMetalCopy.caseStudies.studies}
+                    title={SheetMetalCopy.caseStudies.title}
+                    description={SheetMetalCopy.caseStudies.description}
+                />
                 {/* Bottom CTA */}
                 <DetailCTA
                     title={SheetMetalCopy.cta.title}

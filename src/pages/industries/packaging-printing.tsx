@@ -6,6 +6,7 @@ import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
+import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
 
 const PackagingPrintingCopy = {
     hero: {
@@ -100,6 +101,34 @@ const PackagingPrintingCopy = {
                         description: "Generates customer-ready quote protecting your margin."
                     }
                 ]
+            }
+        ]
+    },
+    caseStudies: {
+        title: "Proven Results in Packaging.",
+        description: "See how high-volume presses are using Agentworks to protect margins.",
+        studies: [
+            {
+                badge: "The \"Procurement\" Win",
+                title: "A Leading Packaging Brand in India",
+                "challenge": "Procurement team spent days collating quotes. Production delayed by slow decisions.",
+                "results": [
+                    "<strong>90% Faster Cycles:</strong> Procurement cycle time dropped from 10 days to 2 hours.",
+                    "<strong>Loss Prevention:</strong> Avoided ₹5 Lakhs in losses by halting low-ROI R&D.",
+                    "<strong>Decision Speed:</strong> Enabled \"Same-Day Ordering\" for critical materials."
+                ],
+                "link": "#case-study-packaging-india"
+            },
+            {
+                "badge": "The \"Visibility\" Win",
+                "title": "Corrugated Box Manufacturer",
+                "challenge": "Constant \"Where is my order?\" calls. Sales team had to physically check machine status.",
+                "results": [
+                    "<strong>Zero Follow-ups:</strong> Sales team has live status on their phone.",
+                    "<strong>On-Time Delivery:</strong> Improved dispatch timelines by 15%.",
+                    "<strong>Customer Satisfaction:</strong> Automated WhatsApp updates on dispatch."
+                ],
+                "link": "#case-study-corrugated-box"
             }
         ]
     },
@@ -235,71 +264,11 @@ const PackagingPage = () => {
                 </Section>
 
                 {/* Case Studies */}
-                <Section className="bg-[#f7fee7] rounded-[3rem]">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Proven Results in Packaging.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70">
-                                See how high-volume presses are using Agentworks to protect margins.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Case Study 1 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Procurement" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">A Leading Packaging Brand in India</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Procurement team spent days collating quotes. Production delayed by slow decisions.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>90% Faster Cycles:</strong> Procurement cycle time dropped from 10 days to 2 hours.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Loss Prevention:</strong> Avoided ₹5 Lakhs in losses by halting low-ROI R&D.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Decision Speed:</strong> Enabled "Same-Day Ordering" for critical materials.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Case Study 2 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Visibility" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Corrugated Box Manufacturer</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Constant "Where is my order?" calls. Sales team had to physically check machine status.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Zero Follow-ups:</strong> Sales team has live status on their phone.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>On-Time Delivery:</strong> Improved dispatch timelines by 15%.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Customer Satisfaction:</strong> Automated WhatsApp updates on dispatch.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
-
+                <DetailCaseStudies
+                    caseStudies={PackagingPrintingCopy.caseStudies.studies}
+                    title={PackagingPrintingCopy.caseStudies.title}
+                    description={PackagingPrintingCopy.caseStudies.description}
+                />
                 {/* Bottom CTA */}
                 <DetailCTA
                     title={PackagingPrintingCopy.cta.title}
