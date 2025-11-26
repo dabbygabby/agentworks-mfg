@@ -121,6 +121,7 @@ const IndustriesPage = () => {
                     <IndustriesCarousel
                         title="Every Industry Breaks Differently"
                         subtitle="We identify exactly where your margin leaks and deploy agents to turn that vulnerability into your competitive advantage. See how we turn your sector's biggest pain into its biggest win."
+                        hideAllIndustriesCard={true}
                     />
                 </div>
 

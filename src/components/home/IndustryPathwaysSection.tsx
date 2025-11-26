@@ -69,16 +69,28 @@ const itemVariants = {
     }
 };
 
-// Added interface for props
+// **MODIFICATION 1: Update interface with new optional prop**
 interface IndustriesCarouselProps {
     title?: React.ReactNode;
     subtitle?: string;
+    hideAllIndustriesCard?: boolean; // New prop
 }
 
-const IndustriesCarousel = ({ title, subtitle }: IndustriesCarouselProps = {}) => {
+// **MODIFICATION 2: Set default prop value in function signature**
+const IndustriesCarousel = ({
+    title,
+    subtitle,
+    hideAllIndustriesCard = false // Default to false (show card)
+}: IndustriesCarouselProps = {}) => {
     const [activeId, setActiveId] = useState<string | null>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
+
+    // **MODIFICATION 3: Filter industries based on the prop**
+    const visibleIndustries = hideAllIndustriesCard
+        ? industries.filter(i => i.id !== 'all-industries')
+        : industries;
+
 
     // --- AUTO SCROLL LOGIC ---
     useEffect(() => {
@@ -149,7 +161,8 @@ const IndustriesCarousel = ({ title, subtitle }: IndustriesCarouselProps = {}) =
                     className="hidden md:flex h-[500px] gap-4 w-full"
                     variants={containerVariants}
                 >
-                    {industries.map((industry) => {
+                    {/* Use the filtered list here */}
+                    {visibleIndustries.map((industry) => {
                         const isActive = activeId === industry.id;
                         const isSolidCard = !industry.image;
 
@@ -251,7 +264,8 @@ const IndustriesCarousel = ({ title, subtitle }: IndustriesCarouselProps = {}) =
                         className="flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory scrollbar-hide"
                         style={{ scrollBehavior: 'smooth' }}
                     >
-                        {industries.map((industry) => (
+                        {/* Use the filtered list here */}
+                        {visibleIndustries.map((industry) => (
                             <div
                                 key={industry.id}
                                 onClick={() => window.location.href = industry.link}
