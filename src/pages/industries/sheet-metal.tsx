@@ -9,134 +9,116 @@ import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
 
 const SheetMetalCopy = {
+    // 1. HERO SECTION (Focus on Velocity & Simplicity)
     hero: {
-        title: "Sheet Metal & Fabrication",
-        subtitle: "Stop bleeding margin on scrap and slow quotes. Automate your fabrication workflow with Agentworks.",
-        ctaText: "See the Quoting Agent",
+        title: "Stop Losing Bids Because You Quote Too Slow.",
+        subtitle: "Turn DXFs into professional quotes in minutes using WhatsApp. No complex software. No data entry. We don't replace your systems; we feed them.",
+        ctaText: "Get a Sample Quote",
         imageSrc: "/sheet-metal.png",
-        ctaLink: "/connectors"
+        ctaLink: "/agents"
     },
+
+    // 2. PROBLEM SECTION (The "Silent Killers")
     problemSection: {
-        title: "Why Standard ERPs Fail in Sheet Metal & Fabrication.",
-        subtitle: "In Sheet Metal & Fabrication, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix.",
+        title: "The 'Silent Killers' of Fabrication Profits.",
+        subtitle: "The laser is fast, but the paperwork is slow. Standard ERPs treat metal like retail items—they don't understand cuts, pierces, or offcuts.",
         features: [
             {
-                title: "The \"Dead Stock\" Trap",
+                title: "The Quoting Bottleneck",
+                icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Your engineers burn hours manually calculating cut-lengths and pierces. By the time you send the price, the customer has gone with the guy who quoted yesterday."
+            },
+            {
+                title: "The 'Invisible' Scrap",
+                icon: <Scissors className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You pay for the whole sheet, but quote for the part. If you aren't tracking usable offcuts and nesting efficiency in real-time, you are giving away margin."
+            },
+            {
+                title: "The 'Where is it?' Game",
                 icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
-            },
-            {
-                title: "Audit Panic",
-                icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
-            },
-            {
-                title: "Margin Leakage",
-                icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
+                desc: "A customer calls about their order. You have to physically walk to the welding station or hunt down an operator to find out if it's done."
             }
         ]
     },
+
+    // 3. AGENT SECTION (Renamed for Clarity: Bot, Hunter, Monitor)
     agentSection: {
-        title: "Intelligent Infrastructure for Metalworks.",
+        title: "Your Shop Runs on Metal. Agentworks Runs the Data.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
                 icon: FileText,
-                title: "Commercial Agent",
-                subtitle: "Auto-Quoting",
-                tagline: '"Quote in Minutes, Not Days."',
+                title: "The Quoting Bot",
+                subtitle: "Sales & Estimation",
+                tagline: "Stop counting holes manually.",
                 features: [
-                    {
-                        label: "Ingest",
-                        description: "Accepts PDF, DXF, and CAD files via Email or WhatsApp."
-                    },
-                    {
-                        label: "Analyze",
-                        description: "Instantly extracts geometry (surface area, perimeter, bends/holes)."
-                    },
-                    {
-                        label: "Price",
-                        description: "Connects to live steel rates and machine-hour costs."
-                    }
+                    { "label": "Read", "description": "Forward a customer email with PDF/DXF directly to Agentworks." },
+                    { "label": "Calc", "description": "Instantly calculates surface area, cut path, pierces, and bends." },
+                    { "label": "Price", "description": "Checks live steel rates and machine costs to generate a draft quote." }
                 ]
             },
             {
                 icon: BarChart3,
-                title: "Inventory Agent",
-                subtitle: "Scrap & Stock",
-                tagline: '"Turn Offcuts into Profit."',
+                title: "The Scrap Hunter",
+                subtitle: "Inventory & Offcuts",
+                tagline: "Turn the 'bone pile' into cash.",
                 features: [
-                    {
-                        label: "Tracking",
-                        description: "Calculates exact scrap percentage when a job is nested."
-                    },
-                    {
-                        label: "Re-use",
-                        description: "Identifies and logs usable offcuts back into inventory."
-                    },
-                    {
-                        label: "Procurement",
-                        description: "Auto-alerts purchasing when sheet sizes hit minimums."
-                    }
+                    { "label": "Capture", "description": "Tracks nesting data from your laser software automatically." },
+                    { "label": "Save", "description": "Calculates 'usable scrap' left on a sheet and logs it to inventory." },
+                    { "label": "Alert", "description": "Reminds you to use an offcut instead of a new sheet for small jobs." }
                 ]
             },
             {
                 icon: ShieldCheck,
-                title: "Production Agent",
-                subtitle: "Shop Floor Visibility",
-                tagline: '"The Control Tower."',
+                title: "The Floor Monitor",
+                subtitle: "Production Tracking",
+                tagline: "Get updates without nagging.",
                 features: [
-                    {
-                        label: "Input",
-                        description: 'Operators dictate updates via voice notes (e.g., "Bending complete").'
-                    },
-                    {
-                        label: "Action",
-                        description: "Updates Master Schedule and notifies Sales immediately."
-                    },
-                    {
-                        label: "Result",
-                        description: "Real-time status on every job, accessible from your phone."
-                    }
+                    { "label": "Input", "description": "Operators send Voice Notes via WhatsApp: 'Job 304, Bending complete.'" },
+                    { "label": "Action", "description": "AI transcribes voice, updates the Schedule, and notifies the Office." },
+                    { "label": "Result", "description": "View real-time status of every job on your phone, from anywhere." }
                 ]
             }
         ]
     },
+
+    // 4. CASE STUDIES (Swapped Order: Velocity First, Admin Second)
     caseStudies: {
-        title: "See How they are using Agentworks",
+        title: "Proven Results on the Factory Floor.",
         description: "See how fabricators are using Agentworks to unlock capacity.",
         studies: [
             {
-                badge: 'The "Finance" Win',
-                title: 'Heavy Equipment Fabricator',
-                challenge: 'Finance team drowning in reconciliation (40 hrs/week). Month-end took 7 days.',
-                results: [
-                    '<strong>95% Reduction</strong> in finance admin time (40 hrs → 2 hrs).',
-                    '<strong>2 FTEs Freed</strong> to focus on revenue tasks.',
-                    '<strong>Month-End</strong> reduced from 7 days to near-zero.',
-                ],
-                link: '#case-study-1',
-            },
-            {
                 badge: 'The "Velocity" Win',
                 title: 'High-Mix Laser Cutting Shop',
-                challenge: 'Engineers spent 80% of day manually calculating cut-lengths. Quoting was the bottleneck.',
+                challenge: 'Engineers spent 6 hours/day manually calculating cut-lengths. Quoting was the bottleneck.',
                 results: [
-                    '<strong>Quoting Speed:</strong> Reduced cycle time from 7 days to 2 hours.',
-                    '<strong>Margin Uplift:</strong> +3% increase due to precision costing.',
-                    '<strong>Accuracy:</strong> Eliminated manual calculation errors.',
+                    '<strong>Quoting Time:</strong> Reduced from 4 days to 2 hours.',
+                    '<strong>Win Rate:</strong> Increased 18% (First to quote wins).',
+                    '<strong>Accuracy:</strong> Zero manual calculation errors.',
                 ],
                 link: '#case-study-2',
             },
+            {
+                badge: 'The "Admin" Win',
+                title: 'Heavy Equipment Fabricator',
+                challenge: 'Floor staff refused to fill out job cards. Office didn\'t know job status.',
+                results: [
+                    '<strong>Adoption:</strong> 100% staff usage (via WhatsApp Voice).',
+                    '<strong>Visibility:</strong> Real-time WIP tracking without walking the floor.',
+                    '<strong>Finance:</strong> Month-end reconciliation dropped from 7 days to 4 hours.',
+                ],
+                link: '#case-study-1',
+            },
         ]
     },
+
+    // 5. BOTTOM CTA (Challenge Based)
     cta: {
-        title: "Ready to Automate Your Fabrication Workflow?",
-        subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
+        title: "Send us your messiest drawing.",
+        subtitle: "Challenge us. Upload a complex DXF file and see how fast Agentworks can quote it. No cost. No obligation.",
         href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
-        ctaText: "Consult an Engineer"
+        ctaText: "Test Agentworks Free"
     }
 }
 
