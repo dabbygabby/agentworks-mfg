@@ -12,22 +12,30 @@ interface CTASectionProps {
 }
 
 export const DetailCTA: React.FC<CTASectionProps> = ({
-    title = "Ready to Automate Your Fabrication Workflow?",
+    title = "Ready to Automate Your Fabricatin Workflow?",
     subtitle = "Let an engineer analyze your quoting process. No cost. No obligation.",
     href = "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
     ctaText = "Consult an Engineer",
     className = "",
 }) => {
     return (
-        <Section className={`bg-white ${className}`}>
-            <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
+        <Section className={`bg-[#022c22] relative overflow-hidden ${className}`}>
+            {/* --- Background Elements --- */}
+            {/* Subtle Grid Overlay */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+
+            {/* Glowing Orbs for visual depth */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#bef264] rounded-full blur-[150px] opacity-10 pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500 rounded-full blur-[150px] opacity-10 pointer-events-none" />
+
+            <div className="relative z-10 max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                     {title}
                 </h2>
-                <p className="text-xl text-[#022c22]/70 mb-10">
+                <p className="text-xl text-white/70 mb-10">
                     {subtitle}
                 </p>
-                <Button href={href} variant="primary">
+                <Button href={href} variant="accent">
                     {ctaText}
                     <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
