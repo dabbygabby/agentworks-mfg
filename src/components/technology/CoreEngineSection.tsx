@@ -42,10 +42,10 @@ const CoreEngineSection = () => {
     };
 
     return (
-        <section className="py-20 px-4 md:px-8 bg-[#022c22] text-white">
+        <section className="py-20 px-4 md:px-8 text-white">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#022c22]">
                         Multi-Modal Intelligence
                     </h2>
                 </div>
@@ -57,7 +57,7 @@ const CoreEngineSection = () => {
                             onClick={() => setActiveTab(key)}
                             className={`flex items-center gap-2 px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === key
                                 ? 'bg-[#bef264] text-[#022c22]'
-                                : 'bg-white/10 text-white hover:bg-white/20'
+                                : 'bg-white/10 text-[#022c22] hover:bg-white/20'
                                 }`}
                         >
                             {engine.icon}
@@ -74,7 +74,7 @@ const CoreEngineSection = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12"
+                            className="border border-white/10 rounded-3xl p-8 md:p-12 bg-[#022c22]"
                         >
                             <div className="flex flex-col md:flex-row gap-12">
                                 <div className="md:w-1/2">
