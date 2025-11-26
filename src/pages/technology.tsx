@@ -24,6 +24,8 @@ const TechnologyPage = () => {
                 <CoreEngineSection />
                 <CleanDataSection />
                 <IndustriesCarousel
+                    title="Deeply Vertical. Purpose-Built Modules."
+                    subtitle="One size fits none. We replace generic guesswork with industry-hardened logic, tailored to the specific bottlenecks that slow you down."
                     hideAllIndustriesCard={true}
                 />
                 <SecuritySection />
