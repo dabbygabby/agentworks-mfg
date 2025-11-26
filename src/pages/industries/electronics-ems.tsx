@@ -4,6 +4,7 @@ import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Cpu, Zap, Search, Layers, AlertCircle, BarChart3, TrendingUp, AlertTriangle, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import IndustryHero from '@src/components/industries/IndustryHeroSection';
 
 const ElectronicsPage = () => {
     return (
@@ -15,37 +16,13 @@ const ElectronicsPage = () => {
 
             <main>
                 {/* Hero Section */}
-                <Section className="bg-[#f7fee7] rounded-b-[3rem] pt-32 pb-20 overflow-hidden">
-                    <div className="max-w-6xl mx-auto px-4">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h1 className="text-4xl md:text-6xl font-bold text-[#022c22] mb-6 leading-tight">
-                                    One Missing Resistor Shouldn't <span className="text-[#65a30d]">Stop Your Line</span>.
-                                </h1>
-                                <p className="text-xl text-[#022c22]/70 mb-8 leading-relaxed">
-                                    Manage massive BOMs, volatile component sourcing, and complex assembly schedules without drowning in spreadsheets.
-                                </p>
-                                <Button href="/connectors" variant="primary">
-                                    See the Sourcing Agent
-                                    <ArrowRightIcon className="w-4 h-4 ml-2" />
-                                </Button>
-                            </div>
-                            <div className="relative">
-                                <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/50">
-                                    <Image
-                                        src="/electronics.png"
-                                        alt="Electronics Sourcing Dashboard"
-                                        width={600}
-                                        height={400}
-                                        className="w-full h-auto"
-                                    />
-                                </div>
-                                {/* Decorative blob */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#bef264]/20 blur-3xl -z-10 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
+                <IndustryHero
+                    title="Electronics & EMS"
+                    subtitle="One missing resistor shouldn't stop your line. Automate BOM sourcing and assembly schedules for EMS."
+                    ctaText="See the Sourcing Agent"
+                    imageSrc="/electronics.png"
+                    ctaLink="/connectors"
+                />
 
                 {/* The Component Gap (Problem) */}
                 <Section className="bg-white">
