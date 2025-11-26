@@ -5,10 +5,11 @@ import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart3, Clock, ShieldCheck, Microscope, RefreshCw, AlertOctagon, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
+import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 
 const PharmaPage = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <Head>
                 <title>Pharma & Chemicals | Agentworks</title>
                 <meta name="description" content="Compliance without the chaos. Automate batch tracking, expiry management, and audit trails for process manufacturing." />
@@ -24,46 +25,27 @@ const PharmaPage = () => {
                 />
 
                 {/* The Compliance Gap (Problem) */}
-                <Section className="bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Why Standard ERPs Fail in Process Manufacturing.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70 leading-relaxed">
-                                In Pharma and Chemicals, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "The \"Dead Stock\" Trap",
-                                    icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
-                                },
-                                {
-                                    title: "Audit Panic",
-                                    icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
-                                },
-                                {
-                                    title: "Margin Leakage",
-                                    icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
-                                }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-red-50 rounded-3xl p-8 border border-red-100">
-                                    <div className="mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-[#022c22] mb-3">{item.title}</h3>
-                                    <p className="text-[#022c22]/70">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
+                <DetailProblemSection
+                    title="Why Standard ERPs Fail in Pharma & Chemicals."
+                    subtitle="In Pharma and Chemicals, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix."
+                    features={[
+                        {
+                            title: "The \"Dead Stock\" Trap",
+                            icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
+                        },
+                        {
+                            title: "Audit Panic",
+                            icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
+                        },
+                        {
+                            title: "Margin Leakage",
+                            icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
+                        }
+                    ]}
+                />
 
                 {/* The Solution: Specialized Agents */}
                 <Section className="bg-[#022c22] text-white">

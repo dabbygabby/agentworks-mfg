@@ -5,10 +5,11 @@ import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Cpu, Zap, Search, Layers, AlertCircle, BarChart3, TrendingUp, AlertTriangle, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
+import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 
 const ElectronicsPage = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <Head>
                 <title>Electronics & EMS | Agentworks</title>
                 <meta name="description" content="One missing resistor shouldn't stop your line. Automate BOM sourcing and assembly schedules for EMS." />
@@ -25,46 +26,27 @@ const ElectronicsPage = () => {
                 />
 
                 {/* The Component Gap (Problem) */}
-                <Section className="bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Why Standard ERPs Fail in Electronics.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70 leading-relaxed">
-                                You deal in Bills of Materials (BOMs) with thousands of line items. A generic ERP treats a complex IC the same way it treats a screw. It doesn't track market availability, obsolescence, or cross-reference alternatives.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "The \"Golden Screw\"",
-                                    icon: <AlertCircle className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Your warehouse is full of expensive PCBs and processors, but you can't ship because a generic capacitor is out of stock."
-                                },
-                                {
-                                    title: "Sourcing Hell",
-                                    icon: <Search className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Procurement teams spend 6 hours a day just checking stock availability across DigiKey, Mouser, and local vendors for a single BOM."
-                                },
-                                {
-                                    title: "Dead Inventory",
-                                    icon: <Layers className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Excess components pile up from Minimum Order Quantities (MOQs), eating your cash flow."
-                                }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-red-50 rounded-3xl p-8 border border-red-100">
-                                    <div className="mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-[#022c22] mb-3">{item.title}</h3>
-                                    <p className="text-[#022c22]/70">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
+                <DetailProblemSection
+                    title="Why Standard ERPs Fail in Electronics."
+                    subtitle="You deal in Bills of Materials (BOMs) with thousands of line items. A generic ERP treats a complex IC the same way it treats a screw. It doesn't track market availability, obsolescence, or cross-reference alternatives."
+                    features={[
+                        {
+                            title: "The \"Golden Screw\"",
+                            icon: <AlertCircle className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Your warehouse is full of expensive PCBs and processors, but you can't ship because a generic capacitor is out of stock."
+                        },
+                        {
+                            title: "Sourcing Hell",
+                            icon: <Search className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Procurement teams spend 6 hours a day just checking stock availability across DigiKey, Mouser, and local vendors for a single BOM."
+                        },
+                        {
+                            title: "Dead Inventory",
+                            icon: <Layers className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Excess components pile up from Minimum Order Quantities (MOQs), eating your cash flow."
+                        }
+                    ]}
+                />
 
                 {/* The Solution: Specialized Agents */}
                 <Section className="bg-[#022c22] text-white">

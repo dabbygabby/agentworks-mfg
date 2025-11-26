@@ -5,10 +5,11 @@ import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Calendar, ClipboardList, DollarSign, AlertTriangle, Eye, Settings, Clock, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
+import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 
 const HeavyMachineryPage = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <Head>
                 <title>Heavy Machinery & OEM | Agentworks</title>
                 <meta name="description" content="Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery." />
@@ -24,46 +25,27 @@ const HeavyMachineryPage = () => {
                     ctaLink="/connectors"
                 />
                 {/* The Visibility Gap (Problem) */}
-                <Section className="bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Why Standard ERPs Fail in Heavy Industry.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70 leading-relaxed">
-                                You build complex machines with lead times measured in weeks or months. A generic ERP records the start and the end of a job, but it is blind to the middle. It cannot see that the chassis is stuck in the Paint Shop or that the hydraulic pump is missing for Final Assembly.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "The Production Black Hole",
-                                    icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Sales teams have to physically walk the floor to answer customer questions about delivery dates."
-                                },
-                                {
-                                    title: "WIP Blindness",
-                                    icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "You have crores of rupees tied up in \"Work In Progress,\" but no clear view of which stage (Fabrication, Machining, Assembly) is the actual bottleneck."
-                                },
-                                {
-                                    title: "Sub-Assembly Chaos",
-                                    icon: <Settings className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "One missing flange or bolt stops the assembly of a ₹50 Lakh machine."
-                                }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-red-50 rounded-3xl p-8 border border-red-100">
-                                    <div className="mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-[#022c22] mb-3">{item.title}</h3>
-                                    <p className="text-[#022c22]/70">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
+                <DetailProblemSection
+                    title="Why Standard ERPs Fail in Heavy Industry."
+                    subtitle="You build complex machines with lead times measured in weeks or months. A generic ERP records the start and the end of a job, but it is blind to the middle. It cannot see that the chassis is stuck in the Paint Shop or that the hydraulic pump is missing for Final Assembly."
+                    features={[
+                        {
+                            title: "The Production Black Hole",
+                            icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Sales teams have to physically walk the floor to answer customer questions about delivery dates."
+                        },
+                        {
+                            title: "WIP Blindness",
+                            icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "You have crores of rupees tied up in \"Work In Progress,\" but no clear view of which stage (Fabrication, Machining, Assembly) is the actual bottleneck."
+                        },
+                        {
+                            title: "Sub-Assembly Chaos",
+                            icon: <Settings className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "One missing flange or bolt stops the assembly of a ₹50 Lakh machine."
+                        }
+                    ]}
+                />
 
                 {/* The Solution: Specialized Agents */}
                 <Section className="bg-[#022c22] text-white">

@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
+import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 
 const PackagingPage = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <Head>
                 <title>Packaging & Printing | Agentworks</title>
                 <meta name="description" content="Procurement is a race. Win it. Automate buying and tracking for high-volume packaging and printing." />
@@ -25,46 +25,27 @@ const PackagingPage = () => {
                 />
 
                 {/* The Velocity Gap (Problem) */}
-                <Section className="bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Why Standard ERPs Fail in Packaging.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70 leading-relaxed">
-                                You operate on "Just-in-Time" delivery and volatile paper/ink prices. A generic ERP is a system of record, not a system of action. It doesn't help you negotiate with 10 vendors simultaneously, and it can't tell you if a job is stuck at Lamination or Die-Cutting without a phone call.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "Procurement Drag",
-                                    icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "You lose margins because comparing vendor quotes takes too long. By the time you decide, the price has moved."
-                                },
-                                {
-                                    title: "Inventory Leaks",
-                                    icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Dead stock (leftover reels/sheets) piles up because no one knows it exists during the next estimate."
-                                },
-                                {
-                                    title: "Production Blindness",
-                                    icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "You have 50 jobs running. Knowing exactly which stage (Printing, Pasting, Cutting) each one is at requires chasing floor supervisors."
-                                }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-red-50 rounded-3xl p-8 border border-red-100">
-                                    <div className="mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-[#022c22] mb-3">{item.title}</h3>
-                                    <p className="text-[#022c22]/70">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
+                <DetailProblemSection
+                    title="Why Standard ERPs Fail in Packaging & Printing."
+                    subtitle={`You operate on "Just-in-Time" delivery and volatile paper/ink prices. A generic ERP is a system of record, not a system of action. It doesn't help you negotiate with 10 vendors simultaneously, and it can't tell you if a job is stuck at Lamination or Die-Cutting without a phone call.`}
+                    features={[
+                        {
+                            title: "Procurement Drag",
+                            icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "You lose margins because comparing vendor quotes takes too long. By the time you decide, the price has moved."
+                        },
+                        {
+                            title: "Inventory Leaks",
+                            icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "Dead stock (leftover reels/sheets) piles up because no one knows it exists during the next estimate."
+                        },
+                        {
+                            title: "Production Blindness",
+                            icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
+                            desc: "You have 50 jobs running. Knowing exactly which stage (Printing, Pasting, Cutting) each one is at requires chasing floor supervisors."
+                        }
+                    ]}
+                />
 
                 {/* The Solution: Specialized Agents */}
                 <Section className="bg-[#022c22] text-white">
