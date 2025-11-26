@@ -9,6 +9,34 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 
 const EMSCopy = {
+    hero: {
+        title: "Electronics and EMS",
+        subtitle: "Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery.",
+        ctaText: "See the Sourcing Agent",
+        imageSrc: "/electronics.png",
+        ctaLink: "/connectors"
+    },
+    problemSection: {
+        title: "Why Standard ERPs Fail in Electronics.",
+        subtitle: "You deal in Bills of Materials (BOMs) with thousands of line items. A generic ERP treats a complex IC the same way it treats a screw. It doesn't track market availability, obsolescence, or cross-reference alternatives.",
+        features: [
+            {
+                title: "The \"Golden Screw\"",
+                icon: <AlertCircle className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Your warehouse is full of expensive PCBs and processors, but you can't ship because a generic capacitor is out of stock."
+            },
+            {
+                title: "Sourcing Hell",
+                icon: <Search className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Procurement teams spend 6 hours a day just checking stock availability across DigiKey, Mouser, and local vendors for a single BOM."
+            },
+            {
+                title: "Dead Inventory",
+                icon: <Layers className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Excess components pile up from Minimum Order Quantities (MOQs), eating your cash flow."
+            }
+        ]
+    },
     agentSection: {
         title: "Intelligent Infrastructure for EMS.",
         ctaText: "Explore All Agents",
@@ -89,36 +117,18 @@ const ElectronicsPage = () => {
             <main>
                 {/* Hero Section */}
                 <IndustryHero
-                    title="Electronics & EMS"
-                    subtitle="One missing resistor shouldn't stop your line. Automate BOM sourcing and assembly schedules for EMS."
-                    ctaText="See the Sourcing Agent"
-                    imageSrc="/electronics.png"
-                    ctaLink="/connectors"
+                    title={EMSCopy.hero.title}
+                    subtitle={EMSCopy.hero.subtitle}
+                    ctaText={EMSCopy.hero.ctaText}
+                    imageSrc={EMSCopy.hero.imageSrc}
+                    ctaLink={EMSCopy.hero.ctaLink}
                 />
-
                 {/* The Component Gap (Problem) */}
                 <DetailProblemSection
-                    title="Why Standard ERPs Fail in Electronics."
-                    subtitle="You deal in Bills of Materials (BOMs) with thousands of line items. A generic ERP treats a complex IC the same way it treats a screw. It doesn't track market availability, obsolescence, or cross-reference alternatives."
-                    features={[
-                        {
-                            title: "The \"Golden Screw\"",
-                            icon: <AlertCircle className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Your warehouse is full of expensive PCBs and processors, but you can't ship because a generic capacitor is out of stock."
-                        },
-                        {
-                            title: "Sourcing Hell",
-                            icon: <Search className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Procurement teams spend 6 hours a day just checking stock availability across DigiKey, Mouser, and local vendors for a single BOM."
-                        },
-                        {
-                            title: "Dead Inventory",
-                            icon: <Layers className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Excess components pile up from Minimum Order Quantities (MOQs), eating your cash flow."
-                        }
-                    ]}
+                    title={EMSCopy.problemSection.title}
+                    subtitle={EMSCopy.problemSection.subtitle}
+                    features={EMSCopy.problemSection.features}
                 />
-
                 {/* The Solution: Specialized Agents */}
                 <DetailAgentSection
                     title={EMSCopy.agentSection.title}

@@ -1,14 +1,40 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart3, Clock, ShieldCheck, Microscope, RefreshCw, AlertOctagon, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 
 const PharmaChemicalCopy = {
+    hero: {
+        title: "Compliance without the chaos",
+        subtitle: "Automate batch tracking, expiry management, and audit trails without adding a single sheet of paper to the floor.",
+        ctaText: "See the Compliance Agent",
+        imageSrc: "/pharma.png",
+        ctaLink: "/connectors"
+    },
+    problemSection: {
+        title: "Why Standard ERPs Fail in Pharma & Chemicals.",
+        subtitle: "In Pharma and Chemicals, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix.",
+        features: [
+            {
+                title: "The \"Dead Stock\" Trap",
+                icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
+            },
+            {
+                title: "Audit Panic",
+                icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
+            },
+            {
+                title: "Margin Leakage",
+                icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
+            }
+        ]
+    },
     agentSection: {
         title: "Intelligent Infrastructure for Process Industries.",
         ctaText: "Explore All Agents",
@@ -97,29 +123,11 @@ const PharmaPage = () => {
 
                 {/* The Compliance Gap (Problem) */}
                 <DetailProblemSection
-                    title="Why Standard ERPs Fail in Pharma & Chemicals."
-                    subtitle="In Pharma and Chemicals, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix."
-                    features={[
-                        {
-                            title: "The \"Dead Stock\" Trap",
-                            icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
-                        },
-                        {
-                            title: "Audit Panic",
-                            icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
-                        },
-                        {
-                            title: "Margin Leakage",
-                            icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
-                        }
-                    ]}
+                    title={PharmaChemicalCopy.problemSection.title}
+                    subtitle={PharmaChemicalCopy.problemSection.subtitle}
+                    features={PharmaChemicalCopy.problemSection.features}
                 />
-
                 {/* The Solution: Specialized Agents */}
-
                 <DetailAgentSection
                     title={PharmaChemicalCopy.agentSection.title}
                     ctaText={PharmaChemicalCopy.agentSection.ctaText}

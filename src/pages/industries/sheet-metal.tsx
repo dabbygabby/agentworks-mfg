@@ -1,14 +1,40 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, FileText, Scissors, Truck, BarChart3, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRightIcon, CheckCircle2, FileText, Scissors, Truck, BarChart3, Clock, ShieldCheck, ArrowRight, AlertOctagon } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 
 const SheetMetalCopy = {
+    hero: {
+        title: "Sheet Metal & Fabrication",
+        subtitle: "Stop bleeding margin on scrap and slow quotes. Automate your fabrication workflow with Agentworks.",
+        ctaText: "See the Quoting Agent",
+        imageSrc: "/sheet-metal.png",
+        ctaLink: "/connectors"
+    },
+    problemSection: {
+        title: "Why Standard ERPs Fail in Sheet Metal & Fabrication.",
+        subtitle: "In Sheet Metal & Fabrication, the paperwork is often heavier than the product. A generic ERP tracks financial value, but it fails to track process integrity. It doesn't force FIFO or validate a batch number before a mix.",
+        features: [
+            {
+                title: "The \"Dead Stock\" Trap",
+                icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Raw materials expire in the warehouse because the ERP didn't alert the floor manager in time."
+            },
+            {
+                title: "Audit Panic",
+                icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Preparing for a drug inspection or tax audit involves digging through thousands of physical papers to reconcile batch numbers."
+            },
+            {
+                title: "Margin Leakage",
+                icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Sales teams quote prices based on old raw material costs, ignoring the sudden spike in solvent or precursor prices."
+            }
+        ]
+    },
     agentSection: {
         title: "Intelligent Infrastructure for Metalworks.",
         ctaText: "Explore All Agents",
@@ -88,32 +114,16 @@ const SheetMetalPage = () => {
 
             <main>
                 <IndustryHero
-                    title="Sheet Metal & Fabrication"
-                    subtitle="Stop bleeding margin on scrap and slow quotes. Automate your fabrication workflow with Agentworks."
-                    ctaText="See the Quoting Agent"
-                    imageSrc="/sheet-metal.png"
-                    ctaLink="/connectors"
+                    title={SheetMetalCopy.hero.title}
+                    subtitle={SheetMetalCopy.hero.subtitle}
+                    ctaText={SheetMetalCopy.hero.ctaText}
+                    imageSrc={SheetMetalCopy.hero.imageSrc}
+                    ctaLink={SheetMetalCopy.hero.ctaLink}
                 />
                 <DetailProblemSection
-                    title="Why Standard ERPs Fail in Fabrication."
-                    subtitle="You deal in volatile raw material prices and complex custom orders. A generic ERP sees a 'sheet of steel.' It doesn't understand nesting efficiency, offcut management, or laser machine time."
-                    features={[
-                        {
-                            title: "Quoting is Slow",
-                            icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Engineers spend hours calculating perimeter cut-lengths and bend deductions manually."
-                        },
-                        {
-                            title: "Scrap is Invisible",
-                            icon: <Scissors className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "You pay for the whole sheet, but you only bill for the part. The 'scrap' eats your profit if not tracked."
-                        },
-                        {
-                            title: "WIP is a Black Hole",
-                            icon: <Truck className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Once a job leaves the laser, nobody knows if it’s at bending, welding, or coating without physically walking the floor."
-                        }
-                    ]}
+                    title={SheetMetalCopy.problemSection.title}
+                    subtitle={SheetMetalCopy.problemSection.subtitle}
+                    features={SheetMetalCopy.problemSection.features}
                 />
                 <DetailAgentSection
                     title={SheetMetalCopy.agentSection.title}

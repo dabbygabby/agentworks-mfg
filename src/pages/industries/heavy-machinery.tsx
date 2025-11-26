@@ -7,6 +7,34 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 
 const HeavyMachineryCopy = {
+    hero: {
+        title: "Heavy Machinery & OEM",
+        subtitle: "Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery.",
+        ctaText: "See the Scheduling Agent",
+        imageSrc: "/heavy-machinery.png",
+        ctaLink: "/connectors"
+    },
+    problemSection: {
+        title: "Why Standard ERPs Fail in Heavy Industry.",
+        subtitle: "You build complex machines with lead times measured in weeks or months. A generic ERP records the start and the end of a job, but it is blind to the middle. It cannot see that the chassis is stuck in the Paint Shop or that the hydraulic pump is missing for Final Assembly.",
+        features: [
+            {
+                title: "The Production Black Hole",
+                icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Sales teams have to physically walk the floor to answer customer questions about delivery dates."
+            },
+            {
+                title: "WIP Blindness",
+                icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You have crores of rupees tied up in \"Work In Progress,\" but no clear view of which stage (Fabrication, Machining, Assembly) is the actual bottleneck."
+            },
+            {
+                title: "Sub-Assembly Chaos",
+                icon: <Settings className="w-8 h-8 text-[#ef4444]" />,
+                desc: "One missing flange or bolt stops the assembly of a ₹50 Lakh machine."
+            }
+        ]
+    },
     agentSection: {
         title: "Intelligent Infrastructure for Assembly Lines.",
         ctaText: "Explore All Agents",
@@ -87,35 +115,18 @@ const HeavyMachineryPage = () => {
             <main>
                 {/* Hero Section */}
                 <IndustryHero
-                    title="Heavy Machinery"
-                    subtitle="Where is the order? Stop guessing. Gain absolute visibility over long-lead production cycles for heavy machinery."
-                    ctaText="See the Scheduling Agent"
-                    imageSrc="/heavy-machinery.png"
-                    ctaLink="/connectors"
+                    title={HeavyMachineryCopy.hero.title}
+                    subtitle={HeavyMachineryCopy.hero.subtitle}
+                    ctaText={HeavyMachineryCopy.hero.ctaText}
+                    imageSrc={HeavyMachineryCopy.hero.imageSrc}
+                    ctaLink={HeavyMachineryCopy.hero.ctaLink}
                 />
                 {/* The Visibility Gap (Problem) */}
                 <DetailProblemSection
-                    title="Why Standard ERPs Fail in Heavy Industry."
-                    subtitle="You build complex machines with lead times measured in weeks or months. A generic ERP records the start and the end of a job, but it is blind to the middle. It cannot see that the chassis is stuck in the Paint Shop or that the hydraulic pump is missing for Final Assembly."
-                    features={[
-                        {
-                            title: "The Production Black Hole",
-                            icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Sales teams have to physically walk the floor to answer customer questions about delivery dates."
-                        },
-                        {
-                            title: "WIP Blindness",
-                            icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "You have crores of rupees tied up in \"Work In Progress,\" but no clear view of which stage (Fabrication, Machining, Assembly) is the actual bottleneck."
-                        },
-                        {
-                            title: "Sub-Assembly Chaos",
-                            icon: <Settings className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "One missing flange or bolt stops the assembly of a ₹50 Lakh machine."
-                        }
-                    ]}
+                    title={HeavyMachineryCopy.problemSection.title}
+                    subtitle={HeavyMachineryCopy.problemSection.subtitle}
+                    features={HeavyMachineryCopy.problemSection.features}
                 />
-
                 {/* The Solution: Specialized Agents */}
                 <DetailAgentSection
                     title={HeavyMachineryCopy.agentSection.title}

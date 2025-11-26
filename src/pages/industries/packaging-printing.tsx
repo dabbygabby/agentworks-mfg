@@ -7,6 +7,34 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 
 const PackagingPrintingCopy = {
+    hero: {
+        title: "Procurement is a race",
+        subtitle: "Win it. Automate buying and tracking for high-volume packaging and printing.",
+        ctaText: "See the Procurement Agent",
+        imageSrc: "/packaging.png",
+        ctaLink: "/connectors"
+    },
+    problemSection: {
+        title: "Why Standard ERPs Fail in Packaging & Printing.",
+        subtitle: `You operate on "Just-in-Time" delivery and volatile paper/ink prices. A generic ERP is a system of record, not a system of action. It doesn't help you negotiate with 10 vendors simultaneously, and it can't tell you if a job is stuck at Lamination or Die-Cutting without a phone call.`,
+        features: [
+            {
+                title: "Procurement Drag",
+                icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You lose margins because comparing vendor quotes takes too long. By the time you decide, the price has moved."
+            },
+            {
+                title: "Inventory Leaks",
+                icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Dead stock (leftover reels/sheets) piles up because no one knows it exists during the next estimate."
+            },
+            {
+                title: "Production Blindness",
+                icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You have 50 jobs running. Knowing exactly which stage (Printing, Pasting, Cutting) each one is at requires chasing floor supervisors."
+            }
+        ]
+    },
     agentSection: {
         title: "Intelligent Infrastructure for High-Volume Press.",
         ctaText: "Explore All Agents",
@@ -87,34 +115,18 @@ const PackagingPage = () => {
             <main>
                 {/* Hero Section */}
                 <IndustryHero
-                    title="Procurement is a race. Win it."
-                    subtitle="Automate buying and tracking for high-volume packaging and printing."
-                    ctaText="See the Procurement Agent"
-                    imageSrc="/packaging.png"
-                    ctaLink="/connectors"
+                    title={PackagingPrintingCopy.hero.title}
+                    subtitle={PackagingPrintingCopy.hero.subtitle}
+                    ctaText={PackagingPrintingCopy.hero.ctaText}
+                    imageSrc={PackagingPrintingCopy.hero.imageSrc}
+                    ctaLink={PackagingPrintingCopy.hero.ctaLink}
                 />
 
                 {/* The Velocity Gap (Problem) */}
                 <DetailProblemSection
-                    title="Why Standard ERPs Fail in Packaging & Printing."
-                    subtitle={`You operate on "Just-in-Time" delivery and volatile paper/ink prices. A generic ERP is a system of record, not a system of action. It doesn't help you negotiate with 10 vendors simultaneously, and it can't tell you if a job is stuck at Lamination or Die-Cutting without a phone call.`}
-                    features={[
-                        {
-                            title: "Procurement Drag",
-                            icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "You lose margins because comparing vendor quotes takes too long. By the time you decide, the price has moved."
-                        },
-                        {
-                            title: "Inventory Leaks",
-                            icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "Dead stock (leftover reels/sheets) piles up because no one knows it exists during the next estimate."
-                        },
-                        {
-                            title: "Production Blindness",
-                            icon: <Eye className="w-8 h-8 text-[#ef4444]" />,
-                            desc: "You have 50 jobs running. Knowing exactly which stage (Printing, Pasting, Cutting) each one is at requires chasing floor supervisors."
-                        }
-                    ]}
+                    title={PackagingPrintingCopy.problemSection.title}
+                    subtitle={PackagingPrintingCopy.problemSection.subtitle}
+                    features={PackagingPrintingCopy.problemSection.features}
                 />
 
                 {/* The Solution: Specialized Agents */}
