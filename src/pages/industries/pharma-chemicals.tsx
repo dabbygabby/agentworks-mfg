@@ -5,6 +5,7 @@ import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+import { DetailCTA } from '@src/components/industries/DetailCTA';
 
 const PharmaChemicalCopy = {
     hero: {
@@ -101,6 +102,12 @@ const PharmaChemicalCopy = {
                 ]
             }
         ]
+    },
+    cta: {
+        title: "Ready to Audit-Proof Your Operations?",
+        subtitle: "Stop losing money to expired stock and slow paperwork.",
+        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        ctaText: "Consult an Engineer"
     }
 }
 
@@ -244,20 +251,12 @@ const PharmaPage = () => {
                 </Section>
 
                 {/* Bottom CTA */}
-                <Section className="bg-white">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            Audit-Proof Your Operations.
-                        </h2>
-                        <p className="text-xl text-[#022c22]/70 mb-10">
-                            Stop losing money to expired stock and slow paperwork.
-                        </p>
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Consult a Process Engineer
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                    </div>
-                </Section>
+                <DetailCTA
+                    title={PharmaChemicalCopy.cta.title}
+                    subtitle={PharmaChemicalCopy.cta.subtitle}
+                    href={PharmaChemicalCopy.cta.href}
+                    ctaText={PharmaChemicalCopy.cta.ctaText}
+                />
             </main>
         </div>
     );

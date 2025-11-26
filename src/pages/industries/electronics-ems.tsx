@@ -7,6 +7,7 @@ import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+import { DetailCTA } from '@src/components/industries/DetailCTA';
 
 const EMSCopy = {
     hero: {
@@ -103,6 +104,12 @@ const EMSCopy = {
                 ]
             }
         ]
+    },
+    cta: {
+        title: "Ready to Audit-Proof Your Operations?",
+        subtitle: "Stop losing money to expired stock and slow paperwork.",
+        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        ctaText: "Consult an Engineer"
     }
 }
 
@@ -306,20 +313,12 @@ const ElectronicsPage = () => {
                 </Section>
 
                 {/* Bottom CTA */}
-                <Section className="bg-white">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            Tame Your Bill of Materials.
-                        </h2>
-                        <p className="text-xl text-[#022c22]/70 mb-10">
-                            Stop losing days to spreadsheet costing. Get a clear-to-build report in minutes.
-                        </p>
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Consult an EMS Expert
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                    </div>
-                </Section>
+                <DetailCTA
+                    title={EMSCopy.cta.title}
+                    subtitle={EMSCopy.cta.subtitle}
+                    href={EMSCopy.cta.href}
+                    ctaText={EMSCopy.cta.ctaText}
+                />
             </main>
         </div>
     );

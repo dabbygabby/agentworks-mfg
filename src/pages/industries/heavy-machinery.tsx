@@ -5,6 +5,7 @@ import { ArrowRightIcon, CheckCircle2, Calendar, ClipboardList, DollarSign, Aler
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+import { DetailCTA } from '@src/components/industries/DetailCTA';
 
 const HeavyMachineryCopy = {
     hero: {
@@ -101,6 +102,12 @@ const HeavyMachineryCopy = {
                 ]
             }
         ]
+    },
+    cta: {
+        title: "Ready to automate your heavy machinery quoting process?",
+        subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
+        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        ctaText: "Consult an Engineer"
     }
 }
 
@@ -318,20 +325,12 @@ const HeavyMachineryPage = () => {
                 </Section>
 
                 {/* Bottom CTA */}
-                <Section className="bg-white">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            Deliver Every Machine On Time.
-                        </h2>
-                        <p className="text-xl text-[#022c22]/70 mb-10">
-                            Give your sales team the confidence to promise a delivery date and keep it.
-                        </p>
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Consult a Production Engineer
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                    </div>
-                </Section>
+                <DetailCTA
+                    title={HeavyMachineryCopy.cta.title}
+                    subtitle={HeavyMachineryCopy.cta.subtitle}
+                    href={HeavyMachineryCopy.cta.href}
+                    ctaText={HeavyMachineryCopy.cta.ctaText}
+                />
             </main>
         </div>
     );

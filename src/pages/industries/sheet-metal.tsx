@@ -5,6 +5,7 @@ import { ArrowRightIcon, CheckCircle2, FileText, Scissors, Truck, BarChart3, Clo
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+import { DetailCTA } from '@src/components/industries/DetailCTA';
 
 const SheetMetalCopy = {
     hero: {
@@ -101,6 +102,12 @@ const SheetMetalCopy = {
                 ]
             }
         ]
+    },
+    cta: {
+        title: "Ready to Automate Your Fabrication Workflow?",
+        subtitle: "Let an engineer analyze your quoting process. No cost. No obligation.",
+        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        ctaText: "Consult an Engineer"
     }
 }
 
@@ -300,20 +307,12 @@ const SheetMetalPage = () => {
                 </Section>
 
                 {/* Bottom CTA */}
-                <Section className="bg-white">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            Ready to Automate Your Fabrication Workflow?
-                        </h2>
-                        <p className="text-xl text-[#022c22]/70 mb-10">
-                            Let an engineer analyze your quoting process. No cost. No obligation.
-                        </p>
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Consult an Engineer
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                    </div>
-                </Section>
+                <DetailCTA
+                    title={SheetMetalCopy.cta.title}
+                    subtitle={SheetMetalCopy.cta.subtitle}
+                    href={SheetMetalCopy.cta.href}
+                    ctaText={SheetMetalCopy.cta.ctaText}
+                />
             </main>
         </div>
     );
