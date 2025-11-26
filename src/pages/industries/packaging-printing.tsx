@@ -173,7 +173,7 @@ const PackagingPage = () => {
                     agents={PackagingPrintingCopy.agentSection.agents}
                 />
                 {/* How It Works - Comparison Table Visual */}
-                <Section className="bg-white">
+                <Section className="">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
@@ -203,7 +203,7 @@ const PackagingPage = () => {
                             </div>
 
                             {/* Visual - Comparison Table */}
-                            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div className="bg-gray-50 rounded-3xl shadow-xl border border-gray-100">
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                                     <div className="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                                         <span className="font-bold text-[#022c22]">Quote Comparison: 300 GSM Duplex</span>
@@ -250,12 +250,6 @@ const PackagingPage = () => {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
-                                </div>
-                                <div className="mt-4 flex gap-2 justify-end">
-                                    <div className="text-xs text-gray-400 flex items-center gap-1">
-                                        <Activity className="w-3 h-3" />
-                                        Updated 2 mins ago
                                     </div>
                                 </div>
                             </div>

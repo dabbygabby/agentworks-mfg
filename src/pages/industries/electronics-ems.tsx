@@ -174,7 +174,7 @@ const ElectronicsPage = () => {
                 />
 
                 {/* How It Works - BOM Health Check Visual */}
-                <Section className="bg-white">
+                <Section className="">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
@@ -204,7 +204,7 @@ const ElectronicsPage = () => {
                             </div>
 
                             {/* Visual - BOM Health Check */}
-                            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div className="bg-gray-50 rounded-3xl shadow-xl border border-gray-100">
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                                     <div className="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                                         <span className="font-bold text-[#022c22]">BOM Health Analysis</span>
@@ -264,11 +264,6 @@ const ElectronicsPage = () => {
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                <div className="mt-4 flex gap-2 justify-end">
-                                    <button className="text-xs bg-[#022c22] text-white px-3 py-2 rounded-lg hover:bg-[#022c22]/90 transition-colors">
-                                        Find Alternatives
-                                    </button>
                                 </div>
                             </div>
                         </div>

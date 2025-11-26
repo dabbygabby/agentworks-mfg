@@ -172,7 +172,7 @@ const HeavyMachineryPage = () => {
                 />
 
                 {/* How It Works - Digital Job Card Visual */}
-                <Section className="bg-white">
+                <Section className="">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
