@@ -1,14 +1,130 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, FileText, Scissors, Truck, BarChart3, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRightIcon, CheckCircle2, FileText, Scissors, Truck, BarChart3, Clock, ShieldCheck, ArrowRight, AlertOctagon } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
+import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
+import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+import { DetailCTA } from '@src/components/industries/DetailCTA';
+import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
+
+const SheetMetalCopy = {
+    // 1. HERO SECTION (Focus on Velocity & Simplicity)
+    hero: {
+        title: "Stop Losing Bids Because You Quote Too Slow.",
+        subtitle: "Turn DXFs into professional quotes in minutes using WhatsApp. No complex software. No data entry. We don't replace your systems; we feed them.",
+        ctaText: "Get a Sample Quote",
+        imageSrc: "/sheet-metal.png",
+        ctaLink: "/agents"
+    },
+
+    // 2. PROBLEM SECTION (The "Silent Killers")
+    problemSection: {
+        title: "The 'Silent Killers' of Fabrication Profits.",
+        subtitle: "The laser is fast, but the paperwork is slow. Standard ERPs treat metal like retail items—they don't understand cuts, pierces, or offcuts.",
+        features: [
+            {
+                title: "The Quoting Bottleneck",
+                icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Your engineers burn hours manually calculating cut-lengths and pierces. By the time you send the price, the customer has gone with the guy who quoted yesterday."
+            },
+            {
+                title: "The 'Invisible' Scrap",
+                icon: <Scissors className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You pay for the whole sheet, but quote for the part. If you aren't tracking usable offcuts and nesting efficiency in real-time, you are giving away margin."
+            },
+            {
+                title: "The 'Where is it?' Game",
+                icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
+                desc: "A customer calls about their order. You have to physically walk to the welding station or hunt down an operator to find out if it's done."
+            }
+        ]
+    },
+
+    // 3. AGENT SECTION (Renamed for Clarity: Bot, Hunter, Monitor)
+    agentSection: {
+        title: "Your Shop Runs on Metal. Agentworks Runs the Data.",
+        ctaText: "Explore All Agents",
+        ctaHref: "/agents",
+        agents: [
+            {
+                icon: FileText,
+                title: "The Quoting Bot",
+                subtitle: "Sales & Estimation",
+                tagline: "Stop counting holes manually.",
+                features: [
+                    { "label": "Read", "description": "Forward a customer email with PDF/DXF directly to Agentworks." },
+                    { "label": "Calc", "description": "Instantly calculates surface area, cut path, pierces, and bends." },
+                    { "label": "Price", "description": "Checks live steel rates and machine costs to generate a draft quote." }
+                ]
+            },
+            {
+                icon: BarChart3,
+                title: "The Scrap Hunter",
+                subtitle: "Inventory & Offcuts",
+                tagline: "Turn the 'bone pile' into cash.",
+                features: [
+                    { "label": "Capture", "description": "Tracks nesting data from your laser software automatically." },
+                    { "label": "Save", "description": "Calculates 'usable scrap' left on a sheet and logs it to inventory." },
+                    { "label": "Alert", "description": "Reminds you to use an offcut instead of a new sheet for small jobs." }
+                ]
+            },
+            {
+                icon: ShieldCheck,
+                title: "The Floor Monitor",
+                subtitle: "Production Tracking",
+                tagline: "Get updates without nagging.",
+                features: [
+                    { "label": "Input", "description": "Operators send Voice Notes via WhatsApp: 'Job 304, Bending complete.'" },
+                    { "label": "Action", "description": "AI transcribes voice, updates the Schedule, and notifies the Office." },
+                    { "label": "Result", "description": "View real-time status of every job on your phone, from anywhere." }
+                ]
+            }
+        ]
+    },
+
+    // 4. CASE STUDIES (Swapped Order: Velocity First, Admin Second)
+    caseStudies: {
+        title: "Proven Results on the Factory Floor.",
+        description: "See how fabricators are using Agentworks to unlock capacity.",
+        studies: [
+            {
+                badge: 'The "Velocity" Win',
+                title: 'High-Mix Laser Cutting Shop',
+                challenge: 'Engineers spent 6 hours/day manually calculating cut-lengths. Quoting was the bottleneck.',
+                results: [
+                    '<strong>Quoting Time:</strong> Reduced from 4 days to 2 hours.',
+                    '<strong>Win Rate:</strong> Increased 18% (First to quote wins).',
+                    '<strong>Accuracy:</strong> Zero manual calculation errors.',
+                ],
+                link: '#case-study-2',
+            },
+            {
+                badge: 'The "Admin" Win',
+                title: 'Heavy Equipment Fabricator',
+                challenge: 'Floor staff refused to fill out job cards. Office didn\'t know job status.',
+                results: [
+                    '<strong>Adoption:</strong> 100% staff usage (via WhatsApp Voice).',
+                    '<strong>Visibility:</strong> Real-time WIP tracking without walking the floor.',
+                    '<strong>Finance:</strong> Month-end reconciliation dropped from 7 days to 4 hours.',
+                ],
+                link: '#case-study-1',
+            },
+        ]
+    },
+
+    // 5. BOTTOM CTA (Challenge Based)
+    cta: {
+        title: "Send us your messiest drawing.",
+        subtitle: "Challenge us. Upload a complex DXF file and see how fast Agentworks can quote it. No cost. No obligation.",
+        href: "https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery",
+        ctaText: "Test Agentworks Free"
+    }
+}
 
 const SheetMetalPage = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <Head>
                 <title>Sheet Metal & Fabrication | Agentworks</title>
                 <meta name="description" content="Stop bleeding margin on scrap and slow quotes. Automate your fabrication workflow with Agentworks." />
@@ -16,165 +132,26 @@ const SheetMetalPage = () => {
 
             <main>
                 <IndustryHero
-                    title="Sheet Metal & Fabrication"
-                    subtitle="Stop bleeding margin on scrap and slow quotes. Automate your fabrication workflow with Agentworks."
-                    ctaText="See the Quoting Agent"
-                    imageSrc="/sheet-metal.png"
-                    ctaLink="/connectors"
+                    title={SheetMetalCopy.hero.title}
+                    subtitle={SheetMetalCopy.hero.subtitle}
+                    ctaText={SheetMetalCopy.hero.ctaText}
+                    imageSrc={SheetMetalCopy.hero.imageSrc}
+                    ctaLink={SheetMetalCopy.hero.ctaLink}
+                />
+                <DetailProblemSection
+                    title={SheetMetalCopy.problemSection.title}
+                    subtitle={SheetMetalCopy.problemSection.subtitle}
+                    features={SheetMetalCopy.problemSection.features}
+                />
+                <DetailAgentSection
+                    title={SheetMetalCopy.agentSection.title}
+                    ctaText={SheetMetalCopy.agentSection.ctaText}
+                    ctaHref={SheetMetalCopy.agentSection.ctaHref}
+                    agents={SheetMetalCopy.agentSection.agents}
                 />
 
-                {/* The Fabrication Gap (Problem) */}
-                <Section className="bg-white">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Why Standard ERPs Fail in Fabrication.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70 leading-relaxed">
-                                You deal in volatile raw material prices and complex custom orders. A generic ERP sees a "sheet of steel." It doesn't understand nesting efficiency, offcut management, or laser machine time.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "Quoting is Slow",
-                                    icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Engineers spend hours calculating perimeter cut-lengths and bend deductions manually."
-                                },
-                                {
-                                    title: "Scrap is Invisible",
-                                    icon: <Scissors className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "You pay for the whole sheet, but you only bill for the part. The \"scrap\" eats your profit if not tracked."
-                                },
-                                {
-                                    title: "WIP is a Black Hole",
-                                    icon: <Truck className="w-8 h-8 text-[#ef4444]" />,
-                                    desc: "Once a job leaves the laser, nobody knows if it’s at bending, welding, or coating without physically walking the floor."
-                                }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-red-50 rounded-3xl p-8 border border-red-100">
-                                    <div className="mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-[#022c22] mb-3">{item.title}</h3>
-                                    <p className="text-[#022c22]/70">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
-
-                {/* The Solution: Specialized Agents */}
-                <Section className="bg-[#022c22] text-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                                Intelligent Infrastructure for Metalworks.
-                            </h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            {/* Commercial Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <FileText className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Commercial Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Auto-Quoting</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Quote in Minutes, Not Days."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Ingest:</strong> Accepts PDF, DXF, and CAD files via Email or WhatsApp.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Analyze:</strong> Instantly extracts geometry (surface area, perimeter, bends/holes).</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Price:</strong> Connects to live steel rates and machine-hour costs.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Inventory Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <BarChart3 className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Inventory Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Scrap & Stock</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Turn Offcuts into Profit."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Tracking:</strong> Calculates exact scrap percentage when a job is nested.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Re-use:</strong> Identifies and logs usable offcuts back into inventory.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Procurement:</strong> Auto-alerts purchasing when sheet sizes hit minimums.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Production Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <ShieldCheck className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Production Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Shop Floor Visibility</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"The Control Tower."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Input:</strong> Operators dictate updates via voice notes (e.g., "Bending complete").</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Action:</strong> Updates Master Schedule and notifies Sales immediately.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Result:</strong> Real-time status on every job, accessible from your phone.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="flex w-full items-center justify-center mt-12">
-                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
-                                Explore All Agents <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    </div>
-                </Section>
-
                 {/* How It Works - Smart Quote Visual */}
-                <Section className="bg-white">
+                <Section className="">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
@@ -204,7 +181,7 @@ const SheetMetalPage = () => {
                             </div>
 
                             {/* Visual - Smart Quote Analysis */}
-                            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div className="bg-gray-50 rounded-3xl shadow-xl border border-gray-100">
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                                     <div className="p-4 border-b border-gray-100 bg-[#022c22] text-white flex justify-between items-center">
                                         <div className="flex items-center gap-2">
@@ -275,86 +252,18 @@ const SheetMetalPage = () => {
                 </Section>
 
                 {/* Case Studies */}
-                <Section className="bg-[#f7fee7] rounded-[3rem]">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                Proven Results on the Factory Floor.
-                            </h2>
-                            <p className="text-xl text-[#022c22]/70">
-                                See how fabricators are using Agentworks to unlock capacity.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Case Study 1 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Finance" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">Heavy Equipment Fabricator</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Finance team drowning in reconciliation (40 hrs/week). Month-end took 7 days.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>95% Reduction</strong> in finance admin time (40 hrs → 2 hrs).</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>2 FTEs Freed</strong> to focus on revenue tasks.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Month-End</strong> reduced from 7 days to near-zero.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Case Study 2 */}
-                            <div className="bg-white rounded-3xl p-8 shadow-xl">
-                                <div className="inline-block px-4 py-1 bg-[#dcfce7] text-[#166534] rounded-full text-sm font-bold mb-6">
-                                    The "Velocity" Win
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#022c22] mb-4">High-Mix Laser Cutting Shop</h3>
-                                <p className="text-[#022c22]/70 mb-6">
-                                    <strong>Challenge:</strong> Engineers spent 80% of day manually calculating cut-lengths. Quoting was the bottleneck.
-                                </p>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Quoting Speed:</strong> Reduced cycle time from 7 days to 2 hours.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Margin Uplift:</strong> +3% increase due to precision costing.</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#65a30d] mt-1" />
-                                        <span className="text-[#022c22]"><strong>Accuracy:</strong> Eliminated manual calculation errors.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Section>
-
+                <DetailCaseStudies
+                    caseStudies={SheetMetalCopy.caseStudies.studies}
+                    title={SheetMetalCopy.caseStudies.title}
+                    description={SheetMetalCopy.caseStudies.description}
+                />
                 {/* Bottom CTA */}
-                <Section className="bg-white">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                            Ready to Automate Your Fabrication Workflow?
-                        </h2>
-                        <p className="text-xl text-[#022c22]/70 mb-10">
-                            Let an engineer analyze your quoting process. No cost. No obligation.
-                        </p>
-                        <Button href="https://cal.com/saurabh-dabral-woinoa/agentworks-deployment-strategy-30-min-discovery" variant="primary">
-                            Consult an Engineer
-                            <ArrowRightIcon className="w-4 h-4 ml-2" />
-                        </Button>
-                    </div>
-                </Section>
+                <DetailCTA
+                    title={SheetMetalCopy.cta.title}
+                    subtitle={SheetMetalCopy.cta.subtitle}
+                    href={SheetMetalCopy.cta.href}
+                    ctaText={SheetMetalCopy.cta.ctaText}
+                />
             </main>
         </div>
     );

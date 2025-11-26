@@ -4,8 +4,8 @@ import { Shield, Lock, FileCheck } from 'lucide-react';
 
 const SecuritySection = () => {
     return (
-        <section className="py-20 px-4 md:px-8 bg-[#022c22] text-white">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-20 px-4 md:px-12 text-white">
+            <div className="max-w-7xl mx-auto bg-[#022c22] p-12 rounded-2xl ">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}

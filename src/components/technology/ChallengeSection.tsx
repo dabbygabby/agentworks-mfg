@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Mic, FileWarning } from 'lucide-react';
 
@@ -22,7 +21,7 @@ const ChallengeSection = () => {
     ];
 
     return (
-        <section className="py-20 px-4 md:px-8 bg-white">
+        <section className="py-20 px-4 md:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -50,7 +49,7 @@ const ChallengeSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 flex items-start gap-4"
+                                className="p-6 bg-white rounded-xl shadow-lg border border-gray-100 flex items-start gap-4"
                             >
                                 <div className="p-3 bg-[#f7fee7] rounded-lg shrink-0">
                                     {challenge.icon}

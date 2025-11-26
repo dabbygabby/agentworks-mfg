@@ -4,7 +4,7 @@ import { Database, ArrowRight, MessageSquare, Server, CheckCircle2 } from 'lucid
 
 const CleanDataSection = () => {
     return (
-        <section className="py-20 px-4 md:px-8 bg-white overflow-hidden">
+        <section className="py-20 px-4 md:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <motion.div

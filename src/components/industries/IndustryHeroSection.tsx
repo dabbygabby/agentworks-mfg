@@ -54,11 +54,6 @@ const visualEntranceVariants = {
  */
 const IndustryHero = ({ title, subtitle, ctaText, imageSrc, ctaLink }: { title: string; subtitle: string; ctaText: string; imageSrc: string; ctaLink: string }) => {
 
-    // Logic to separate the last word for accent coloring (e.g., "Slow Quotes" becomes the accent)
-    const titleParts = title.split(' ');
-    const accentWord = titleParts.pop();
-    const leadingText = titleParts.join(' ');
-
     return (
         <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
 
@@ -82,8 +77,7 @@ const IndustryHero = ({ title, subtitle, ctaText, imageSrc, ctaLink }: { title: 
                             className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight"
                         >
                             {/* Dynamically insert title and highlight color accents */}
-                            <span className="block">{leadingText}</span>
-                            <span className="text-[#BEF264]">{accentWord}</span>
+                            {title}
                         </motion.h1>
 
                         <motion.p
