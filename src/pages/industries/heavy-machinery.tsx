@@ -1,11 +1,80 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Calendar, ClipboardList, DollarSign, AlertTriangle, Eye, Settings, Clock, Check, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
+import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+
+const HeavyMachineryCopy = {
+    agentSection: {
+        title: "Intelligent Infrastructure for Assembly Lines.",
+        ctaText: "Explore All Agents",
+        ctaHref: "/agents",
+        agents: [
+            {
+                icon: Calendar,
+                title: "Job Scheduling Agent",
+                subtitle: "The Control Tower",
+                tagline: '"Real-Time Gantt Charts."',
+                features: [
+                    {
+                        label: "Input",
+                        description: 'Supervisors send voice updates: "Chassis #402, Welding complete."'
+                    },
+                    {
+                        label: "Update",
+                        description: "Instantly updates master schedule and recalculates completion date."
+                    },
+                    {
+                        label: "Alert",
+                        description: "If a stage takes longer than planned, the Plant Head gets an alert."
+                    }
+                ]
+            },
+            {
+                icon: ClipboardList,
+                title: "Kitting Agent",
+                subtitle: "Shortage Prevention",
+                tagline: '"No Stalled Assembly."',
+                features: [
+                    {
+                        label: "Scan",
+                        description: "Checks inventory for every child part before Work Order release."
+                    },
+                    {
+                        label: "Flag",
+                        description: "Identifies shortages immediately (e.g., missing 12V Solenoid)."
+                    },
+                    {
+                        label: "Procure",
+                        description: "Auto-triggers purchase requests to ensure arrival before assembly."
+                    }
+                ]
+            },
+            {
+                icon: DollarSign,
+                title: "Commercial Agent",
+                subtitle: "Project Costing",
+                tagline: '"Protect Your Project Margin."',
+                features: [
+                    {
+                        label: "Track",
+                        description: "Allocates labor and consumable costs to Job IDs in real-time."
+                    },
+                    {
+                        label: "Compare",
+                        description: 'Constantly compares "Actual Cost vs. Quoted Cost."'
+                    },
+                    {
+                        label: "Report",
+                        description: "Tells you exactly how much profit you made on that specific machine."
+                    }
+                ]
+            }
+        ]
+    }
+}
 
 const HeavyMachineryPage = () => {
     return (
@@ -48,112 +117,12 @@ const HeavyMachineryPage = () => {
                 />
 
                 {/* The Solution: Specialized Agents */}
-                <Section className="bg-[#022c22] text-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                                Intelligent Infrastructure for Assembly Lines.
-                            </h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            {/* Job Scheduling Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <Calendar className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Job Scheduling Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">The Control Tower</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Real-Time Gantt Charts."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Input:</strong> Supervisors send voice updates: "Chassis #402, Welding complete."</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Update:</strong> Instantly updates master schedule and recalculates completion date.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Alert:</strong> If a stage takes longer than planned, the Plant Head gets an alert.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Kitting Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <ClipboardList className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Kitting Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Shortage Prevention</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"No Stalled Assembly."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Scan:</strong> Checks inventory for every child part before Work Order release.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Flag:</strong> Identifies shortages immediately (e.g., missing 12V Solenoid).</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Procure:</strong> Auto-triggers purchase requests to ensure arrival before assembly.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Commercial Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <DollarSign className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Commercial Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Project Costing</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Protect Your Project Margin."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Track:</strong> Allocates labor and consumable costs to Job IDs in real-time.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Compare:</strong> Constantly compares "Actual Cost vs. Quoted Cost."</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Report:</strong> Tells you exactly how much profit you made on that specific machine.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="flex w-full items-center justify-center mt-12">
-                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
-                                Explore All Agents <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    </div>
-                </Section>
+                <DetailAgentSection
+                    title={HeavyMachineryCopy.agentSection.title}
+                    ctaText={HeavyMachineryCopy.agentSection.ctaText}
+                    ctaHref={HeavyMachineryCopy.agentSection.ctaHref}
+                    agents={HeavyMachineryCopy.agentSection.agents}
+                />
 
                 {/* How It Works - Digital Job Card Visual */}
                 <Section className="bg-white">

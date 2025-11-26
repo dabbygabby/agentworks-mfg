@@ -6,6 +6,77 @@ import { ArrowRightIcon, CheckCircle2, Cpu, Zap, Search, Layers, AlertCircle, Ba
 import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
+import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+
+const EMSCopy = {
+    agentSection: {
+        title: "Intelligent Infrastructure for EMS.",
+        ctaText: "Explore All Agents",
+        ctaHref: "/agents",
+        agents: [
+            {
+                icon: Cpu,
+                title: "Sourcing Agent",
+                subtitle: "The Automated Buyer",
+                tagline: '"Clear-to-Build in Minutes."',
+                features: [
+                    {
+                        label: "Scan",
+                        description: "Ingests BOM (Excel/PDF) and identifies every Part Number."
+                    },
+                    {
+                        label: "Search",
+                        description: "Checks availability/pricing across vendors and APIs instantly."
+                    },
+                    {
+                        label: "Compare",
+                        description: "Highlights lowest price and fastest delivery automatically."
+                    }
+                ]
+            },
+            {
+                icon: TrendingUp,
+                title: "Sales Agent",
+                subtitle: "Revenue Growth",
+                tagline: '"Upsell on Autopilot."',
+                features: [
+                    {
+                        label: "Analyze",
+                        description: 'Reviews history to find patterns (e.g., "Buy A → Need B").'
+                    },
+                    {
+                        label: "Engage",
+                        description: 'Nudges clients via WhatsApp: "Need wiring harness for this batch?"'
+                    },
+                    {
+                        label: "Qualify",
+                        description: "Filters leads to prioritize high-value OEM contracts."
+                    }
+                ]
+            },
+            {
+                icon: Layers,
+                title: "Inventory Agent",
+                subtitle: "Store Control",
+                tagline: '"Real-Time Kitting."',
+                features: [
+                    {
+                        label: "Kit",
+                        description: "Checks if all components are physically available before production."
+                    },
+                    {
+                        label: "Alert",
+                        description: "Flags shortages before line stoppages occur."
+                    },
+                    {
+                        label: "Consume",
+                        description: 'Deducts from stock via "Backflush" when unit is packed.'
+                    }
+                ]
+            }
+        ]
+    }
+}
 
 const ElectronicsPage = () => {
     return (
@@ -49,112 +120,12 @@ const ElectronicsPage = () => {
                 />
 
                 {/* The Solution: Specialized Agents */}
-                <Section className="bg-[#022c22] text-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                                Intelligent Infrastructure for EMS.
-                            </h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            {/* Sourcing Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <Cpu className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Sourcing Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">The Automated Buyer</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Clear-to-Build in Minutes."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Scan:</strong> Ingests BOM (Excel/PDF) and identifies every Part Number.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Search:</strong> Checks availability/pricing across vendors and APIs instantly.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Compare:</strong> Highlights lowest price and fastest delivery automatically.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Sales Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <TrendingUp className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Sales Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Revenue Growth</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Upsell on Autopilot."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Analyze:</strong> Reviews history to find patterns (e.g., "Buy A &rarr; Need B").</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Engage:</strong> Nudges clients via WhatsApp: "Need wiring harness for this batch?"</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Qualify:</strong> Filters leads to prioritize high-value OEM contracts.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Inventory Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <Layers className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Inventory Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Store Control</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Real-Time Kitting."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Kit:</strong> Checks if all components are physically available before production.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Alert:</strong> Flags shortages before line stoppages occur.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Consume:</strong> Deducts from stock via "Backflush" when unit is packed.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="flex w-full items-center justify-center mt-12">
-                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
-                                Explore All Agents <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    </div>
-                </Section>
+                <DetailAgentSection
+                    title={EMSCopy.agentSection.title}
+                    ctaText={EMSCopy.agentSection.ctaText}
+                    ctaHref={EMSCopy.agentSection.ctaHref}
+                    agents={EMSCopy.agentSection.agents}
+                />
 
                 {/* How It Works - BOM Health Check Visual */}
                 <Section className="bg-white">

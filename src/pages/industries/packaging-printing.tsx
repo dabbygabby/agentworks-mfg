@@ -2,9 +2,79 @@ import Head from 'next/head';
 import Section from '../../components/ui/Section';
 import Button from '../../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, ShoppingCart, Activity, Calculator, Clock, AlertTriangle, Eye, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
+import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
+
+const PackagingPrintingCopy = {
+    agentSection: {
+        title: "Intelligent Infrastructure for High-Volume Press.",
+        ctaText: "Explore All Agents",
+        ctaHref: "/agents",
+        agents: [
+            {
+                icon: ShoppingCart,
+                title: "Procurement Agent",
+                subtitle: "Vendor Negotiation",
+                tagline: '"The Ruthless Buyer."',
+                features: [
+                    {
+                        label: "Ingest",
+                        description: "Reads vendor quotes from Email and WhatsApp instantly."
+                    },
+                    {
+                        label: "Compare",
+                        description: "Auto-compares quotes against historical prices and market indices."
+                    },
+                    {
+                        label: "Negotiate",
+                        description: 'Automates follow-ups: "Your quote is 2% higher. Can you match?"'
+                    }
+                ]
+            },
+            {
+                icon: Activity,
+                title: "Operations Agent",
+                subtitle: "Live Floor Visibility",
+                tagline: '"Live Floor Visibility."',
+                features: [
+                    {
+                        label: "Input",
+                        description: 'Operators send voice updates: "Job 105, Printing done."'
+                    },
+                    {
+                        label: "Track",
+                        description: "Updates central dashboard and flags schedule delays."
+                    },
+                    {
+                        label: "Notify",
+                        description: 'Alerts dispatch team when job hits "Finished Goods".'
+                    }
+                ]
+            },
+            {
+                icon: Calculator,
+                title: "Costing Agent",
+                subtitle: "Precision Estimates",
+                tagline: '"Precision Estimates."',
+                features: [
+                    {
+                        label: "Calculate",
+                        description: "Calculates exact paper tonnage and ink coverage from dimensions."
+                    },
+                    {
+                        label: "Optimize",
+                        description: "Suggests optimal reel size/layout to minimize wastage."
+                    },
+                    {
+                        label: "Quote",
+                        description: "Generates customer-ready quote protecting your margin."
+                    }
+                ]
+            }
+        ]
+    }
+}
 
 const PackagingPage = () => {
     return (
@@ -48,113 +118,12 @@ const PackagingPage = () => {
                 />
 
                 {/* The Solution: Specialized Agents */}
-                <Section className="bg-[#022c22] text-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                                Intelligent Infrastructure for High-Volume Press.
-                            </h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            {/* Procurement Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <ShoppingCart className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Procurement Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Vendor Negotiation</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"The Ruthless Buyer."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Ingest:</strong> Reads vendor quotes from Email and WhatsApp instantly.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Compare:</strong> Auto-compares quotes against historical prices and market indices.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Negotiate:</strong> Automates follow-ups: "Your quote is 2% higher. Can you match?"</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Operations Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <Activity className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Operations Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Live Floor Visibility</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Live Floor Visibility."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Input:</strong> Operators send voice updates: "Job 105, Printing done."</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Track:</strong> Updates central dashboard and flags schedule delays.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Notify:</strong> Alerts dispatch team when job hits "Finished Goods".</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Costing Agent */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]">
-                                        <Calculator className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold">Costing Agent</h3>
-                                        <p className="text-[#bef264] text-sm font-medium">Precision Estimates</p>
-                                    </div>
-                                </div>
-                                <div className="mb-6">
-                                    <p className="text-2xl font-bold mb-2">"Precision Estimates."</p>
-                                </div>
-                                <ul className="space-y-4 text-white/80">
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Calculate:</strong> Calculates exact paper tonnage and ink coverage from dimensions.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Optimize:</strong> Suggests optimal reel size/layout to minimize wastage.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                                        <span><strong>Quote:</strong> Generates customer-ready quote protecting your margin.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="flex w-full items-center justify-center mt-12">
-                            <Link href="/agents" className="bg-[#bef264] font-semibold hover:bg-lime-400 text-[#022c22] px-6 py-2 rounded-full flex items-center gap-2 transition-colors">
-                                Explore All Agents <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    </div>
-                </Section>
-
+                <DetailAgentSection
+                    title={PackagingPrintingCopy.agentSection.title}
+                    ctaText={PackagingPrintingCopy.agentSection.ctaText}
+                    ctaHref={PackagingPrintingCopy.agentSection.ctaHref}
+                    agents={PackagingPrintingCopy.agentSection.agents}
+                />
                 {/* How It Works - Comparison Table Visual */}
                 <Section className="bg-white">
                     <div className="max-w-6xl mx-auto">
