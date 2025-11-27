@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import HeroSection from '../components/home/HeroSection';
+import OperatingSystemSection from '../components/home/OperatingSystemSection';
 import PainPointSection from '../components/home/PainPointSection';
 import SolutionTeaserSection from '../components/home/SolutionTeaserSection';
 import AgentsSection from '../components/home/AgentsSection';
@@ -20,6 +21,7 @@ export default function Home() {
 
       <div className="flex flex-col min-h-screen">
         <HeroSection />
+        <OperatingSystemSection />
         <PainPointSection />
         <SolutionTeaserSection />
         <AgentsSection />

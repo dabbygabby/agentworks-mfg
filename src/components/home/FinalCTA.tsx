@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calculator } from 'lucide-react';
+import { ArrowRight, Calculator, Phone } from 'lucide-react';
+import { finalCTAMessage, whatsappLinkGenerator } from '@src/globals';
 
 const FinalCTA = () => {
+
     return (
         <section className="relative py-24 bg-[#022c22] overflow-hidden">
 
@@ -28,49 +30,73 @@ const FinalCTA = () => {
                     <span className="text-[#bef264]">When You Win.</span>
                 </motion.h2>
 
-                {/* Subheadline - Sourced from Deck Page 10 [cite: 221-223] */}
-                <motion.p
-                    className="text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
+                {/* Subheadline */}
+                <motion.div
+                    className="max-w-3xl mx-auto mb-10"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    <span className="font-semibold text-white">No Upfront Cost.</span> We charge based on the profit improvements we deliver. If our agents don't perform, you don't pay.
-                </motion.p>
+                    <p className="text-xl text-white/70 leading-relaxed mb-8">
+                        Most software companies charge you whether you use it or not. We are different.
+                    </p>
+
+                    {/* Features List */}
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8">
+                        {[
+                            "No Setup Fees",
+                            "No \"Per User\" Licenses",
+                            "Pay based on Profit Improvement"
+                        ].map((feature, index) => (
+                            <div key={index} className="flex items-center text-white font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                                <div className="w-2 h-2 bg-[#bef264] rounded-full mr-2" />
+                                {feature}
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
 
                 {/* Buttons */}
                 <motion.div
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    className="flex flex-col md:flex-row items-center justify-center gap-6"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                    {/* Primary Action */}
-                    <button
-                        onClick={() => window.open('https://cal.com/rabnoor-singh/30min', '_blank')}
-                        className="group relative px-8 py-4 bg-[#bef264] text-[#022c22] font-bold text-lg rounded-full overflow-hidden transition-transform hover:scale-105 shadow-xl shadow-[#bef264]/20"
-                    >
-                        <span className="relative z-10 flex items-center">
-                            Start Your Zero-Risk Pilot
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                    </button>
+                    {/* Path 1: Next-Gen/Tech Savvy */}
+                    <div className="flex flex-col items-center gap-2">
+                        <button
+                            onClick={() => window.location.href = '/roi-calculator'}
+                            className="group relative px-8 py-4 bg-[#bef264] text-[#022c22] font-bold text-lg rounded-full overflow-hidden transition-transform hover:scale-105 shadow-xl shadow-[#bef264]/20 w-full md:w-auto"
+                        >
+                            <span className="relative z-10 flex items-center justify-center">
+                                <Calculator className="mr-2 w-5 h-5" />
+                                Calculate Your Savings
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </button>
+                    </div>
 
-                    {/* Secondary Action */}
-                    <button
-                        onClick={() => window.location.href = '/roi-calculator'}
-                        className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/10 transition-colors flex items-center"
-                    >
-                        <Calculator className="mr-2 w-5 h-5" />
-                        Calculate Your Savings
-                    </button>
+                    {/* Divider for mobile */}
+                    <div className="md:hidden w-full h-px bg-white/10 my-2"></div>
+
+                    {/* Path 2: Owner/Busy Industrialist */}
+                    <div className="flex flex-col items-center gap-2">
+                        <button
+                            onClick={() => window.open(whatsappLinkGenerator(finalCTAMessage), '_blank')}
+                            className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/10 transition-colors flex items-center justify-center w-full md:w-auto"
+                        >
+                            <Phone className="mr-2 w-5 h-5" />
+                            Request a Callback
+                        </button>
+                    </div>
                 </motion.div>
 
                 {/* Trust Signal */}
                 <motion.p
-                    className="mt-8 text-sm text-white/40 uppercase tracking-widest font-medium"
+                    className="mt-12 text-sm text-white/40 uppercase tracking-widest font-medium"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}

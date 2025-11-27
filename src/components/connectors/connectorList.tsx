@@ -35,13 +35,17 @@ export const libraryData = {
 // Data for Core Four
 export const coreFour = [
     {
+        id: "tally",
         name: "Tally Prime / ERP 9",
-        connect: "Direct XML / ODBC Bridge",
-        what: "Agents can auto-post purchase vouchers, read ledger balances, and generate e-invoices without a human opening Tally.",
-        useCase: "Photo-to-Tally expense entry.",
+        badge: "Native Integration",
+        connect: "Native 2-Way Sync (XML/ODBC) We use Tally’s official API standards. No \"hacks,\" no data corruption, and no need to change your existing TDLs.",
+        what: "The \"Digital Data Entry\" Clerk. Stop typing bills manually. The Agent reads invoices from WhatsApp, validates the GSTIN to prevent errors, and posts the Purchase Voucher directly into Tally. It works in the background, so your books are updated live.",
+        useCase: "Photo-to-Voucher Purchase Entry.",
         icon: "tally-prime.png"
     },
     {
+
+        id: "whatsapp",
         name: "WhatsApp (Meta API)",
         connect: "Official Business API (BSP)",
         what: "Turns WhatsApp into your command center. Staff send voice notes and photos; Agents reply with data and updates.",
@@ -49,6 +53,7 @@ export const coreFour = [
         icon: "whatsapp-icon.png"
     },
     {
+        id: "excel",
         name: "Microsoft Excel / Google Sheets",
         connect: "Native API & File Parser",
         what: "Extracts data from locked spreadsheets or writes live reporting data into shared sheets.",
@@ -56,6 +61,7 @@ export const coreFour = [
         icon: "excel.png"
     },
     {
+        id: "email",
         name: "Email (Outlook / Gmail)",
         connect: "IMAP / Graph API",
         what: "Monitors specific inboxes (e.g., sales@company.com) for RFQs and invoices.",

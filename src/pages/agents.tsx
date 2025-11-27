@@ -1,19 +1,40 @@
 import Head from 'next/head';
-import { useState, useMemo } from 'react';
+import { useRouter } from 'next/router';
+import { useState, useMemo, useEffect } from 'react';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import { ArrowRightIcon, CheckCircle2, Phone, Filter, Search, X, SlidersHorizontal, ArrowLeft } from 'lucide-react';
 import { agents } from '../components/agents/consts';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { meetingLink } from '@src/globals';
+import { meetingLink, whatsappLinkGenerator } from '@src/globals';
 
 const AgentsPage = () => {
+    const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
     const [showFilterModal, setShowFilterModal] = useState(false);
     const [selectedDepartments, setSelectedDepartments] = useState<string[]>([]);
     const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
     const [selectedAgent, setSelectedAgent] = useState<typeof agents[0] | null>(null);
+
+    // Effect to handle URL query parameter for opening a specific agent
+    useEffect(() => {
+        if (router.isReady && router.query.agent) {
+            const agentName = router.query.agent as string;
+            const targetAgent = agents.find(a => a.name === agentName);
+
+            if (targetAgent) {
+                setSelectedAgent(targetAgent);
+                // Wait for the render to complete then scroll
+                setTimeout(() => {
+                    const gridSection = document.getElementById('agent-grid');
+                    if (gridSection) {
+                        gridSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+        }
+    }, [router.isReady, router.query.agent]);
 
     // Extract unique departments and industries
     const allDepartments = useMemo(() => {
@@ -282,7 +303,8 @@ const AgentsPage = () => {
                                             </div>
 
                                             <Button
-                                                href={meetingLink}
+                                                href={whatsappLinkGenerator(`I was looking at ${selectedAgent.name} agent on your website, can you tell me more about it would like to know more.`)}
+                                                target="_blank"
                                                 variant="primary"
                                                 className="w-full justify-center !py-4 !text-lg bg-[#022c22] text-white hover:bg-[#15803d]"
                                             >

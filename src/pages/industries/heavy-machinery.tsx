@@ -1,125 +1,134 @@
 import Head from 'next/head';
 import Section from '../../components/ui/Section';
-import { Calendar, AlertTriangle, Clock, Check, EyeClosed, IndianRupee, HardHat, Magnet } from 'lucide-react';
+import { Calendar, AlertTriangle, Clock, Check, EyeClosed, IndianRupee, HardHat, Magnet, Activity } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
-import { meetingLink } from '@src/globals';
+import { heavyMachineryMessage, meetingLink, whatsappLinkGenerator } from '@src/globals';
 
 const HeavyMachineryCopy = {
-    // 1. HERO SECTION (Focus on Profit & Visibility)
+    // 1. HERO SECTION
+    // Goal: Sell "Control" over the chaos of long production cycles.
     hero: {
-        title: "Turn Every Machine Into Profit—Not a Guess.",
-        subtitle: "Stop quoting blind and losing on the floor. We turn your shop floor chaos into live P&L visibility, so you know exactly which jobs print money—before the machine even starts.",
-        ctaText: "Calculate Your Hidden Margin Leak",
-        imageSrc: "/heavy-machinery.png",
-        ctaLink: "/roi-calculator"
+        title: "Stop Building Machines Before You Know The Profit.",
+        subtitle: "You build massive machines, but your data is weak. We track every bolt, every welder hour, and every design change in real-time. Know your exact margin before the machine leaves the gate.",
+        ctaText: "See Real-Time Job Costing",
+        imageSrc: "/heavy-machinery.png", // Ensure image shows a large machine/assembly line
+        ctaLink: "/how-it-works"
     },
 
-    // 2. PROBLEM SECTION (The "Financial Fear")
+    // 2. PROBLEM SECTION
+    // Goal: The "Post-Mortem" problem. Finding out too late.
     problemSection: {
-        title: "Your ERP Shows 'Profitable.' Your Bank Account Says Otherwise.",
-        subtitle: "You're building ₹50 Lakh machines with 5,000-part BOMs. One missing component stalls the line. One design change kills your margin. And you usually find out 30 days after dispatch.",
+        title: "You Are Managing a ₹5 Crore Order with ₹5 Notebooks.",
+        subtitle: "Complex BOMs + Long Production Cycles + Manual Tracking = A financial black hole. You are flying blind until the audit happens.",
         features: [
             {
-                title: "Margin Blindness",
+                title: "The 'Post-Mortem' P&L",
                 icon: <EyeClosed className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You quoted ₹45L based on last quarter's steel prices. Actual cost today? ₹48L. You just shipped a ₹3 Lakh loss and celebrated it as revenue."
+                desc: "You only calculate the profit *after* the machine is shipped. By then, it's too late to fix the cost overruns. You are managing history, not reality."
             },
             {
-                title: "BOM Russian Roulette",
+                title: "The 'Golden Screw' Delay",
                 icon: <AlertTriangle className="w-8 h-8 text-[#ef4444]" />,
-                desc: "4,873 components. Your ERP says you have them all. But one ₹250 hydraulic seal is missing. A ₹1.2 Cr order sits idle for 6 days."
+                desc: "5,000 Parts. 4,999 are here. One ₹50 seal is missing. The entire ₹50 Lakh machine sits idle for 10 days waiting for a courier."
             },
             {
-                title: "The 'Friday' Lie",
-                icon: <Calendar className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Sales promises Friday delivery because 'Inventory' showed the sub-assembly was ready. Reality? Production is still at welding. The customer finds out before you do."
+                title: "The 'Invisible' WIP",
+                icon: <Activity className="w-8 h-8 text-[#ef4444]" />,
+                desc: "Is the fabrication done? Is the painting done? You have to walk 40,000 sq ft to find out. Your ERP says 'In Progress', which means nothing."
             }
         ]
     },
 
-    // 3. AGENT SECTION (The "Nervous System")
+    // 3. AGENT SECTION
+    // Goal: Map to Global Agents (Project Cost Tracker, Production Scheduler, BOM Kitting)
     agentSection: {
-        title: "From Blind Quotes to Bulletproof Margins",
-        subtitle: "It’s not just software; it’s a nervous system. Your operators speak. Our AI calculates. Your P&L updates in real-time.",
+        title: "Your Digital Project Managers",
+        subtitle: "Don't ask supervisors for updates. Ask the Agent. It tracks the time, the material, and the money.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
-                icon: IndianRupee, // Or Calculator
-                title: "Job Cost Guardian",
-                subtitle: "Finance & Costing",
-                tagline: "The Ruthless Accountant",
+                icon: IndianRupee,
+                title: "The Job Cost Guardian", // Global Name
+                subtitle: "Real-Time P&L",
+                tagline: "The Ruthless Accountant.",
                 features: [
-                    { "label": "Track", "description": "Allocates every specific welder's hours and every consumable bolt directly to the Job ID." },
-                    { "label": "Alert", "description": "Flags cost overruns the moment actuals exceed estimates—mid-job, not post-mortem." },
-                    { "label": "Report", "description": "Generates machine-wise P&L: 'Excavator #2401 made ₹4.2L. Crusher #2405 lost ₹80K.'" }
-                ]
+                    { "label": "Track", "description": "Allocates welder hours and consumable costs directly to Job ID #508." },
+                    { "label": "Alert", "description": "Flags overruns instantly: 'Job #508 has exceeded labor budget by 15%'." },
+                    { "label": "Report", "description": "Generates a 'Live P&L' for every single machine on the floor." }
+                ],
+                // Maps to Global Agent: "Project Cost Tracker"
+                learnMoreLink: "/agents?agent=Project%20Cost%20Tracker"
             },
             {
-                icon: HardHat, // Or Radio
-                title: "Shopfloor Command Center",
-                subtitle: "Operations",
-                tagline: "The Floor Manager",
+                icon: Calendar,
+                title: "The Control Tower", // Global Name
+                subtitle: "Production Scheduler",
+                tagline: "The Digital Floor Manager.",
                 features: [
-                    { "label": "Input", "description": "Operators don't type. They send voice notes: 'Job 5893, Boom fabrication complete.'" },
-                    { "label": "Update", "description": "Gantt charts refresh instantly. Sales sees 'Welding done, Paint Shop next' without calling anyone." },
-                    { "label": "Notify", "description": "Auto-alerts the Plant Head if any stage exceeds the planned duration by >10%." }
-                ]
+                    { "label": "Voice Update", "description": "Operators dictate status: 'Boom Welding Complete'. No typing." },
+                    { "label": "Live Gantt", "description": "Updates the Master Schedule instantly. Shows delays in Red." },
+                    { "label": "Predict", "description": "Warns you: 'At current speed, Machine #402 will miss the Friday delivery'." }
+                ],
+                // Maps to Global Agent: "Production Scheduler"
+                learnMoreLink: "/agents?agent=Production%20Scheduler"
             },
             {
-                icon: Magnet, // Or PackageCheck
-                title: "BOM Kitting Agent",
-                subtitle: "Procurement",
-                tagline: "The Shortage Preventer",
+                icon: Magnet,
+                title: "BOM Kitting Assistant", // Global Name
+                subtitle: "Shortage Prevention",
+                tagline: "No Missing Parts.",
                 features: [
-                    { "label": "Scan", "description": "Cross-checks all 5,000 BOM items against live inventory 7 days before Work Order release." },
-                    { "label": "Flag", "description": "Highlights the 'Golden Screw' instantly: 'Missing: 12x M24 Bolts, Lead Time 4 days.'" },
-                    { "label": "Procure", "description": "Auto-triggers purchase requests to ensure parts arrive before assembly begins." }
-                ]
+                    { "label": "Scan", "description": "Checks 5,000 BOM lines against inventory 7 days before assembly." },
+                    { "label": "Flag", "description": "Identifies the 'Golden Screw' shortages instantly." },
+                    { "label": "Procure", "description": "Auto-triggers POs for missing items to ensure 'Clear-to-Build'." }
+                ],
+                // Maps to Global Agent: "BOM Kitting Assistant"
+                learnMoreLink: "/agents?agent=BOM%20Kitting%20Assistant"
             }
         ]
     },
-
-    // 4. CASE STUDIES (Margin & Visibility)
+    // 5. CASE STUDIES
     caseStudies: {
-        title: "From Guessing Costs to Guaranteeing Profits.",
-        description: "How two Indian heavy machinery manufacturers stopped bleeding margin and started controlling their floor.",
+        title: "From 'Guessing' to 'Guaranteeing' Profits.",
+        description: "See how Heavy Machinery OEMs are locking in their margins.",
         studies: [
             {
                 badge: 'The "Margin" Win',
-                title: 'Earthmoving Equipment Manufacturer',
-                challenge: 'Quoted 40+ custom machines annually. Discovered 30% were unprofitable only after delivery due to un-tracked rework costs.',
+                title: 'Earthmoving OEM (Chennai)',
+                challenge: 'Discovered 30% of machines were unprofitable only after delivery due to un-tracked rework.',
                 results: [
-                    '<strong>97% Quote Accuracy:</strong> Variance dropped from ±18% to ±3%.',
-                    '<strong>Recovered ₹45L:</strong> Identified and rejected margin-killing deals.',
-                    '<strong>Real-Time P&L:</strong> Owners see per-machine profitability updating live.',
+                    '<strong>97% Accuracy:</strong> Job Costing variance dropped from ±18% to ±3%.',
+                    '<strong>Saved ₹45L:</strong> Identified margin-killing design flaws mid-production.',
+                    '<strong>Live P&L:</strong> Owner sees profit per machine on his phone daily.',
                 ],
                 link: '#case-study-1',
             },
             {
                 badge: 'The "Visibility" Win',
-                title: 'Hydraulic Press Manufacturer',
-                challenge: 'Constant "Where is my order?" calls. Sales team physically walked the 40,000 sqft floor 3x daily to find machine status.',
+                title: 'Hydraulic Press Mfr (Ahmedabad)',
+                challenge: 'Sales team walked the 40,000 sqft floor 3x daily just to answer "Where is my machine?"',
                 results: [
                     '<strong>Zero Status Calls:</strong> Dashboard shows live job progress.',
-                    '<strong>18% Faster Delivery:</strong> Identified bottlenecks using voice data.',
-                    '<strong>NPS Lift:</strong> On-time delivery went from 71% to 94%.',
+                    '<strong>18% Faster:</strong> Identified bottlenecks (Paint Shop) using voice data.',
+                    '<strong>On-Time:</strong> Delivery adherence went from 71% to 94%.',
                 ],
                 link: '#case-study-2',
             },
         ]
     },
 
-    // 5. BOTTOM CTA (Profit Focused)
+    // 6. CTA
     cta: {
-        title: "Stop Losing Margin on Your Most Complex Jobs.",
-        subtitle: "You didn't get into heavy machinery to play accountant. Let our agents track the rupees while you build what moves the world.",
-        href: meetingLink,
-        ctaText: "Show Me My Profit Leaks"
+        title: "Is Machine #5 Making Money or Losing Money?",
+        subtitle: "If you have to ask your accountant, it's already too late. Track it live.",
+        // Message: "Hi, I want to track Job Costing for my machines."
+        href: whatsappLinkGenerator(heavyMachineryMessage),
+        ctaText: "Start Live Job Costing"
     }
 }
 
@@ -167,10 +176,10 @@ const HeavyMachineryPage = () => {
                             {/* Steps */}
                             <div className="space-y-8">
                                 {[
-                                    { step: "01", title: "Daily Plan", desc: "Production Manager receives a \"Daily Plan\" on WhatsApp at 8 AM." },
-                                    { step: "02", title: "Operator Update", desc: "Operator snaps a photo of the finished sub-assembly (e.g., JCB Bucket)." },
-                                    { step: "03", title: "Agent Tracks", desc: "Agent reads Job ID from photo/tag and updates status to \"Ready for QC.\"" },
-                                    { step: "04", title: "Sales Notified", desc: "Sales team receives a notification: \"Job #5893 is on track for Friday dispatch.\"" }
+                                    { step: "01", title: "Daily Plan", desc: "Supervisors get a WhatsApp list at 8 AM: 'Today's Target: Finish Welding Job #502'." },
+                                    { step: "02", title: "Voice Update", desc: "Operator speaks: 'Job #502 Welding Done'. Agent logs time and status." },
+                                    { step: "03", title: "Cost Check", desc: "Agent calculates: 'Labor Cost is within budget.' Updates the Job P&L." },
+                                    { step: "04", title: "Global Sync", desc: "Sales, Design, and Purchase get a notification: 'Job #502 moved to Painting'." }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-6">
                                         <div className="w-12 h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-xl flex-shrink-0">

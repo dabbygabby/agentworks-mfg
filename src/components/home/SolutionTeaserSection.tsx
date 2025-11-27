@@ -23,7 +23,7 @@ const featuresData = [
         id: 1,
         title: "Zero Friction Input",
         subtitle: "The Solution is in Their Pocket.",
-        description: "Your staff doesn't need to learn a new app. If they can send a voice note, they are already trained to use Agentworks. We capture the work where it happens—via simple messages—not where you wish it happened.",
+        description: "Your floor staff uses WhatsApp like they always do. Voice notes, photos of chalan, or scribbled notes.",
         icon: Smartphone,
         color: "#64A30E",
         VisualComponent: InterfaceVisual
@@ -32,16 +32,16 @@ const featuresData = [
         id: 2,
         title: "The Intelligent Layer",
         subtitle: "Making Sense of the Chaos.",
-        description: "We ingest data from everywhere—Emails, ERP, Tally, Spreadsheets, and messages. Whether it's text, photos, video, voice, or location tags, our AI structures the noise into a single, intelligent data foundation.",
+        description: "Our AI ignores the background noise and factory slang. It extracts the truth: Who, What, When, and How Much.",
         icon: Brain,
         color: "#EAB308",
         VisualComponent: BrainVisual
     },
     {
         id: 3,
-        title: "Autonomous Workforce",
+        title: "Your Digital Employees",
         subtitle: "Agents That Actually Do the Work.",
-        description: "It’s not just data entry; it’s execution. Specialized agents wake up to perform intelligent tasks—generating quotes, managing inventory, and auditing compliance—turning your raw data into business results.",
+        description: "It’s not just data entry; it’s execution. Specialized digital employees perform intelligent tasks—generating quotes, managing inventory, and auditing compliance—turning your raw data into business results.",
         icon: Sparkles,
         color: "#F97316",
         VisualComponent: WorkforceVisual

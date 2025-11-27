@@ -1,143 +1,162 @@
 import Head from 'next/head';
 import Section from '../../components/ui/Section';
-import Button from '../../components/ui/Button';
-import { ArrowRightIcon, CheckCircle2, FileText, AlertTriangle, Search, BarChart3, Clock, ShieldCheck, Microscope, RefreshCw, AlertOctagon, ArrowRight } from 'lucide-react';
+import { FileText, AlertTriangle, BarChart3, ShieldCheck, RefreshCw, AlertOctagon } from 'lucide-react';
 import IndustryHero from '@src/components/industries/IndustryHeroSection';
 import { DetailProblemSection } from '@src/components/industries/DetailProblemSection';
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
-import { meetingLink } from '@src/globals';
+import { digitalTraceabilityMessage, whatsappLinkGenerator } from '@src/globals';
 
 const PharmaChemicalCopy = {
+    // 1. HERO SECTION
+    // Goal: Address the "Paperwork vs. Reality" gap.
     hero: {
-        title: "100% Audit Readiness. Zero Paperwork.",
-        subtitle: "Run a cGMP-Compliant Plant Using Only Voice & WhatsApp. We turn shop-floor chatter into validated Batch Manufacturing Records (BMR), automate QC logs, and enforce FEFO inventory control.",
-        ctaText: "Start Your Zero-Risk Pilot",
-        imageSrc: "/pharma.png",
-        ctaLink: "/connectors"
+        title: "Pass Every Audit. Zero New Paperwork.",
+        subtitle: "Run a cGMP-Compliant plant using the tool your operators already know—WhatsApp. We turn shop-floor voice notes into validated Batch Manufacturing Records (BMR) and enforce FEFO automatically.",
+        ctaText: "Meet The BMR Guardian",
+        imageSrc: "/pharma.png", // Ensure image shows a Batch Record or Lab Report
+        ctaLink: "/agents?agent=The%20BMR%20Guardian"
     },
+
+    // 2. PROBLEM SECTION
+    // Goal: Highlight "Data Integrity" and "Yield Loss".
     problemSection: {
-        title: "Your Lab is Digital. Your Floor is Analog.",
-        subtitle: "You invest in high-end ERPs, but your operators still run on notebooks and memory. This disconnect causes '483 Observations', dead stock, and yield gaps that generic software can't catch.",
+        title: "Your Lab is Digital. Your Floor is Dangerous.",
+        subtitle: "You invest in high-end ERPs, but your operators still fill logbooks at the end of the shift from memory. This 'Data Gap' is a compliance ticking time bomb.",
         features: [
             {
-                title: "The \"Yield Gap\"",
-                icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You only find out a batch has low potency or high moisture content after it is finished. Real-time deviation control is impossible on paper."
-            },
-            {
-                title: "Data Integrity Risks",
+                title: "The 'End-of-Shift' Lie", // Strong hook
                 icon: <FileText className="w-8 h-8 text-[#ef4444]" />,
-                desc: "One '483 Observation' from the FDA or a failed customer audit due to missing paperwork can shut down your line for weeks."
+                desc: "Operators fill QC logs hours after the actual check. You have no real-time data integrity, putting your license at risk during audits."
             },
             {
-                title: "Invisible Inventory",
+                title: "The Yield Leak",
+                icon: <BarChart3 className="w-8 h-8 text-[#ef4444]" />,
+                desc: "You only discover low potency or high moisture *after* the batch is finished. You need real-time deviation alerts, not post-mortem reports."
+            },
+            {
+                title: "The Expiry Trap",
                 icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Expired raw materials (dead stock) and 'lost' solvents in the warehouse eat 5-10% of your bottom line annually."
+                desc: "Your ERP says 'Use Batch A', but the worker grabs 'Batch B' because it's closer. FEFO fails on the floor, leading to expired dead stock."
             }
         ]
     },
+
+    // 3. AGENT SECTION
+    // Goal: Map to Global Agents (Quality Auditor, Expiry Watchdog, Distributor Refill)
     agentSection: {
-        title: "The Digital QA That Never Sleeps.",
+        title: "Your 24/7 Quality & Stores Team",
+        subtitle: "Don't hire more QA staff to check paperwork. Hire Agents that verify CoAs and enforce FEFO logic instantly.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
                 icon: ShieldCheck,
-                title: "Quality Agent",
-                subtitle: "Batch & Audit",
-                tagline: '"The 24/7 Auditor."',
+                title: "The Quality Auditor", // Global Name
+                subtitle: "QC & Compliance",
+                tagline: "The Zero-Defect Guardian.",
                 features: [
                     {
-                        label: "Ingest",
-                        description: "Reads batch labels, CoAs, and GRNs via photo to create digital entry."
+                        "label": "Ingest",
+                        "description": "Reads incoming CoAs and Lab Reports via photo. Digitizes specifications instantly."
                     },
                     {
-                        label: "Verify",
-                        description: "Instantly cross-checks received material against PO specs and expiry constraints."
+                        "label": "Verify",
+                        "description": "Cross-checks received material against PO specs. Flags 'Out of Spec' material before unloading."
                     },
                     {
-                        label: "Trace",
-                        description: "Creates a digital thread to trace every batch to its final customer in seconds."
+                        "label": "Trace",
+                        "description": "Creates a searchable 'Digital Passport' for every batch. Retrieve records in 3 seconds."
                     }
-                ]
+                ],
+                // Maps to Global Agent: "The Quality Auditor"
+                learnMoreLink: "/agents?agent=The%20Quality%20Auditor"
             },
             {
                 icon: AlertTriangle,
-                title: "Stores Agent",
-                subtitle: "Expiry Watchdog",
-                tagline: '"Shelf-Life Guardian."',
+                title: "Expiry Watchdog", // Global Name
+                subtitle: "Stores Management",
+                tagline: "Shelf-Life Guardian.",
                 features: [
                     {
-                        label: "Monitor",
-                        description: "Continuously scans inventory age across the warehouse."
+                        "label": "Monitor",
+                        "description": "Scans inventory age daily. Identifies batches nearing expiry."
                     },
                     {
-                        label: "Alert",
-                        description: 'Triggers "Use First" alerts to production for batches nearing expiry.'
+                        "label": "Alert",
+                        "description": "Triggers 'Use First' alerts to Production. Enforces FEFO (First Expired First Out) strictly."
                     },
                     {
-                        label: "Reconcile",
-                        description: 'Automates "Physical vs. System" stock checks using voice notes.'
+                        "label": "Audit",
+                        "description": "Automates stock-taking via voice notes: 'Batch 202, 5 drums remaining'."
                     }
-                ]
+                ],
+                // Maps to Global Agent: "Expiry Watchdog"
+                learnMoreLink: "/agents?agent=Expiry%20Watchdog"
             },
             {
                 icon: RefreshCw,
-                title: "Sales Agent",
-                subtitle: "Distributor Management",
-                tagline: '"Revenue Velocity."',
+                title: "Distributor Refill Manager", // Global Name
+                subtitle: "Sales Automation",
+                tagline: "Never miss a re-order.",
                 features: [
                     {
-                        label: "Predict",
-                        description: 'Analyzes buying patterns to forecast needs (e.g., "Client X needs 500L every 20 days").'
+                        "label": "Predict",
+                        "description": "Analyzes consumption: 'Client X buys 500L Solvent every 20 days. They are due tomorrow.'"
                     },
                     {
-                        label: "Nudge",
-                        description: 'Proactively contacts distributors via WhatsApp to book orders before they run out.'
+                        "label": "Nudge",
+                        "description": "Sends auto-WhatsApp: 'Sir, your stock might be low. Shall we book 500L?'"
                     },
                     {
-                        label: "Protect",
-                        description: "Quotes based on current raw material indices to protect margins from volatility."
+                        "label": "Protect",
+                        "description": "Quotes based on *today's* raw material index to protect margins."
                     }
-                ]
+                ],
+                // Maps to Global Agent: "Distributor Refill Manager"
+                learnMoreLink: "/agents?agent=Distributor%20Refill%20Manager"
             }
         ]
     },
+
+    // 5. CASE STUDIES
     caseStudies: {
-        "title": "Compliance Without the Chaos.",
-        "description": "See how Indian manufacturers are using Agentworks to secure their margins.",
-        "studies": [
+        title: "Compliance Without the Chaos.",
+        description: "See how Indian Pharma & Chemical plants are securing their operations.",
+        studies: [
             {
-                "badge": "The \"Margin\" Win",
-                "title": "Top 10 Condom Manufacturer (Maharashtra)",
-                "challenge": "Sales teams quoting based on static lists, missing raw material spikes. 7-day quote cycle.",
-                "results": [
-                    "<strong>Speed:</strong> Quoting cycle reduced from 7 days to 2 hours.",
-                    "<strong>Margin Uplift:</strong> +3 Point Increase (18% → 21%).",
-                    "<strong>Profit Impact:</strong> Generated ₹45 Lakhs in additional annual profit."
+                badge: 'The "Margin" Win',
+                title: 'Condom Manufacturer (Maharashtra)',
+                challenge: 'Sales teams were quoting using old Latex prices, missing spikes in raw material costs.',
+                results: [
+                    '<strong>2 Hour Cycle:</strong> Quoting reduced from 7 days to 2 hours.',
+                    '<strong>+3% Margin:</strong> Real-time pricing uplifted net margin from 18% to 21%.',
+                    '<strong>₹45L Profit:</strong> Direct bottom-line impact in Year 1.',
                 ],
-                "link": "#case-study-condom-manufacturer"
+                link: '#case-study-condom-manufacturer',
             },
             {
-                "badge": "The \"Procurement\" Win",
-                "title": "Packaging Manufacturing Leader",
-                "challenge": "Slow procurement decisions leading to losses on R&D projects and material delays.",
-                "results": [
-                    "<strong>Loss Prevention:</strong> Avoided ₹5 Lakhs in losses by halting low-ROI R&D projects.",
-                    "<strong>Speed:</strong> Procurement cycle time dropped from 10 days to 2 hours.",
-                    "<strong>Execution:</strong> Enabled better decisions and faster execution."
+                badge: 'The "Procurement" Win',
+                title: 'Specialty Chemical Leader',
+                challenge: 'Slow decisions on R&D procurement caused project delays and material wastage.',
+                results: [
+                    '<strong>Loss Prevention:</strong> Halted low-ROI R&D projects by tracking material costs instantly.',
+                    '<strong>Speed:</strong> Purchase decision cycle dropped from 10 days to 2 hours.',
+                    '<strong>Better Data:</strong> Management now sees real-time R&D spend visibility.',
                 ],
-                "link": "#case-study-packaging"
-            }
+                link: '#case-study-packaging',
+            },
         ]
     },
+
+    // 6. CTA
+    // Goal: Challenge their "Audit Readiness".
     cta: {
-        title: "Your Plant. Your Rules. Our Agents.",
-        subtitle: "Whether you make APIs, Formulations, or Specialty Chems—if your team can send a Voice Note, they are already trained to use Agentworks.",
-        href: meetingLink,
-        ctaText: "Book a 15-Min Strategy Call"
+        title: "Can You Find 'Batch #2904' Records in 30 Seconds?",
+        subtitle: "If an auditor asks for a record today, will you panic or search? Test our Digital Traceability now.",
+        href: whatsappLinkGenerator(digitalTraceabilityMessage),
+        ctaText: "Test Audit Readiness"
     }
 }
 
@@ -151,11 +170,11 @@ const PharmaPage = () => {
 
             <main>
                 <IndustryHero
-                    title="Compliance without the chaos"
-                    subtitle="Automate batch tracking, expiry management, and audit trails without adding a single sheet of paper to the floor."
-                    ctaText="See the Compliance Agent"
-                    imageSrc="/pharma.png"
-                    ctaLink="/connectors"
+                    title={PharmaChemicalCopy.hero.title}
+                    subtitle={PharmaChemicalCopy.hero.subtitle}
+                    ctaText={PharmaChemicalCopy.hero.ctaText}
+                    imageSrc={PharmaChemicalCopy.hero.imageSrc}
+                    ctaLink={PharmaChemicalCopy.hero.ctaLink}
                 />
 
                 {/* The Compliance Gap (Problem) */}
@@ -186,10 +205,10 @@ const PharmaPage = () => {
 
                             <div className="space-y-12">
                                 {[
-                                    { step: "01", title: "Snap Photo", desc: "Warehouse staff snaps a photo of a drum's label upon arrival." },
-                                    { step: "02", title: "Extract Data", desc: "Agentworks extracts Batch No, Mfg Date, and Expiry Date." },
-                                    { step: "03", title: "Update ERP", desc: "Agent updates Tally/ERP inventory and sets a \"Expiry Alert.\"" },
-                                    { step: "04", title: "Voice Issue", desc: "When production starts, operator speaks Batch No to \"issue\" material." }
+                                    { step: "01", title: "Snap Label", desc: "Storekeeper snaps a photo of the drum label/CoA upon arrival." },
+                                    { step: "02", title: "AI Verify", desc: "Agent validates Batch No & Expiry against the PO. Alerts if 'Short Expiry'." },
+                                    { step: "03", title: "Digital Entry", desc: "Inventory is updated in Tally/ERP with a 'FEFO Priority' tag." },
+                                    { step: "04", title: "Voice Issue", desc: "Operator speaks: 'Issuing Batch A to Line 1'. Agent confirms if it's the correct batch." }
                                 ].map((item, i) => (
                                     <div key={i} className={`relative flex flex-col md:flex-row items-center gap-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                                         {/* Step Number Bubble */}
