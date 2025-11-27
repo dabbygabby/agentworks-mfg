@@ -28,7 +28,7 @@ interface AgentsSectionProps {
 const AgentCard = ({ icon: Icon, title, subtitle, tagline, features, learnMoreLink }: Agent) => {
     return (
         <motion.div
-            className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors flex flex-col w-full h-full"
+            className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 hover:bg-white/15 transition-colors flex flex-col w-full h-full"
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
@@ -165,7 +165,7 @@ const DetailAgentSection = ({
     };
 
     return (
-        <section className={`${backgroundColor} text-white pt-24 pb-32 relative overflow-hidden`}>
+        <section className={`${backgroundColor} text-white pt-16 pb-20 md:pt-24 md:pb-32 relative overflow-hidden`}>
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#bef264]/10 rounded-full blur-[120px] pointer-events-none" />
 

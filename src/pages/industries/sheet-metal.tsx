@@ -182,22 +182,22 @@ const SheetMetalPage = () => {
                             </h2>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                             {/* Steps */}
-                            <div className="space-y-8">
+                            <div className="space-y-6 md:space-y-8">
                                 {[
                                     { step: "01", title: "Email Drawing", desc: "Customer emails a PDF/DXF file directly to your sales inbox." },
                                     { step: "02", title: "AI Analysis", desc: "Agent extracts geometry (Cut Length, Pierces) and checks live Steel Rates." },
                                     { step: "03", title: "Draft Quote", desc: "Generates a professional PDF quote with your margin logic applied." },
                                     { step: "04", title: "One-Click Approve", desc: "You get a WhatsApp summary. Click 'Approve' to send it to the client." }
                                 ].map((item, i) => (
-                                    <div key={i} className="flex gap-6">
-                                        <div className="w-12 h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-xl flex-shrink-0">
+                                    <div key={i} className="flex gap-4 md:gap-6">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-lg md:text-xl flex-shrink-0">
                                             {item.step}
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-[#022c22] mb-2">{item.title}</h3>
-                                            <p className="text-[#022c22]/70">{item.desc}</p>
+                                            <h3 className="text-lg md:text-xl font-bold text-[#022c22] mb-1 md:mb-2">{item.title}</h3>
+                                            <p className="text-[#022c22]/70 text-sm md:text-base">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}

@@ -132,8 +132,8 @@ const Navbar = () => {
             <Link href="/industries" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               Industries
             </Link>
-            <Link href="/success-stories" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
-              Success Stories
+            <Link href="/about" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
+              About Us
             </Link>
             <Link href="/roi-calculator" className={`${navLinkColor} px-1 pt-1 text-sm font-medium transition-colors`}>
               ROI Calculator
@@ -313,11 +313,11 @@ const Navbar = () => {
                 transition={{ delay: 0.4 }}
               >
                 <Link
-                  href="/success-stories"
+                  href="/about"
                   className="block text-2xl font-semibold text-[#022c22]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Success Stories
+                  About Us
                 </Link>
               </motion.div>
 

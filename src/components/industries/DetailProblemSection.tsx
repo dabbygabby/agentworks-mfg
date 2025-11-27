@@ -79,7 +79,7 @@ export const DetailProblemSection: React.FC<DetailProblemSectionProps> = ({ titl
     return (
         <motion.section
             // Removed bg-gray-50 and kept the padding and overflow control
-            className="relative py-16 sm:py-24 overflow-hidden"
+            className="relative py-12 sm:py-24 overflow-hidden"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
@@ -91,7 +91,7 @@ export const DetailProblemSection: React.FC<DetailProblemSectionProps> = ({ titl
                 <div className="text-center mb-16">
                     <motion.h2
                         // Used a dark, bold text color
-                        className="text-4xl md:text-6xl font-bold text-[#091a32] mb-5 tracking-tight"
+                        className="text-3xl md:text-6xl font-bold text-[#091a32] mb-5 tracking-tight"
                         //@ts-ignore
                         variants={headerVariants}
                     >
@@ -118,7 +118,7 @@ export const DetailProblemSection: React.FC<DetailProblemSectionProps> = ({ titl
                         <motion.div
                             key={item.title}
                             // ADAPTED CARD STYLE: White background, rounded-3xl, soft shadow, no border
-                            className="bg-white rounded-3xl p-10 shadow-xl cursor-pointer"
+                            className="bg-white rounded-3xl p-6 md:p-10 shadow-xl cursor-pointer"
                             style={{ perspective: 1500, transformStyle: 'preserve-3d' }}
                             //@ts-ignore
                             variants={itemVariants}
