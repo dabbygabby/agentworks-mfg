@@ -71,12 +71,21 @@ const HeroSection = () => {
                         animate="visible"
                         variants={textContainerVariants}
                     >
+                        <motion.div
+                            //@ts-expect-error no error
+                            variants={fadeInUpVariants}
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#BEF264]/10 border border-[#BEF264]/20 text-[#BEF264] text-sm font-medium mb-6"
+                        >
+                            <span>🔒</span>
+                            <span>Zero Upfront Cost. Pay Only When We Deliver ROI.</span>
+                        </motion.div>
+
                         <motion.h1
                             //@ts-expect-error no error
                             variants={fadeInUpVariants}
                             className="text-4xl md:text-6xl font-bold tracking-tight text-[#FEFCE8] mb-6 leading-tight"
                         >
-                            <span> Total Visibility </span> <br /><span className="text-[#BEF264]">Zero Data Entry</span>
+                            <span> Stop Managing Processes </span> <br /><span className="text-[#BEF264]">Start Protecting Profits</span>
                         </motion.h1>
 
                         <motion.p
@@ -84,7 +93,7 @@ const HeroSection = () => {
                             variants={fadeInUpVariants}
                             className="text-lg text-white/70 mb-8 max-w-xl leading-relaxed font-medium mt-0 md:mt-28 mx-auto lg:mx-0"
                         >
-                            We turn raw communication into instant action by capturing factory floor chatter, structuring it into clean data, and executing work automatically—so you stop managing processes and start managing growth.
+                            Turn your staff’s WhatsApp chatter into audit-ready Tally entries. Hire a Digital Workforce that quotes, tracks, and audits 24/7—without a monthly salary.
                         </motion.p>
 
                         <motion.div

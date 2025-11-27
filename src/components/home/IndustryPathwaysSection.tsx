@@ -7,42 +7,50 @@ const industries = [
     {
         id: 'sheet-metal',
         title: 'Sheet Metal & Fabrication',
-        note: 'Stop bleeding margins on miscalculated quotes.',
+        // Old: Stop bleeding margins on miscalculated quotes.
+        // New: Focus on the specific mechanism of failure (Scrap/Speed).
+        note: 'Quote in minutes, not days. Track every inch of scrap.',
         link: '/industries/sheet-metal',
         image: '/sheet-metal.png',
     },
     {
         id: 'packaging',
         title: 'Packaging & Printing',
-        note: 'End the race against volatile paper and ink prices.',
+        // Old: End the race against volatile paper and ink prices.
+        // New: specific focus on the "Gamble" of paper prices.
+        note: 'Protect margins from volatile paper prices. Quote with live rates.',
         link: '/industries/packaging-printing',
         image: '/packaging.png',
     },
     {
         id: 'electronics',
         title: 'Electronics & EMS',
-        note: 'No more "Golden Screw" delays stopping your line.',
+        // Old: No more "Golden Screw" delays stopping your line.
+        // New: Keep "Golden Screw" (it's great insider language) but add the scale.
+        note: 'Solve the "Golden Screw" problem. 500 BOM lines, zero shortages.',
         link: '/industries/electronics-ems',
         image: '/electronics.png',
     },
     {
         id: 'pharma',
         title: 'Pharma & Chemicals',
-        note: 'Eliminate the risk of expired stock and failed audits.',
+        // Old: Eliminate the risk of expired stock and failed audits.
+        // New: More authoritative.
+        note: '100% Audit Readiness. Zero dead stock due to expiry.',
         link: '/industries/pharma-chemicals',
         image: '/pharma.png',
     },
     {
         id: 'heavy-machinery',
         title: 'Heavy Machinery',
-        note: 'End the "Where is the order?" chaos on the floor.',
+        note: 'Stop asking "Where is it?". Track every process in real-time.',
         link: '/industries/heavy-machinery',
         image: '/heavy-machinery.png',
     },
     {
         id: 'all-industries',
         title: 'View All Industries',
-        note: 'We build custom agents for unique manufacturing workflows.',
+        note: 'Don’t see your sector? Challenge us to build a custom workflow.',
         link: '/industries',
         image: null,
     }
@@ -152,7 +160,7 @@ const IndustriesCarousel = ({
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         {/* Use provided subtitle prop, or fallback to default string */}
-                        {subtitle || "Generic software ignores the nuances of your sector. We target the specific bottlenecks that kill your margins."}
+                        {subtitle || "Generic ERPs don't understand 'Nesting' or 'GSM.' Our agents are purpose-built for the specific physics of your factory."}
                     </p>
                 </motion.div>
 

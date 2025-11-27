@@ -8,14 +8,14 @@ interface VideoModalProps {
 }
 
 const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
-    const [language, setLanguage] = useState<'english' | 'hindi'>('english');
+    const [language, setLanguage] = useState<'english' | 'hindi'>('hindi');
     const [showCTA, setShowCTA] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
 
     // Reset state when modal opens
     useEffect(() => {
         if (isOpen) {
-            setLanguage('english');
+            setLanguage('hindi');
             setShowCTA(false);
             if (videoRef.current) {
                 videoRef.current.currentTime = 0;
@@ -30,7 +30,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
 
     // Handle language switch
     const toggleLanguage = () => {
-        const newLanguage = language === 'english' ? 'hindi' : 'english';
+        const newLanguage = language === 'hindi' ? 'english' : 'hindi';
         setLanguage(newLanguage);
         setShowCTA(false); // Hide CTA if switching language
 
