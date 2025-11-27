@@ -6,120 +6,130 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
-import { meetingLink } from '@src/globals';
+import { electronicsEmsMessage, meetingLink, whatsappLinkGenerator } from '@src/globals';
 
 const EMSCopy = {
-    // 1. HERO SECTION (Focus on Precision & Speed)
+    // 1. HERO SECTION
+    // Goal: Address the fear of "Price Drift" (Quoting low, buying high).
     hero: {
-        title: "Quote with Precision. Source with Speed. Ship without Delays.",
-        subtitle: "Stop losing margins to component price volatility. We automate the chaos of 500-line BOMs, spot shortages before they happen, and execute procurement instantly—using the tools you already have.",
-        ctaText: "Start Your Zero-Risk Pilot",
-        imageSrc: "/electronics.png",
+        title: "The Component Market Moves Fast. Do You?",
+        subtitle: "Stop quoting based on last week's Digikey prices. Connect your BOMs to an AI that tracks live global inventory, spots shortages instantly, and locks in margins before you accept the PO.",
+        ctaText: "See It In Action",
+        imageSrc: "/electronics.png", // Ensure image shows a PCB or BOM list
         ctaLink: "/how-it-works"
     },
 
-    // 2. PROBLEM SECTION (The "Volatility Killers")
+    // 2. PROBLEM SECTION
+    // Goal: Highlight the complexity of "The Mix" (High Mix, Low Volume).
     problemSection: {
-        title: "Your ERP Can’t Handle a 500-Line BOM.",
-        subtitle: "In EMS, static data is dangerous. You are fighting a war against lead times and price drifts using spreadsheets that are obsolete the moment you save them.",
+        title: "500 Line Items. One Mistake. Zero Profit.",
+        subtitle: "In EMS, you don't lose money on the big chips. You lose it on the tiny resistors you forgot to order.",
         features: [
             {
-                title: 'The "Golden Screw" Problem',
+                title: 'The "Golden Screw"',
                 icon: <ZapOff className="w-8 h-8 text-[#ef4444]" />,
-                desc: "99% of parts in stock means 0% production. One missing resistor stalls a ₹50 Lakh shipment."
+                desc: "99% components in stock = 0% production. One missing ₹2 resistor stalls a ₹50 Lakh shipment. Your ERP doesn't warn you until it's too late."
             },
             {
-                title: "Margin Erosion",
+                title: "The Quote Gap",
                 icon: <TrendingDown className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You quoted the chip at ₹150. By the time you buy it, it’s ₹190. Your profit just vanished."
+                desc: "You quoted the MCU at $4. By the time the PO arrives, the spot price is $6. You are now working for free."
             },
             {
-                title: "Dead Inventory",
+                title: "Dead Stock Trap",
                 icon: <PackageX className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Capital trapped in 'Just-in-Case' stock because you can't trust your real-time data."
+                desc: "You buy 'Safe Stock' to avoid shortages, but now your cash flow is trapped in a warehouse full of obsolete parts."
             }
         ]
     },
 
-    // 3. AGENT SECTION (Sourcing, Kitting, Sales)
+    // 3. AGENT SECTION
+    // Goal: Position agents as "Procurement Specialists".
     agentSection: {
-        title: "The Supply Chain That Never Sleeps",
-        subtitle: "Deploy AI Agents that scrub BOMs, nag vendors, and track kitting status 24/7.",
+        title: "Your 24/7 Supply Chain Team",
+        subtitle: "Don't hire more sourcing executives. Hire Agents that check 50 vendors in 5 seconds.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
                 icon: Search,
-                title: "Component Sourcing Engine",
-                subtitle: "Procurement",
-                tagline: "The Automated Buyer.",
+                title: "The Sourcing Engine",
+                subtitle: "Procurement Agent",
+                tagline: "Scours the globe for the best price.",
                 features: [
-                    { "label": "Scan", "description": "Ingests complex BOMs (Excel/PDF) and identifies every unique Part Number." },
-                    { "label": "Search", "description": "Checks availability and pricing across approved vendors/APIs in seconds." },
-                    { "label": "Compare", "description": "Auto-highlights the lowest price and fastest delivery options." }
-                ]
+                    { "label": "Scan", "description": "Reads messy BOMs (Excel/PDF) and cleans Part Numbers automatically." },
+                    { "label": "Search", "description": "Checks stock across Mouser, Digikey, and Local Traders instantly." },
+                    { "label": "Compare", "description": "Flags 'High Risk' parts (Long Lead Time) before you quote." }
+                ],
+                // Maps to Global Agent: "Component Sourcing Engine"
+                learnMoreLink: "/agents?agent=Component%20Sourcing%20Engine"
             },
             {
                 icon: PackageCheck,
-                title: "Component Kitting Manager",
-                subtitle: "Stores & Production",
-                tagline: "Real-Time Kitting Control.",
+                title: "The Kit Manager",
+                subtitle: "Stores Control",
+                tagline: "No 'Missing Parts' at the line.",
                 features: [
-                    { "label": "Kit", "description": "Verifies physical availability of all child parts before releasing the Work Order." },
-                    { "label": "Alert", "description": "Flags 'Risk Parts' (shortages) days before the line is scheduled to run." },
-                    { "label": "Consume", "description": "Auto-backflushes inventory when finished goods are packed." }
-                ]
+                    { "label": "Verify", "description": "Checks physical stock for every child-part before releasing the Job Card." },
+                    { "label": "Alert", "description": "Flags shortages 3 days in advance: 'Order 100u of C24 Capacitor now'." },
+                    { "label": "Backflush", "description": "Auto-deducts inventory when the finished PCB is packed." }
+                ],
+                // Maps to Global Agent: "Component Kitting Manager"
+                learnMoreLink: "/agents?agent=Component%20Kitting%20Manager"
             },
             {
                 icon: TrendingUp,
-                title: "Account Upsell Assistant",
-                subtitle: "Sales",
-                tagline: "Revenue Growth Autopilot.",
+                title: "The Upsell Bot",
+                subtitle: "Revenue Growth",
+                tagline: "Mining gold from your chat history.",
                 features: [
-                    { "label": "Analyze", "description": "Reviews historical purchasing patterns (e.g., 'Client buys PCB A -> usually needs Cable B')." },
-                    { "label": "Engage", "description": "Proactively nudges clients via WhatsApp to secure orders early." },
-                    { "label": "Qualify", "description": "Filters incoming RFQs to prioritize high-value OEM contracts." }
-                ]
+                    { "label": "Analyze", "description": "Notices patterns: 'Client A bought 500 PCBs, but no Cable Harness?'" },
+                    { "label": "Nudge", "description": "Drafts a WhatsApp msg: 'Sir, do you need Cables for the recent order?'" },
+                    { "label": "Filter", "description": "Ignores low-value inquiries to let sales focus on OEM deals." }
+                ],
+                // Maps to Global Agent: "Account Upsell Assistant"
+                learnMoreLink: "/agents?agent=Account%20Upsell%20Assistant"
             }
         ]
     },
 
-    // 4. CASE STUDIES (Revenue & Sourcing Wins)
+    // 5. CASE STUDIES
     caseStudies: {
         title: "Proven in the Chaos of Indian Electronics.",
-        description: "See how manufacturers are moving from spreadsheets to automated growth.",
+        description: "See how EMS companies are securing stock and margins.",
         studies: [
             {
-                badge: 'The "Revenue" Win',
-                title: 'Dolphin Device (Sensor Mfg)',
-                challenge: 'Sales team was reactive, missing opportunities to sell complementary components.',
+                badge: 'The "Speed" Win',
+                title: 'Tier-2 EMS Provider (Noida)',
+                challenge: 'Sourcing team spent 4 days validating prices for a single RFQ. By then, the stock was gone.',
                 results: [
-                    '<strong>+22% Revenue Uplift:</strong> AI identified upsell patterns in chat history.',
-                    '<strong>+45% Qualified Leads:</strong> Filtered Grade-A leads automatically.',
-                    '<strong>Growth:</strong> Scaled revenue faster without adding new sales headcount.',
-                ],
-                link: '#case-study-1',
-            },
-            {
-                badge: 'The "Sourcing" Win',
-                title: 'Leading Tier-2 EMS Provider',
-                challenge: 'Sourcing team spent 4 days just validating prices for a single RFQ. By then, stock was gone.',
-                results: [
-                    '<strong>Quote in Minutes:</strong> Reduced BOM costing time from 4 days to 30 minutes.',
+                    '<strong>30-Min Costing:</strong> Reduced BOM costing time from 4 days to 30 minutes.',
                     '<strong>Price Lock:</strong> Secured raw material rates instantly to protect margins.',
-                    '<strong>Zero Line Stops:</strong> Predictive shortage alerts prevented "waiting for parts" downtime.',
+                    '<strong>Zero Stoppages:</strong> Predictive shortage alerts prevented line downtime.',
                 ],
                 link: '#case-study-2',
+            },
+            {
+                badge: 'The "Growth" Win',
+                title: 'Sensor Manufacturer (Pune)',
+                challenge: 'Sales team was reactive, missing opportunities to sell accessories (Cables/Enclosures).',
+                results: [
+                    '<strong>+22% Revenue:</strong> AI identified upsell patterns in WhatsApp history.',
+                    '<strong>Auto-Qualify:</strong> Filtered out low-margin leads automatically.',
+                    '<strong>Efficiency:</strong> Scaled revenue without hiring new sales staff.',
+                ],
+                link: '#case-study-1',
             },
         ]
     },
 
-    // 5. BOTTOM CTA (ROI Based)
+    // 6. CTA
     cta: {
-        title: "Your Margins Are Thin. Your Tech Cost Shouldn't Be.",
-        subtitle: "We don't charge per seat. We charge a percentage of the profit we recover. If we don't fix your supply chain, you don't pay.",
-        href: meetingLink,
-        ctaText: "Calculate Your Sourcing ROI"
+        title: "Don't let a ₹2 Resistor Stop a ₹50 Lakh Order.",
+        subtitle: "Send us your toughest BOM. We will show you how fast we can source it.",
+        // Message: "Hi, I have a complex BOM. I want to test the Sourcing Engine."
+        href: whatsappLinkGenerator(electronicsEmsMessage),
+        ctaText: "Test My BOM Now"
     }
 }
 
@@ -159,7 +169,7 @@ const ElectronicsPage = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                From BOM to Quote—Instantly.
+                                From BOM to Costing in Minutes
                             </h2>
                         </div>
 
@@ -167,10 +177,10 @@ const ElectronicsPage = () => {
                             {/* Steps */}
                             <div className="space-y-8">
                                 {[
-                                    { step: "01", title: "Send BOM", desc: "Customer sends a BOM file (Excel/CSV) via Email." },
-                                    { step: "02", title: "Agent Parses", desc: "Agentworks parses 500+ line items and checks stock against Tally + Vendors." },
-                                    { step: "03", title: "Costing Sheet", desc: "Agent generates a Costing Sheet highlighting \"Risk Parts\" (long lead times)." },
-                                    { step: "04", title: "Approve", desc: "You add your margin and approve the Quote on WhatsApp." }
+                                    { step: "01", title: "Upload BOM", desc: "Email your Excel BOM to the Agent. No re-formatting needed." },
+                                    { step: "02", title: "Global Scan", desc: "Agent checks prices across APIs and your Local Vendor history." },
+                                    { step: "03", title: "Risk Report", desc: "Receive a summary: '3 Parts are Out of Stock globally. Suggest Alternatives?'" },
+                                    { step: "04", title: "Lock Price", desc: "Approve the cost and generate a valid Quote instantly." }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-6">
                                         <div className="w-12 h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-xl flex-shrink-0">

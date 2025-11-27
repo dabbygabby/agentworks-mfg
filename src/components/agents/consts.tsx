@@ -384,5 +384,30 @@ export const agents: Agent[] = [
         impact: 'Total Visibility. Know exactly where every job is, instantly.',
         icon: Activity,
         link: '/agents/production-sheet'
+    },
+    {
+        name: 'The BMR Guardian',
+        role: 'Digital Batch Record',
+        department: 'Production',
+        industries: ['Pharma', 'Chemicals', 'Food & Beverage', 'Cosmetics'],
+        // Mission: Directly backs up the Hero promise of "Zero Paperwork" on the floor
+        mission: 'Turns shop-floor voice notes into compliant, audit-ready Batch Manufacturing Records (BMR) automatically.',
+        capabilities: [
+            {
+                title: 'Voice Logger',
+                description: 'Operators dictate process steps: "Added 50kg Starch to Reactor B". System logs user, time, and data.'
+            },
+            {
+                title: 'Line Clearance',
+                description: 'Forces operators to confirm "Line Clean" via photo before allowing the next batch to start.'
+            },
+            {
+                title: 'Deviation Alert',
+                description: 'Flags process violations instantly (e.g., "Temp exceeds 40°C") instead of waiting for QC review.'
+            }
+        ],
+        impact: '100% Data Integrity. Eliminate "Missing Entry" observations in FDA/Customer audits.',
+        icon: ClipboardList, // Ensure ClipboardList is imported from lucide-react
+        link: '/agents/pharma-production'
     }
 ];
