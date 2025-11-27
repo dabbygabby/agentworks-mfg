@@ -26,8 +26,8 @@ export const DetailCTA: React.FC<CTASectionProps> = ({
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
 
             {/* Glowing Orbs for visual depth */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#bef264] rounded-full blur-[150px] opacity-10 pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500 rounded-full blur-[150px] opacity-10 pointer-events-none" />
+            <div className="absolute top-0 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-[#bef264] rounded-full blur-[100px] md:blur-[150px] opacity-10 pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-green-500 rounded-full blur-[100px] md:blur-[150px] opacity-10 pointer-events-none" />
 
             <div className="relative z-10 max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">

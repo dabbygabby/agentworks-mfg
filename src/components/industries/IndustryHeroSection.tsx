@@ -55,7 +55,7 @@ const visualEntranceVariants = {
 const IndustryHero = ({ title, subtitle, ctaText, imageSrc, ctaLink }: { title: string; subtitle: string; ctaText: string; imageSrc: string; ctaLink: string }) => {
 
     return (
-        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
+        <section className="relative pt-12 pb-12 md:pt-32 md:pb-24 overflow-hidden bg-[#022c22]">
 
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#bef264]/10 rounded-full blur-[120px] pointer-events-none" />
@@ -96,7 +96,7 @@ const IndustryHero = ({ title, subtitle, ctaText, imageSrc, ctaLink }: { title: 
                             {/* Primary CTA */}
                             <a
                                 href={ctaLink}
-                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#BEF264]/20'
+                                className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-6 py-4 md:px-8 md:py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#BEF264]/20 text-sm md:text-base'
                             >
                                 {ctaText}
                                 <ArrowRightIcon className="w-4 h-4 ml-2" />

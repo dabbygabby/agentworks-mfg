@@ -20,7 +20,7 @@ const CaseStudyCard: React.FC<CaseStudyProps & { index: number }> = ({
 }) => {
     return (
         <motion.div
-            className="bg-white rounded-3xl p-8 shadow-xl flex flex-col"
+            className="bg-white rounded-3xl p-6 md:p-8 shadow-xl flex flex-col"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
