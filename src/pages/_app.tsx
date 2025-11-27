@@ -2,6 +2,8 @@ import "@src/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "@src/components/Layout";
 import { Montserrat } from "next/font/google";
+import { useEffect } from "react";
+import Clarity from "@microsoft/clarity";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -9,6 +11,10 @@ const montserrat = Montserrat({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    Clarity.init("ucf1o5w9y9");
+  }, []);
+
   return (
     <>
       <style jsx global>{`
