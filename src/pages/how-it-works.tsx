@@ -90,14 +90,14 @@ export default function HowItWorks() {
                         //@ts-ignore
                         variants={heroTextVariants}
                     >
-                        High-Tech Automation <br />
+                        Your Staff Sends a Message <br />
                         <motion.span
                             className="text-[#bef264]"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
-                            Low-Tech Adoption
+                            We Do The Rest
                         </motion.span>
                     </motion.h1>
 
@@ -107,7 +107,7 @@ export default function HowItWorks() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                        Get the power of a million-dollar digital transformation with the simplicity of sending a text message. Complexity is our problem, not yours.
+                        Stop asking your team to learn software. Let them use the tool they already love. If they can send a "Good Morning" message on WhatsApp, they are already certified Agentworks operators.
                     </motion.p>
                 </div>
                 <motion.div
@@ -126,7 +126,7 @@ export default function HowItWorks() {
                         className="rounded-full flex items-center border-2 justify-center flex-row !px-10 !py-4 !text-lg border-white/20 text-white hover:bg-white/10"
                     >
                         <Grid2X2 className="w-4 h-4 mr-2" />
-                        Check Your Tech Stack
+                        Check My ERP Compatibility
                     </Link>
                 </motion.div>
 
@@ -194,21 +194,24 @@ export default function HowItWorks() {
                     content={
                         <AnimatedContent>
                             <p className="mb-4 text-slate-600 leading-relaxed">
-                                Use WhatsApp as your interface. Send voice notes, photos, or PDFs.
+                                We use the only app installed on every phone in India: WhatsApp.
                             </p>
                             <div className="space-y-3 mb-6 bg-slate-50 p-6 rounded-2xl border border-slate-100">
                                 <ul className="space-y-3">
                                     <li className="flex items-center gap-3">
                                         <span className="w-2 h-2 rounded-full bg-lime-500"></span>
-                                        <span className="text-slate-600"><strong className="text-slate-900">Floor Manager:</strong> Voice notes for job updates.</span>
+
+
+
+                                        <span className="text-slate-600"><strong className="text-slate-900">The Driver:</strong> Snaps a photo of the delivery Chalan.</span>
                                     </li>
                                     <li className="flex items-center gap-3">
                                         <span className="w-2 h-2 rounded-full bg-lime-500"></span>
-                                        <span className="text-slate-600"><strong className="text-slate-900">Drivers:</strong> Photos of challans.</span>
+                                        <span className="text-slate-600"><strong className="text-slate-900">The Floor Manager:</strong> Sends a voice note: "Line 2 stopped, missing material."</span>
                                     </li>
                                     <li className="flex items-center gap-3">
                                         <span className="w-2 h-2 rounded-full bg-lime-500"></span>
-                                        <span className="text-slate-600"><strong className="text-slate-900">Sales:</strong> Forward customer PDFs.</span>
+                                        <span className="text-slate-600"><strong className="text-slate-900">The Sales Rep:</strong> Forwards a customer PDF directly from chat.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -231,14 +234,14 @@ export default function HowItWorks() {
                 <StepSection
                     number="03"
                     title="The Brain"
-                    headline="AI That Understands."
+                    headline="AI That Understands Manufacturing."
                     content={
                         <AnimatedContent>
                             <p className="mb-4 text-slate-600 leading-relaxed">
-                                No more manual data entry. Our AI extracts structured data from the chaos of real-world manufacturing.
+                                Generic AI gets confused by noise and slang. Our engine is trained on the chaos of Indian manufacturing.
                             </p>
                             <div className="grid grid-cols-1 gap-3 mb-8">
-                                {['Voice: Transcribes notes into reports.', 'Vision: Reads handwriting and drawings.', 'Text: Understands intent in messages.'].map((item, i) => (
+                                {['Vision: Reads handwritten, oil-stained bills and drawings.', 'Voice: Filters out machine noise to hear the operator.', 'Context: Understands that "50 peti" means "50 Boxes."'].map((item, i) => (
                                     <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
                                         <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#022c22]" />
                                         <span className="text-slate-700">{item}</span>
@@ -263,15 +266,27 @@ export default function HowItWorks() {
                 <StepSection
                     number="04"
                     title="The Foundation"
-                    headline="Single Source of Truth."
+                    headline="Trust, But Verify."
                     content={
                         <AnimatedContent>
                             <p className="mb-6 text-slate-600 leading-relaxed text-lg">
-                                AI processes inputs into a <span className="font-semibold text-[#022c22]">"Clean Data Foundation"</span>.
+                                The AI does the heavy lifting, but you keep the control.
                             </p>
-                            <div className="bg-[#022c22] p-6 rounded-2xl text-white shadow-xl shadow-green-900/20">
-                                <p className="font-medium leading-relaxed opacity-90">
-                                    "A live, error-free record of your operation. Reality, not just memory."
+                            <div className="bg-[#022c22] p-6 rounded-2xl text-white shadow-xl shadow-green-900/20 space-y-4">
+                                <p className="font-bold text-lg text-[#bef264]">The "Approval" Loop</p>
+                                <p className="opacity-90">Before a payment is made or a quote is sent, the Agent sends you a summary.</p>
+                                <ul className="space-y-2 opacity-90">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-[#bef264] mt-1">✓</span>
+                                        <span>You click "Approve": It posts to Tally.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-[#bef264] mt-1">✎</span>
+                                        <span>You click "Edit": You correct it via voice.</span>
+                                    </li>
+                                </ul>
+                                <p className="text-sm text-[#bef264]/80 pt-2 border-t border-white/10">
+                                    It never overwrites your books without permission.
                                 </p>
                             </div>
                         </AnimatedContent>
@@ -289,18 +304,18 @@ export default function HowItWorks() {
                 <StepSection
                     number="05"
                     title="The Workforce"
-                    headline="Your Autonomous Team."
+                    headline="Deploy Your Digital Workforce."
                     content={
                         <AnimatedContent>
                             <p className="mb-6 text-slate-600 leading-relaxed">
-                                With clean data, specialized Agents execute tasks instantly.
+                                Once the data is clean, your specialized Agents wake up to do the work.
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
                                 {[
-                                    { label: 'Quoting', desc: 'Calculates costs' },
-                                    { label: 'Inventory', desc: 'Predicts shortages' },
-                                    { label: 'Compliance', desc: 'Automates audits' },
-                                    { label: 'Scheduling', desc: 'Tracks production' }
+                                    { label: 'The Munim', desc: 'Automates Tally Entries' },
+                                    { label: 'The Estimator', desc: 'Calculates Quotes' },
+                                    { label: 'The Watchdog', desc: 'Predicts Shortages' },
+                                    { label: 'The Auditor', desc: 'Checks Compliance' }
                                 ].map((agent, i) => (
                                     <div key={i} className="border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-lime-300 transition-all">
                                         <div className="font-bold text-[#022c22] mb-1">{agent.label}</div>

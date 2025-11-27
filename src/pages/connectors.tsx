@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../components/ui/Button';
 import { Search, Shield, Lock, Server, ArrowRight, Zap, Database } from 'lucide-react';
 import { libraryData, coreFour, categories } from '../components/connectors/connectorList';
@@ -25,6 +25,20 @@ export default function Connectors() {
     };
 
     const displayData = getDisplayData();
+
+    // Handle hash scrolling on mount
+    useEffect(() => {
+        // Check if there is a hash in the URL
+        if (window.location.hash) {
+            const id = window.location.hash.substring(1); // Remove the '#'
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500); // Small delay to ensure rendering
+        }
+    }, []);
 
     // Animation Variants
     const fadeIn = {
@@ -123,6 +137,7 @@ export default function Connectors() {
                             {coreFour.map((tool, index) => (
                                 <motion.div
                                     key={index}
+                                    id={tool.id}
                                     className="rounded-3xl p-8 bg-[#022c22] border border-white/5 hover:border-[#bef264]/50 shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
                                     variants={cardVariant}
                                 >
@@ -139,7 +154,7 @@ export default function Connectors() {
                                         </div>
                                         <div className="flex flex-col items-end">
                                             <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#bef264] text-[#022c22] mb-2 shadow-lg">
-                                                Native Support
+                                                {(tool as any).badge || "Native Support"}
                                             </span>
                                         </div>
                                     </div>
