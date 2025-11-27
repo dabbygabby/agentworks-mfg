@@ -57,7 +57,8 @@ const SheetMetalCopy = {
                     { "label": "Ingest", "description": "Reads DXF/DWG/PDF files directly from WhatsApp or Email." },
                     { "label": "Physics", "description": "Calculates Cut Length, Pierce Count, and Nitrogen cost instantly." },
                     { "label": "Price", "description": "Connects to your live Steel Rates to ensure you never quote a loss." }
-                ]
+                ],
+                learnMoreLink: "/agents?agent=The%20CAD%20Estimator"
             },
             {
                 "icon": BarChart3,
@@ -77,7 +78,8 @@ const SheetMetalCopy = {
                         "label": "Alert",
                         "description": "Alerts Design Team: 'Use the 4mm Offcut for this job' before cutting a fresh sheet."
                     }
-                ]
+                ],
+                learnMoreLink: "/agents?agent=The%20Scrap%20Guardian"
             },
             {
                 "icon": ShieldCheck,
@@ -97,7 +99,8 @@ const SheetMetalCopy = {
                         "label": "Notify",
                         "description": "Alerts Sales immediately so they can update the client."
                     }
-                ]
+                ],
+                learnMoreLink: "/agents?agent=The%20Floor%20Commander"
             }
         ]
     },

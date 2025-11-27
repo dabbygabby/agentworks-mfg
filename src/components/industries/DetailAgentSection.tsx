@@ -13,6 +13,7 @@ interface Agent {
     subtitle: string;
     tagline: string;
     features: Feature[];
+    learnMoreLink?: string;
 }
 
 interface AgentsSectionProps {
@@ -24,60 +25,74 @@ interface AgentsSectionProps {
     backgroundColor?: string;
 }
 
-const AgentCard = ({ icon: Icon, title, subtitle, tagline, features }: Agent) => {
+const AgentCard = ({ icon: Icon, title, subtitle, tagline, features, learnMoreLink }: Agent) => {
     return (
         <motion.div
-            className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors flex flex-col w-full"
+            className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/15 transition-colors flex flex-col w-full h-full"
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
-            <motion.div
-                className="flex items-center gap-3 mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            <div className="flex-grow">
                 <motion.div
-                    className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="flex items-center gap-3 mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <Icon className="w-6 h-6" />
-                </motion.div>
-                <div>
-                    <h3 className="text-xl font-bold">{title}</h3>
-                    <p className="text-[#bef264] text-sm font-medium">{subtitle}</p>
-                </div>
-            </motion.div>
-
-            <motion.div
-                className="mb-6"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-            >
-                <p className="text-2xl font-bold mb-2">{tagline}</p>
-            </motion.div>
-
-            <ul className="space-y-4 text-white/80">
-                {features.map((feature, index) => (
-                    <motion.li
-                        key={index}
-                        className="flex gap-3"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                    <motion.div
+                        className="w-12 h-12 rounded-xl bg-[#bef264] flex items-center justify-center text-[#022c22]"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
                     >
-                        <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
-                        <span>
-                            <strong>{feature.label}:</strong> {feature.description}
-                        </span>
-                    </motion.li>
-                ))}
-            </ul>
+                        <Icon className="w-6 h-6" />
+                    </motion.div>
+                    <div>
+                        <h3 className="text-xl font-bold">{title}</h3>
+                        <p className="text-[#bef264] text-sm font-medium">{subtitle}</p>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    className="mb-6"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                    <p className="text-2xl font-bold mb-2">{tagline}</p>
+                </motion.div>
+
+                <ul className="space-y-4 text-white/80 mb-8">
+                    {features.map((feature, index) => (
+                        <motion.li
+                            key={index}
+                            className="flex gap-3"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                        >
+                            <CheckCircle2 className="w-5 h-5 text-[#bef264] flex-shrink-0" />
+                            <span>
+                                <strong>{feature.label}:</strong> {feature.description}
+                            </span>
+                        </motion.li>
+                    ))}
+                </ul>
+            </div>
+
+            {learnMoreLink && (
+                <div className="mt-auto pt-6 border-t border-white/10">
+                    <Link
+                        href={learnMoreLink}
+                        className="flex items-center gap-2 text-[#bef264] font-semibold hover:text-white transition-colors group"
+                    >
+                        Learn more
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+            )}
         </motion.div>
     );
 };
