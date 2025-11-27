@@ -113,7 +113,7 @@ export default function AboutUs() {
                                         We realized the problem wasn't the technology. It was the <strong className="text-[#022C23]">Interface.</strong>
                                     </p>
                                     <ul className="space-y-3 pl-4 border-l-2 border-[#022C23]/20">
-                                        <li>The <strong className="text-[#022C23]">Sethji</strong> runs his business on relationships, not login screens.</li>
+                                        <li>The <strong className="text-[#022C23]">Owner</strong> runs his business on relationships, not login screens.</li>
                                         <li>The <strong className="text-[#022C23]">Operator</strong> knows his machine, not data entry.</li>
                                     </ul>
                                 </div>
