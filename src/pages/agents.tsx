@@ -7,7 +7,7 @@ import { ArrowRightIcon, CheckCircle2, Phone, Filter, Search, X, SlidersHorizont
 import { agents } from '../components/agents/consts';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { meetingLink } from '@src/globals';
+import { meetingLink, whatsappLinkGenerator } from '@src/globals';
 
 const AgentsPage = () => {
     const router = useRouter();
@@ -303,7 +303,8 @@ const AgentsPage = () => {
                                             </div>
 
                                             <Button
-                                                href={meetingLink}
+                                                href={whatsappLinkGenerator(`I was looking at ${selectedAgent.name} agent on your website, can you tell me more about it would like to know more.`)}
+                                                target="_blank"
                                                 variant="primary"
                                                 className="w-full justify-center !py-4 !text-lg bg-[#022c22] text-white hover:bg-[#15803d]"
                                             >

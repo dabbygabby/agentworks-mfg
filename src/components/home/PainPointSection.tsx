@@ -17,7 +17,7 @@ const PainPointSection = () => {
             lag: "Your sales team is still using the old Excel sheet to quote on Thursday because the new purchase bills haven't been entered into the system yet.",
             cost: "You win the order, but you’ve already lost your margin before the machine even starts.",
             cta: "Stop Quoting Blind",
-            href: "/agents?agent=CAD%20Quote%20Generator",
+            href: "/agents?agent=The%20Precision%20Estimator",
             color: "green"
         },
         {

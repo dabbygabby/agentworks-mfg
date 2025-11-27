@@ -6,96 +6,96 @@ import { DetailProblemSection } from '@src/components/industries/DetailProblemSe
 import { DetailAgentSection } from '@src/components/industries/DetailAgentSection';
 import { DetailCTA } from '@src/components/industries/DetailCTA';
 import { DetailCaseStudies } from '@src/components/industries/DetailCaseStudies';
-import { meetingLink } from '@src/globals';
+import { meetingLink, sheetMetalQuotingMessage, whatsappLinkGenerator, whatsappLinkSheetMetalQuoting } from '@src/globals';
 
 const SheetMetalCopy = {
     // 1. HERO SECTION (Focus on Velocity & Simplicity)
     hero: {
-        title: "The Most Powerful Manufacturing ERP. Zero New Software to Learn.",
-        subtitle: "Your floor staff already knows how to use the tool we run on—WhatsApp. Connect your machines, Tally, and team into one intelligent system without training a single person.",
-        ctaText: "See How It Works",
+        title: "Fill Your Machines. Stop The Leakage.",
+        subtitle: "Your lasers are fast. Your quoting is slow. Connect your WhatsApp, Tally, and Shop Floor to an intelligent layer that quotes in seconds and tracks every inch of scrap.",
+        ctaText: "See It In Action", // More active
         imageSrc: "/sheet-metal.png",
         ctaLink: "/how-it-works"
     },
 
     // 2. PROBLEM SECTION (The "Silent Killers")
     problemSection: {
-        title: "Your Machines Are Modern. Your Process Is Manual.",
-        subtitle: "You invested crores in high-speed Lasers and Turret Punches, but your profits are leaking through spreadsheets, paper travelers, and slow communication.",
+        title: "High-Speed Lasers. Low-Speed Data.",
+        subtitle: "You invested Crores in fiber lasers to cut faster. But your profit is stuck in slow spreadsheets and un-tracked scrap.",
         features: [
             {
-                title: "The Quoting Bottleneck",
+                title: "The Quoting Gamble", // Stronger than "Bottleneck"
                 icon: <Clock className="w-8 h-8 text-[#ef4444]" />,
-                desc: "You win 0% of the bids you submit late. While your engineers calculate cut-lengths manually, your competitor has already closed the deal."
+                desc: "Steel prices change daily. If your sales team quotes using last week's Excel sheet, you are donating your margin to the customer."
             },
             {
-                title: "Un-tracked Offcuts",
+                title: "The Invisible Scrap",
                 icon: <Scissors className="w-8 h-8 text-[#ef4444]" />,
-                desc: "Your profit is sitting in the scrap yard. Usable sheet remnants are sold as scrap because no one tracked them back into inventory."
+                desc: "Your profit is sitting in the scrap yard. Usable offcuts are sold as 'Bhangar' because no one tracked them back into inventory."
             },
             {
-                title: "Blind Production Status",
+                title: "Blind Production",
                 icon: <AlertOctagon className="w-8 h-8 text-[#ef4444]" />,
-                desc: `"Is the welding done?" requires a physical walk to the floor. You can't promise delivery dates because you don't know the real-time status.`
+                desc: "You don't know if the bending is done until you walk to the machine. You can't promise delivery dates because you can't see the floor."
             }
         ]
     },
 
     // 3. AGENT SECTION (Renamed for Clarity: Bot, Hunter, Monitor)
     agentSection: {
-        title: `The Smartest Engineers You Never Hired`,
-        subtitle: "Deploy AI agents that read technical drawings, track steel usage, and manage production flow 24/7—directly from the chat app your team already uses.",
+        title: `The Smartest Team You Never Hired`,
+        subtitle: "Don't buy tools. Hire Agents. They read drawings, track steel, and update Tally 24/7.",
         ctaText: "Explore All Agents",
         ctaHref: "/agents",
         agents: [
             {
                 icon: Ruler,
-                title: "CAD Quote Generator",
-                subtitle: "Auto-Quoting",
-                tagline: "The 10-Second Estimator",
+                title: "The Estimator (CAD Specialist)", // Renamed to sound like a role
+                subtitle: "Auto-Quoting Agent",
+                tagline: "Quotes in 60 seconds. Not 2 days.",
                 features: [
-                    { "label": "Ingest", "description": "Accepts DXF, DWG, and PDF drawings directly via Email or WhatsApp." },
-                    { "label": "Analyze", "description": "Instantly extracts geometry (Cut length, pierces, surface area) and bending operations." },
-                    { "label": "Price", "description": "Applies your live steel rates and machine-hour costs to generate a ready-to-send PDF quote." }
+                    { "label": "Ingest", "description": "Reads DXF/DWG/PDF files directly from WhatsApp or Email." },
+                    { "label": "Physics", "description": "Calculates Cut Length, Pierce Count, and Nitrogen cost instantly." },
+                    { "label": "Price", "description": "Connects to your live Steel Rates to ensure you never quote a loss." }
                 ]
             },
             {
                 "icon": BarChart3,
-                "title": "Scrap Recovery Tracker",
+                "title": "The Scrap Guardian", // Stronger name
                 "subtitle": "Inventory & Offcuts",
-                "tagline": "The Margin Defender.",
-                "features": [
+                "tagline": "Turns 'Scrap' into 'Stock'.",
+                features: [
                     {
                         "label": "Track",
-                        "description": "Calculates the exact scrap percentage generated after a nesting job is complete."
+                        "description": "Calculates exact scrap % after every Nesting job."
                     },
                     {
                         "label": "Recover",
-                        "description": "Identifies usable offcuts (remnants) and logs them back into Inventory as 'Usable Stock'."
+                        "description": "Identifies usable offcuts (e.g. >500mm) and logs them back into Tally as stock."
                     },
                     {
                         "label": "Alert",
-                        "description": "Notifies the design team to 'Use Offcuts First' when a compatible job arrives."
+                        "description": "Alerts Design Team: 'Use the 4mm Offcut for this job' before cutting a fresh sheet."
                     }
                 ]
             },
             {
                 "icon": ShieldCheck,
-                "title": "Fabrication Floor Monitor",
+                "title": "The Floor Commander",
                 "subtitle": "Production Visibility",
-                "tagline": "The Floor Commander.",
-                "features": [
+                "tagline": "Real-time status without the meetings.",
+                features: [
                     {
-                        "label": "Input",
-                        "description": "Operators dictate updates via voice notes: 'Job 502, Bending complete, moving to Powder Coating.'"
+                        "label": "Listen",
+                        "description": "Operators send voice notes: 'Job 502, Bending done.' No typing required."
                     },
                     {
-                        "label": "Sync",
-                        "description": "Updates the Master Schedule instantly and recalculates delivery timelines."
+                        "label": "Update",
+                        "description": "Updates the Master Schedule and identifies bottlenecks instantly."
                     },
                     {
                         "label": "Notify",
-                        "description": "Automatically WhatsApps the client: 'Your order has moved to Assembly.'"
+                        "description": "Alerts Sales immediately so they can update the client."
                     }
                 ]
             }
@@ -105,39 +105,39 @@ const SheetMetalCopy = {
     // 4. CASE STUDIES (Swapped Order: Velocity First, Admin Second)
     caseStudies: {
         title: "From 'Guesswork' to Guaranteed Margins.",
-        description: "See how Indian fabricators are using Agentworks to scale without adding more supervisors.",
+        description: "See how Indian fabricators are using Agentworks to scale.",
         studies: [
             {
-                badge: 'The "Admin" Win',
-                title: 'A Leading Sheet Metal Fabrication Plant in Faridabad',
-                challenge: 'Finance team spent 40 hours/week manually entering purchase bills. Month-end reconciliation took 7 full days .',
+                badge: 'The "Revenue" Win',
+                title: 'Enclosure Manufacturer (Indore)',
+                challenge: 'Sales team lost tenders due to slow estimation. Quoting complex assemblies took 7 days.',
                 results: [
-                    '<strong>95% Finance Automation:</strong> Reduced manual data entry time from 40 hours to 2 hours per week .',
-                    '<strong>Zero-Day Closing:</strong> Month-end reconciliation reduced from 7 days to near-zero .',
-                    '<strong>Resource Shift:</strong> Freed up 2 Full-Time Employees to focus on revenue-generating work .',
-                ],
-                link: '#case-study-1',
-            },
-            {
-                badge: 'The "Precision" Win',
-                title: 'A Mid Sized Enclosures Manufacturer in Indore',
-                challenge: 'Sales team lost tenders due to slow estimation cycles. Quoting complex assemblies took 7 days .',
-                results: [
-                    '<strong>97% Faster Quoting:</strong> Reduced time-to-quote from 7 days to 2 hours using the Quoting Agent .',
-                    '<strong>Profit Impact:</strong> Generated an additional ₹45L+ in new annual profit .',
-                    '<strong>Zero-Friction Adoption:</strong> Landed with a free pilot that required no training .',
+                    '<strong>97% Faster Quoting:</strong> Reduced time-to-quote from 7 days to 2 hours.',
+                    '<strong>₹45L Profit Added:</strong> Won more bids by being the first to quote.',
+                    '<strong>Zero Training:</strong> Staff started using it on Day 1 via WhatsApp.',
                 ],
                 link: '#case-study-2',
+            },
+            {
+                badge: 'The "Cash Flow" Win',
+                title: 'Fabrication Plant (Faridabad)',
+                challenge: 'Finance team spent 40 hours/week manually entering purchase bills. Reconciliation was a nightmare.',
+                results: [
+                    '<strong>95% Automation:</strong> Reduced manual data entry to just 2 hours/week.',
+                    '<strong>Zero-Day Closing:</strong> Books are closed daily, not monthly.',
+                    '<strong>Staff Upgraded:</strong> Freed 2 accountants to focus on tax planning.',
+                ],
+                link: '#case-study-1',
             },
         ]
     },
 
-    // 5. BOTTOM CTA (Industry Specific)
+    // 6. BOTTOM CTA
     cta: {
-        title: "Stop Losing Bids to Slower Math",
-        subtitle: "Your machines are fast. Your software should be too.",
-        href: meetingLink,
-        ctaText: "Build My Quoting Agent - Free Pilot"
+        title: "Your Competitor Just Quoted the Job You Are Still Calculating.",
+        subtitle: "Speed wins tenders. Stop using Excel and start quoting in seconds.",
+        href: whatsappLinkGenerator(sheetMetalQuotingMessage),
+        ctaText: "Get The Quoting Agent"
     }
 }
 
@@ -175,7 +175,7 @@ const SheetMetalPage = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-[#022c22] mb-6">
-                                {"From Technical Drawing to Final Quote in 60 Seconds."}
+                                {"From Drawing to Quote in 60 Seconds."}
                             </h2>
                         </div>
 
@@ -184,9 +184,9 @@ const SheetMetalPage = () => {
                             <div className="space-y-8">
                                 {[
                                     { step: "01", title: "Email Drawing", desc: "Customer emails a PDF/DXF file directly to your sales inbox." },
-                                    { step: "02", title: "Agent Analyzes", desc: "Agent extracts geometry (cut length, pierces) and applies your steel rates." },
-                                    { step: "03", title: "Draft Quote", desc: "Generates a professional PDF quote in your company format." },
-                                    { step: "04", title: "Approve", desc: "You receive a WhatsApp summary. Click 'Approve' to send it to the client." }
+                                    { step: "02", title: "AI Analysis", desc: "Agent extracts geometry (Cut Length, Pierces) and checks live Steel Rates." },
+                                    { step: "03", title: "Draft Quote", desc: "Generates a professional PDF quote with your margin logic applied." },
+                                    { step: "04", title: "One-Click Approve", desc: "You get a WhatsApp summary. Click 'Approve' to send it to the client." }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-6">
                                         <div className="w-12 h-12 rounded-full bg-[#bef264] flex items-center justify-center text-[#022c22] font-bold text-xl flex-shrink-0">

@@ -7,9 +7,10 @@ interface ButtonProps {
     href?: string;
     className?: string;
     onClick?: () => void;
+    target?: string;
 }
 
-const Button = ({ children, variant = 'primary', href, className = '', onClick }: ButtonProps) => {
+const Button = ({ children, variant = 'primary', href, className = '', onClick, target }: ButtonProps) => {
     const baseStyles = "inline-flex items-center justify-center px-8 py-4 font-semibold rounded-full transition-all duration-300 text-lg";
 
     const variants = {
@@ -22,7 +23,7 @@ const Button = ({ children, variant = 'primary', href, className = '', onClick }
 
     if (href) {
         return (
-            <Link href={href} className={combinedClassName}>
+            <Link href={href} className={combinedClassName} target={target}>
                 {children}
             </Link>
         );

@@ -20,7 +20,8 @@ const SECTION_CONTENT = {
             title: "The Estimator (Sales)",
             description: "Reads PDF/CAD drawings. Checks live steel prices. Calculates Scrap.",
             resultLabel: "Result",
-            resultText: "Quotes in minutes. Never lose a deal to speed."
+            resultText: "Quotes in minutes. Never lose a deal to speed.",
+            targetAgentName: "The Precision Estimator"
         },
         {
             id: 'auditor',
@@ -28,7 +29,8 @@ const SECTION_CONTENT = {
             title: "The Auditor (Quality)",
             description: "Reads batch labels and CoAs. Verifies expiry against POs instantly.",
             resultLabel: "Result",
-            resultText: "100% Audit Readiness. No more rejected batches."
+            resultText: "100% Audit Readiness. No more rejected batches.",
+            targetAgentName: "The Quality Auditor"
         },
         {
             id: 'munim',
@@ -36,7 +38,8 @@ const SECTION_CONTENT = {
             title: "The Munim (Finance)",
             description: "Reads invoices from WhatsApp/Email. Enters vouchers into Tally.",
             resultLabel: "Result",
-            resultText: "Zero Backlog. Zero Data Entry Errors."
+            resultText: "Zero Backlog. Zero Data Entry Errors.",
+            targetAgentName: "The Munim"
         },
         {
             id: 'watchdog',
@@ -44,7 +47,8 @@ const SECTION_CONTENT = {
             title: "The Watchdog (Inventory)",
             description: "Tracks stock via voice notes. Predicts shortages before the line stops.",
             resultLabel: "Result",
-            resultText: "No production stoppages due to missing parts."
+            resultText: "No production stoppages due to missing parts.",
+            targetAgentName: "The Watchdog"
         }
     ],
     cta: {
@@ -85,7 +89,7 @@ const itemVariants = {
 
 // --- SUB-COMPONENT: AGENT CARD ---
 
-const AgentCard = ({ icon, title, description, resultLabel, resultText }: { icon: string, title: string, description: string, resultLabel: string, resultText: string }) => {
+const AgentCard = ({ icon, title, description, resultLabel, resultText, targetAgentName }: { icon: string, title: string, description: string, resultLabel: string, resultText: string, targetAgentName: string }) => {
     //@ts-expect-error no error
     const IconComponent = ICON_MAP[icon] || Package; // Fallback icon
 
@@ -98,9 +102,19 @@ const AgentCard = ({ icon, title, description, resultLabel, resultText }: { icon
             <p className="text-white/60 leading-relaxed mb-4 flex-grow">
                 {description}
             </p>
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-white/10 mb-4">
                 <p className="text-sm font-semibold text-[#bef264]">{resultLabel}</p>
                 <p className="text-sm text-white/80">{resultText}</p>
+            </div>
+            <div className="mt-auto">
+                <Button
+                    href={`/agents?agent=${encodeURIComponent(targetAgentName)}`}
+                    variant="outline"
+                    className="w-full justify-center !text-sm !py-2 border-white/20 hover:bg-white/10 text-white"
+                >
+                    Learn More
+                    <ArrowRightIcon className="w-4 h-4 ml-2" />
+                </Button>
             </div>
         </Card>
     );

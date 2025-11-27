@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calculator, Phone } from 'lucide-react';
+import { finalCTAMessage, whatsappLinkGenerator } from '@src/globals';
 
 const FinalCTA = () => {
 
@@ -84,7 +85,7 @@ const FinalCTA = () => {
                     {/* Path 2: Owner/Busy Industrialist */}
                     <div className="flex flex-col items-center gap-2">
                         <button
-                            onClick={() => window.open('https://wa.me/919663097918?text=Namaste%2C%20I%20am%20interested%20in%20your%20product%20and%20would%20like%20to%20request%20a%20callback%20to%20know%20more.', '_blank')}
+                            onClick={() => window.open(whatsappLinkGenerator(finalCTAMessage), '_blank')}
                             className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/10 transition-colors flex items-center justify-center w-full md:w-auto"
                         >
                             <Phone className="mr-2 w-5 h-5" />

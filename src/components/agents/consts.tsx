@@ -1,4 +1,4 @@
-import { LucideIcon, Calendar, ClipboardList, DollarSign, ShieldCheck, RefreshCw, AlertTriangle, ShoppingCart, Activity, Calculator, Cpu, TrendingUp, Layers, FileText, BarChart3 } from 'lucide-react';
+import { LucideIcon, Calendar, ClipboardList, DollarSign, ShieldCheck, RefreshCw, AlertTriangle, ShoppingCart, Activity, Calculator, Cpu, TrendingUp, Layers, FileText, BarChart3, Package, Ruler } from 'lucide-react';
 
 export interface Agent {
     name: string;
@@ -65,17 +65,31 @@ export const agents: Agent[] = [
 
     // Pharma & Chemicals
     {
-        name: 'Batch Compliance Auditor',
-        role: 'The 24/7 Auditor',
-        department: 'Quality',
-        industries: ['Pharma', 'Chemicals', 'Food & Beverage'],
-        mission: 'Automates quality assurance and ensures you are audit-ready every single day.',
+        name: 'The Quality Auditor',
+        role: 'The Zero-Defect Guardian',
+        department: 'Quality / Store',
+        // Now inclusive of all your target sectors
+        industries: ['Fabrication', 'Automotive', 'Pharma', 'General Mfg'],
+        // Mission: Focus on "Rejection Prevention" which hurts everyone
+        mission: 'Prevents costly rejections by verifying raw material specs before they ever reach your machines.',
         capabilities: [
-            { title: 'Ingest', description: 'Reads batch labels, Certificates of Analysis (CoAs), and GRNs via photo.' },
-            { title: 'Verify', description: 'Instantly cross-checks received material against PO specs and expiry constraints.' },
-            { title: 'Trace', description: 'Creates a digital thread to trace every batch to its final customer in seconds.' }
+            {
+                title: 'Ingest',
+                // "MTC" for steel guys, "Lab Report" for general, "CoA" for pharma
+                description: 'Reads Mill Test Certificates (MTC), Lab Reports, and Heat Numbers via photo.'
+            },
+            {
+                title: 'Verify',
+                // The universal check: Did I get what I ordered?
+                description: 'Instantly matches received Material Grade (e.g., SS304) and Specs against the PO.'
+            },
+            {
+                title: 'Trace',
+                // Solves the "Customer Complaint" panic
+                description: 'Creates a searchable "Digital Passport" for every batch. Find any test report in 3 seconds.'
+            }
         ],
-        impact: 'Audit Defense. 100% compliance without the chaos of paperwork.',
+        impact: 'Audit Defense. Pass customer inspections instantly without digging through file cabinets.',
         icon: ShieldCheck,
         link: '/agents/compliance'
     },
@@ -206,18 +220,31 @@ export const agents: Agent[] = [
 
     // Sheet Metal & Fabrication
     {
-        name: 'CAD Quote Generator',
-        role: 'Auto-Quoting',
+        name: 'The Precision Estimator', // Renamed from "CAD Quote Generator"
+        role: 'Instant Costing',
         department: 'Sales',
-        industries: ['Sheet Metal', 'Fabrication', 'Machining'],
-        mission: 'Automates the complex math of quoting custom fabrication jobs.',
+        // Expanded industries to show it's not just for metal
+        industries: ['Fabrication', 'Packaging', 'Injection Molding', 'General Mfg'],
+        // Focus on "Variables" and "Logic" instead of just "Math"
+        mission: 'Replaces your complex Excel pricing sheets with an instant AI calculator.',
         capabilities: [
-            { title: 'Ingest', description: 'Accepts PDF, DXF, and CAD files via Email or WhatsApp.' },
-            { title: 'Analyze', description: 'Instantly extracts geometry (surface area, perimeter, bends/holes).' },
-            { title: 'Price', description: 'Connects to live steel rates and machine-hour costs.' }
+            {
+                title: 'Ingest',
+                // Now includes "Voice" and "Text parameters" for non-CAD users
+                description: 'Accepts PDF drawings, Excel BOMs, or simple voice parameters (e.g., "1000 boxes, 5-ply, 12x12").'
+            },
+            {
+                title: 'Calculate',
+                // Replaced "Geometry" with "Variables"
+                description: 'Applies your specific formulas: Tonnage, Cycle Time, Waste %, or Cut-Length.'
+            },
+            {
+                title: 'Price',
+                description: 'Connects to live raw material rates (Steel/Paper/Granules) to protect margins.'
+            }
         ],
-        impact: 'Quote Speed. Quote in minutes, not days, to win more bids.',
-        icon: FileText,
+        impact: 'Quote Confidence. Eliminate "Guestimates" and lock in profitable margins instantly.',
+        icon: FileText, // Or Calculator icon
         link: '/agents/commercial-sheet'
     },
     {
@@ -247,6 +274,114 @@ export const agents: Agent[] = [
             { title: 'Result', description: 'Real-time status on every job, accessible from your phone.' },
         ],
         impact: 'Control Tower. Total visibility over the fabrication floor.',
+        icon: Activity,
+        link: '/agents/production-sheet'
+    },
+    {
+        name: 'The Munim',
+        role: 'Finance Automator',
+        department: 'Finance',
+        industries: ['Manufacturing', 'Trading', 'Retail'],
+        mission: 'Eliminates manual data entry by reading invoices and automatically posting them to Tally.',
+        capabilities: [
+            { title: 'Ingest', description: 'Reads invoices from WhatsApp, Email, or Scans instantly.' },
+            { title: 'Verify', description: 'Checks GSTIN, calculates taxes, and verifies totals against POs.' },
+            { title: 'Post', description: 'Enters the voucher directly into Tally Prime without human intervention.' }
+        ],
+        impact: 'Zero Backlog. Zero Data Entry Errors. Real-time financial visibility.',
+        icon: FileText,
+        link: '/agents/finance'
+    },
+    {
+        name: 'The Watchdog',
+        role: 'Inventory Guardian',
+        department: 'Stores',
+        industries: ['Manufacturing', 'Warehousing'],
+        mission: 'Tracks stock levels in real-time and predicts shortages before they stop production.',
+        capabilities: [
+            { title: 'Track', description: 'Updates stock levels via voice notes or barcode scans.' },
+            { title: 'Predict', description: 'Analyzes consumption rates to forecast when you will run out.' },
+            { title: 'Alert', description: 'Notifies procurement immediately when stock dips below safety levels.' }
+        ],
+        impact: 'No Line Stoppages. Optimized inventory carrying costs.',
+        icon: Package,
+        link: '/agents/inventory'
+    },
+    {
+        name: 'The CAD Estimator',
+        role: 'CAD Specialist',
+        department: 'Sales',
+        industries: ['Sheet Metal', 'Fabrication', 'Laser Cutting'],
+        mission: 'Quotes in 60 seconds by analyzing drawing physics, not just guessing.',
+        capabilities: [
+            {
+                title: 'Ingest',
+                description: 'Reads DXF, DWG, and PDF files directly from WhatsApp or Email.'
+            },
+            {
+                title: 'Physics',
+                description: 'Calculates Cut Length, Pierce Count, and Nitrogen cost instantly.'
+            },
+            {
+                title: 'Price',
+                description: 'Connects to your live Steel Rates to ensure you never quote a loss.'
+            }
+        ],
+        impact: 'Quote Velocity. Win the bid while your competitor is still opening Excel.',
+        icon: Ruler, // Ensure 'Ruler' is imported from lucide-react
+        link: '/agents/sheet-metal-quoting'
+    },
+
+    // 2. UPDATED AGENT (Replace 'Scrap Recovery Tracker')
+    // Matches "The Scrap Guardian"
+    {
+        name: 'The Scrap Guardian', // Renamed from Scrap Recovery Tracker
+        role: 'Inventory & Offcuts',
+        department: 'Stores',
+        industries: ['Sheet Metal', 'Fabrication'],
+        mission: 'Turns invisible scrap into visible profit by tracking every offcut.',
+        capabilities: [
+            {
+                title: 'Track',
+                description: 'Calculates exact scrap percentage generated after every Nesting job.'
+            },
+            {
+                title: 'Recover',
+                description: 'Identifies usable offcuts (e.g. >500mm) and logs them back into Tally as stock.'
+            },
+            {
+                title: 'Alert',
+                description: 'Notifies Design Team to "Use Offcuts First" before cutting a fresh sheet.'
+            }
+        ],
+        impact: 'Profit from Waste. Reduces raw material purchase by 10-15%.',
+        icon: BarChart3,
+        link: '/agents/inventory-sheet'
+    },
+
+    // 3. UPDATED AGENT (Replace 'Fabrication Floor Monitor')
+    // Matches "The Floor Commander"
+    {
+        name: 'The Floor Commander', // Renamed from Fabrication Floor Monitor
+        role: 'Production Visibility',
+        department: 'Production',
+        industries: ['Sheet Metal', 'Fabrication', 'Manufacturing'],
+        mission: 'Tracks fabrication jobs through the shop without paperwork or meetings.',
+        capabilities: [
+            {
+                title: 'Listen', // Changed from 'Input' to match marketing
+                description: 'Operators send voice notes: "Job 502, Bending done." No typing required.'
+            },
+            {
+                title: 'Update', // Changed from 'Action'
+                description: 'Updates the Master Schedule and identifies bottlenecks instantly.'
+            },
+            {
+                title: 'Notify', // Changed from 'Result' to be more active
+                description: 'Alerts Sales immediately via WhatsApp so they can update the client.'
+            }
+        ],
+        impact: 'Total Visibility. Know exactly where every job is, instantly.',
         icon: Activity,
         link: '/agents/production-sheet'
     }
