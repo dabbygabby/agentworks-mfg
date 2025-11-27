@@ -1,7 +1,7 @@
 import Section from '../ui/Section'; // Assuming this is your wrapper
 import { ArrowRightIcon, Box, Activity, DollarSign } from 'lucide-react';
 import Link from 'next/link';
-import { meetingLink } from '@src/globals';
+import { industryChallenge, meetingLink, whatsappLinkGenerator } from '@src/globals';
 
 const UniversalPhysicsSection = () => {
     const flows = [
@@ -39,7 +39,7 @@ const UniversalPhysicsSection = () => {
 
                 {/* Subhead: Addressing the "Not Found" User */}
                 <p className="text-xl text-white/80 mb-12 leading-relaxed">
-                    Whether you make furniture, textiles, or auto parts, the fundamental laws don't change. We automate the three areas that power every factory.
+                    Furniture, Textiles, Plastics, or Footwear—the physics of profit are the same. If you have manual data entry, we can automate it.
                 </p>
 
                 {/* The 3 Flows Grid */}
@@ -62,11 +62,11 @@ const UniversalPhysicsSection = () => {
 
                 <div className="flex justify-center">
                     <Link
-                        href={meetingLink}
+                        href={whatsappLinkGenerator(industryChallenge)}
                         target="_blank"
                         className='flex flex-row justify-center items-center gap-2 bg-[#BEF264] font-semibold text-[#022c22] px-8 py-5 rounded-full hover:bg-[#BEF264dd] transition-all hover:scale-105 active:scale-95'
                     >
-                        Consult an AI Engineer
+                        Request Custom Workflow
                         <ArrowRightIcon className="w-5 h-5" />
                     </Link>
                 </div>
