@@ -20,7 +20,7 @@ const Footer = () => {
                             &copy; {new Date().getFullYear()} Agentworks
                         </p>
                         <p className="text-[10px] uppercase tracking-widest text-white/70 mt-2">
-                            RSV INTELLIWAVE PVT LTD
+                            RSV INTELLIWAVE PRIVATE LIMITED
                         </p>
                     </div>
 
