@@ -17,7 +17,10 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-sm text-white/40">
-                            &copy; {new Date().getFullYear()} Agentworks. Made in India for the World.
+                            &copy; {new Date().getFullYear()} Agentworks
+                        </p>
+                        <p className="text-[10px] uppercase tracking-widest text-white/70 mt-2">
+                            RSV INTELLIWAVE PVT LTD
                         </p>
                     </div>
 
